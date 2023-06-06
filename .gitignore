@@ -3,3 +3,4 @@ pubspec.lock
 
 .idea
 .vscode
+.dart_tool
