@@ -5,3 +5,12 @@ command:
 
 packages:
   - "**"
+
+scripts:
+  hello:
+    name: hey
+    description: Greet the world
+    run: echo "$GREETING world"
+    env:
+      GREETING: "Hey"
+  prepare: melos bootstrap
