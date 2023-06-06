@@ -1,0 +1,7 @@
+name: flutter_salam
+command:
+  version:
+    workspaceChangelog: false
+
+packages:
+  - "**"
