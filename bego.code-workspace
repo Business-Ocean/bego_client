@@ -1,0 +1,17 @@
+{
+    "folders": [
+        {
+            "name": "bego",
+            "path": "./application/bego"
+        },
+        {
+            "name": "uibook",
+            "path": "./application/uibook"
+        },
+        {
+            "name": "bego_ui",
+            "path": "./packages/bego_ui"
+        }
+    ],
+    "settings": {},
+}
