@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: bego_core
+dependency_overrides:
+  bego_core:
+    path: ../bego_core
