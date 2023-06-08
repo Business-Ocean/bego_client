@@ -72,4 +72,20 @@ final class ColorUtils {
 
     return colors[0];
   }
+
+  static Color getStateColor(Set<MaterialState> states, Color textColor) {
+    const interactiveStates = <MaterialState>{
+      MaterialState.pressed,
+      MaterialState.hovered,
+      MaterialState.focused,
+    };
+    if (states.any(interactiveStates.contains)) {
+      return ColorUtils.getShade(
+        textColor,
+        darker: true,
+        value: .2,
+      );
+    }
+    return textColor;
+  }
 }

@@ -21,7 +21,6 @@ class BeTextResponsive extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).screenBreakPoint;
-
     return DefaultTextStyle.merge(
       child: child,
       textAlign: align,

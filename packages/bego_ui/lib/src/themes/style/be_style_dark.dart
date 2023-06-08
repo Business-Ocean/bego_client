@@ -57,7 +57,7 @@ class BeStyleDark implements BeStyle {
   @override
   BorderRadius get borderRadius => BorderRadius.zero;
 
-  // TODO(sourav) : change to dynamic style based on breakpoint
+  // To-do(sourav) : change to dynamic style based on breakpoint
   @override
   TextStyle textStyle(BeTextType? textType, Breakpoint breakpoint) =>
       switch (textType) {

@@ -1,5 +1,4 @@
-import 'package:bego_core/bego_get.dart';
-import 'package:device_preview/device_preview.dart';
+import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:uibook/uibook.g.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -9,7 +8,7 @@ void main() {
   runApp(const WidgetbookApp());
 }
 
-@widgetbook.App(foldersExpanded: false, widgetsExpanded: false)
+@widgetbook.App(foldersExpanded: true, widgetsExpanded: true)
 class WidgetbookApp extends StatelessWidget {
   const WidgetbookApp({super.key});
 
@@ -43,19 +42,21 @@ class WidgetbookApp extends StatelessWidget {
         // LocalizationAddon(locales: locales, localizationsDelegates: localizationsDelegates)
       ],
       appBuilder: (context, child) {
-        return GetMaterialApp(
-          locale: DevicePreview.locale(context),
-          builder: DevicePreview.appBuilder,
-          home: SafeArea(child: child),
-        );
+        return child;
       },
     );
   }
 
   Widget themeBuilder(BuildContext context, ThemeData theme, Widget child) {
-    return Theme(
-      data: theme,
-      child: child,
+    return BeTheme(
+      darkTheme: const BeThemeData.dark(),
+      lightTheme: const BeThemeData.light(),
+      child: Theme(
+        data: theme,
+        // locale: DevicePreview.locale(context),
+        // builder: DevicePreview.appBuilder,
+        child: child,
+      ),
     );
   }
 }

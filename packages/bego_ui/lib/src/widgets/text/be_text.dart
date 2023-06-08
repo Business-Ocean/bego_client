@@ -2,7 +2,7 @@ import 'package:bego_ui/src/common_widget.dart';
 import 'package:bego_ui/src/themes/be_theme.dart';
 import 'package:bego_ui/src/widgets/text/be_text_responsive.dart';
 import 'package:bego_ui/src/widgets/text/be_text_type.dart';
-import 'package:bego_ui/src/widgets/text/be_text_variation.dart';
+import 'package:bego_ui/src/widgets/text/be_text_variant.dart';
 import 'package:flutter/material.dart';
 
 class BeText extends StatelessWidget {
@@ -13,13 +13,10 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation = BeTextVariation.normal,
-    this.style = const TextStyle(),
-    this.textType = BeTextType.bodyMedium,
-  }) : assert(
-          color == null || variation == null,
-          'Cannot provide both a color and a variation\n',
-        );
+    this.variant,
+    this.style,
+    this.textType,
+  });
 
   const BeText.displayLarge(
     this.text, {
@@ -28,7 +25,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.displayLarge,
         style = null;
 
@@ -39,7 +36,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.displayMedium,
         style = null;
 
@@ -50,7 +47,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.displaySmall,
         style = null;
 
@@ -61,7 +58,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.headlineLarge,
         style = null;
 
@@ -72,7 +69,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.headlineMedium,
         style = null;
 
@@ -83,7 +80,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.headlineSmall,
         style = null;
 
@@ -94,7 +91,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.titleLarge,
         style = null;
 
@@ -105,7 +102,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.titleMedium,
         style = null;
 
@@ -116,7 +113,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.titleSmall,
         style = null;
 
@@ -127,7 +124,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.bodyLarge,
         style = null;
 
@@ -138,7 +135,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.bodyMedium,
         style = null;
 
@@ -149,7 +146,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.bodySmall,
         style = null;
 
@@ -160,7 +157,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.labelLarge,
         style = null;
 
@@ -171,7 +168,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.labelMedium,
         style = null;
 
@@ -182,7 +179,7 @@ class BeText extends StatelessWidget {
     this.maxLine,
     this.align,
     this.padding,
-    this.variation,
+    this.variant,
   })  : textType = BeTextType.labelSmall,
         style = null;
 
@@ -191,23 +188,27 @@ class BeText extends StatelessWidget {
   final int? maxLine;
   final TextAlign? align;
   final EdgeInsets? padding;
-  final BeTextVariation? variation;
+  final BeTextVariant? variant;
   final TextStyle? style;
   final BeTextType? textType;
 
   @override
-  Widget build(BuildContext context) => text == null
-      ? zeroWidget
-      : BeTextResponsive(
-          resolveStyle: (breakPoint) =>
-              style ??
-              BeTheme.of(context).bestyle.textStyle(textType, breakPoint),
-          color: color ?? variation?.textColor,
-          maxLines: maxLine,
-          align: align,
-          child: Padding(
-            padding: padding ?? BeTheme.of(context).beinsets.textInset,
-            child: Text(text!),
-          ),
-        );
+  Widget build(BuildContext context) {
+    final textInset = padding ?? BeTheme.of(context).beinsets.textInset;
+    final textColor = color ?? variant?.textColor;
+    return text == null
+        ? zeroWidget
+        : BeTextResponsive(
+            resolveStyle: (breakPoint) =>
+                style ??
+                BeTheme.of(context).bestyle.textStyle(textType, breakPoint),
+            color: textColor,
+            maxLines: maxLine,
+            align: align,
+            child: Padding(
+              padding: textInset,
+              child: Text(text!),
+            ),
+          );
+  }
 }
