@@ -23,7 +23,7 @@ class BeWidgetResponsive extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).screenBreakPoint;
     final theme = BeTheme.of(context);
-    //TODO(sourav pandit): change inset data;
+    //TO-DO(sourav pandit): change inset data;
     return resolveWidget(screenSize, theme);
   }
 }

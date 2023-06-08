@@ -13,15 +13,32 @@ dependencies:
     path: ../bego_core
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.6
   freezed_annotation: ^2.2.0
   google_fonts: ^5.0.0
 
 dev_dependencies:
   build_runner: ^2.4.5
+  flutter_gen_runner: ^5.3.1
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
   freezed: ^2.3.5
+
+flutter_gen:
+  output: lib/assets/ # Optional (default: lib/gen/)
+  line_length: 80 # Optional (default: 80)
+
+  # Optional
+  integrations:
+    flutter_svg: true
+    flare_flutter: false
+    rive: false
+    lottie: false
+
+  # colors:
+  #   inputs:
+  #     - assets/color/colors.xml
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -47,18 +64,18 @@ flutter:
   fonts:
     - family: ReadexPro
       fonts:
-        - asset: ReadexPro-Bold.ttf
-          weight: 700
-        - asset: ReadexPro-ExtraLight.ttf
+        - asset: assets/fonts/ReadexPro-ExtraLight.ttf
           weight: 200
-        - asset: ReadexPro-Light.ttf
+        - asset: assets/fonts/ReadexPro-Light.ttf
           weight: 300
-        - asset: ReadexPro-Medium.ttf
+        - asset: assets/fonts/ReadexPro-Medium.ttf
           weight: 400
-        - asset: ReadexPro-Regular.ttf
+        - asset: assets/fonts/ReadexPro-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/ReadexPro-SemiBold.ttf
           weight: 600
-        - asset: ReadexPro-SemiBold.ttf
-          weight: 600
+        - asset: assets/fonts/ReadexPro-Bold.ttf
+          weight: 700
 
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages
