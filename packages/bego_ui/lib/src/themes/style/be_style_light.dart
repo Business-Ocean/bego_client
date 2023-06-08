@@ -4,8 +4,8 @@ import 'package:bego_ui/src/themes/style/be_colors_light.dart';
 import 'package:flutter/widgets.dart';
 
 class BeStyleLight implements BeStyle {
-  const BeStyleLight({this.slColors = const BeColorsLight()});
-  final BeColors slColors;
+  const BeStyleLight({this.becolors = const BeColorsLight()});
+  final BeColors becolors;
 
   @override
   BorderRadius get borderRadius => BorderRadius.zero;
