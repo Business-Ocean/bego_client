@@ -11,6 +11,50 @@ class BeStyleLight implements BeStyle {
   final BeColors becolors;
 
   @override
+  TextStyle get bodyLarge => BegoTextStyle.bodyLarge;
+
+  @override
+  TextStyle get bodyMedium => BegoTextStyle.bodyMedium;
+
+  @override
+  TextStyle get bodySmall => BegoTextStyle.bodySmall;
+
+  @override
+  TextStyle get displayLarge => BegoTextStyle.displayLarge;
+  @override
+  TextStyle get displayMedium => BegoTextStyle.displayMedium;
+
+  @override
+  TextStyle get displaySmall => BegoTextStyle.displaySmall;
+
+  @override
+  TextStyle get headlineLarge => BegoTextStyle.headlineLarge;
+
+  @override
+  TextStyle get headlineMedium => BegoTextStyle.headlineMedium;
+
+  @override
+  TextStyle get headlineSmall => BegoTextStyle.headlineSmall;
+
+  @override
+  TextStyle get labelLarge => BegoTextStyle.labelLarge;
+
+  @override
+  TextStyle get labelMedium => BegoTextStyle.labelMedium;
+
+  @override
+  TextStyle get labelSmall => BegoTextStyle.labelSmall;
+
+  @override
+  TextStyle get titleLarge => BegoTextStyle.titleLarge;
+
+  @override
+  TextStyle get titleMedium => BegoTextStyle.titleMedium;
+
+  @override
+  TextStyle get titleSmall => BegoTextStyle.titleSmall;
+
+  @override
   BorderRadius get borderRadius => BorderRadius.zero;
 
   @override
@@ -20,10 +64,4 @@ class BeStyleLight implements BeStyle {
         BeTextType.bodyMedium => bodyMedium,
         _ => bodyMedium
       };
-
-  @override
-  TextStyle get bodyMedium => BegoTextStyle.bodyMedium;
-
-  @override
-  TextStyle get displayLarge => BegoTextStyle.displayLarge;
 }

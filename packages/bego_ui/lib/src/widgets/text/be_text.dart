@@ -31,6 +31,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.displayLarge,
         style = null;
+
   const BeText.displayMedium(
     this.text, {
     super.key,
@@ -41,6 +42,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.displayMedium,
         style = null;
+
   const BeText.displaySmall(
     this.text, {
     super.key,
@@ -51,6 +53,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.displaySmall,
         style = null;
+
   const BeText.headlineLarge(
     this.text, {
     super.key,
@@ -61,6 +64,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.headlineLarge,
         style = null;
+
   const BeText.headlineMedium(
     this.text, {
     super.key,
@@ -71,6 +75,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.headlineMedium,
         style = null;
+
   const BeText.headlineSmall(
     this.text, {
     super.key,
@@ -81,6 +86,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.headlineSmall,
         style = null;
+
   const BeText.titleLarge(
     this.text, {
     super.key,
@@ -91,6 +97,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.titleLarge,
         style = null;
+
   const BeText.titleMedium(
     this.text, {
     super.key,
@@ -101,6 +108,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.titleMedium,
         style = null;
+
   const BeText.titleSmall(
     this.text, {
     super.key,
@@ -111,6 +119,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.titleSmall,
         style = null;
+
   const BeText.bodyLarge(
     this.text, {
     super.key,
@@ -121,6 +130,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.bodyLarge,
         style = null;
+
   const BeText.bodyMedium(
     this.text, {
     super.key,
@@ -131,6 +141,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.bodyMedium,
         style = null;
+
   const BeText.bodySmall(
     this.text, {
     super.key,
@@ -141,6 +152,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.bodySmall,
         style = null;
+
   const BeText.labelLarge(
     this.text, {
     super.key,
@@ -151,6 +163,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.labelLarge,
         style = null;
+
   const BeText.labelMedium(
     this.text, {
     super.key,
@@ -161,6 +174,7 @@ class BeText extends StatelessWidget {
     this.variation,
   })  : textType = BeTextType.labelMedium,
         style = null;
+
   const BeText.labelSmall(
     this.text, {
     super.key,
@@ -192,7 +206,7 @@ class BeText extends StatelessWidget {
           maxLines: maxLine,
           align: align,
           child: Padding(
-            padding: padding ?? BeTheme.of(context).beinsets.defaultText,
+            padding: padding ?? BeTheme.of(context).beinsets.textInset,
             child: Text(text!),
           ),
         );

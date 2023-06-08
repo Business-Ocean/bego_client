@@ -1,5 +1,7 @@
 class BegoStyle {
   BegoStyle._();
+
+  static const textScleFactor = 0.8;
   static const buttonTextSize = 14.0;
   static const strokWidth = 2.0;
   static const indicatorSize = 8.0;
