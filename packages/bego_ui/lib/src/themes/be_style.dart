@@ -1,3 +1,5 @@
+import 'package:bego_ui/src/layout/breakpoint.dart';
+import 'package:bego_ui/src/widgets/text/be_text_type.dart';
 import 'package:flutter/material.dart';
 
 /// Style of ui component like heading text , body text,
@@ -11,12 +13,12 @@ abstract class BeStyle {
   // TextStyle get titleMedium;
   // TextStyle get titleSmall;
 
-  // TextStyle get displayLarge;
+  TextStyle get displayLarge;
   // TextStyle get displayMedium;
   // TextStyle get displaySmall;
 
   // TextStyle get bodyLarge;
-  // TextStyle get bodyMedium;
+  TextStyle get bodyMedium;
   // TextStyle get bodySmall;
 
   // TextStyle get labelLarge;
@@ -24,4 +26,6 @@ abstract class BeStyle {
   // TextStyle get labelSmall;
 
   BorderRadius get borderRadius;
+
+  TextStyle textStyle(BeTextType? textType, Breakpoint breakpoint);
 }

@@ -1,23 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BeColors {
-  const BeColors._();
+class BegoColors {
+  const BegoColors._();
+  static const primary = Color(0xFF6BC6A5);
+  static const secondary = Color(0xFFF3954F);
+  static const tertiary = Color(0xFF0A5688);
+  static const error = Color(0xFFF9D162);
 
-  // application style and theme
-  static const vividTangelo = Color(0xFFEB6F28);
-  static const primary = vividTangelo;
-
-  static const darkCerulean = Color(0xFF13466D);
-  static const maximumYellowRed = Color(0xFFF5B350);
-  static const whiteCultured = Color(0xFFF6F8F8);
-  static const mountainMeadow = Color(0xFF2BC093);
-  //---------------------------------------------------------------------------//
-  /// light theme text Color
-  static const lightTextColor = Color(0xFF0F172A);
-
-  /// dark theme text Color
-  static const darkTextColor = Color(0xFFF6EFEF);
-  static const white = darkTextColor;
+  static const textColor = black700;
 
   // color black and variation
   static const black100 = Color.fromRGBO(0, 0, 0, 0.1);
