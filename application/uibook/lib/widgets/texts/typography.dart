@@ -12,7 +12,7 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 // )
 
 @widgetbook.UseCase(name: 'Typography', type: BeText)
-Widget displayLargeUseCase(BuildContext context) {
+Widget displayTypographyUseCase(BuildContext context) {
   final variant = context.knobs.boolean(
           label: 'Text has variation',
           description: 'Color has higher priority then variants'

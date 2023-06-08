@@ -26,6 +26,7 @@ import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/widgets.dart';
 import 'package:uibook/widgets/buttons/button.dart';
+import 'package:uibook/widgets/colors/colors.dart';
 import 'package:uibook/widgets/texts/typography.dart';
 import 'package:widgetbook/widgetbook.dart';
 
@@ -41,7 +42,11 @@ final directories = [
             useCases: [
               WidgetbookUseCase(
                 name: 'Typography',
-                builder: (context) => displayLargeUseCase(context),
+                builder: (context) => displayTypographyUseCase(context),
+              ),
+              WidgetbookUseCase(
+                name: 'Colors & Utils',
+                builder: (context) => displayColorsUseCase(context),
               ),
             ],
             isInitiallyExpanded: true,
