@@ -10,7 +10,7 @@ enum BeTextVariation {
   const BeTextVariation(this.textColor);
   final Color? textColor;
 
-  MaterialStateProperty<Color> get color =>
+  MaterialStateProperty<Color> get colorState =>
       MaterialStateProperty.resolveWith<Color>(_getColor);
 
   Color _getColor(Set<MaterialState> states) {
