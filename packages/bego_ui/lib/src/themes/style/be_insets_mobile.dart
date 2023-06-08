@@ -8,5 +8,5 @@ class BeInsetsMobile implements BeEdgeInsets {
   EdgeInsets get gutter => const EdgeInsets.symmetric(horizontal: 16);
 
   @override
-  EdgeInsets get defaultText => const EdgeInsets.symmetric(vertical: 2);
+  EdgeInsets get textInset => const EdgeInsets.symmetric(vertical: 2);
 }

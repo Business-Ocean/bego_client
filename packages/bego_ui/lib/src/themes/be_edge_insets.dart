@@ -6,5 +6,5 @@ import 'package:flutter/widgets.dart' show EdgeInsets;
 abstract class BeEdgeInsets {
   EdgeInsets get gutter;
 
-  EdgeInsets get defaultText;
+  EdgeInsets get textInset;
 }
