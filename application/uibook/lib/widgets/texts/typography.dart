@@ -30,7 +30,24 @@ Widget displayTypographyUseCase(BuildContext context) {
   return ListView(
     padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
     children: [
-      // BeText(text, color: color, variant: variant),
+      const BeText(
+        'Readex Pro',
+        color: BegoColors.black,
+        style: TextStyle(fontSize: 68, height: 1.2),
+      ),
+      const BeText.labelMedium('https://fonts.google.com/specimen/Readex+Pro',
+          color: BegoColors.blue),
+      const SizedBox(height: 8),
+      const BeText.labelMedium(
+        'Readex Pro is the world-script expansion of'
+        'the Lexend fonts. Readex Pro is designed by Thomas Jockin and Nadine'
+        'Chahine and currently supports Latin and Arabic.\n'
+        'Lexend is a family of variable fonts designed by Bonnie Shaver-Troup,'
+        ' Thomas Jockin and Font Bureau. Applying the Shaver-Troup Individually'
+        'Optimal Text Formation Factors, studies have found readers'
+        ' instantaneously improve their reading fluency.',
+      ),
+      const SizedBox(height: 8),
       const Label(textType: 'Display', textSize: 'large'),
       BeText.displayLarge(text, color: color, variant: variant),
       const Label(textType: 'Display', textSize: 'medium'),
@@ -77,12 +94,12 @@ class Label extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16, bottom: 8),
+      padding: const EdgeInsets.only(top: 16, bottom: 2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
+          BeText(
             '$textType / $textSize',
             style: const TextStyle(
               fontWeight: FontWeight.w400,

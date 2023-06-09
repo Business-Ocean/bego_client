@@ -20,12 +20,12 @@ class BeTextResponsive extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).screenBreakPoint;
+    final breakPoint = MediaQuery.of(context).screenBreakPoint;
     return DefaultTextStyle.merge(
       child: child,
       textAlign: align,
       maxLines: maxLines,
-      style: resolveStyle(screenSize).copyWith(color: color),
+      style: resolveStyle(breakPoint).copyWith(color: color),
     );
   }
 }
