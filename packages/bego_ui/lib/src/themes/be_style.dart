@@ -27,5 +27,7 @@ abstract class BeStyle {
 
   BorderRadius get borderRadius;
 
+  BorderRadius get cardRadius;
+
   TextStyle textStyle(BeTextType? textType, Breakpoint breakpoint);
 }
