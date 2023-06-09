@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:uibook/widgets/icons/icons_list.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
-@widgetbook.UseCase(name: 'Icons', type: BeIcons)
+@widgetbook.UseCase(name: 'Icons', type: BegoIcons)
 Widget displayIconsUseCase(BuildContext context) => const DisplayIcons();
 
 class DisplayIcons extends StatelessWidget {
