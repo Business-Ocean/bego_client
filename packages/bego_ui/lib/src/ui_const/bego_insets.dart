@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class BegoInsets {
+final class BegoInsets {
   const BegoInsets._();
 
   static const textSpaceing = 4.0;

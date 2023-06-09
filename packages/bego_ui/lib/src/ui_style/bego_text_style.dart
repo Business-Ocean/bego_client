@@ -2,6 +2,8 @@ import 'package:bego_ui/src/ui_const/bego_colors.dart';
 import 'package:flutter/material.dart';
 
 final class BegoTextStyle {
+  const BegoTextStyle._();
+
 // Note : https://docs.flutter.dev/cookbook/design/package-fonts follow this
   static const packageName = 'bego_ui';
   static const fontFamily = 'ReadexPro';
@@ -54,6 +56,7 @@ final class BegoTextStyle {
     fontWeight: FontWeight.w400,
     color: BegoColors.textColor,
     shadows: textShadow,
+    letterSpacing: -0.25,
     height: displayLargeLineHeight / displayLargeTextSize,
   );
   static const TextStyle displayMedium = TextStyle(
@@ -117,6 +120,7 @@ final class BegoTextStyle {
     fontWeight: FontWeight.w500,
     color: BegoColors.textColor,
     shadows: textShadow,
+    letterSpacing: 0.1,
     height: titleMediumLineHeight / titleMediumTextSize,
   );
   static const TextStyle titleSmall = TextStyle(
@@ -126,6 +130,7 @@ final class BegoTextStyle {
     fontWeight: FontWeight.w500,
     color: BegoColors.textColor,
     shadows: textShadow,
+    letterSpacing: 0.1,
     height: titleSmallLineHeight / titleSmallTextSize,
   );
   static const TextStyle bodyLarge = TextStyle(
@@ -135,6 +140,7 @@ final class BegoTextStyle {
     fontWeight: FontWeight.w400,
     color: BegoColors.textColor,
     shadows: textShadow,
+    letterSpacing: 0.5,
     height: bodyLargeLineHeight / bodyLargeTextSize,
   );
   static const TextStyle bodyMedium = TextStyle(
@@ -144,6 +150,7 @@ final class BegoTextStyle {
     fontWeight: FontWeight.w400,
     color: BegoColors.textColor,
     shadows: textShadow,
+    letterSpacing: 0.25,
     height: bodyMediumLineHeight / bodyMediumTextSize,
   );
   static const TextStyle bodySmall = TextStyle(
@@ -153,6 +160,7 @@ final class BegoTextStyle {
     fontWeight: FontWeight.w400,
     color: BegoColors.textColor,
     shadows: textShadow,
+    letterSpacing: 0.25,
     height: bodySmallLineHeight / bodySmallTextSize,
   );
   static const TextStyle labelLarge = TextStyle(
@@ -162,6 +170,7 @@ final class BegoTextStyle {
     fontWeight: FontWeight.w500,
     color: BegoColors.textColor,
     shadows: textShadow,
+    letterSpacing: 0.1,
     height: labelLargeLineHeight / labelLargeTextSize,
   );
   static const TextStyle labelMedium = TextStyle(
@@ -171,6 +180,7 @@ final class BegoTextStyle {
     fontWeight: FontWeight.w500,
     color: BegoColors.textColor,
     shadows: textShadow,
+    letterSpacing: 0.5,
     height: labelMediumLineHeight / labelMediumTextSize,
   );
   static const TextStyle labelSmall = TextStyle(
@@ -180,6 +190,7 @@ final class BegoTextStyle {
     fontWeight: FontWeight.w500,
     color: BegoColors.textColor,
     shadows: textShadow,
+    letterSpacing: 0.5,
     height: labelSmallLineHeight / labelSmallTextSize,
   );
 }

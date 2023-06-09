@@ -17,16 +17,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/material/button_style.dart';
 import 'package:flutter/src/material/button_style_button.dart';
 import 'package:flutter/src/material/color_scheme.dart';
+import 'package:flutter/src/material/colors.dart';
 import 'package:flutter/src/material/constants.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/dialog_theme.dart';
 import 'package:flutter/src/material/elevated_button_theme.dart';
 import 'package:flutter/src/material/ink_ripple.dart';
 import 'package:flutter/src/material/ink_well.dart';
+import 'package:flutter/src/material/material.dart';
+import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/material_state.dart';
+import 'package:flutter/src/material/text_theme.dart';
 import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/widgets.dart';
 import 'package:uibook/widgets/buttons/button.dart';
 import 'package:uibook/widgets/colors/colors.dart';
+import 'package:uibook/widgets/dialog/backdropblur.dart';
+import 'package:uibook/widgets/elevation/elevations.dart';
 import 'package:uibook/widgets/texts/typography.dart';
 import 'package:widgetbook/widgetbook.dart';
 
@@ -48,6 +56,10 @@ final directories = [
                 name: 'Colors & Utils',
                 builder: (context) => displayColorsUseCase(context),
               ),
+              WidgetbookUseCase(
+                name: 'Elevation',
+                builder: (context) => displayElevationUseCase(context),
+              ),
             ],
             isInitiallyExpanded: true,
           ),
@@ -66,6 +78,16 @@ final directories = [
           WidgetbookUseCase(
             name: 'Buttons',
             builder: (context) => authButtonsDefaultUseCase(context),
+          ),
+        ],
+        isInitiallyExpanded: true,
+      ),
+      WidgetbookComponent(
+        name: 'Dialog',
+        useCases: [
+          WidgetbookUseCase(
+            name: 'Backdrop Blur',
+            builder: (context) => displayBackdropUseCase(context),
           ),
         ],
         isInitiallyExpanded: true,
