@@ -10,6 +10,7 @@ class BeTextResponsive extends StatelessWidget {
     required this.child,
     this.maxLines,
     this.align,
+    this.overflow,
   });
 
   final ResolveTextStyle resolveStyle;
@@ -17,6 +18,7 @@ class BeTextResponsive extends StatelessWidget {
   final Color? color;
   final int? maxLines;
   final TextAlign? align;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class BeTextResponsive extends StatelessWidget {
       child: child,
       textAlign: align,
       maxLines: maxLines,
+      overflow: overflow,
       style: resolveStyle(breakPoint).copyWith(color: color),
     );
   }

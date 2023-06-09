@@ -16,6 +16,7 @@ class BeText extends StatelessWidget {
     this.variant,
     this.style,
     this.textType,
+    this.overflow,
   });
 
   const BeText.displayLarge(
@@ -26,6 +27,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.displayLarge,
         style = null;
 
@@ -37,6 +39,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.displayMedium,
         style = null;
 
@@ -48,6 +51,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.displaySmall,
         style = null;
 
@@ -59,6 +63,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.headlineLarge,
         style = null;
 
@@ -70,6 +75,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.headlineMedium,
         style = null;
 
@@ -81,6 +87,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.headlineSmall,
         style = null;
 
@@ -92,6 +99,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.titleLarge,
         style = null;
 
@@ -103,6 +111,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.titleMedium,
         style = null;
 
@@ -114,6 +123,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.titleSmall,
         style = null;
 
@@ -125,6 +135,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.bodyLarge,
         style = null;
 
@@ -136,6 +147,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.bodyMedium,
         style = null;
 
@@ -147,6 +159,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.bodySmall,
         style = null;
 
@@ -158,6 +171,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.labelLarge,
         style = null;
 
@@ -169,6 +183,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.labelMedium,
         style = null;
 
@@ -180,6 +195,7 @@ class BeText extends StatelessWidget {
     this.align,
     this.padding,
     this.variant,
+    this.overflow,
   })  : textType = BeTextType.labelSmall,
         style = null;
 
@@ -191,6 +207,7 @@ class BeText extends StatelessWidget {
   final BeTextVariant? variant;
   final TextStyle? style;
   final BeTextType? textType;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
@@ -204,6 +221,7 @@ class BeText extends StatelessWidget {
                 BeTheme.of(context).bestyle.textStyle(textType, breakPoint),
             color: textColor,
             maxLines: maxLine,
+            overflow: overflow,
             align: align,
             child: Padding(
               padding: textInset,
