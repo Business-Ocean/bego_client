@@ -297,7 +297,8 @@ class DisplayColors extends StatelessWidget {
 
   const DisplayColors({super.key});
 
-  Widget _buildItem(List<Color> colors) => _ColorLayout(
+  Widget _buildItem(_ColorsName colorName, List<Color> colors) => _ColorLayout(
+        colorGroup: colorName,
         colors: colors,
       );
 
@@ -305,29 +306,69 @@ class DisplayColors extends StatelessWidget {
   Widget build(BuildContext context) => ListView(
         children: List.generate(
           _colorList.length,
-          (i) => _buildItem(_colorList[i]),
+          (i) => _buildItem(_ColorsName.values[i], _colorList[i]),
         ),
       );
 }
 
 class _ColorLayout extends StatelessWidget {
-  const _ColorLayout({required this.colors});
+  const _ColorLayout({required this.colors, required this.colorGroup});
   final List<Color> colors;
+  final _ColorsName colorGroup;
 
   @override
   Widget build(BuildContext context) => Row(
-        children: List.generate(
-          colors.length,
-          (index) => Expanded(
+        children: [
+          Expanded(
             child: SizedBox(
-              height: 100,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: colors[index],
+              width: 150,
+              child: BeText.headlineSmall(
+                colorGroup.colorName,
+                maxLine: 1,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 24, horizontal: 4),
+              ),
+            ),
+          ),
+          ...List.generate(
+            colors.length,
+            (index) => Expanded(
+              child: SizedBox(
+                height: 100,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: colors[index],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
+        ],
       );
+}
+
+enum _ColorsName {
+  black('Black'),
+  blueGray('Blue Gray'),
+  gray('Gray'),
+  red('Red'),
+  orange('Orange'),
+  amber('Amber'),
+  yello('Yello'),
+  lime('Lime'),
+  green('Green'),
+  emerald('Emerald'),
+  teal('Teal'),
+  cyan('Cyan'),
+  lightBlue('Light Blue'),
+  blue('Blue'),
+  indigo('Indigo'),
+  voilet('Voilet'),
+  purple('Purple'),
+  fuchsia('Fuchsia'),
+  pink('Pink'),
+  rose('Rose');
+
+  const _ColorsName(this.colorName);
+  final String colorName;
 }
