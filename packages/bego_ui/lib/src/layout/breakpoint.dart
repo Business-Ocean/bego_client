@@ -14,8 +14,8 @@ enum Breakpoint {
 extension MediaQueryDataScreenBreakpoint on MediaQueryData {
   Breakpoint get screenBreakPoint {
     final width = size.width;
-
-    if (width < Breakpoint.extraLarge.maxwidth) {
+    // return Breakpoint.extraLarge;
+    if (width < Breakpoint.extraSmall.maxwidth) {
       return Breakpoint.extraSmall;
     }
 
