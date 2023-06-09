@@ -1,3 +1,3 @@
 library bego_ui;
 
-export './src/icon/be_icons_icons.dart';
+export './src/icon/be_icons.dart';
