@@ -4,3 +4,4 @@ pubspec.lock
 .idea
 .vscode
 .dart_tool
+packages/bego_ui/.flutter-plugins-dependencies
