@@ -76,6 +76,8 @@ flutter:
           weight: 600
         - asset: assets/fonts/ReadexPro-Bold.ttf
           weight: 700
-
+    - family: BeIcons
+      fonts:
+        - asset: assets/icons/BeIcons.ttf
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages

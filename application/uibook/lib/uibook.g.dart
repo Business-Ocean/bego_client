@@ -35,10 +35,27 @@ import 'package:uibook/widgets/buttons/button.dart';
 import 'package:uibook/widgets/colors/colors.dart';
 import 'package:uibook/widgets/dialog/backdropblur.dart';
 import 'package:uibook/widgets/elevation/elevations.dart';
+import 'package:uibook/widgets/icons/icons.dart';
 import 'package:uibook/widgets/texts/typography.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 final directories = [
+  WidgetbookFolder(
+    name: 'icon',
+    children: [
+      WidgetbookComponent(
+        name: 'BeIcons',
+        useCases: [
+          WidgetbookUseCase(
+            name: 'Icons',
+            builder: (context) => displayIconsUseCase(context),
+          ),
+        ],
+        isInitiallyExpanded: true,
+      ),
+    ],
+    isInitiallyExpanded: true,
+  ),
   WidgetbookFolder(
     name: 'widgets',
     children: [
