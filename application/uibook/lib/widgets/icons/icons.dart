@@ -19,7 +19,7 @@ class DisplayIcons extends StatelessWidget {
           child: StatefulBuilder(builder: (context, setState) {
             return MouseRegion(
               onEnter: (_) {
-                scaleFactor = 1.2;
+                scaleFactor = 1.1;
                 setState(() {});
               },
               onExit: (_) {
@@ -34,8 +34,8 @@ class DisplayIcons extends StatelessWidget {
                   decoration: scaleFactor == 1
                       ? null
                       : BoxDecoration(
-                          border: Border.all(
-                              color: BegoColors.black200, width: 0.2)),
+                          color: becolors(context).primary.withAlpha(50),
+                        ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
