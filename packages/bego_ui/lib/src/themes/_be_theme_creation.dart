@@ -13,6 +13,13 @@ ThemeData createBegoTheme(BeThemeData betheme) {
   const useMaterial3 = true;
 
   return ThemeData.raw(
+    // fontFamily: BegoTextStyle.fontFamily,
+    // brightness: betheme.isDark ? Brightness.dark : Brightness.light,
+    // colorSchemeSeed: betheme.becolors.primary,
+    // package: BegoTextStyle.packageName,
+    // fontFamilyFallback: ,
+    // primarySwatch:  MaterialColor(primary, swatch),
+
     applyElevationOverlayColor: applyElevationOverlayColor(betheme),
     cupertinoOverrideTheme: cupertinoOverrideTheme(betheme),
     extensions: themeExtention(betheme),
@@ -96,3 +103,13 @@ ThemeData createBegoTheme(BeThemeData betheme) {
     tooltipTheme: tooltipTheme(betheme),
   );
 }
+
+
+   // @Depricated  androidOverscrollIndicator: ,
+   // @Depricated  backgroundColor: ,
+   // @Depricated  bottomAppBarColor: ,
+   // @Depricated  errorColor: ,
+   // @Depricated  fixTextFieldOutlineLabel: ,
+   // @Depricated  primaryColorBrightness: ,
+   // @Depricated  selectedRowColor: ,
+   // @Depricated  toggleableActiveColor: ,
