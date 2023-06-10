@@ -7,8 +7,8 @@ packages:
   - "**"
 
 scripts:
-  hello:
-    name: hey
+  sample_cmd:
+    name: "Cmd Name"
     description: Greet the world
     run: echo "$GREETING world"
     env:
