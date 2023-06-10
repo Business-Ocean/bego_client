@@ -96,5 +96,3 @@ ThemeData createBegoTheme(BeThemeData betheme) {
     tooltipTheme: tooltipTheme(betheme),
   );
 }
-
-final data = ThemeData.light();
