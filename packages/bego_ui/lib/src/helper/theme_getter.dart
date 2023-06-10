@@ -5,7 +5,7 @@ extension ThemeStateGetter on State<dynamic> {
   BeThemeData get salamTheme => BeTheme.of(context);
   BeStyle get bestyles => BeTheme.of(context).bestyle;
   BeColors get becolors => BeTheme.of(context).becolors;
-  BeEdgeInsets get beinset => BeTheme.of(context).beinsets;
+  BeEdgeInsets get beinset => BeTheme.ofInsets(context);
 }
 
 extension ThemeGetter on StatelessWidget {
@@ -18,5 +18,5 @@ extension ThemeGetter on StatelessWidget {
   /// Elevation anount etc
   BeStyle bestyles(BuildContext context) => BeTheme.of(context).bestyle;
   BeColors becolors(BuildContext context) => BeTheme.of(context).becolors;
-  BeEdgeInsets beinsets(BuildContext context) => BeTheme.of(context).beinsets;
+  BeEdgeInsets beinsets(BuildContext context) => BeTheme.ofInsets(context);
 }
