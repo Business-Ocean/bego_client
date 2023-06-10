@@ -13,3 +13,6 @@ export 'src/ui_const/bego_colors.dart';
 export 'src/ui_const/temp_sample_data.dart';
 export 'src/ui_style/bego_shadow.dart';
 export 'src/ui_style/bego_style.dart';
+
+const bemaxWidth = double.infinity;
+const bemaxHeight = double.infinity;
