@@ -1,13 +1,23 @@
+import 'dart:io' show Platform;
+
 import 'package:bego_ui/src/themes/be_theme_data.dart';
 import 'package:flutter/material.dart';
+
+// TO-DO(sourav): change platform
+TargetPlatform platform(BeThemeData betheme) {
+  if (Platform.isAndroid) return TargetPlatform.android;
+  if (Platform.isIOS) return TargetPlatform.iOS;
+  if (Platform.isMacOS) return TargetPlatform.macOS;
+  if (Platform.isLinux) return TargetPlatform.linux;
+  if (Platform.isWindows) return TargetPlatform.windows;
+  if (Platform.isFuchsia) return TargetPlatform.fuchsia;
+  return TargetPlatform.android;
+}
 
 bool applyElevationOverlayColor(BeThemeData betheme) => false;
 
 PageTransitionsTheme pageTransitionsTheme(BeThemeData betheme) =>
     const PageTransitionsTheme();
-
-// TO-DO(sourav): change platform
-TargetPlatform platform(BeThemeData betheme) => TargetPlatform.android;
 
 ScrollbarThemeData scrollbarTheme(BeThemeData betheme) =>
     const ScrollbarThemeData();
