@@ -10,6 +10,9 @@
 class FontFamily {
   FontFamily._();
 
+  /// Font family: BegoIcons
+  static const String begoIcons = 'BegoIcons';
+
   /// Font family: ReadexPro
   static const String readexPro = 'ReadexPro';
 }

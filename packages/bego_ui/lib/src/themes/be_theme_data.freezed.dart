@@ -18,33 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BeThemeData {
   BeStyle get bestyle => throw _privateConstructorUsedError;
   BeColors get becolors => throw _privateConstructorUsedError;
-  BeEdgeInsets get beinsets => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)
-        light,
-    required TResult Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)
-        dark,
+    required TResult Function(BeStyle bestyle, BeColors becolors) light,
+    required TResult Function(BeStyle bestyle, BeColors becolors) dark,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        light,
-    TResult? Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        dark,
+    TResult? Function(BeStyle bestyle, BeColors becolors)? light,
+    TResult? Function(BeStyle bestyle, BeColors becolors)? dark,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        light,
-    TResult Function(BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        dark,
+    TResult Function(BeStyle bestyle, BeColors becolors)? light,
+    TResult Function(BeStyle bestyle, BeColors becolors)? dark,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -79,7 +68,7 @@ abstract class $BeThemeDataCopyWith<$Res> {
           BeThemeData value, $Res Function(BeThemeData) then) =
       _$BeThemeDataCopyWithImpl<$Res, BeThemeData>;
   @useResult
-  $Res call({BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets});
+  $Res call({BeStyle bestyle, BeColors becolors});
 }
 
 /// @nodoc
@@ -97,7 +86,6 @@ class _$BeThemeDataCopyWithImpl<$Res, $Val extends BeThemeData>
   $Res call({
     Object? bestyle = null,
     Object? becolors = null,
-    Object? beinsets = null,
   }) {
     return _then(_value.copyWith(
       bestyle: null == bestyle
@@ -108,10 +96,6 @@ class _$BeThemeDataCopyWithImpl<$Res, $Val extends BeThemeData>
           ? _value.becolors
           : becolors // ignore: cast_nullable_to_non_nullable
               as BeColors,
-      beinsets: null == beinsets
-          ? _value.beinsets
-          : beinsets // ignore: cast_nullable_to_non_nullable
-              as BeEdgeInsets,
     ) as $Val);
   }
 }
@@ -124,7 +108,7 @@ abstract class _$$_BeLightThemeCopyWith<$Res>
       __$$_BeLightThemeCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets});
+  $Res call({BeStyle bestyle, BeColors becolors});
 }
 
 /// @nodoc
@@ -140,7 +124,6 @@ class __$$_BeLightThemeCopyWithImpl<$Res>
   $Res call({
     Object? bestyle = null,
     Object? becolors = null,
-    Object? beinsets = null,
   }) {
     return _then(_$_BeLightTheme(
       bestyle: null == bestyle
@@ -151,10 +134,6 @@ class __$$_BeLightThemeCopyWithImpl<$Res>
           ? _value.becolors
           : becolors // ignore: cast_nullable_to_non_nullable
               as BeColors,
-      beinsets: null == beinsets
-          ? _value.beinsets
-          : beinsets // ignore: cast_nullable_to_non_nullable
-              as BeEdgeInsets,
     ));
   }
 }
@@ -164,8 +143,7 @@ class __$$_BeLightThemeCopyWithImpl<$Res>
 class _$_BeLightTheme extends _BeLightTheme {
   const _$_BeLightTheme(
       {this.bestyle = const BeStyleLight(),
-      this.becolors = const BeColorsLight(),
-      this.beinsets = const BeInsetsMobile()})
+      this.becolors = const BeColorsLight()})
       : super._();
 
   @override
@@ -174,13 +152,10 @@ class _$_BeLightTheme extends _BeLightTheme {
   @override
   @JsonKey()
   final BeColors becolors;
-  @override
-  @JsonKey()
-  final BeEdgeInsets beinsets;
 
   @override
   String toString() {
-    return 'BeThemeData.light(bestyle: $bestyle, becolors: $becolors, beinsets: $beinsets)';
+    return 'BeThemeData.light(bestyle: $bestyle, becolors: $becolors)';
   }
 
   @override
@@ -190,13 +165,11 @@ class _$_BeLightTheme extends _BeLightTheme {
             other is _$_BeLightTheme &&
             (identical(other.bestyle, bestyle) || other.bestyle == bestyle) &&
             (identical(other.becolors, becolors) ||
-                other.becolors == becolors) &&
-            (identical(other.beinsets, beinsets) ||
-                other.beinsets == beinsets));
+                other.becolors == becolors));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bestyle, becolors, beinsets);
+  int get hashCode => Object.hash(runtimeType, bestyle, becolors);
 
   @JsonKey(ignore: true)
   @override
@@ -207,40 +180,30 @@ class _$_BeLightTheme extends _BeLightTheme {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)
-        light,
-    required TResult Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)
-        dark,
+    required TResult Function(BeStyle bestyle, BeColors becolors) light,
+    required TResult Function(BeStyle bestyle, BeColors becolors) dark,
   }) {
-    return light(bestyle, becolors, beinsets);
+    return light(bestyle, becolors);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        light,
-    TResult? Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        dark,
+    TResult? Function(BeStyle bestyle, BeColors becolors)? light,
+    TResult? Function(BeStyle bestyle, BeColors becolors)? dark,
   }) {
-    return light?.call(bestyle, becolors, beinsets);
+    return light?.call(bestyle, becolors);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        light,
-    TResult Function(BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        dark,
+    TResult Function(BeStyle bestyle, BeColors becolors)? light,
+    TResult Function(BeStyle bestyle, BeColors becolors)? dark,
     required TResult orElse(),
   }) {
     if (light != null) {
-      return light(bestyle, becolors, beinsets);
+      return light(bestyle, becolors);
     }
     return orElse();
   }
@@ -279,17 +242,13 @@ class _$_BeLightTheme extends _BeLightTheme {
 
 abstract class _BeLightTheme extends BeThemeData {
   const factory _BeLightTheme(
-      {final BeStyle bestyle,
-      final BeColors becolors,
-      final BeEdgeInsets beinsets}) = _$_BeLightTheme;
+      {final BeStyle bestyle, final BeColors becolors}) = _$_BeLightTheme;
   const _BeLightTheme._() : super._();
 
   @override
   BeStyle get bestyle;
   @override
   BeColors get becolors;
-  @override
-  BeEdgeInsets get beinsets;
   @override
   @JsonKey(ignore: true)
   _$$_BeLightThemeCopyWith<_$_BeLightTheme> get copyWith =>
@@ -304,7 +263,7 @@ abstract class _$$_BeDarkThemeCopyWith<$Res>
       __$$_BeDarkThemeCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets});
+  $Res call({BeStyle bestyle, BeColors becolors});
 }
 
 /// @nodoc
@@ -320,7 +279,6 @@ class __$$_BeDarkThemeCopyWithImpl<$Res>
   $Res call({
     Object? bestyle = null,
     Object? becolors = null,
-    Object? beinsets = null,
   }) {
     return _then(_$_BeDarkTheme(
       bestyle: null == bestyle
@@ -331,10 +289,6 @@ class __$$_BeDarkThemeCopyWithImpl<$Res>
           ? _value.becolors
           : becolors // ignore: cast_nullable_to_non_nullable
               as BeColors,
-      beinsets: null == beinsets
-          ? _value.beinsets
-          : beinsets // ignore: cast_nullable_to_non_nullable
-              as BeEdgeInsets,
     ));
   }
 }
@@ -344,8 +298,7 @@ class __$$_BeDarkThemeCopyWithImpl<$Res>
 class _$_BeDarkTheme extends _BeDarkTheme {
   const _$_BeDarkTheme(
       {this.bestyle = const BeStyleDark(),
-      this.becolors = const BeColorsDark(),
-      this.beinsets = const BeInsetsMobile()})
+      this.becolors = const BeColorsDark()})
       : super._();
 
   @override
@@ -354,13 +307,10 @@ class _$_BeDarkTheme extends _BeDarkTheme {
   @override
   @JsonKey()
   final BeColors becolors;
-  @override
-  @JsonKey()
-  final BeEdgeInsets beinsets;
 
   @override
   String toString() {
-    return 'BeThemeData.dark(bestyle: $bestyle, becolors: $becolors, beinsets: $beinsets)';
+    return 'BeThemeData.dark(bestyle: $bestyle, becolors: $becolors)';
   }
 
   @override
@@ -370,13 +320,11 @@ class _$_BeDarkTheme extends _BeDarkTheme {
             other is _$_BeDarkTheme &&
             (identical(other.bestyle, bestyle) || other.bestyle == bestyle) &&
             (identical(other.becolors, becolors) ||
-                other.becolors == becolors) &&
-            (identical(other.beinsets, beinsets) ||
-                other.beinsets == beinsets));
+                other.becolors == becolors));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bestyle, becolors, beinsets);
+  int get hashCode => Object.hash(runtimeType, bestyle, becolors);
 
   @JsonKey(ignore: true)
   @override
@@ -387,40 +335,30 @@ class _$_BeDarkTheme extends _BeDarkTheme {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)
-        light,
-    required TResult Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)
-        dark,
+    required TResult Function(BeStyle bestyle, BeColors becolors) light,
+    required TResult Function(BeStyle bestyle, BeColors becolors) dark,
   }) {
-    return dark(bestyle, becolors, beinsets);
+    return dark(bestyle, becolors);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        light,
-    TResult? Function(
-            BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        dark,
+    TResult? Function(BeStyle bestyle, BeColors becolors)? light,
+    TResult? Function(BeStyle bestyle, BeColors becolors)? dark,
   }) {
-    return dark?.call(bestyle, becolors, beinsets);
+    return dark?.call(bestyle, becolors);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        light,
-    TResult Function(BeStyle bestyle, BeColors becolors, BeEdgeInsets beinsets)?
-        dark,
+    TResult Function(BeStyle bestyle, BeColors becolors)? light,
+    TResult Function(BeStyle bestyle, BeColors becolors)? dark,
     required TResult orElse(),
   }) {
     if (dark != null) {
-      return dark(bestyle, becolors, beinsets);
+      return dark(bestyle, becolors);
     }
     return orElse();
   }
@@ -458,18 +396,14 @@ class _$_BeDarkTheme extends _BeDarkTheme {
 }
 
 abstract class _BeDarkTheme extends BeThemeData {
-  const factory _BeDarkTheme(
-      {final BeStyle bestyle,
-      final BeColors becolors,
-      final BeEdgeInsets beinsets}) = _$_BeDarkTheme;
+  const factory _BeDarkTheme({final BeStyle bestyle, final BeColors becolors}) =
+      _$_BeDarkTheme;
   const _BeDarkTheme._() : super._();
 
   @override
   BeStyle get bestyle;
   @override
   BeColors get becolors;
-  @override
-  BeEdgeInsets get beinsets;
   @override
   @JsonKey(ignore: true)
   _$$_BeDarkThemeCopyWith<_$_BeDarkTheme> get copyWith =>

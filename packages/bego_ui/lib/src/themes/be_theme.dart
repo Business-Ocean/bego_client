@@ -1,6 +1,10 @@
+import 'package:bego_core/bego_get.dart';
 import 'package:bego_ui/src/common_widget.dart';
+import 'package:bego_ui/src/layout/breakpoint.dart';
 import 'package:bego_ui/src/themes/_be_theme_creation.dart';
+import 'package:bego_ui/src/themes/be_edge_insets.dart';
 import 'package:bego_ui/src/themes/be_theme_data.dart';
+import 'package:bego_ui/src/themes/style/be_insets_mobile.dart';
 import 'package:flutter/material.dart';
 
 typedef AppBeThemeBuilder = Widget Function(
@@ -41,10 +45,27 @@ class BeTheme extends StatelessWidget {
       'Make sure you wrap widget with BeTheme '
       'before calling BeThemeData.of(context)',
     );
-    return widget!.theme;
+    return widget!.betheme;
   }
 
-  ThemeData createTheme(BeThemeData betheme) => createBegoTheme(betheme);
+  static BeEdgeInsets ofInsets(BuildContext context) {
+    final widget = context.dependOnInheritedWidgetOfExactType<_BeTheme>();
+    assert(
+      widget != null,
+      'Make sure you wrap widget with BeTheme '
+      'before calling BeThemeData.of(context)',
+    );
+    return widget!.beinsets;
+  }
+
+  // ThemeData createTheme(BeThemeData betheme) => createBegoTheme(betheme);
+  BeEdgeInsets getBegoInsts(Breakpoint breakpoint) => switch (breakpoint) {
+        // TO-DO(sourav): change insets for different breakpoint
+        Breakpoint.extraLarge => const BeInsetsMobile(),
+        Breakpoint.large => const BeInsetsMobile(),
+        Breakpoint.medium => const BeInsetsMobile(),
+        _ => const BeInsetsMobile(),
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +74,16 @@ class BeTheme extends StatelessWidget {
         (themeMode == ThemeMode.system && brightness == Brightness.dark);
     final beTheme = isDark ? darkTheme : lightTheme;
 
+    final breakpoint = context.mediaQuery.screenBreakPoint;
+
+    final beinsets = getBegoInsts(breakpoint);
+
     return _BeTheme(
-      theme: beTheme,
+      betheme: beTheme,
+      beinsets: beinsets,
       child: appBuilder?.call(
             context,
-            createTheme(beTheme),
+            createBegoTheme(beTheme),
             beNavigtor,
           ) ??
           _child,
@@ -67,13 +93,16 @@ class BeTheme extends StatelessWidget {
 
 class _BeTheme extends InheritedWidget {
   const _BeTheme({
-    required this.theme,
+    required this.betheme,
+    required this.beinsets,
     required super.child,
   });
 
-  final BeThemeData theme;
+  final BeThemeData betheme;
+  final BeEdgeInsets beinsets;
 
   /// change every time if there change in theme `return true`
   @override
-  bool updateShouldNotify(covariant _BeTheme oldWidget) => true;
+  bool updateShouldNotify(covariant _BeTheme oldWidget) =>
+      betheme != oldWidget.betheme || beinsets != oldWidget.beinsets;
 }

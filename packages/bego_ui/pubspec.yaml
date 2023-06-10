@@ -9,6 +9,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  assorted_layout_widgets: ^8.0.4
   bego_core:
     path: ../bego_core
   flutter:

@@ -1,5 +1,6 @@
 import 'package:bego_core/bego_get.dart';
 import 'package:bego_ui/bego_icon.dart';
+import 'package:bego_ui/bego_responsive.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
