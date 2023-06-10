@@ -73,11 +73,9 @@ class BeTheme extends StatelessWidget {
     final isDark = themeMode == ThemeMode.dark ||
         (themeMode == ThemeMode.system && brightness == Brightness.dark);
     final beTheme = isDark ? darkTheme : lightTheme;
-
     final breakpoint = context.mediaQuery.screenBreakPoint;
-
     final beinsets = getBegoInsts(breakpoint);
-
+    final theme = createBegoTheme(beTheme);
     return _BeTheme(
       betheme: beTheme,
       beinsets: beinsets,
