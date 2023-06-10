@@ -1,19 +1,36 @@
+import 'package:bego_ui/src/common_widget.dart';
+import 'package:bego_ui/src/themes/_be_theme_creation.dart';
 import 'package:bego_ui/src/themes/be_theme_data.dart';
 import 'package:flutter/material.dart';
+
+typedef AppBeThemeBuilder = Widget Function(
+  BuildContext context, [
+  ThemeData theme,
+  GlobalKey<NavigatorState>? beNavigtor,
+]);
 
 class BeTheme extends StatelessWidget {
   const BeTheme({
     super.key,
-    required this.child,
-    this.lightTheme,
-    this.darkTheme,
+    Widget? child,
+    this.lightTheme = const BeThemeData.light(),
+    this.darkTheme = const BeThemeData.dark(),
     this.themeMode = ThemeMode.system,
-  });
+    this.beNavigtor,
+    this.appBuilder,
+  })  : _child = child ?? zeroWidget,
+        assert(
+          child != null || appBuilder != null,
+          'Child and appBuilder both can\'t be null',
+        );
 
-  final Widget child;
-  final BeThemeData? lightTheme;
-  final BeThemeData? darkTheme;
+  final Widget _child;
+  final BeThemeData lightTheme;
+  final BeThemeData darkTheme;
   final ThemeMode themeMode;
+  final GlobalKey<NavigatorState>? beNavigtor;
+  final AppBeThemeBuilder? appBuilder;
+  // final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   /// NOTE: In case don't want to thorw exeption either ensure parent
   /// widget is wraped with BeTheme
@@ -27,23 +44,23 @@ class BeTheme extends StatelessWidget {
     return widget!.theme;
   }
 
-  // static ThemeData createTheme(ThemeMode themeMode) {
-  // final isDark = themeMode == ThemeMode.dark;
-  // return createbegoTheme(isDark ? Brightness.dark : Brightness.light);
-  // }
+  ThemeData createTheme(BeThemeData betheme) => createBegoTheme(betheme);
 
   @override
   Widget build(BuildContext context) {
     final brightness = MediaQuery.platformBrightnessOf(context);
     final isDark = themeMode == ThemeMode.dark ||
         (themeMode == ThemeMode.system && brightness == Brightness.dark);
-    final theme = isDark
-        ? darkTheme ?? _defaultDarkTheme
-        : lightTheme ?? _defaultLightTheme;
+    final beTheme = isDark ? darkTheme : lightTheme;
 
     return _BeTheme(
-      theme: theme,
-      child: child,
+      theme: beTheme,
+      child: appBuilder?.call(
+            context,
+            createTheme(beTheme),
+            beNavigtor,
+          ) ??
+          _child,
     );
   }
 }
@@ -60,11 +77,3 @@ class _BeTheme extends InheritedWidget {
   @override
   bool updateShouldNotify(covariant _BeTheme oldWidget) => true;
 }
-
-final BeThemeData _defaultLightTheme = _createTheme(Brightness.light);
-
-final BeThemeData _defaultDarkTheme = _createTheme(Brightness.dark);
-
-BeThemeData _createTheme(Brightness brightness) => brightness == Brightness.dark
-    ? const BeThemeData.dark()
-    : const BeThemeData.light();

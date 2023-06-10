@@ -49,8 +49,6 @@ class WidgetbookApp extends StatelessWidget {
 
   Widget themeBuilder(BuildContext context, ThemeData theme, Widget child) {
     return BeTheme(
-      darkTheme: const BeThemeData.dark(),
-      lightTheme: const BeThemeData.light(),
       child: Theme(
         data: theme,
         // locale: DevicePreview.locale(context),

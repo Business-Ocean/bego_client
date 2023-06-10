@@ -1,3 +1,4 @@
+import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/src/ui_style/bego_text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +8,9 @@ import 'package:flutter/material.dart';
 // ReadexPro-Medium.ttf
 // ReadexPro-Regular.ttf
 // ReadexPro-SemiBold.ttf
+Typography typography = Typography.material2021();
 
-TextTheme buildTextTheme() => const TextTheme(
+TextTheme textTheme(BeThemeData betheme) => const TextTheme(
       displayLarge: BegoTextStyle.displayLarge,
       displayMedium: BegoTextStyle.displayMedium,
       displaySmall: BegoTextStyle.displaySmall,
@@ -25,3 +27,5 @@ TextTheme buildTextTheme() => const TextTheme(
       labelMedium: BegoTextStyle.labelMedium,
       labelSmall: BegoTextStyle.labelSmall,
     );
+
+TextTheme primaryTextTheme(BeThemeData betheme) => const TextTheme();
