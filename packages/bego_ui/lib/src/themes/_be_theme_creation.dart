@@ -1,7 +1,98 @@
+import 'package:bego_ui/src/themes/_be_cupertino_theme.dart';
+import 'package:bego_ui/src/themes/_bego_default.dart';
+import 'package:bego_ui/src/themes/_input_forms_theme.dart';
+import 'package:bego_ui/src/themes/_text_themes.dart';
+import 'package:bego_ui/src/themes/_theme_extention.dart';
 import 'package:bego_ui/src/themes/be_theme_data.dart';
+import 'package:bego_ui/src/ui_const/bego_colors.dart';
 import 'package:flutter/material.dart';
 
 ThemeData createBegoTheme(BeThemeData betheme) {
-  // return ThemeData.raw(applyElevationOverlayColor: applyElevationOverlayColor, cupertinoOverrideTheme: cupertinoOverrideTheme, extensions: extensions, inputDecorationTheme: inputDecorationTheme, materialTapTargetSize: materialTapTargetSize, pageTransitionsTheme: pageTransitionsTheme, platform: platform, scrollbarTheme: scrollbarTheme, splashFactory: splashFactory, useMaterial3: useMaterial3, visualDensity: visualDensity, canvasColor: canvasColor, cardColor: cardColor, colorScheme: colorScheme, dialogBackgroundColor: dialogBackgroundColor, disabledColor: disabledColor, dividerColor: dividerColor, focusColor: focusColor, highlightColor: highlightColor, hintColor: hintColor, hoverColor: hoverColor, indicatorColor: indicatorColor, primaryColor: primaryColor, primaryColorDark: primaryColorDark, primaryColorLight: primaryColorLight, scaffoldBackgroundColor: scaffoldBackgroundColor, secondaryHeaderColor: secondaryHeaderColor, shadowColor: shadowColor, splashColor: splashColor, unselectedWidgetColor: unselectedWidgetColor, iconTheme: iconTheme, primaryIconTheme: primaryIconTheme, primaryTextTheme: primaryTextTheme, textTheme: textTheme, typography: typography, actionIconTheme: actionIconTheme, appBarTheme: appBarTheme, badgeTheme: badgeTheme, bannerTheme: bannerTheme, bottomAppBarTheme: bottomAppBarTheme, bottomNavigationBarTheme: bottomNavigationBarTheme, bottomSheetTheme: bottomSheetTheme, buttonBarTheme: buttonBarTheme, buttonTheme: buttonTheme, cardTheme: cardTheme, checkboxTheme: checkboxTheme, chipTheme: chipTheme, dataTableTheme: dataTableTheme, datePickerTheme: datePickerTheme, dialogTheme: dialogTheme, dividerTheme: dividerTheme, drawerTheme: drawerTheme, dropdownMenuTheme: dropdownMenuTheme, elevatedButtonTheme: elevatedButtonTheme, expansionTileTheme: expansionTileTheme, filledButtonTheme: filledButtonTheme, floatingActionButtonTheme: floatingActionButtonTheme, iconButtonTheme: iconButtonTheme, listTileTheme: listTileTheme, menuBarTheme: menuBarTheme, menuButtonTheme: menuButtonTheme, menuTheme: menuTheme, navigationBarTheme: navigationBarTheme, navigationDrawerTheme: navigationDrawerTheme, navigationRailTheme: navigationRailTheme, outlinedButtonTheme: outlinedButtonTheme, popupMenuTheme: popupMenuTheme, progressIndicatorTheme: progressIndicatorTheme, radioTheme: radioTheme, searchBarTheme: searchBarTheme, searchViewTheme: searchViewTheme, segmentedButtonTheme: segmentedButtonTheme, sliderTheme: sliderTheme, snackBarTheme: snackBarTheme, switchTheme: switchTheme, tabBarTheme: tabBarTheme, textButtonTheme: textButtonTheme, textSelectionTheme: textSelectionTheme, timePickerTheme: timePickerTheme, toggleButtonsTheme: toggleButtonsTheme, tooltipTheme: tooltipTheme)
-  return ThemeData.light();
+  // Build theme from bego theme data
+  debugPrint('Creating ThemeData from Bego Theme Data');
+  const useMaterial3 = true;
+
+  return ThemeData.raw(
+    applyElevationOverlayColor: applyElevationOverlayColor(betheme),
+    cupertinoOverrideTheme: cupertinoOverrideTheme(betheme),
+    extensions: themeExtention(betheme),
+    inputDecorationTheme: inputDecorationTheme(betheme),
+    materialTapTargetSize: MaterialTapTargetSize.padded,
+    pageTransitionsTheme: pageTransitionsTheme(betheme),
+    platform: platform(betheme),
+    scrollbarTheme: scrollbarTheme(betheme),
+    splashFactory: splashFactory(betheme),
+    useMaterial3: useMaterial3,
+    visualDensity: VisualDensity.standard,
+    canvasColor: betheme.isDark ? BegoColors.slate900 : BegoColors.blue50,
+    cardColor: betheme.becolors.cardColor,
+    colorScheme: betheme.becolors.colorScheme,
+    dialogBackgroundColor: betheme.becolors.dialogBackgroundColor,
+    disabledColor: betheme.becolors.disabledColor,
+    dividerColor: betheme.becolors.dividerColor,
+    focusColor: betheme.becolors.focusColor,
+    highlightColor: betheme.becolors.highlightColor,
+    hintColor: betheme.becolors.hintColor,
+    hoverColor: betheme.becolors.hoverColor,
+    indicatorColor: betheme.becolors.indicatorColor,
+    primaryColor: betheme.becolors.primaryColor,
+    primaryColorDark: betheme.becolors.primaryColorDark,
+    primaryColorLight: betheme.becolors.primaryColorLight,
+    scaffoldBackgroundColor: betheme.becolors.scaffoldBackgroundColor,
+    secondaryHeaderColor: betheme.becolors.secondaryHeaderColor,
+    shadowColor: betheme.becolors.shadowColor,
+    splashColor: betheme.becolors.splashColor,
+    unselectedWidgetColor: betheme.becolors.unselectedWidgetColor,
+    iconTheme: iconTheme(betheme),
+    primaryIconTheme: primaryIconTheme(betheme),
+    primaryTextTheme: primaryTextTheme(betheme),
+    textTheme: textTheme(betheme),
+    typography: typography,
+    actionIconTheme: actionIconTheme(betheme),
+    appBarTheme: appBarTheme(betheme),
+    badgeTheme: badgeTheme(betheme),
+    bannerTheme: bannerTheme(betheme),
+    bottomAppBarTheme: bottomAppBarTheme(betheme),
+    bottomNavigationBarTheme: bottomNavigationBarTheme(betheme),
+    bottomSheetTheme: bottomSheetTheme(betheme),
+    buttonBarTheme: buttonBarTheme(betheme),
+    buttonTheme: buttonTheme(betheme),
+    cardTheme: cardTheme(betheme),
+    checkboxTheme: checkboxTheme(betheme),
+    chipTheme: chipTheme(betheme),
+    dataTableTheme: dataTableTheme(betheme),
+    datePickerTheme: datePickerTheme(betheme),
+    dialogTheme: dialogTheme(betheme),
+    dividerTheme: dividerTheme(betheme),
+    drawerTheme: drawerTheme(betheme),
+    dropdownMenuTheme: dropdownMenuTheme(betheme),
+    elevatedButtonTheme: elevatedButtonTheme(betheme),
+    expansionTileTheme: expansionTileTheme(betheme),
+    filledButtonTheme: filledButtonTheme(betheme),
+    floatingActionButtonTheme: floatingActionButtonTheme(betheme),
+    iconButtonTheme: iconButtonTheme(betheme),
+    listTileTheme: listTileTheme(betheme),
+    menuBarTheme: menuBarTheme(betheme),
+    menuButtonTheme: menuButtonTheme(betheme),
+    menuTheme: menuTheme(betheme),
+    navigationBarTheme: navigationBarTheme(betheme),
+    navigationDrawerTheme: navigationDrawerTheme(betheme),
+    navigationRailTheme: navigationRailTheme(betheme),
+    outlinedButtonTheme: outlinedButtonTheme(betheme),
+    popupMenuTheme: popupMenuTheme(betheme),
+    progressIndicatorTheme: progressIndicatorTheme(betheme),
+    radioTheme: radioTheme(betheme),
+    searchBarTheme: searchBarTheme(betheme),
+    searchViewTheme: searchViewTheme(betheme),
+    segmentedButtonTheme: segmentedButtonTheme(betheme),
+    sliderTheme: sliderTheme(betheme),
+    snackBarTheme: snackBarTheme(betheme),
+    switchTheme: switchTheme(betheme),
+    tabBarTheme: tabBarTheme(betheme),
+    textButtonTheme: textButtonTheme(betheme),
+    textSelectionTheme: textSelectionTheme(betheme),
+    timePickerTheme: timePickerTheme(betheme),
+    toggleButtonsTheme: toggleButtonsTheme(betheme),
+    tooltipTheme: tooltipTheme(betheme),
+  );
 }
