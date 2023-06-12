@@ -36,26 +36,11 @@ import 'package:uibook/widgets/colors/colors.dart';
 import 'package:uibook/widgets/dialog/backdropblur.dart';
 import 'package:uibook/widgets/elevation/elevations.dart';
 import 'package:uibook/widgets/icons/icons.dart';
+import 'package:uibook/widgets/notification/notification.dart';
 import 'package:uibook/widgets/texts/typography.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 final directories = [
-  WidgetbookFolder(
-    name: 'icon',
-    children: [
-      WidgetbookComponent(
-        name: 'BeIcons',
-        useCases: [
-          WidgetbookUseCase(
-            name: 'Icons',
-            builder: (context) => displayIconsUseCase(context),
-          ),
-        ],
-        isInitiallyExpanded: true,
-      ),
-    ],
-    isInitiallyExpanded: true,
-  ),
   WidgetbookFolder(
     name: 'widgets',
     children: [
@@ -70,15 +55,31 @@ final directories = [
                 builder: (context) => displayTypographyUseCase(context),
               ),
               WidgetbookUseCase(
-                name: 'Colors & Utils',
-                builder: (context) => displayColorsUseCase(context),
-              ),
-              WidgetbookUseCase(
                 name: 'Elevation',
                 builder: (context) => displayElevationUseCase(context),
               ),
+              WidgetbookUseCase(
+                name: 'Colors & Utils',
+                builder: (context) => displayColorsUseCase(context),
+              ),
             ],
             isInitiallyExpanded: true,
+          ),
+        ],
+        isInitiallyExpanded: true,
+      ),
+    ],
+    isInitiallyExpanded: true,
+  ),
+  WidgetbookFolder(
+    name: 'icon',
+    children: [
+      WidgetbookComponent(
+        name: 'BegoIcons',
+        useCases: [
+          WidgetbookUseCase(
+            name: 'Icons',
+            builder: (context) => displayIconsUseCase(context),
           ),
         ],
         isInitiallyExpanded: true,
@@ -105,6 +106,10 @@ final directories = [
           WidgetbookUseCase(
             name: 'Backdrop Blur',
             builder: (context) => displayBackdropUseCase(context),
+          ),
+          WidgetbookUseCase(
+            name: 'Notification',
+            builder: (context) => displayNotificationUseCase(context),
           ),
         ],
         isInitiallyExpanded: true,
