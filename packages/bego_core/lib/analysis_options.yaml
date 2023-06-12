@@ -28,6 +28,7 @@ analyzer:
     - "**/*.gr.dart"
     - "**/l10n*.dart"
     - "**/*.gen.dart"
+    - "./application./uibook/lib/uibook.g.dart"
 
   errors:
     annotate_overrides: error
