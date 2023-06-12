@@ -1,3 +1,4 @@
+import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:uibook/settings/option_helper.dart';
@@ -18,7 +19,7 @@ Widget displayNotificationUseCase(BuildContext context) {
   return Scaffold(
     backgroundColor: BegoColors.splashFactory,
     body: BeNotificationsOverlay(
-      maxVisible: 1,
+      maxVisible: 2,
       position: position.option ?? BeNotificationPosition.topRight,
       child: _NotificationStoryContent(
         title: title,
@@ -58,79 +59,32 @@ class _NotificationStoryContent extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               BeNotification(
-                title: title,
-                description: body,
-                // variant: variant,
-                // link: _link,
+                title:
+                    'Welcome to Flutter Laborum qui nostrud est ipsum consequat consectetur dolor Lorem pariatur amet.',
+                description:
+                    ' Excepteur magna laborum excepteur consectetur labore sunt sunt culpa qui. Anim dolore elit proident officia proident consequat ea qui veniam sint est.',
+                action: 'ok',
+                icon: BegoIcons.at,
                 onActionPressed: () {},
+                height: 80,
               ),
-              // ...BeNotificationVariant.success.map(
-              // (variant) => const
-              // ),
               ElevatedButton(
                 onPressed: () {
-                  BeNotificationsOverlay.of(context)?.show(BeNotification(
-                    title: 'title',
-                    description: 'body',
-                    // variant: variant,
-                    // link: _link,
-                    onActionPressed: () {},
-                  ));
+                  BeNotificationsOverlay.of(context)?.show(
+                    BeNotification(
+                      title: 'Welcome to Flutter',
+                      description:
+                          ' Fugiat sunt excepteur dolor ad est elit tempor. ',
+                      action: 'ok',
+                      icon: BegoIcons.at,
+                      onActionPressed: () {},
+                    ),
+                  );
                 },
                 child: const Text('Show notification'),
-              )
+              ),
             ],
           ),
         ),
       );
 }
-
-// void showBlurDialog(BuildContext context) {
-//   showDialog(
-//       context: context,
-//       builder: (context) {
-//         return BeTheme(
-//           child: BackdropFilter(
-//               filter: BegoStyle.blurLevel2,
-//               child: Dialog(
-//                 shape: RoundedRectangleBorder(
-//                     borderRadius: BorderRadius.circular(15.0)),
-//                 backgroundColor: BegoColors.black300,
-//                 child: Container(
-//                   margin: const EdgeInsets.all(50),
-//                   width: widthPercent(context, 50),
-//                   height: widthPercent(context, 50),
-//                   child: Column(
-//                     mainAxisSize: MainAxisSize.min,
-//                     crossAxisAlignment: CrossAxisAlignment.stretch,
-//                     children: [
-//                       const BeText.headlineMedium(
-//                         'Blur Title',
-//                         align: TextAlign.start,
-//                         color: BegoColors.white,
-//                       ),
-//                       const Divider(),
-//                       const BeText.bodyMedium(
-//                         'A dialog is a type of modal window that appears in'
-//                         ' front of app content to provide critical information,'
-//                         ' or prompt for a decision to be made.',
-//                         color: BegoColors.white,
-//                       ),
-//                       const Spacer(),
-//                       Center(
-//                         child: ElevatedButton(
-//                             onPressed: () => Navigator.pop(context),
-//                             child: const BeText.titleMedium(
-//                               'Close',
-//                               color: BegoColors.white,
-//                               padding: EdgeInsets.symmetric(
-//                                   horizontal: 56, vertical: 8),
-//                             )),
-//                       )
-//                     ],
-//                   ),
-//                 ),
-//               )),
-//         );
-//       });
-// }

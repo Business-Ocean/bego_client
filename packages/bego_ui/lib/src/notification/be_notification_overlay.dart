@@ -222,10 +222,10 @@ extension on BeNotificationPosition {
     switch (this) {
       case BeNotificationPosition.bottomLeft:
       case BeNotificationPosition.topLeft:
-        return isCompact ? 4 : 10;
+        return isCompact ? 0 : 4;
       case BeNotificationPosition.topRight:
       case BeNotificationPosition.bottomRight:
-        return isCompact ? 4 : null;
+        return isCompact ? 0 : null;
     }
   }
 
@@ -233,7 +233,7 @@ extension on BeNotificationPosition {
     switch (this) {
       case BeNotificationPosition.topLeft:
       case BeNotificationPosition.topRight:
-        return isCompact ? 4 : 8;
+        return isCompact ? 0 : 4;
       case BeNotificationPosition.bottomRight:
       case BeNotificationPosition.bottomLeft:
         return null;
@@ -244,10 +244,10 @@ extension on BeNotificationPosition {
     switch (this) {
       case BeNotificationPosition.bottomRight:
       case BeNotificationPosition.topRight:
-        return isCompact ? 4 : 8;
+        return isCompact ? 0 : 4;
       case BeNotificationPosition.topLeft:
       case BeNotificationPosition.bottomLeft:
-        return isCompact ? 4 : null;
+        return isCompact ? 0 : null;
     }
   }
 
@@ -258,7 +258,7 @@ extension on BeNotificationPosition {
         return null;
       case BeNotificationPosition.bottomRight:
       case BeNotificationPosition.bottomLeft:
-        return isCompact ? 4 : 8;
+        return isCompact ? 0 : 4;
     }
   }
 
