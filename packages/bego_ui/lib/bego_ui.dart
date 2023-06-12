@@ -4,6 +4,8 @@ export 'src/common_widget.dart';
 export 'src/helper/color_utils.dart';
 export 'src/helper/theme_getter.dart';
 export 'src/no_splash_factory.dart';
+export 'src/notification/be_notification.dart';
+export 'src/notification/be_notification_overlay.dart';
 export 'src/themes/be_colors.dart';
 export 'src/themes/be_edge_insets.dart';
 export 'src/themes/be_style.dart';

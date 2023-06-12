@@ -9,7 +9,7 @@ class BeTextResponsive extends StatelessWidget {
     this.color,
     required this.child,
     this.maxLines,
-    this.align,
+    this.align = TextAlign.start,
     this.overflow,
   });
 
@@ -17,7 +17,7 @@ class BeTextResponsive extends StatelessWidget {
   final Widget child;
   final Color? color;
   final int? maxLines;
-  final TextAlign? align;
+  final TextAlign align;
   final TextOverflow? overflow;
 
   @override
