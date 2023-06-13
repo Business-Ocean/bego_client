@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const p0 = EdgeInsets.zero;
 const p1 = EdgeInsets.all(1);
 const p2 = EdgeInsets.all(2);
 const p4 = EdgeInsets.all(4);
@@ -8,7 +9,9 @@ const p12 = EdgeInsets.all(12);
 const p16 = EdgeInsets.all(16);
 const p18 = EdgeInsets.all(18);
 const p24 = EdgeInsets.all(24);
+const p28 = EdgeInsets.all(28);
 const p32 = EdgeInsets.all(32);
+const p36 = EdgeInsets.all(36);
 
 const px2 = EdgeInsets.symmetric(horizontal: 2);
 const px4 = EdgeInsets.symmetric(horizontal: 4);
@@ -17,7 +20,9 @@ const px12 = EdgeInsets.symmetric(horizontal: 12);
 const px16 = EdgeInsets.symmetric(horizontal: 16);
 const px18 = EdgeInsets.symmetric(horizontal: 18);
 const px24 = EdgeInsets.symmetric(horizontal: 24);
+const px28 = EdgeInsets.symmetric(horizontal: 28);
 const px32 = EdgeInsets.symmetric(horizontal: 32);
+const px36 = EdgeInsets.symmetric(horizontal: 36);
 
 const py2 = EdgeInsets.symmetric(vertical: 2);
 const py4 = EdgeInsets.symmetric(vertical: 4);
@@ -26,7 +31,9 @@ const py12 = EdgeInsets.symmetric(vertical: 12);
 const py16 = EdgeInsets.symmetric(vertical: 16);
 const py18 = EdgeInsets.symmetric(vertical: 18);
 const py24 = EdgeInsets.symmetric(vertical: 24);
+const py28 = EdgeInsets.symmetric(vertical: 28);
 const py32 = EdgeInsets.symmetric(vertical: 32);
+const py36 = EdgeInsets.symmetric(vertical: 36);
 
 const pt2 = EdgeInsets.only(top: 2);
 const pt4 = EdgeInsets.only(top: 4);
@@ -35,7 +42,9 @@ const pt12 = EdgeInsets.only(top: 12);
 const pt16 = EdgeInsets.only(top: 16);
 const pt18 = EdgeInsets.only(top: 18);
 const pt24 = EdgeInsets.only(top: 24);
+const pt28 = EdgeInsets.only(top: 28);
 const pt32 = EdgeInsets.only(top: 32);
+const pt36 = EdgeInsets.only(top: 36);
 
 const pb2 = EdgeInsets.only(bottom: 2);
 const pb4 = EdgeInsets.only(bottom: 4);
@@ -44,7 +53,9 @@ const pb12 = EdgeInsets.only(bottom: 12);
 const pb16 = EdgeInsets.only(bottom: 16);
 const pb18 = EdgeInsets.only(bottom: 18);
 const pb24 = EdgeInsets.only(bottom: 24);
+const pb28 = EdgeInsets.only(bottom: 28);
 const pb32 = EdgeInsets.only(bottom: 32);
+const pb36 = EdgeInsets.only(bottom: 36);
 
 const pl2 = EdgeInsets.only(left: 2);
 const pl4 = EdgeInsets.only(left: 4);
@@ -53,7 +64,9 @@ const pl12 = EdgeInsets.only(left: 12);
 const pl16 = EdgeInsets.only(left: 16);
 const pl18 = EdgeInsets.only(left: 18);
 const pl24 = EdgeInsets.only(left: 24);
+const pl28 = EdgeInsets.only(left: 28);
 const pl32 = EdgeInsets.only(left: 32);
+const pl36 = EdgeInsets.only(left: 36);
 
 const pr2 = EdgeInsets.only(right: 2);
 const pr4 = EdgeInsets.only(right: 4);
@@ -62,4 +75,6 @@ const pr12 = EdgeInsets.only(right: 12);
 const pr16 = EdgeInsets.only(right: 16);
 const pr18 = EdgeInsets.only(right: 18);
 const pr24 = EdgeInsets.only(right: 24);
+const pr28 = EdgeInsets.only(right: 28);
 const pr32 = EdgeInsets.only(right: 32);
+const pr36 = EdgeInsets.only(right: 36);
