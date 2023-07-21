@@ -8,25 +8,27 @@
 // place-content-baseline	place-content: baseline;
 // place-content-stretch	place-content: stretch;
 
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class SinglChoiceChip extends StatelessWidget {
-//   const SinglChoiceChip({super.key});
-//   factory SinglChoiceChip.single() => const SinglChoiceChip();
+class SinglChoiceChip extends StatelessWidget with Event {
+  const SinglChoiceChip({super.key});
+  factory SinglChoiceChip.single() => const SinglChoiceChip();
 
-//   @override
-//   Widget build(BuildContext context) => BeChipChoice(
-//         value: false,
-//         onChanged: (v) {},
-//       );
-// }
+  @override
+  Widget build(BuildContext context) => BeChipChoice(
+        value: false,
+        onChanged: (v) {},
+      );
+}
 
-// class BeChipChoice extends StatelessWidget {
-//   const BeChipChoice({super.key, required this.value, required this.onChanged});
-//   final bool value;
-//   final ValueChanged<bool> onChanged;
+class BeChipChoice extends StatelessWidget with Event {
+  const BeChipChoice({super.key, required this.value, required this.onChanged});
+  final bool value;
+  final ValueChanged<bool> onChanged;
 
-//   @override
-//   Widget build(BuildContext context) =>
-//       Switch(value: value, onChanged: onChanged);
-// }
+  @override
+  Widget build(BuildContext context) =>
+      Switch(value: value, onChanged: onChanged);
+}
+
+mixin Event {}
