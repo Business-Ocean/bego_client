@@ -5,3 +5,7 @@ pubspec.lock
 .vscode
 .dart_tool
 packages/bego_ui/.flutter-plugins-dependencies
+
+*/**/*_environment.sh
+*/**/*_Generated.xcconfig
+packages/bego_ui/macos/Flutter/ephemeral/Flutter-Generated.xcconfig
