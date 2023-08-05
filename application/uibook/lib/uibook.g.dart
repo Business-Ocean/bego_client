@@ -14,6 +14,7 @@ import 'package:bego_ui/src/widgets/text/be_text_type.dart';
 import 'package:bego_ui/src/widgets/text/be_text_variant.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/src/material/button_style.dart';
 import 'package:flutter/src/material/button_style_button.dart';
 import 'package:flutter/src/material/color_scheme.dart';
@@ -36,41 +37,12 @@ import 'package:uibook/widgets/colors/colors.dart';
 import 'package:uibook/widgets/dialog/backdropblur.dart';
 import 'package:uibook/widgets/elevation/elevations.dart';
 import 'package:uibook/widgets/icons/icons.dart';
+import 'package:uibook/widgets/notification/badge.dart';
 import 'package:uibook/widgets/notification/notification.dart';
 import 'package:uibook/widgets/texts/typography.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 final directories = [
-  WidgetbookFolder(
-    name: 'widgets',
-    children: [
-      WidgetbookFolder(
-        name: 'text',
-        children: [
-          WidgetbookComponent(
-            name: 'BeText',
-            useCases: [
-              WidgetbookUseCase(
-                name: 'Typography',
-                builder: (context) => displayTypographyUseCase(context),
-              ),
-              WidgetbookUseCase(
-                name: 'Elevation',
-                builder: (context) => displayElevationUseCase(context),
-              ),
-              WidgetbookUseCase(
-                name: 'Colors & Utils',
-                builder: (context) => displayColorsUseCase(context),
-              ),
-            ],
-            isInitiallyExpanded: true,
-          ),
-        ],
-        isInitiallyExpanded: true,
-      ),
-    ],
-    isInitiallyExpanded: true,
-  ),
   WidgetbookFolder(
     name: 'icon',
     children: [
@@ -80,6 +52,52 @@ final directories = [
           WidgetbookUseCase(
             name: 'Icons',
             builder: (context) => displayIconsUseCase(context),
+          ),
+        ],
+        isInitiallyExpanded: true,
+      ),
+    ],
+    isInitiallyExpanded: true,
+  ),
+  WidgetbookFolder(
+    name: 'widgets',
+    children: [
+      WidgetbookFolder(
+        name: 'notice',
+        children: [
+          WidgetbookComponent(
+            name: 'BeBadge',
+            useCases: [
+              WidgetbookUseCase(
+                name: 'BeBadge',
+                builder: (context) => displayNotificationUseCase(context),
+              ),
+            ],
+            isInitiallyExpanded: true,
+          ),
+        ],
+        isInitiallyExpanded: true,
+      ),
+      WidgetbookFolder(
+        name: 'text',
+        children: [
+          WidgetbookComponent(
+            name: 'BeText',
+            useCases: [
+              WidgetbookUseCase(
+                name: 'Elevation',
+                builder: (context) => displayElevationUseCase(context),
+              ),
+              WidgetbookUseCase(
+                name: 'Typography',
+                builder: (context) => displayTypographyUseCase(context),
+              ),
+              WidgetbookUseCase(
+                name: 'Colors & Utils',
+                builder: (context) => displayColorsUseCase(context),
+              ),
+            ],
+            isInitiallyExpanded: true,
           ),
         ],
         isInitiallyExpanded: true,
@@ -104,12 +122,12 @@ final directories = [
         name: 'Dialog',
         useCases: [
           WidgetbookUseCase(
-            name: 'Backdrop Blur',
-            builder: (context) => displayBackdropUseCase(context),
-          ),
-          WidgetbookUseCase(
             name: 'Notification',
             builder: (context) => displayNotificationUseCase(context),
+          ),
+          WidgetbookUseCase(
+            name: 'Backdrop Blur',
+            builder: (context) => displayBackdropUseCase(context),
           ),
         ],
         isInitiallyExpanded: true,
