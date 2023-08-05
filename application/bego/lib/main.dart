@@ -43,33 +43,31 @@ class _MyHomePageState extends State<MyHomePage> {
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: Column(
-              children: BeBadgePosition.values
-                  .map(
-                    (e) => Padding(
-                      padding: const EdgeInsets.all(50.0),
-                      child: BeBadge(
-                          position: e,
-                          isRounded: true,
-                          badge: Container(
-                            decoration: const BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16)),
-                                color: Colors.orange),
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 2),
-                              child: Text("0"),
-                            ),
+            children: BeBadgePosition.values
+                .map(
+                  (e) => Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: BeBadge(
+                        position: e,
+                        isRounded: true,
+                        badge: Container(
+                          height: 15,
+                          width: 15,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.red,
                           ),
-                          child: Container(
-                            decoration: const BoxDecoration(
-                                shape: BoxShape.circle, color: Colors.blue),
-                            width: 100,
-                            height: 100,
-                          )),
-                    ),
-                  )
-                  .toList()),
+                        ),
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.blue),
+                          width: 65,
+                          height: 65,
+                        )),
+                  ),
+                )
+                .toList(),
+          ),
         ),
       ),
     );

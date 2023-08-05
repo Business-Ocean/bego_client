@@ -14,25 +14,25 @@ Widget displayNotificationUseCase(BuildContext context) {
                   (e) => Padding(
                     padding: const EdgeInsets.all(50.0),
                     child: BeBadge(
-                        position: e,
-                        isRounded: true,
-                        badge: Container(
-                          decoration: const BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(16)),
-                              color: Colors.orange),
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 2),
-                            child: Text("0"),
-                          ),
+                      position: e,
+                      isRounded: true,
+                      badge: Container(
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(16)),
+                            color: Colors.orange),
+                        child: const Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          child: Text("0"),
                         ),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle, color: Colors.blue),
-                          width: 100,
-                          height: 100,
-                        )),
+                      ),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.blue),
+                        width: 100,
+                        height: 100,
+                      ),
+                    ),
                   ),
                 )
                 .toList()),
