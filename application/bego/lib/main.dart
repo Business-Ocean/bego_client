@@ -48,22 +48,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   (e) => Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: BeBadge(
-                        position: e,
-                        isRounded: true,
-                        badge: Container(
-                          height: 15,
-                          width: 15,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.red,
-                          ),
+                      badge: Container(
+                        height: 15,
+                        width: 15,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.red,
                         ),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle, color: Colors.blue),
-                          width: 65,
-                          height: 65,
-                        )),
+                      ),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.blue),
+                        width: 65,
+                        height: 65,
+                      ),
+                    ),
                   ),
                 )
                 .toList(),
