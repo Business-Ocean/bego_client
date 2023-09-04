@@ -1,5 +1,6 @@
 import 'package:bego_ui/src/ui_const/bego_colors.dart';
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 final class ColorUtils {
   /// Returns a shade of a [Color] from a double value
@@ -88,4 +89,8 @@ final class ColorUtils {
     }
     return textColor;
   }
+
+  static Color getRandomColor({double opacity = 1.0}) =>
+      Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
+          .withOpacity(opacity);
 }

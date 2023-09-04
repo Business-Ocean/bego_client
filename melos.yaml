@@ -16,4 +16,5 @@ scripts:
 
   prepare: melos bootstrap
 
+  clean : melos exec flutter clean
   gen_icons: melos exec --scope="uibook" -- "dart utils/gen_icons.dart $MELOS_ROOT_PATH/packages/bego_ui/lib/src/icon/config lib/widgets/icons && dart format lib/widgets/icons/icons_list.dart"

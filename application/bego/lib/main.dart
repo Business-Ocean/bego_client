@@ -48,17 +48,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   (e) => Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: BeBadge(
+                      rounded: true,
+                      position: e,
                       badge: Container(
                         height: 15,
                         width: 15,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.red,
+                          color: ColorUtils.getRandomColor(),
                         ),
                       ),
                       child: Container(
-                        decoration: const BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.blue),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: ColorUtils.getRandomColor()),
                         width: 65,
                         height: 65,
                       ),

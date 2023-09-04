@@ -8,23 +8,20 @@ class BeBadge extends MultiChildRenderObjectWidget {
     super.key,
     required this.child,
     required this.badge,
-    this.isRounded = false,
+    this.rounded = false,
+    this.offset = Offset.zero,
     this.position = BeBadgePosition.topRight,
-    this.xShift = 0,
-    this.yShift = 0,
   }) : super(children: [child, badge]);
   final Widget child;
   final Widget badge;
   final BeBadgePosition position;
-  final bool isRounded;
-  final double xShift;
-  final double yShift;
+  final bool rounded;
+  final Offset offset;
   @override
   RenderObject createRenderObject(BuildContext context) => _BeBadgeRenderObject(
         position: position,
-        isRounded: isRounded,
-        xShift: xShift,
-        yShift: yShift,
+        isRounded: rounded,
+        offset: offset,
       );
 
   @override
@@ -34,9 +31,8 @@ class BeBadge extends MultiChildRenderObjectWidget {
   ) {
     renderObject
       .._position = position
-      .._isRounded = isRounded
-      ..xShift = xShift
-      ..yShift = yShift;
+      .._rounded = rounded
+      .._offset = offset;
   }
 }
 
@@ -47,12 +43,10 @@ class _BeBadgeRenderObject extends RenderBox
   _BeBadgeRenderObject({
     required BeBadgePosition position,
     required bool isRounded,
-    required double xShift,
-    required double yShift,
+    required Offset offset,
   })  : _position = position,
-        _isRounded = isRounded,
-        _xShift = xShift,
-        _yShift = yShift;
+        _rounded = isRounded,
+        _offset = offset;
 
   BeBadgePosition _position;
   set position(BeBadgePosition position) {
@@ -60,21 +54,15 @@ class _BeBadgeRenderObject extends RenderBox
     markNeedsPaint();
   }
 
-  bool _isRounded;
+  bool _rounded;
   set isRounded(bool value) {
-    _isRounded = value;
+    _rounded = value;
     markNeedsPaint();
   }
 
-  double _xShift;
-  set xShift(double value) {
-    _xShift = value;
-    markNeedsPaint();
-  }
-
-  double _yShift;
-  set yShift(double value) {
-    _yShift = value;
+  Offset _offset;
+  set offset(Offset value) {
+    _offset = value;
     markNeedsPaint();
   }
 
@@ -133,28 +121,28 @@ class _BeBadgeRenderObject extends RenderBox
 
     final (double x, double y) = switch (_position) {
       BeBadgePosition.topLeft => (
-          (-badgeWidth / 2) + (_isRounded ? roundShift : 0),
-          -badgeHeight / 2 + (_isRounded ? roundShift / 3 : 0)
+          (-badgeWidth / 2) + (_rounded ? roundShift : 0),
+          -badgeHeight / 2 + (_rounded ? roundShift / 3 : 0)
         ),
       BeBadgePosition.topCenter => (
           ((size.width - badgeWidth) / 2),
           -badgeHeight / 2
         ),
       BeBadgePosition.topRight => (
-          (size.width - badgeWidth / 2) - (_isRounded ? roundShift : 0),
-          (-badgeHeight / 2) + (_isRounded ? roundShift / 3 : 0)
+          (size.width - badgeWidth / 2) - (_rounded ? roundShift : 0),
+          (-badgeHeight / 2) + (_rounded ? roundShift / 3 : 0)
         ),
       BeBadgePosition.bottomRight => (
-          (size.width - badgeWidth / 2) - (_isRounded ? roundShift : 0),
-          (size.height - badgeHeight / 2) - (_isRounded ? roundShift / 3 : 0)
+          (size.width - badgeWidth / 2) - (_rounded ? roundShift : 0),
+          (size.height - badgeHeight / 2) - (_rounded ? roundShift / 3 : 0)
         ),
       BeBadgePosition.bottomCenter => (
           (size.width - badgeWidth) / 2,
           (size.height - badgeHeight / 2)
         ),
       BeBadgePosition.bottomLeft => (
-          (-badgeWidth / 2) + (_isRounded ? roundShift : 0),
-          (size.height - badgeHeight / 2) - (_isRounded ? roundShift / 3 : 0)
+          (-badgeWidth / 2) + (_rounded ? roundShift : 0),
+          (size.height - badgeHeight / 2) - (_rounded ? roundShift / 3 : 0)
         ),
       BeBadgePosition.centerLeft => (
           (-badgeWidth / 2),
@@ -169,8 +157,8 @@ class _BeBadgeRenderObject extends RenderBox
           (size.height - badgeHeight) / 2
         ),
     };
-    translateX = x + _xShift;
-    translateY = y + _yShift;
+    translateX = x + _offset.dx;
+    translateY = y + _offset.dy;
 
     return originalOffset.translate(translateX, translateY);
   }

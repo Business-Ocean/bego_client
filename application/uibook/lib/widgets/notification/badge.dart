@@ -15,7 +15,7 @@ Widget displayNotificationUseCase(BuildContext context) {
                     padding: const EdgeInsets.all(50.0),
                     child: BeBadge(
                       position: e,
-                      isRounded: true,
+                      rounded: true,
                       badge: Container(
                         decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(16)),
