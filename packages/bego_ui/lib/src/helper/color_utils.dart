@@ -1,6 +1,7 @@
+import 'dart:math' as math;
+
 import 'package:bego_ui/src/ui_const/bego_colors.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 final class ColorUtils {
   /// Returns a shade of a [Color] from a double value

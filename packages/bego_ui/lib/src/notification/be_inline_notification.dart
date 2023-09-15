@@ -42,7 +42,7 @@ abstract class BeInlineNotification extends StatelessWidget {
           Expanded(
             child: buildContent(context),
           ),
-          buildTrailing(context)
+          buildTrailing(context),
         ],
       ),
     );
