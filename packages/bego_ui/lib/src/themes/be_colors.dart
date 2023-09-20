@@ -1,29 +1,38 @@
+import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
 abstract class BeColors {
   Color get primary;
-  Color get textColor;
+  Color get accent;
+  Color get secandory;
+  Color get text;
   bool get isDark;
+  Color get disabled;
+  Color get intraction;
 
-  Color get cardColor;
+  Color get card;
 
   ColorScheme get colorScheme;
 
-  Color get dialogBackgroundColor;
-  Color get disabledColor;
+  Color get dialogBackground;
 
-  Color get dividerColor;
-  Color get focusColor;
-  Color get highlightColor;
-  Color get hintColor;
-  Color get hoverColor;
-  Color get indicatorColor;
-  Color get primaryColor;
-  Color get scaffoldBackgroundColor;
-  Color get secondaryHeaderColor;
-  Color get shadowColor;
-  Color get splashColor;
-  Color get unselectedWidgetColor;
+  Color get divider;
+  Color get focus;
+  Color get highlight;
+  Color get hint;
+  Color get hover;
+  Color get indicator;
+  Color get scaffoldBackground;
+  Color get secondaryHeader;
+  Color get shadow;
+  Color get splash;
+  Color get unselectedWidget;
   Color get primaryColorDark;
   Color get primaryColorLight;
+
+  MaterialStateProperty<Color?>? get formState;
+
+  Color get darkInverse;
+  Color get lightInverse;
+  Color get transparent;
 }

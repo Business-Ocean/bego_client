@@ -1,6 +1,9 @@
 import 'dart:io' show Platform;
 
-import 'package:bego_ui/src/themes/be_theme_data.dart';
+import 'package:bego_core/bego_get.dart';
+import 'package:bego_ui/bego_icon.dart';
+import 'package:bego_ui/bego_ui.dart';
+import 'package:bego_ui/src/themes/style/material_state_property.dart';
 import 'package:flutter/material.dart';
 
 // TO-DO(sourav): change platform
@@ -13,6 +16,61 @@ TargetPlatform platform(BeThemeData betheme) {
   if (Platform.isFuchsia) return TargetPlatform.fuchsia;
   return TargetPlatform.android;
 }
+
+CheckboxThemeData checkboxTheme(BeThemeData betheme) => CheckboxThemeData(
+      // fillColor: betheme.becolors.formStateColor,
+      // checkColor: betheme.becolors.formStateColor,
+      // overlayColor: betheme.becolors.formStateColor,
+      // mouseCursor:
+      //     MaterialStateProperty.all(MaterialStateMouseCursor.clickable),
+
+      // splashRadius: 20,
+      fillColor: fillColorState(betheme),
+      side: sideMaterialState(betheme),
+
+      visualDensity: VisualDensity.compact,
+      shape: RoundedRectangleBorder(
+        borderRadius: betheme.bestyle.xsRadius,
+      ),
+    );
+
+SwitchThemeData switchTheme(BeThemeData betheme) => SwitchThemeData(
+      trackOutlineColor: const MaterialStatePropertyAll(Colors.transparent),
+      trackOutlineWidth: const MaterialStatePropertyAll(0),
+      thumbColor: switchThumbColor(betheme),
+      thumbIcon: iconInvisibleMaterialStateAll(),
+      trackColor: trackColorMaterialState(betheme),
+
+      // thumbIcon: MaterialStateProperty.resolveWith((states) {
+      //   if (states.contains(MaterialState.selected)) {
+      //     return const Icon(BegoIcons.ok);
+      //   }
+      //   return const Icon(BegoIcons.minus_circle);
+      // }),
+      // trackColor: MaterialStateProperty.resolveWith((states) {
+      //   if (states.contains(MaterialState.selected)) {
+      //     return betheme.becolors.primary;
+      //   }
+      //   return betheme.becolors.textColor;
+      // }),
+    );
+
+RadioThemeData radioTheme(BeThemeData betheme) => RadioThemeData(
+      fillColor: fillColorRadioState(betheme),
+    );
+
+SliderThemeData sliderTheme(BeThemeData betheme) => SliderThemeData(
+      activeTrackColor: betheme.becolors.primary,
+      inactiveTrackColor: betheme.becolors.disabled,
+      disabledInactiveTrackColor: betheme.becolors.disabled,
+      disabledActiveTrackColor: betheme.becolors.disabled,
+      disabledThumbColor: betheme.becolors.disabled,
+      overlayColor: betheme.becolors.intraction,
+      trackHeight: 2,
+      minThumbSeparation: 3,
+
+      // overlayShape: SliderComponentShape.noOverlay,
+    );
 
 bool applyElevationOverlayColor(BeThemeData betheme) => false;
 
@@ -68,9 +126,6 @@ ButtonBarThemeData buttonBarTheme(BeThemeData betheme) =>
 ButtonThemeData buttonTheme(BeThemeData betheme) => const ButtonThemeData();
 
 CardTheme cardTheme(BeThemeData betheme) => const CardTheme();
-
-CheckboxThemeData checkboxTheme(BeThemeData betheme) =>
-    const CheckboxThemeData();
 
 ChipThemeData chipTheme(BeThemeData betheme) => const ChipThemeData();
 
@@ -130,9 +185,10 @@ PopupMenuThemeData popupMenuTheme(BeThemeData betheme) =>
     const PopupMenuThemeData();
 
 ProgressIndicatorThemeData progressIndicatorTheme(BeThemeData betheme) =>
-    const ProgressIndicatorThemeData();
-
-RadioThemeData radioTheme(BeThemeData betheme) => const RadioThemeData();
+    const ProgressIndicatorThemeData(
+      linearMinHeight: 2,
+      // circularTrackColor: withAlpha,
+    );
 
 SearchBarThemeData searchBarTheme(BeThemeData betheme) =>
     const SearchBarThemeData();
@@ -141,27 +197,126 @@ SearchViewThemeData searchViewTheme(BeThemeData betheme) =>
     const SearchViewThemeData();
 
 SegmentedButtonThemeData segmentedButtonTheme(BeThemeData betheme) =>
-    const SegmentedButtonThemeData();
+    SegmentedButtonThemeData(
+      // selectedIcon: const Icon(BegoIcons.ok),
+      style: ButtonStyle(
+        // elevation: MaterialStateProperty.resolveWith((states) {
+        //   if (states.any(interactiveStates.contains)) return 4;
+        //   return 0;
+        // }),
+        // minimumSize: MaterialStateProperty.resolveWith((states) {
+        //   if (states.any(interactiveStates.contains)) return const Size(53, 48);
+        //   return null;
+        // }),
+        iconSize: const MaterialStatePropertyAll(16),
+        textStyle: MaterialStatePropertyAll(betheme.bestyle.labelMedium),
+        foregroundColor: MaterialStateProperty.resolveWith((states) {
+          // if (states.any(interactiveStates.contains)) {}
+          if (states.contains(MaterialState.selected)) {
+            return betheme.becolors.lightInverse;
+          }
+          return betheme.becolors.primary;
+        }),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: betheme.bestyle.borderRadius,
+            side: BorderSide(color: betheme.becolors.primary),
+          ),
+        ),
+        side: MaterialStatePropertyAll(
+          BorderSide(color: betheme.becolors.primary),
+        ),
+        padding: const MaterialStatePropertyAll(
+          EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+        ),
+        backgroundColor: MaterialStateProperty.resolveWith((states) {
+          // if (states.any(interactiveStates.contains)) {
+          //   return betheme.becolors.accent.withAlpha(20);
+          // }
+          if (states.contains(MaterialState.selected)) {
+            return betheme.becolors.primary;
+          }
+          return null;
+        }),
+      ),
+    );
 
-SliderThemeData sliderTheme(BeThemeData betheme) => const SliderThemeData();
+SnackBarThemeData snackBarTheme(BeThemeData betheme) => SnackBarThemeData(
+      backgroundColor: betheme.becolors.accent,
+      contentTextStyle: betheme.bestyle.bodySmall
+          .copyWith(color: betheme.becolors.lightInverse),
+    );
 
-SnackBarThemeData snackBarTheme(BeThemeData betheme) =>
-    const SnackBarThemeData();
+TabBarTheme tabBarTheme(BeThemeData betheme) => TabBarTheme(
+      unselectedLabelColor: betheme.becolors.accent,
+      // indicatorSize: TabBarIndicatorSize.tab,
+      tabAlignment: TabAlignment.fill,
+      // labelPadding: EdgeInsets.zero,
+    );
 
-SwitchThemeData switchTheme(BeThemeData betheme) => const SwitchThemeData();
-
-TabBarTheme tabBarTheme(BeThemeData betheme) => const TabBarTheme();
-
-TextButtonThemeData textButtonTheme(BeThemeData betheme) =>
-    const TextButtonThemeData();
+TextButtonThemeData textButtonTheme(BeThemeData betheme) => TextButtonThemeData(
+      style: TextButton.styleFrom(
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: betheme.bestyle.borderRadius,
+        ),
+        minimumSize: const Size(100, 48),
+      ),
+    );
 
 TextSelectionThemeData textSelectionTheme(BeThemeData betheme) =>
-    const TextSelectionThemeData();
+    TextSelectionThemeData(
+      // cursorColor: betheme.becolors.accent,
+      selectionColor: betheme.becolors.highlight.withAlpha(50),
+      // selectionHandleColor: Colors.blue,
+    );
 
-TimePickerThemeData timePickerTheme(BeThemeData betheme) =>
-    const TimePickerThemeData();
+TimePickerThemeData timePickerTheme(BeThemeData betheme) => TimePickerThemeData(
+      // backgroundColor: Colors.white,
+      dialBackgroundColor: betheme.becolors.lightInverse,
+      elevation: 0,
+      backgroundColor: betheme.becolors.card,
+      helpTextStyle: betheme.bestyle.titleMedium,
+      dialHandColor: betheme.becolors.primary,
+      hourMinuteTextColor: betheme.becolors.primary,
+      hourMinuteShape: const RoundedRectangleBorder(
+        // side: BorderSide.,
+        borderRadius: BorderRadius.all(Radius.circular(16)),
+      ),
+    );
 
-ToggleButtonsThemeData toggleButtonsTheme(BeThemeData betheme) =>
-    const ToggleButtonsThemeData();
+ToggleButtonsThemeData toggleButtonsTheme(BeThemeData betheme) {
+  final color = betheme.becolors.primary.withAlpha(50);
+  return ToggleButtonsThemeData(
+    hoverColor: BegoColors.black.withAlpha(20),
+    borderRadius: betheme.bestyle.radius40,
+    fillColor: color,
+    borderColor: color,
+    color: betheme.becolors.text,
+    constraints: const BoxConstraints(minHeight: 40, minWidth: 0),
+    borderWidth: 1,
+    selectedBorderColor: color,
+    disabledBorderColor: betheme.becolors.disabled,
+    selectedColor: betheme.becolors.primary,
+    textStyle: betheme.bestyle.labelMedium,
+    disabledColor: betheme.becolors.disabled,
+    splashColor: betheme.becolors.accent.withAlpha(20),
+    // focusColor: betheme.becolors.primary.withAlpha(10),
+  );
+}
 
-TooltipThemeData tooltipTheme(BeThemeData betheme) => const TooltipThemeData();
+TooltipThemeData tooltipTheme(BeThemeData betheme) => TooltipThemeData(
+      decoration: BoxDecoration(
+        color: betheme.becolors.accent,
+        borderRadius: betheme.bestyle.xsRadius,
+        boxShadow: BegoShadows.boxShadow5,
+      ),
+      margin: EdgeInsets.zero,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      height: 0,
+      textStyle: betheme.bestyle.bodySmall.copyWith(
+        color: betheme.becolors.colorScheme.onPrimary,
+      ),
+      excludeFromSemantics: true,
+      preferBelow: false,
+    );

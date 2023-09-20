@@ -2,14 +2,31 @@ import 'package:flutter/material.dart';
 
 class BegoColors {
   const BegoColors._();
+
+  // light version of application
+  static const roseRed = Color(0xFFBE3455);
+  static const spaceCadet = Color(0xFF2B2D42);
+  static const mintCream = Color(0xFFF1F7ED);
+  static const hookerGreen = Color(0xFF648381);
+  static const darkSpringGreen = Color(0xFF04724D);
+
+  //dark version of application
+  static const wine = Color(0xFF5C2D38);
+  static const raisinBlack = Color(0xFF1B1B22);
+  static const asparagus = Color(0xFF8AA56F);
+  static const outerSpace = Color(0xFF3C4746);
+  static const darkGreen = Color(0xFF0F3428);
+
   static const primary = Color(0xFF6BC6A5);
   static const secondary = Color(0xFFF3954F);
   static const tertiary = Color(0xFF0A5688);
   static const error = Color(0xFFF9D162);
   static const splashFactory = transparent;
+
   static const transparent = Color(0x00000000);
 
   static const textColor = black700;
+
   static const white = Color(0xFFFFffff);
 
   static const slate50 = Color(0xFFF8FAFC);

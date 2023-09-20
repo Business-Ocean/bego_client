@@ -27,7 +27,7 @@ abstract class BeInlineNotification extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
         boxShadow: BegoShadows.colorBoxShadow(Colors.grey.withAlpha(50)),
-        color: theme.becolors.cardColor,
+        color: theme.becolors.card,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
       child: Row(

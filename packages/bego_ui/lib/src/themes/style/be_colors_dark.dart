@@ -5,45 +5,59 @@ class BeColorsDark implements BeColors {
   const BeColorsDark();
 
   @override
-  ColorScheme get colorScheme => ColorScheme.fromSeed(seedColor: primary);
-  @override
-  Color get primary => BegoColors.primary;
-
-  @override
-  Color get textColor => BegoColors.black;
-
-  @override
   bool get isDark => false;
 
   @override
-  Color get cardColor => BegoColors.white;
+  ColorScheme get colorScheme => ColorScheme.fromSeed(seedColor: primary);
+  @override
+  Color get primary => BegoColors.slate900;
 
   @override
-  Color get dialogBackgroundColor => BegoColors.black200;
+  Color get text => BegoColors.black;
 
   @override
-  Color get disabledColor => BegoColors.gray400;
+  Color get intraction => BegoColors.black;
 
   @override
-  Color get dividerColor => BegoColors.gray300;
+  Color get accent => BegoColors.spaceCadet;
 
   @override
-  Color get focusColor => BegoColors.slate600;
+  Color get secandory => BegoColors.darkSpringGreen;
 
   @override
-  Color get highlightColor => BegoColors.slate600;
+  Color get darkInverse => BegoColors.slate900;
+  @override
+  Color get lightInverse => BegoColors.white;
+  @override
+  Color get transparent => BegoColors.transparent;
+
+// -----------------------------------------------------
+  @override
+  Color get card => BegoColors.white;
 
   @override
-  Color get hintColor => BegoColors.slate600;
+  Color get dialogBackground => BegoColors.black200;
 
   @override
-  Color get hoverColor => BegoColors.slate600;
+  Color get disabled => BegoColors.gray200;
 
   @override
-  Color get indicatorColor => BegoColors.slate600;
+  Color get divider => BegoColors.gray300;
 
   @override
-  Color get primaryColor => BegoColors.slate600;
+  Color get focus => BegoColors.slate600;
+
+  @override
+  Color get highlight => BegoColors.slate600;
+
+  @override
+  Color get hint => BegoColors.slate600;
+
+  @override
+  Color get hover => BegoColors.slate600;
+
+  @override
+  Color get indicator => BegoColors.slate600;
 
   @override
   Color get primaryColorDark => BegoColors.slate600;
@@ -52,17 +66,20 @@ class BeColorsDark implements BeColors {
   Color get primaryColorLight => BegoColors.slate600;
 
   @override
-  Color get scaffoldBackgroundColor => BegoColors.slate600;
+  Color get scaffoldBackground => BegoColors.white;
 
   @override
-  Color get secondaryHeaderColor => BegoColors.slate600;
+  Color get secondaryHeader => BegoColors.slate600;
 
   @override
-  Color get shadowColor => BegoColors.slate600;
+  Color get shadow => BegoColors.slate600;
 
   @override
-  Color get splashColor => BegoColors.slate600;
+  Color get splash => BegoColors.slate600;
 
   @override
-  Color get unselectedWidgetColor => BegoColors.slate600;
+  Color get unselectedWidget => BegoColors.slate600;
+
+  @override
+  MaterialStateProperty<Color?>? get formState => throw UnimplementedError();
 }

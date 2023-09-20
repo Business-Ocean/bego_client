@@ -54,7 +54,9 @@ class BeStyleLight implements BeStyle {
   TextStyle get titleSmall => BegoTextStyle.titleSmall;
 
   @override
-  BorderRadius get borderRadius => BorderRadius.zero;
+  BorderRadius get borderRadius => const BorderRadius.all(
+        Radius.elliptical(16, 14),
+      );
 
   @override
   TextStyle textStyle(BeTextType? textType, Breakpoint breakpoint) =>
@@ -66,4 +68,9 @@ class BeStyleLight implements BeStyle {
 
   @override
   BorderRadius get cardRadius => BegoStyle.cardRadiusMedium;
+
+  @override
+  BorderRadius get xsRadius => const BorderRadius.all(Radius.elliptical(6, 5));
+  @override
+  BorderRadius get radius40 => const BorderRadius.all(Radius.circular(40));
 }

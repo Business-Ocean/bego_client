@@ -54,8 +54,13 @@ class BeStyleDark implements BeStyle {
   TextStyle get titleSmall => BegoTextStyle.titleSmall;
 
   @override
-  BorderRadius get borderRadius => BorderRadius.zero;
+  BorderRadius get borderRadius => const BorderRadius.horizontal(
+        left: Radius.elliptical(16, 14),
+        right: Radius.elliptical(16, 14),
+      );
 
+  @override
+  BorderRadius get xsRadius => BegoStyle.borderRadius4;
   // To-do(sourav) : change to dynamic style based on breakpoint
   @override
   TextStyle textStyle(BeTextType? textType, Breakpoint breakpoint) =>
@@ -95,4 +100,7 @@ class BeStyleDark implements BeStyle {
 
   @override
   BorderRadius get cardRadius => BegoStyle.cardRadiusMedium;
+
+  @override
+  BorderRadius get radius40 => const BorderRadius.all(Radius.circular(40));
 }

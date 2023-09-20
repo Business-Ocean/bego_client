@@ -1,5 +1,4 @@
 import 'package:bego_core/bego_get.dart';
-import 'package:bego_ui/src/common_widget.dart';
 import 'package:bego_ui/src/layout/breakpoint.dart';
 import 'package:bego_ui/src/themes/_be_theme_creation.dart';
 import 'package:bego_ui/src/themes/be_edge_insets.dart';
@@ -7,33 +6,29 @@ import 'package:bego_ui/src/themes/be_theme_data.dart';
 import 'package:bego_ui/src/themes/style/be_insets_mobile.dart';
 import 'package:flutter/material.dart';
 
-typedef AppBeThemeBuilder = Widget Function(
-  BuildContext context, [
-  ThemeData theme,
-  GlobalKey<NavigatorState>? beNavigtor,
-]);
+// typedef AppBeThemeBuilder = Widget Function(
+//   BuildContext context, [
+//   ThemeData theme,
+//   GlobalKey<NavigatorState>? beNavigtor,
+// ]);
 
 class BeTheme extends StatelessWidget {
   const BeTheme({
     super.key,
-    Widget? child,
+    required this.child,
     this.lightTheme = const BeThemeData.light(),
     this.darkTheme = const BeThemeData.dark(),
     this.themeMode = ThemeMode.system,
-    this.beNavigtor,
-    this.appBuilder,
-  })  : _child = child ?? zeroWidget,
-        assert(
-          child != null || appBuilder != null,
-          'Child and appBuilder both can\'t be null',
-        );
+    // this.beNavigtor,
+    // this.appBuilder,
+  });
 
-  final Widget _child;
+  final Widget child;
   final BeThemeData lightTheme;
   final BeThemeData darkTheme;
   final ThemeMode themeMode;
-  final GlobalKey<NavigatorState>? beNavigtor;
-  final AppBeThemeBuilder? appBuilder;
+  // final GlobalKey<NavigatorState>? beNavigtor;
+  // final AppBeThemeBuilder? appBuilder;
   // final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   /// NOTE: In case don't want to thorw exeption either ensure parent
@@ -47,6 +42,8 @@ class BeTheme extends StatelessWidget {
     );
     return widget!.betheme;
   }
+
+  static ThemeData createTheme(BeThemeData betheme) => createBegoTheme(betheme);
 
   static BeEdgeInsets ofInsets(BuildContext context) {
     final widget = context.dependOnInheritedWidgetOfExactType<_BeTheme>();
@@ -79,12 +76,7 @@ class BeTheme extends StatelessWidget {
     return _BeTheme(
       betheme: beTheme,
       beinsets: beinsets,
-      child: appBuilder?.call(
-            context,
-            createBegoTheme(beTheme),
-            beNavigtor,
-          ) ??
-          _child,
+      child: child,
     );
   }
 }

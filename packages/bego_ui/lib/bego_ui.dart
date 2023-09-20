@@ -2,6 +2,7 @@ library bego_ui;
 
 export 'src/common_widget.dart';
 export 'src/helper/color_utils.dart';
+export 'src/helper/text_utils.dart';
 export 'src/helper/theme_getter.dart';
 export 'src/no_splash_factory.dart';
 export 'src/notification/be_notification.dart';
@@ -15,7 +16,8 @@ export 'src/ui_const/bego_colors.dart';
 export 'src/ui_const/temp_sample_data.dart';
 export 'src/ui_style/bego_shadow.dart';
 export 'src/ui_style/bego_style.dart';
+export 'src/widgets/be_enable.dart';
 export 'src/widgets/notice/be_badge.dart';
 
-const bemaxWidth = double.infinity;
-const bemaxHeight = double.infinity;
+const widthInfinity = double.infinity;
+const heightInfinity = double.infinity;
