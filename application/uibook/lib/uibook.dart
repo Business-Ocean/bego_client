@@ -25,7 +25,7 @@ class WidgetbookApp extends StatelessWidget {
       1.5,
       2.0,
     ];
-    return Widgetbook(
+    return Widgetbook.material(
       directories: directories,
       integrations: const [],
       addons: [
@@ -39,10 +39,11 @@ class WidgetbookApp extends StatelessWidget {
           initialScale: scales.first,
         ),
         DeviceFrameAddon(devices: Devices.all),
+
         // LocalizationAddon(locales: locales, localizationsDelegates: localizationsDelegates)
       ],
       appBuilder: (context, child) {
-        return child;
+        return Scaffold(body: child);
       },
     );
   }
@@ -59,5 +60,5 @@ class WidgetbookApp extends StatelessWidget {
   }
 }
 
-ThemeData get lightTheme => ThemeData.light(useMaterial3: true);
-ThemeData get darkTheme => ThemeData.dark(useMaterial3: true);
+ThemeData get lightTheme => BeTheme.createTheme(const BeThemeData.light());
+ThemeData get darkTheme => BeTheme.createTheme(const BeThemeData.light());

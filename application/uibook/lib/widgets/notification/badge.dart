@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'BeBadge', type: BeBadge)
-Widget displayNotificationUseCase(BuildContext context) {
+Widget displayBeBadgeUseCase(BuildContext context) {
   return Scaffold(
     body: Container(
       alignment: Alignment.center,
