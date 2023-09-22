@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:bego/sample/crap.dart';
+import 'package:bego/widget/picker/be_number_form_field.dart';
 import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_responsive.dart';
 import 'package:bego_ui/bego_ui.dart';
@@ -48,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return const AppBarExample();
+    // return const AppBarExample();
     // return const NavRailExample();
     // return const NavDrawer(
     //   title: 'Nav Bar',
@@ -162,7 +163,9 @@ class _MyHomePageState extends State<MyHomePage> {
               //   child: const Text('Show toast'),
               // ),
               // BeNumberFormField(
-              //   initialValue: 20,
+              //   initialValue: 100,
+
+              //   // constraints: const BoxConstraints(minWidth: 140, maxWidth: 140),
               // ),
 
               // Tooltip(
@@ -510,26 +513,6 @@ class _MyHomePageState extends State<MyHomePage> {
               //       text: 'Magna elit sunt consequat mollit eiusmod.'),
               // ),
               // TextFormField(),
-
-              Checkbox(
-                onChanged: (v) {},
-                value: false,
-                // unselectedWidgetColor: Colors.red,
-              ),
-
-              // A Radio with an unselectedWidgetColor of red.
-              Radio(
-                value: 1,
-                groupValue: 1,
-                onChanged: (v) {},
-                // unselectedWidgetColor: Colors.red,
-              ),
-              Radio(
-                value: 1,
-                groupValue: 2,
-                onChanged: (v) {},
-                // unselectedWidgetColor: Colors.red,
-              ),
             ],
           ),
         ),

@@ -31,7 +31,7 @@ ThemeData createBegoTheme(BeThemeData betheme) {
 
     brightness: betheme.isDark ? Brightness.dark : Brightness.light,
     extensions: themeExtention(betheme),
-    fontFamily: fontFamily,
+    fontFamily: 'ReadexPro',
     // primarySwatch: getPrimarySwatch(betheme),
     // colorSchemeSeed: BegoColors.pink,
     colorScheme: betheme.becolors.colorScheme,

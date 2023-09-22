@@ -42,9 +42,11 @@ MaterialStateColor fillColorState(BeThemeData betheme) =>
         if (states.contains(MaterialState.selected)) {
           return betheme.becolors.disabled;
         }
-        return Colors.transparent;
       }
-      return betheme.becolors.primary;
+      if (states.contains(MaterialState.selected)) {
+        return betheme.becolors.primary;
+      }
+      return Colors.transparent;
     });
 
 MaterialStateColor fillColorRadioState(BeThemeData betheme) =>
