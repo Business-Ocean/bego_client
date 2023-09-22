@@ -1,3 +1,4 @@
+import 'package:bego/widget/picker/_number_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -18,6 +19,7 @@ class BeNumberFormField extends FormField<int> {
     super.enabled,
     FocusNode? focusNode,
     TextEditingController? controller,
+    BoxConstraints? constraints,
   })  : assert(
           initialValue == null || controller == null,
           'initialValue or controller must be null',
@@ -46,6 +48,7 @@ class BeNumberFormField extends FormField<int> {
               error: field.errorText,
               focusNode: focusNode,
               controller: controller,
+              constraints: constraints,
             );
           },
         );
@@ -61,6 +64,7 @@ class _BeNumberPicker extends StatefulWidget {
     this.enabled = true,
     this.error,
     this.controller,
+    this.constraints,
   });
 
   final int? initialValue;
@@ -71,6 +75,7 @@ class _BeNumberPicker extends StatefulWidget {
   final bool enabled;
   final String? error;
   final TextEditingController? controller;
+  final BoxConstraints? constraints;
 
   @override
   _BeNumberPickerState createState() => _BeNumberPickerState();
@@ -88,9 +93,6 @@ class _BeNumberPickerState extends State<_BeNumberPicker> {
       ));
 
   FocusNode? _focusNode;
-
-  FocusNode get _effectiveFocusNode =>
-      widget.focusNode ?? (_focusNode ??= FocusNode());
 
   void _controllerListener() => _onChanged(_effectiveController.text);
 
@@ -160,31 +162,40 @@ class _BeNumberPickerState extends State<_BeNumberPicker> {
 
   @override
   Widget build(BuildContext context) {
-    // final value = _value;
+    final value = _value;
 
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 134),
-      child: TextField(
+      constraints: widget.constraints ?? const BoxConstraints(maxWidth: 110),
+      child: TextFormField(
+        scrollPadding: EdgeInsets.zero,
         textAlign: TextAlign.center,
-        // error: widget.error,
-        // isEnabled: widget.enabled,
+        cursorWidth: 0,
+        autocorrect: false,
+        showCursor: false,
         keyboardType: TextInputType.number,
         controller: _effectiveController,
-        // leading: NumberPickerButton(
-        //   iconData: BegoIcons.icon_fi_rr_minus,
-        //   onPressed: value == null || value > widget.min ? _onMinusTap : null,
-        // ),
-        // trailing: NumberPickerButton(
-        //   iconData: BegoIcons.icon_fi_rr_add,
-        //   onPressed: value == null || value < widget.max ? _onPlusTap : null,
-        // ),
-        focusNode: _effectiveFocusNode,
+        // focusNode: AlwaysDisabledFocusNode(),
         inputFormatters: [
           FilteringTextInputFormatter.allow(_integersOrEmptyString),
         ],
+        decoration: InputDecoration(
+          prefixIcon: NumberPickerButton(
+            iconData: Icons.remove,
+            onPressed: value == null || value > widget.min ? _onMinusTap : null,
+          ),
+          suffixIcon: NumberPickerButton(
+            iconData: Icons.add,
+            onPressed: value == null || value < widget.max ? _onPlusTap : null,
+          ),
+        ),
       ),
     );
   }
 }
 
 final _integersOrEmptyString = RegExp(r'^$|^[-]?\d+|^[-]');
+
+class AlwaysDisabledFocusNode extends FocusNode {
+  @override
+  bool get hasFocus => false;
+}

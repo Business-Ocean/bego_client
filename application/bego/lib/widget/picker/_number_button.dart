@@ -21,9 +21,7 @@ class NumberPickerButton extends StatelessWidget {
         onTap: onPressed,
         child: Icon(
           iconData,
-          color: betheme(context).isDark
-              ? becolors(context).primary
-              : becolors(context).primary.withAlpha(100),
+          color: becolors(context).accent,
           size: 24,
         ),
       ),
