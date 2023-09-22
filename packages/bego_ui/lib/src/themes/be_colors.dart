@@ -8,7 +8,10 @@ abstract class BeColors {
   Color get text;
   bool get isDark;
   Color get disabled;
+  Color get overlayOutline;
+  Color get formInputBackground;
   Color get intraction;
+  Color get icon;
 
   Color get card;
 
@@ -35,4 +38,6 @@ abstract class BeColors {
   Color get darkInverse;
   Color get lightInverse;
   Color get transparent;
+
+  Color get error;
 }

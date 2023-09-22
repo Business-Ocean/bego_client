@@ -1,5 +1,4 @@
-import 'package:bego_ui/src/themes/be_colors.dart';
-import 'package:bego_ui/src/ui_const/bego_colors.dart';
+import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
 class BeColorsLight implements BeColors {
@@ -30,51 +29,62 @@ class BeColorsLight implements BeColors {
   Color get lightInverse => isDark ? BegoColors.black : BegoColors.white;
   @override
   Color get transparent => BegoColors.transparent;
+  @override
+  Color get overlayOutline => BegoColors.gray200;
+  @override
+  Color get formInputBackground => primary.withAlpha(5);
+  @override
+  Color get icon => BegoColors.blue50;
+
+  @override
+  Color get error => BegoColors.red500;
 // -----------------------------------------------------
   @override
   Color get card => BegoColors.white;
 
   @override
-  Color get dialogBackground => BegoColors.black200;
+  Color get dialogBackground => BegoColors.white;
 
   @override
-  Color get disabled => BegoColors.gray200;
+  Color get disabled => BegoColors.gray300;
 
   @override
-  Color get divider => BegoColors.gray300;
+  Color get divider => secandory.withAlpha(30);
 
   @override
-  Color get focus => BegoColors.slate600;
+  Color get focus => primary.withAlpha(50);
 
   @override
-  Color get highlight => BegoColors.slate600;
+  Color get highlight => secandory;
 
   @override
-  Color get hint => BegoColors.slate600;
+  Color get hint => BegoColors.gray400;
 
   @override
-  Color get hover => BegoColors.slate600;
+  Color get hover => BegoColors.gray100;
 
   @override
-  Color get indicator => BegoColors.slate600;
+  Color get indicator => secandory;
 
   @override
-  Color get primaryColorDark => BegoColors.slate600;
+  Color get primaryColorDark =>
+      ColorUtils.getShade(primary, darker: true, value: 0.4);
 
   @override
-  Color get primaryColorLight => BegoColors.slate600;
+  Color get primaryColorLight =>
+      ColorUtils.getShade(primary, darker: false, value: 0.4);
 
   @override
-  Color get scaffoldBackground => BegoColors.white;
+  Color get scaffoldBackground => const Color(0xFFFAF9F6);
 
   @override
-  Color get secondaryHeader => BegoColors.slate600;
+  Color get secondaryHeader => BegoColors.hookerGreen;
 
   @override
-  Color get shadow => BegoColors.slate600;
+  Color get shadow => BegoColors.gray300;
 
   @override
-  Color get splash => BegoColors.slate600;
+  Color get splash => BegoColors.slate.withAlpha(50);
 
   @override
   Color get unselectedWidget => BegoColors.slate600;
