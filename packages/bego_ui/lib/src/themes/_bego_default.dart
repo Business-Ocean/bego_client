@@ -1,6 +1,5 @@
 import 'dart:io' show Platform;
 
-import 'package:bego_core/bego_get.dart';
 import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/src/themes/style/material_state_property.dart';
