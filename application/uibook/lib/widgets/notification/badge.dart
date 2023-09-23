@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'BeBadge', type: BeBadge)
-Widget displayNotificationUseCase(BuildContext context) {
+Widget displayBeBadgeUseCase(BuildContext context) {
   return Scaffold(
     body: Container(
       alignment: Alignment.center,
@@ -12,7 +12,7 @@ Widget displayNotificationUseCase(BuildContext context) {
             children: BeBadgePosition.values
                 .map(
                   (e) => Padding(
-                    padding: const EdgeInsets.all(50.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: BeBadge(
                       position: e,
                       rounded: true,
