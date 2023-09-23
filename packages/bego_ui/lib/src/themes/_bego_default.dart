@@ -132,7 +132,7 @@ ActionIconThemeData actionIconTheme(BeThemeData betheme) => ActionIconThemeData(
         // BegoIcons.icon_close,
         size: 20,
       ),
-      closeButtonIconBuilder: (context) => const Icon(BegoIcons.icon_close),
+      closeButtonIconBuilder: (context) => const Icon(BeIcons.icon_close),
     );
 
 // https://flutter.github.io/assets-for-api-docs/assets/material/app_bar.png

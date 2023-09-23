@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
               title: 'Welcome to Flutter',
               description: ' Fugiat sunt excepteur dolor ad est elit tempor. ',
               action: 'ok',
-              icon: BegoIcons.at,
+              icon: BeIcons.at,
               onActionPressed: () {},
             ),
           ),

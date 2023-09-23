@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:uibook/widgets/icons/icons_list.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
-@widgetbook.UseCase(name: 'Icons', type: BegoIcons)
+@widgetbook.UseCase(name: 'Icons', type: BeIcons)
 Widget displayIconsUseCase(BuildContext context) => const DisplayIcons();
 
 class DisplayIcons extends StatelessWidget {
@@ -16,7 +16,8 @@ class DisplayIcons extends StatelessWidget {
   Widget _buildItem(BuildContext context, IconDetails iconDetails) =>
       Builder(builder: (context) {
         double scaleFactor = 1;
-        return Center(
+        return Container(
+          color: becolors(context).scaffoldBackground,
           child: StatefulBuilder(builder: (context, setState) {
             return MouseRegion(
               onEnter: (_) {
@@ -31,7 +32,7 @@ class DisplayIcons extends StatelessWidget {
                 scale: scaleFactor,
                 child: Container(
                   alignment: Alignment.center,
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(4),
                   decoration: scaleFactor == 1
                       ? null
                       : BoxDecoration(
@@ -41,7 +42,10 @@ class DisplayIcons extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(iconDetails.data),
+                      Icon(
+                        iconDetails.data,
+                        // color: becolors(context).lightInverse,
+                      ),
                       BeText(
                         iconDetails.name,
                         maxLine: 2,
