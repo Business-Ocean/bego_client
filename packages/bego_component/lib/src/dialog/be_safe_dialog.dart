@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
 ///***********
@@ -46,7 +47,7 @@ class BeSafeDialog {
     required WidgetBuilder builder,
     String tag = _safeDialogDefaultTag,
     bool barrierDismissible = true,
-    Color? barrierColor = Colors.black54,
+    Color? barrierColor,
     String? barrierLabel,
     bool useSafeArea = true,
     bool useRootNavigator = true,
@@ -64,7 +65,8 @@ class BeSafeDialog {
     _SafeDialogRoute<T> safeDialogRoute = _SafeDialogRoute<T>(
       context: context,
       builder: builder,
-      barrierColor: barrierColor,
+      barrierColor: barrierColor ??
+          BeTheme.of(context).becolors.lightInverse.withOpacity(0.1),
       barrierDismissible: barrierDismissible,
       barrierLabel: barrierLabel,
       useSafeArea: useSafeArea,

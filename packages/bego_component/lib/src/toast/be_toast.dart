@@ -2,18 +2,22 @@
 
 import 'dart:math';
 
+import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
 ///Position enumeration
 enum BeToastGravity {
   ///Bottom display
-  bottom,
+  bottom(Alignment.bottomCenter),
 
   ///Center display
-  center,
+  center(Alignment.center),
 
   ///Top display
-  top,
+  top(Alignment.topCenter);
+
+  const BeToastGravity(this.alignment);
+  final Alignment alignment;
 }
 
 ///Toast display duration
@@ -29,11 +33,11 @@ class BeDuration {
 
 ///Common Toast component
 class BeToast {
-  ///Toast is the default distance from the top
-  static const int _defaultTopOffset = 50;
+  // ///Toast is the default distance from the top
+  // static const int _defaultTopOffset = 50;
 
-  ///The default distance between Toast and the bottom
-  static const int _defaultBottomOffset = 50;
+  // ///The default distance between Toast and the bottom
+  // static const int _defaultBottomOffset = 50;
 
   ///_ToastView
   static _ToastView? preToastView;
@@ -52,28 +56,21 @@ class BeToast {
   }
 
   ///Display Toast. If duration is not set, it will be automatically calculated based on the content length (more friendly, up to 5 seconds)
-  static void show(
-    BuildContext context,
-    String text, {
-    Duration? duration,
-    Color? background,
-    TextStyle textStyle = const TextStyle(fontSize: 16, color: Colors.white),
-    double? radius,
-    Image? preIcon,
-    double? verticalOffset,
-    VoidCallback? onDismiss,
-    BeToastGravity? gravity,
-  }) {
+  static void show(BuildContext context, String text,
+      {Duration? duration,
+      Color? background,
+      TextStyle textStyle = const TextStyle(fontSize: 16, color: Colors.white),
+      double? radius,
+      Widget? leading,
+      Widget? trailing,
+      double verticalOffset = 16,
+      VoidCallback? onDismiss,
+      BeToastGravity gravity = BeToastGravity.bottom,
+      BoxConstraints? constraints}) {
     final OverlayState overlayState = Overlay.of(context);
 
     preToastView?._dismiss();
     preToastView = null;
-
-    final double finalVerticalOffset = getVerticalOffset(
-      context: context,
-      gravity: gravity,
-      verticalOffset: verticalOffset,
-    );
 
     ///Automatically determine the display duration based on the content length, making it more user-friendly
     final int autoDuration = min(text.length * 0.06 + 0.8, 5.0).ceil();
@@ -85,10 +82,12 @@ class BeToast {
             background: background,
             radius: radius,
             msg: text,
-            leading: preIcon,
+            leading: leading,
+            trailing: trailing,
             textStyle: textStyle,
             gravity: gravity,
-            verticalOffset: finalVerticalOffset,
+            verticalOffset: verticalOffset,
+            constraints: constraints,
           ),
         );
       },
@@ -100,31 +99,6 @@ class BeToast {
       duration: finalDuration,
       onDismiss: onDismiss,
     );
-  }
-
-  ///Get the vertical spacing of the default setting
-  static double getVerticalOffset({
-    required BuildContext context,
-    BeToastGravity? gravity,
-    double? verticalOffset,
-  }) {
-    final double verticalOffset0 = verticalOffset ?? 0;
-    final double defaultOffset;
-    switch (gravity) {
-      case BeToastGravity.bottom:
-        final offset = verticalOffset ?? _defaultBottomOffset;
-        defaultOffset = MediaQuery.of(context).viewInsets.bottom + offset;
-        break;
-      case BeToastGravity.top:
-        final offset = verticalOffset ?? _defaultTopOffset;
-        defaultOffset = MediaQuery.of(context).viewInsets.top + offset;
-        break;
-      case BeToastGravity.center:
-      default:
-        defaultOffset = verticalOffset ?? 0;
-    }
-
-    return defaultOffset + verticalOffset0;
   }
 }
 
@@ -161,24 +135,14 @@ class ToastChild extends StatelessWidget {
     Key? key,
     required this.msg,
     required this.verticalOffset,
+    this.gravity = BeToastGravity.bottom,
     this.background,
     this.radius,
     this.leading,
-    this.gravity,
+    this.trailing,
+    this.constraints,
     this.textStyle,
   }) : super(key: key);
-
-  Alignment get alignment {
-    switch (gravity) {
-      case BeToastGravity.bottom:
-        return Alignment.bottomCenter;
-      case BeToastGravity.top:
-        return Alignment.topCenter;
-      case BeToastGravity.center:
-      default:
-        return Alignment.center;
-    }
-  }
 
   EdgeInsets get padding {
     switch (gravity) {
@@ -196,41 +160,59 @@ class ToastChild extends StatelessWidget {
   final double verticalOffset;
   final Color? background;
   final double? radius;
-  final Image? leading;
-  final BeToastGravity? gravity;
+  final Widget? leading;
+  final Widget? trailing;
+  final BeToastGravity gravity;
   final TextStyle? textStyle;
+  final BoxConstraints? constraints;
 
   InlineSpan get leadingSpan {
-    if (leading == null) {
-      return const TextSpan(text: "");
-    }
     return WidgetSpan(
       alignment: PlaceholderAlignment.middle,
-      child: Padding(padding: const EdgeInsets.only(right: 6), child: leading!),
+      child: Padding(padding: const EdgeInsets.only(right: 8), child: leading!),
+    );
+  }
+
+  InlineSpan get trailingSpan {
+    return WidgetSpan(
+      alignment: PlaceholderAlignment.middle,
+      child: Padding(padding: const EdgeInsets.only(left: 8), child: trailing!),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
+    return Container(
+      margin: padding,
+      alignment: gravity.alignment,
       child: Container(
-        padding: padding,
-        alignment: alignment,
-        width: MediaQuery.of(context).size.width,
-        child: Container(
-          decoration: BoxDecoration(
-            color: background ?? const Color(0xFF222222),
-            borderRadius: BorderRadius.circular(radius ?? 8),
-          ),
-          margin: const EdgeInsets.symmetric(horizontal: 20),
-          padding: const EdgeInsets.fromLTRB(18, 10, 18, 10),
-          child: RichText(
-            text: TextSpan(children: <InlineSpan>[
-              leadingSpan,
-              TextSpan(text: msg, style: textStyle),
-            ]),
-          ),
+        constraints:
+            constraints ?? const BoxConstraints(minWidth: widthInfinity),
+        decoration: BoxDecoration(
+          color: background ?? BegoColors.blueGray900,
+          borderRadius: BorderRadius.circular(radius ?? 8),
+        ),
+        margin: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            if (leading != null)
+              Padding(
+                  padding: const EdgeInsets.only(right: 8), child: leading!),
+            Expanded(
+              child: RichText(
+                textAlign: TextAlign.start,
+                text: TextSpan(children: <InlineSpan>[
+                  TextSpan(text: msg, style: textStyle),
+                ]),
+              ),
+            ),
+            if (trailing != null)
+              Padding(
+                  padding: const EdgeInsets.only(left: 8), child: trailing!),
+          ],
         ),
       ),
     );
