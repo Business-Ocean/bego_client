@@ -12,7 +12,7 @@ Widget displayBeBadgeUseCase(BuildContext context) {
             children: BeBadgePosition.values
                 .map(
                   (e) => Padding(
-                    padding: const EdgeInsets.all(50.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: BeBadge(
                       position: e,
                       rounded: true,

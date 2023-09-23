@@ -8,95 +8,96 @@
 // AppGenerator
 // **************************************************************************
 
-import 'package:uibook/widgets/buttons/button.dart';
-import 'package:uibook/widgets/colors/colors.dart';
-import 'package:uibook/widgets/dialog/backdropblur.dart';
-import 'package:uibook/widgets/elevation/elevations.dart';
-import 'package:uibook/widgets/icons/icons.dart';
-import 'package:uibook/widgets/notification/badge.dart';
-import 'package:uibook/widgets/notification/notification.dart';
-import 'package:uibook/widgets/texts/typography.dart';
-import 'package:widgetbook/widgetbook.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:uibook/widgets/buttons/button.dart' as _i5;
+import 'package:uibook/widgets/colors/colors.dart' as _i7;
+import 'package:uibook/widgets/dialog/backdropblur.dart' as _i3;
+import 'package:uibook/widgets/elevation/elevations.dart' as _i8;
+import 'package:uibook/widgets/icons/icons.dart' as _i2;
+import 'package:uibook/widgets/notification/badge.dart' as _i6;
+import 'package:uibook/widgets/notification/notification.dart' as _i4;
+import 'package:uibook/widgets/texts/typography.dart' as _i9;
+import 'package:widgetbook/widgetbook.dart' as _i1;
 
-final directories = <WidgetbookNode>[
-  WidgetbookFolder(
+final directories = <_i1.WidgetbookNode>[
+  _i1.WidgetbookFolder(
     name: 'icon',
     children: [
-      WidgetbookComponent(
+      _i1.WidgetbookComponent(
         name: 'BegoIcons',
         useCases: [
-          WidgetbookUseCase(
+          _i1.WidgetbookUseCase(
             name: 'Icons',
-            builder: (context) => displayIconsUseCase(context),
-          ),
+            builder: _i2.displayIconsUseCase,
+          )
         ],
-      ),
+      )
     ],
   ),
-  WidgetbookFolder(
-    name: 'widgets',
-    children: [
-      WidgetbookFolder(
-        name: 'notice',
-        children: [
-          WidgetbookComponent(
-            name: 'BeBadge',
-            useCases: [
-              WidgetbookUseCase(
-                name: 'BeBadge',
-                builder: (context) => displayBeBadgeUseCase(context),
-              ),
-            ],
-          ),
-        ],
-      ),
-      WidgetbookFolder(
-        name: 'text',
-        children: [
-          WidgetbookComponent(
-            name: 'BeText',
-            useCases: [
-              WidgetbookUseCase(
-                name: 'Elevation',
-                builder: (context) => displayElevationUseCase(context),
-              ),
-              WidgetbookUseCase(
-                name: 'Typography',
-                builder: (context) => displayTypographyUseCase(context),
-              ),
-              WidgetbookUseCase(
-                name: 'Colors & Utils',
-                builder: (context) => displayColorsUseCase(context),
-              ),
-            ],
-          ),
-        ],
-      ),
-    ],
-  ),
-  WidgetbookFolder(
+  _i1.WidgetbookFolder(
     name: 'material',
     children: [
-      WidgetbookComponent(
-        name: 'ElevatedButton',
+      _i1.WidgetbookComponent(
+        name: 'Dialog',
         useCases: [
-          WidgetbookUseCase(
-            name: 'Buttons',
-            builder: (context) => authButtonsDefaultUseCase(context),
+          _i1.WidgetbookUseCase(
+            name: 'Backdrop Blur',
+            builder: _i3.displayBackdropUseCase,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'Notification',
+            builder: _i4.displayNotificationUseCase,
           ),
         ],
       ),
-      WidgetbookComponent(
-        name: 'Dialog',
+      _i1.WidgetbookComponent(
+        name: 'ElevatedButton',
         useCases: [
-          WidgetbookUseCase(
-            name: 'Notification',
-            builder: (context) => displayNotificationUseCase(context),
-          ),
-          WidgetbookUseCase(
-            name: 'Backdrop Blur',
-            builder: (context) => displayBackdropUseCase(context),
-          ),
+          _i1.WidgetbookUseCase(
+            name: 'Buttons',
+            builder: _i5.authButtonsDefaultUseCase,
+          )
+        ],
+      ),
+    ],
+  ),
+  _i1.WidgetbookFolder(
+    name: 'widgets',
+    children: [
+      _i1.WidgetbookFolder(
+        name: 'notice',
+        children: [
+          _i1.WidgetbookComponent(
+            name: 'BeBadge',
+            useCases: [
+              _i1.WidgetbookUseCase(
+                name: 'BeBadge',
+                builder: _i6.displayBeBadgeUseCase,
+              )
+            ],
+          )
+        ],
+      ),
+      _i1.WidgetbookFolder(
+        name: 'text',
+        children: [
+          _i1.WidgetbookComponent(
+            name: 'BeText',
+            useCases: [
+              _i1.WidgetbookUseCase(
+                name: 'Colors & Utils',
+                builder: _i7.displayColorsUseCase,
+              ),
+              _i1.WidgetbookUseCase(
+                name: 'Elevation',
+                builder: _i8.displayElevationUseCase,
+              ),
+              _i1.WidgetbookUseCase(
+                name: 'Typography',
+                builder: _i9.displayTypographyUseCase,
+              ),
+            ],
+          )
         ],
       ),
     ],
