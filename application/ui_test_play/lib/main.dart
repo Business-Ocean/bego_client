@@ -7,6 +7,7 @@ import 'package:bego_ui/bego_responsive.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -513,6 +514,12 @@ class _MyHomePageState extends State<MyHomePage> {
               //       text: 'Magna elit sunt consequat mollit eiusmod.'),
               // ),
               // TextFormField(),
+
+              const Center(
+                  child: StaggeredDotsWave(
+                color: BegoColors.blue,
+                size: 50,
+              ))
             ],
           ),
         ),
