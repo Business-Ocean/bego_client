@@ -1,7 +1,8 @@
 name: bego_component
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: none
+publish_to: none
 
 environment:
   sdk: '>=3.0.3 <4.0.0'
@@ -10,7 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  bego_ui:
+    path: ../bego_ui
+    
 dev_dependencies:
   flutter_test:
     sdk: flutter

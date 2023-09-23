@@ -1,4 +1,4 @@
-import 'package:bego/widget/dialog/be_safe_dialog.dart';
+import 'package:bego_component/src/dialog/be_safe_dialog.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 

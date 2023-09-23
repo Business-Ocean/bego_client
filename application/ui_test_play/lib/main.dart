@@ -1,12 +1,13 @@
 // ignore_for_file: unused_import
 
 import 'package:bego/sample/crap.dart';
-import 'package:bego/widget/picker/be_number_form_field.dart';
+import 'package:bego_component/bego_component.dart';
 import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_responsive.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -117,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
               //           onPressed: () {}, child: const Text("Button"));
               //     },
               //     onTap: () {}),
-              // const BeTextExpand(
+              // const BeTextMore(
               //   maxLines: 2,
               //   text:
               //       'A text panel wiem expand and collapse functions, with more or collapse buttons in the lower right corner of the text',
@@ -513,6 +514,12 @@ class _MyHomePageState extends State<MyHomePage> {
               //       text: 'Magna elit sunt consequat mollit eiusmod.'),
               // ),
               // TextFormField(),
+
+              const Center(
+                  child: StaggeredDotsWave(
+                color: BegoColors.blue,
+                size: 50,
+              ))
             ],
           ),
         ),

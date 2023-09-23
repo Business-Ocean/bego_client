@@ -1,4 +1,4 @@
-import 'package:bego/widget/picker/_number_button.dart';
+import 'package:bego_component/src/picker/_number_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
