@@ -69,8 +69,8 @@
 
 import 'package:flutter/widgets.dart';
 
-class BegoIcons {
-  BegoIcons._();
+class BeIcons {
+  BeIcons._();
 
   static const _kFontFam = 'BegoIcons';
   static const String _kFontPkg = 'bego_ui';
