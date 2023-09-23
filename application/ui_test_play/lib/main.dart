@@ -1,7 +1,6 @@
 // ignore_for_file: unused_import
 
 import 'package:bego/sample/crap.dart';
-import 'package:bego_component/src/toast/be_toast.dart';
 import 'package:bego_component/bego_component.dart';
 import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_responsive.dart';
@@ -133,33 +132,33 @@ class _MyHomePageState extends State<MyHomePage> {
               // const BePageLoading(
               //   content: "I am longerI am longerI am longer loading",
               // ),
-              ElevatedButton(
-                onPressed: () {
-                  BeLoadingDialog.show(context, barrierDismissible: true)
-                      .then((value) {
-                    BeToast.show(context,
-                        'result: $value Est voluptate enim aliquip eiusmod ',
-                        leading: const Icon(BeIcons.at, color: Colors.amber),
-                        trailing: const Icon(
-                          BeIcons.ok_circle,
-                          color: Colors.amber,
-                        ),
-                        constraints: const BoxConstraints(maxWidth: 550));
-                  });
-                },
-                child: const Text('Popup BeLoadingDialog'),
-              ),
               // ElevatedButton(
-              //   key: popupKey,
               //   onPressed: () {
-              //     BePopupWindow.showPopWindow(
-              //       context,
-              //       'Hello',
-              //       popupKey,
-              //     );
+              //     BeLoadingDialog.show(context, barrierDismissible: true)
+              //         .then((value) {
+              //       BeToast.show(context,
+              //           'result: $value Est voluptate enim aliquip eiusmod ',
+              //           leading: const Icon(BeIcons.at, color: Colors.amber),
+              //           trailing: const Icon(
+              //             BeIcons.ok_circle,
+              //             color: Colors.amber,
+              //           ),
+              //           constraints: const BoxConstraints(maxWidth: 550));
+              //     });
               //   },
-              //   child: const Text('Show popup'),
+              //   child: const Text('Popup BeLoadingDialog'),
               // ),
+              ElevatedButton(
+                key: popupKey,
+                onPressed: () {
+                  BePopupWindow.showPopWindow(
+                    context,
+                    popupKey,
+                    'Hello',
+                  );
+                },
+                child: const Text('Show popup'),
+              ),
               // ElevatedButton(
               //   onPressed: () {
               //     BeToast.show(

@@ -82,7 +82,7 @@ class BePopupWindow extends StatefulWidget {
       this.widget,
       this.paddingInsets =
           const EdgeInsets.only(left: 18, top: 14, right: 18, bottom: 14),
-      this.borderRadius = 4,
+      this.borderRadius = 12,
       this.borderColor,
       this.canWrap = false,
       this.spaceMargin = 20,
@@ -109,12 +109,12 @@ class BePopupWindow extends StatefulWidget {
   ///[arrowOffset] The absolute offset of the arrow icon in the horizontal direction. If it is null, it will be automatically calculated.
   ///[dismissCallback] popUpWindow disappears callback, this callback will be executed after pop
   ///[turnOverFromBottom] When popWindow is less than this value, popWindow will automatically pop up on targetView. Default is 50
-  static void showPopWindow(context, String? text, GlobalKey popKey,
+  static void showPopWindow(context, GlobalKey popKey, String? text,
       {BePopupDirection popDirection = BePopupDirection.bottom,
       double arrowHeight = 6.0,
       TextStyle? textStyle =
           const TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)),
-      Color? backgroundColor = const Color(0xFF1A1A1A),
+      Color? backgroundColor = BegoColors.blueGray900,
       bool hasCloseIcon = false,
       double offset = 0,
       Widget? widget,
@@ -324,7 +324,7 @@ class _BePopupWindowState extends State<BePopupWindow> {
             padding: widget.paddingInsets,
             decoration: BoxDecoration(
                 color: _backgroundColor,
-                border: Border.all(color: _borderColor, width: 0.5),
+                // border: Border.all(color: _borderColor, width: 0.5),
                 borderRadius: BorderRadius.circular(widget.borderRadius)),
             constraints: BoxConstraints(
                 maxWidth: _expandedRight

@@ -4,6 +4,7 @@ export 'src/text/be_text_more.dart';
 export 'src/dialog/be_safe_dialog.dart';
 export 'src/picker/be_number_form_field.dart';
 export 'src/loading/be_loading.dart';
+export 'src/popup/be_popup_window.dart';
 export 'src/loading/staggered_dots_wave.dart';
 export 'src/toast/be_toast.dart';
 
