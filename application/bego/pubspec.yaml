@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   bego_ui:
     path: ../../packages/bego_ui
+  bego_component:
+    path: ../../packages/bego_component
 
   bego_core:
     path: ../../packages/bego_core

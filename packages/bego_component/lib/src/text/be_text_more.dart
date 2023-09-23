@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ typedef TextExpandedCallback = Function(bool);
 ///*[BeBubbleText], bubble background expand and collapse text component
 ///*[BeInsertInfo], the text component of the bubble background
 ///
-class BeTextExpand extends StatefulWidget {
+class BeTextMore extends StatefulWidget {
   ///displayed text
   final String text;
 
@@ -48,7 +49,7 @@ class BeTextExpand extends StatefulWidget {
   ///The initial color of the gradient color of more buttons is white by default.
   final Color? color;
 
-  const BeTextExpand({
+  const BeTextMore({
     super.key,
     required this.text,
     this.maxLines = 1000000,
@@ -58,10 +59,10 @@ class BeTextExpand extends StatefulWidget {
   });
 
   @override
-  _BeTextExpandState createState() => _BeTextExpandState();
+  _BeTextMoreState createState() => _BeTextMoreState();
 }
 
-class _BeTextExpandState extends State<BeTextExpand> {
+class _BeTextMoreState extends State<BeTextMore> {
   bool _expanded = false;
 
   @override
@@ -71,10 +72,11 @@ class _BeTextExpandState extends State<BeTextExpand> {
       builder: (context, size) {
         final span = TextSpan(text: widget.text, style: style);
         final tp = TextPainter(
-            text: span,
-            maxLines: widget.maxLines,
-            textDirection: TextDirection.ltr,
-            ellipsis: 'EllipseText');
+          text: span,
+          maxLines: widget.maxLines,
+          textDirection: TextDirection.ltr,
+          ellipsis: 'EllipseText',
+        );
         tp.layout(maxWidth: size.maxWidth);
         if (tp.didExceedMaxLines) {
           if (_expanded) {
@@ -112,8 +114,8 @@ class _BeTextExpandState extends State<BeTextExpand> {
     final textTheme = widget.textStyle ?? betheme.bestyle.bodyMedium;
 
     Text tx = Text(
-      ' more',
-      style: textTheme.copyWith(color: becolors.primary),
+      '...more',
+      style: textTheme.copyWith(color: BegoColors.blue, letterSpacing: 1),
     );
     Container cnt = Container(
       padding: const EdgeInsets.only(left: 22),
@@ -140,9 +142,18 @@ class _BeTextExpandState extends State<BeTextExpand> {
   }
 
   Widget _expandedText(context, String text) {
+    TextStyle style = _defaultTextStyle();
     return RichText(
         textScaleFactor: MediaQuery.of(context).textScaleFactor,
-        text: TextSpan(text: text, style: _defaultTextStyle(), children: [
+        text: TextSpan(text: text, style: style, children: [
+          const WidgetSpan(child: SizedBox(width: 5, height: 5)),
+          WidgetSpan(
+            child: Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Icon(Icons.keyboard_arrow_up,
+                  size: style.fontSize, color: BegoColors.amber),
+            ),
+          ),
           _foldButtonSpan(context),
         ]));
   }
@@ -156,17 +167,18 @@ class _BeTextExpandState extends State<BeTextExpand> {
     final textTheme = widget.textStyle ?? betheme.bestyle.bodyMedium;
 
     return TextSpan(
-        text: ' less',
-        style: textTheme.copyWith(color: becolors.primary),
-        recognizer: TapGestureRecognizer()
-          ..onTap = () {
-            setState(() {
-              _expanded = false;
-              if (null != widget.onExpanded) {
-                widget.onExpanded!(_expanded);
-              }
-            });
+      text: 'less',
+      style: textTheme.copyWith(color: BegoColors.amber, letterSpacing: 1),
+      recognizer: TapGestureRecognizer()
+        ..onTap = () {
+          setState(() {
+            _expanded = false;
+            if (null != widget.onExpanded) {
+              widget.onExpanded!(_expanded);
+            }
           });
+        },
+    );
   }
 
   Widget _regularText(text, style) {
