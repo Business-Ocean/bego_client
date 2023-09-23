@@ -1,6 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

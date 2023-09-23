@@ -18,6 +18,6 @@ final class BeResponsiveVisibility {
           Breakpoint.extraLarge => onVisible![Breakpoint.extraLarge],
         } ??
         true;
-    return isVisible ? child : zeroWidget;
+    return isVisible ? child : emptyWidget;
   }
 }

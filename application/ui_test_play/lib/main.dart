@@ -134,26 +134,31 @@ class _MyHomePageState extends State<MyHomePage> {
               // ),
               // ElevatedButton(
               //   onPressed: () {
-              //     BeLoadingDialog.show(
-              //       context,
-              //       barrierDismissible: true,
-              //     ).then((value) {
-              //       // BeToast.show('result: $value', context);
+              //     BeLoadingDialog.show(context, barrierDismissible: true)
+              //         .then((value) {
+              //       BeToast.show(context,
+              //           'result: $value Est voluptate enim aliquip eiusmod ',
+              //           leading: const Icon(BeIcons.at, color: Colors.amber),
+              //           trailing: const Icon(
+              //             BeIcons.ok_circle,
+              //             color: Colors.amber,
+              //           ),
+              //           constraints: const BoxConstraints(maxWidth: 550));
               //     });
               //   },
               //   child: const Text('Popup BeLoadingDialog'),
               // ),
-              // ElevatedButton(
-              //   key: popupKey,
-              //   onPressed: () {
-              //     BePopupWindow.showPopWindow(
-              //       context,
-              //       'Hello',
-              //       popupKey,
-              //     );
-              //   },
-              //   child: const Text('Show popup'),
-              // ),
+              ElevatedButton(
+                key: popupKey,
+                onPressed: () {
+                  BePopupWindow.showPopWindow(
+                    context,
+                    popupKey,
+                    'Hello',
+                  );
+                },
+                child: const Text('Show popup'),
+              ),
               // ElevatedButton(
               //   onPressed: () {
               //     BeToast.show(
@@ -515,11 +520,11 @@ class _MyHomePageState extends State<MyHomePage> {
               // ),
               // TextFormField(),
 
-              const Center(
-                  child: StaggeredDotsWave(
-                color: BegoColors.blue,
-                size: 50,
-              ))
+              // const Center(
+              //     child: StaggeredDotsWave(
+              //   color: BegoColors.blue,
+              //   size: 50,
+              // ))
             ],
           ),
         ),

@@ -29,82 +29,17 @@ import 'package:flutter/material.dart';
 ///*[BeLoadingDialog], loading dialog box.
 
 class BePageLoading extends StatelessWidget {
-  final String? content;
-  final BoxConstraints constraints;
-
   const BePageLoading({
     Key? key,
-    this.content,
-    this.constraints = const BoxConstraints(
-      minWidth: 130,
-      maxWidth: 130,
-      minHeight: 50,
-      maxHeight: 50,
-    ),
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double loadingMaxWidth = MediaQuery.of(context).size.width * 2 / 3;
-    double iconSize = 19.0;
-    double textLeftPadding = 8.0;
-    double outPadding = 10.0;
-    String loadingText = content ?? 'Please wait';
-    // Get actual text length
-    TextPainter textPainter = TextPainter(
-      textDirection: TextDirection.ltr,
-      textScaleFactor: MediaQuery.of(context).textScaleFactor,
-      text: TextSpan(
-          text: loadingText,
-          style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
-              decoration: TextDecoration.none)),
-    )..layout(
-        maxWidth: loadingMaxWidth - iconSize - textLeftPadding, minWidth: 0);
-    double maxWidth =
-        textPainter.width + iconSize + textLeftPadding + outPadding * 2;
-
-    return Center(
-      child: Container(
-        padding: EdgeInsets.all(outPadding),
-        constraints: BoxConstraints(
-            maxWidth: maxWidth, minWidth: iconSize + textLeftPadding),
-        height: 50,
-        width: loadingMaxWidth,
-        decoration: BoxDecoration(
-            color: BeTheme.of(context).becolors.primary,
-            borderRadius: BorderRadius.circular(5)),
-        child: Center(
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(
-                height: iconSize,
-                width: iconSize,
-                child: const CircularProgressIndicator(
-                  strokeWidth: 2.0,
-                  valueColor: AlwaysStoppedAnimation(Colors.white),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(left: textLeftPadding),
-                  child: Text(
-                    loadingText,
-                    maxLines: 1,
-                    style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                        decoration: TextDecoration.none),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-              ),
-            ],
-          ),
+    return const Center(
+      child: SizedBox.square(
+        dimension: 28,
+        child: CircularProgressIndicator(
+          strokeWidth: 3,
         ),
       ),
     );
@@ -117,14 +52,11 @@ class BeLoadingDialog extends Dialog {
   /// tag is used to mark types in BeSafeDialog
   static const String _loadingDialogTag = '_loadingDialogTag';
 
-  ///The prompt text when loading, the default is `Loading...`
-  final String? content;
-
-  const BeLoadingDialog({Key? key, this.content}) : super(key: key);
+  const BeLoadingDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BePageLoading(content: content ?? 'Please wait!');
+    return const BePageLoading();
   }
 
   ///Static method to display loading pop-up window.
@@ -146,7 +78,12 @@ class BeLoadingDialog extends Dialog {
         barrierDismissible: barrierDismissible,
         useRootNavigator: useRootNavigator,
         builder: (_) {
-          return BeTheme(child: BeLoadingDialog(content: content ?? 'Loading'));
+          return BeTheme(
+            child: BackdropFilter(
+              filter: BegoStyle.dialogBlur,
+              child: const BeLoadingDialog(),
+            ),
+          );
         });
   }
 

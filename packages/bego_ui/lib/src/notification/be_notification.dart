@@ -42,7 +42,7 @@ final class BeNotification extends BeInlineNotification {
 
   @override
   Widget buildLeading(BuildContext context) => icon == null
-      ? zeroWidget
+      ? emptyWidget
       : Container(
           margin: const EdgeInsets.only(top: 4),
           padding: const EdgeInsets.all(8),
