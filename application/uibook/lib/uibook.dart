@@ -33,7 +33,7 @@ class WidgetbookApp extends StatelessWidget {
             ),
             const WidgetbookTheme(
               name: 'Bego Dark',
-              data: BeThemeData.light(),
+              data: BeThemeData.dark(),
             ),
           ],
         ),
@@ -57,7 +57,7 @@ class WidgetbookApp extends StatelessWidget {
     return BeTheme(
       darkTheme: theme,
       lightTheme: theme,
-      themeMode: theme.isDark ? ThemeMode.dark : ThemeMode.light,
+      themeMode: ThemeMode.light,
       child: Theme(data: BeTheme.createTheme(theme), child: child),
     );
   }

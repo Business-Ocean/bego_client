@@ -15,6 +15,7 @@ TargetPlatform platform(BeThemeData betheme) {
   if (Platform.isLinux) return TargetPlatform.linux;
   if (Platform.isWindows) return TargetPlatform.windows;
   if (Platform.isFuchsia) return TargetPlatform.fuchsia;
+
   return TargetPlatform.android;
 }
 

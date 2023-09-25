@@ -34,10 +34,10 @@ ThemeData createBegoTheme(BeThemeData betheme) {
     fontFamily: 'ReadexPro',
     // primarySwatch: getPrimarySwatch(betheme),
     // colorSchemeSeed: BegoColors.pink,
+    // platform: platform(betheme), // throws exception for web
     colorScheme: betheme.becolors.colorScheme,
     fontFamilyFallback: const [],
     package: package,
-    platform: platform(betheme),
     useMaterial3: useMaterial3,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     canvasColor: betheme.isDark ? BegoColors.slate900 : BegoColors.pink50,
