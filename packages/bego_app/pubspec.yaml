@@ -1,4 +1,4 @@
-name: be_auth
+name: bego_app
 description: A new Flutter package project.
 version: 0.0.1
 homepage: none
@@ -11,11 +11,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  bego_ui:
+    path: ../bego_ui
+  bego_core:
+    path: ../bego_core
+  bego_component:
+    path: ../bego_component
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.3
+  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
