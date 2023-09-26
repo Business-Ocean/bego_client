@@ -1,8 +1,8 @@
 import 'package:bego_core/bego_get.dart';
 
 abstract class BePageController<S> extends GetxController {
-  BePageController(this._value);
-  S _value;
+  BePageController(this._state);
+  S _state;
   GetStatus<S>? _status;
 
   GetStatus<S> get status {
@@ -10,25 +10,25 @@ abstract class BePageController<S> extends GetxController {
     return _status ??= _status = GetStatus.loading();
   }
 
-  S get state => value;
+  S get viewState => state;
 
   set status(GetStatus<S> newStatus) {
     if (newStatus == status) return;
     _status = newStatus;
     if (newStatus is SuccessStatus<S>) {
-      _value = newStatus.data!;
+      _state = newStatus.data!;
     }
     refresh();
   }
 
-  S get value {
+  S get state {
     reportRead();
-    return _value;
+    return _state;
   }
 
-  set value(S newValue) {
-    if (_value == newValue) return;
-    _value = newValue;
+  set state(S newstate) {
+    if (_state == newstate) return;
+    _state = newstate;
     refresh();
   }
 
@@ -42,13 +42,13 @@ abstract class BePageController<S> extends GetxController {
       {S? initialData, String? errorMessage, bool useEmpty = true}) {
     final compute = body;
     if (initialData != null) {
-      _value ??= initialData;
+      _state ??= initialData;
     }
-    compute().then((newValue) {
-      if ((newValue == null) && useEmpty) {
+    compute().then((newstate) {
+      if ((newstate == null) && useEmpty) {
         status = GetStatus<S>.loading();
       } else {
-        status = GetStatus<S>.success(newValue);
+        status = GetStatus<S>.success(newstate);
       }
 
       refresh();

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 /// and It get Invoked by DataSource base on data response
 /// [showMessage] for handling information received while getting data from
 /// data source.
-abstract class ViewPage {
+abstract class IViewPage {
   void showLoading();
   void hideLoading();
   void showMessage(String title, String message,
