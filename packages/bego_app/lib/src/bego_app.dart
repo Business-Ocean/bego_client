@@ -5,10 +5,10 @@ import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class BegoApp extends StatefulWidget {
-  const BegoApp({
+class BegoApp extends StatelessWidget {
+  BegoApp({
     super.key,
-    required this.state,
+    required AppState state,
     this.navigatorKey,
     this.scaffoldMessengerKey,
     this.home,
@@ -23,9 +23,6 @@ class BegoApp extends StatefulWidget {
     this.textDirection,
     this.onGenerateTitle,
     this.color,
-    this.theme,
-    this.darkTheme,
-    this.themeMode = ThemeMode.system,
     this.locale,
     this.fallbackLocale,
     this.localizationsDelegates,
@@ -65,7 +62,8 @@ class BegoApp extends StatefulWidget {
         backButtonDispatcher = null,
         routeInformationParser = null,
         routerDelegate = null,
-        routerConfig = null;
+        routerConfig = null,
+        controller = Get.put(BegoAppController(state), permanent: true);
 
   final GlobalKey<NavigatorState>? navigatorKey;
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
@@ -78,9 +76,7 @@ class BegoApp extends StatefulWidget {
   final List<NavigatorObserver>? navigatorObservers;
   final TransitionBuilder? builder;
   final GenerateAppTitle? onGenerateTitle;
-  final ThemeData? theme;
-  final ThemeData? darkTheme;
-  final ThemeMode themeMode;
+
   final CustomTransition? customTransition;
   final Color? color;
   final Map<String, Map<String, String>>? translationsKeys;
@@ -124,88 +120,70 @@ class BegoApp extends StatefulWidget {
   final RouterConfig<Object>? routerConfig;
   final BackButtonDispatcher? backButtonDispatcher;
   final bool useInheritedMediaQuery;
-
-  final AppState state;
-
-  @override
-  State<BegoApp> createState() => BegoAppState();
-}
-
-class BegoAppState extends State<BegoApp> {
-  @override
-  void initState() {
-    super.initState();
-    Get.put(BegoAppController(widget.state), permanent: true);
-  }
+  // app state and controller
+  final BegoAppController controller;
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<BegoAppController>(
-      init: BegoAppController(widget.state),
+      // init: BegoAppController(state),
       builder: (controller) {
-        final themeMode = switch (controller.state.isDarkTheme) {
-          false => ThemeMode.light,
-          true => ThemeMode.dark,
-          _ => ThemeMode.system,
-        };
-        print("BegoApp called");
         return BeTheme(
-          themeMode: themeMode,
+          themeMode: controller.state.themeMode,
           child: GetMaterialApp(
-            navigatorKey: widget.navigatorKey,
-            scaffoldMessengerKey: widget.scaffoldMessengerKey,
-            home: widget.home,
-            routes: widget.routes ?? const <String, WidgetBuilder>{},
-            initialRoute: widget.initialRoute,
-            onGenerateRoute: widget.onGenerateRoute,
-            onGenerateInitialRoutes: widget.onGenerateInitialRoutes,
-            onUnknownRoute: widget.onUnknownRoute,
-            useInheritedMediaQuery: widget.useInheritedMediaQuery,
-            navigatorObservers:
-                widget.navigatorObservers ?? <NavigatorObserver>[],
-            builder: widget.builder,
-            textDirection: widget.textDirection,
+            navigatorKey: navigatorKey,
+            scaffoldMessengerKey: scaffoldMessengerKey,
+            home: home,
+            routes: routes ?? const <String, WidgetBuilder>{},
+            initialRoute: initialRoute,
+            onGenerateRoute: onGenerateRoute,
+            onGenerateInitialRoutes: onGenerateInitialRoutes,
+            onUnknownRoute: onUnknownRoute,
+            useInheritedMediaQuery: useInheritedMediaQuery,
+            navigatorObservers: navigatorObservers ?? <NavigatorObserver>[],
+            builder: builder,
+            textDirection: textDirection,
             title: controller.state.appName,
-            onGenerateTitle: widget.onGenerateTitle,
-            color: widget.color,
+            onGenerateTitle: onGenerateTitle,
+            color: color,
             theme: BeTheme.createTheme(const BeThemeData.light()),
             darkTheme: BeTheme.createTheme(const BeThemeData.dark()),
-            themeMode: themeMode,
-            locale: widget.locale,
-            fallbackLocale: widget.fallbackLocale,
-            localizationsDelegates: widget.localizationsDelegates,
-            localeListResolutionCallback: widget.localeListResolutionCallback,
-            localeResolutionCallback: widget.localeResolutionCallback,
-            supportedLocales: widget.supportedLocales,
-            debugShowMaterialGrid: widget.debugShowMaterialGrid,
-            showPerformanceOverlay: widget.showPerformanceOverlay,
-            checkerboardRasterCacheImages: widget.checkerboardRasterCacheImages,
-            checkerboardOffscreenLayers: widget.checkerboardOffscreenLayers,
-            showSemanticsDebugger: widget.showSemanticsDebugger,
-            debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
-            shortcuts: widget.shortcuts,
-            scrollBehavior: widget.scrollBehavior,
-            customTransition: widget.customTransition,
-            translationsKeys: widget.translationsKeys,
-            translations: widget.translations,
-            onInit: widget.onInit,
-            onReady: widget.onReady,
-            onDispose: widget.onDispose,
-            routingCallback: widget.routingCallback,
-            defaultTransition: widget.defaultTransition,
-            getPages: widget.getPages,
-            opaqueRoute: widget.opaqueRoute,
-            enableLog: widget.enableLog ?? kDebugMode,
-            logWriterCallback: widget.logWriterCallback,
-            popGesture: widget.popGesture,
-            transitionDuration: widget.transitionDuration,
-            defaultGlobalState: widget.defaultGlobalState,
-            smartManagement: widget.smartManagement,
-            binds: widget.binds,
-            unknownRoute: widget.unknownRoute,
-            highContrastTheme: widget.highContrastTheme,
-            highContrastDarkTheme: widget.highContrastDarkTheme,
-            actions: widget.actions,
+            themeMode: controller.state.themeMode,
+            locale: locale,
+            fallbackLocale: fallbackLocale,
+            localizationsDelegates: localizationsDelegates,
+            localeListResolutionCallback: localeListResolutionCallback,
+            localeResolutionCallback: localeResolutionCallback,
+            supportedLocales: supportedLocales,
+            debugShowMaterialGrid: debugShowMaterialGrid,
+            showPerformanceOverlay: showPerformanceOverlay,
+            checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+            checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+            showSemanticsDebugger: showSemanticsDebugger,
+            debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+            shortcuts: shortcuts,
+            scrollBehavior: scrollBehavior,
+            customTransition: customTransition,
+            translationsKeys: translationsKeys,
+            translations: translations,
+            onInit: onInit,
+            onReady: onReady,
+            onDispose: onDispose,
+            routingCallback: routingCallback,
+            defaultTransition: defaultTransition,
+            getPages: getPages,
+            opaqueRoute: opaqueRoute,
+            enableLog: enableLog ?? kDebugMode,
+            logWriterCallback: logWriterCallback,
+            popGesture: popGesture,
+            transitionDuration: transitionDuration,
+            defaultGlobalState: defaultGlobalState,
+            smartManagement: smartManagement,
+            binds: binds,
+            unknownRoute: unknownRoute,
+            highContrastTheme: highContrastTheme,
+            highContrastDarkTheme: highContrastDarkTheme,
+            actions: actions,
           ),
         );
       },

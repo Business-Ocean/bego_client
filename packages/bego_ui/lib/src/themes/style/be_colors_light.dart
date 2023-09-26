@@ -24,9 +24,9 @@ class BeColorsLight implements BeColors {
   Color get secandory => BegoColors.darkSpringGreen;
 
   @override
-  Color get darkInverse => isDark ? BegoColors.white : BegoColors.slate900;
+  Color get darkInverse => BegoColors.slate900;
   @override
-  Color get lightInverse => isDark ? BegoColors.black : BegoColors.white;
+  Color get lightInverse => BegoColors.white;
   @override
   Color get transparent => BegoColors.transparent;
   @override

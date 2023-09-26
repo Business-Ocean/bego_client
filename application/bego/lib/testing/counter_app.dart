@@ -26,13 +26,18 @@ class MyHomePage extends StatelessWidget {
                 '${controller.count.value}',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-            )
+            ),
+            Container(
+                height: 200,
+                width: 200,
+                color: BeTheme.of(context).becolors.lightInverse)
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton.small(
         onPressed: () {
-          Get.changeTheme(BeTheme.createTheme(const BeThemeData.light()));
+          // Get.changeTheme(BeTheme.createTheme(const BeThemeData.dark()));
+          Get.find<BegoAppController>().toggleTheme();
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),

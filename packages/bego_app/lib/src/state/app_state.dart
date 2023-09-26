@@ -1,4 +1,5 @@
 // This file is "main.dart"
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
@@ -14,6 +15,6 @@ class AppState with _$AppState {
     required String appName,
     required String packageName,
     required String version,
-    bool? isDarkTheme,
+    @Default(ThemeMode.system) ThemeMode themeMode,
   }) = _AppState;
 }

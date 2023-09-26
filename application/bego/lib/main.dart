@@ -8,7 +8,6 @@ void main() {
       appName: 'Bego',
       packageName: 'com.businessocean.bego',
       version: '0.0.1',
-      isDarkTheme: false,
     ),
     home: MyHomePage(title: "Flutter GetX Tutorial"),
   ));

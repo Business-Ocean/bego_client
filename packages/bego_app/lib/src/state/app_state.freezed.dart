@@ -19,7 +19,7 @@ mixin _$AppState {
   String get appName => throw _privateConstructorUsedError;
   String get packageName => throw _privateConstructorUsedError;
   String get version => throw _privateConstructorUsedError;
-  bool? get isDarkTheme => throw _privateConstructorUsedError;
+  ThemeMode get themeMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -32,7 +32,10 @@ abstract class $AppStateCopyWith<$Res> {
       _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
   $Res call(
-      {String appName, String packageName, String version, bool? isDarkTheme});
+      {String appName,
+      String packageName,
+      String version,
+      ThemeMode themeMode});
 }
 
 /// @nodoc
@@ -51,7 +54,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
     Object? appName = null,
     Object? packageName = null,
     Object? version = null,
-    Object? isDarkTheme = freezed,
+    Object? themeMode = null,
   }) {
     return _then(_value.copyWith(
       appName: null == appName
@@ -66,10 +69,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as String,
-      isDarkTheme: freezed == isDarkTheme
-          ? _value.isDarkTheme
-          : isDarkTheme // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      themeMode: null == themeMode
+          ? _value.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as ThemeMode,
     ) as $Val);
   }
 }
@@ -82,7 +85,10 @@ abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String appName, String packageName, String version, bool? isDarkTheme});
+      {String appName,
+      String packageName,
+      String version,
+      ThemeMode themeMode});
 }
 
 /// @nodoc
@@ -99,7 +105,7 @@ class __$$_AppStateCopyWithImpl<$Res>
     Object? appName = null,
     Object? packageName = null,
     Object? version = null,
-    Object? isDarkTheme = freezed,
+    Object? themeMode = null,
   }) {
     return _then(_$_AppState(
       appName: null == appName
@@ -114,22 +120,22 @@ class __$$_AppStateCopyWithImpl<$Res>
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as String,
-      isDarkTheme: freezed == isDarkTheme
-          ? _value.isDarkTheme
-          : isDarkTheme // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      themeMode: null == themeMode
+          ? _value.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as ThemeMode,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_AppState with DiagnosticableTreeMixin implements _AppState {
+class _$_AppState implements _AppState {
   const _$_AppState(
       {required this.appName,
       required this.packageName,
       required this.version,
-      this.isDarkTheme});
+      this.themeMode = ThemeMode.system});
 
   @override
   final String appName;
@@ -138,22 +144,12 @@ class _$_AppState with DiagnosticableTreeMixin implements _AppState {
   @override
   final String version;
   @override
-  final bool? isDarkTheme;
+  @JsonKey()
+  final ThemeMode themeMode;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppState(appName: $appName, packageName: $packageName, version: $version, isDarkTheme: $isDarkTheme)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppState'))
-      ..add(DiagnosticsProperty('appName', appName))
-      ..add(DiagnosticsProperty('packageName', packageName))
-      ..add(DiagnosticsProperty('version', version))
-      ..add(DiagnosticsProperty('isDarkTheme', isDarkTheme));
+  String toString() {
+    return 'AppState(appName: $appName, packageName: $packageName, version: $version, themeMode: $themeMode)';
   }
 
   @override
@@ -165,13 +161,13 @@ class _$_AppState with DiagnosticableTreeMixin implements _AppState {
             (identical(other.packageName, packageName) ||
                 other.packageName == packageName) &&
             (identical(other.version, version) || other.version == version) &&
-            (identical(other.isDarkTheme, isDarkTheme) ||
-                other.isDarkTheme == isDarkTheme));
+            (identical(other.themeMode, themeMode) ||
+                other.themeMode == themeMode));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, appName, packageName, version, isDarkTheme);
+      Object.hash(runtimeType, appName, packageName, version, themeMode);
 
   @JsonKey(ignore: true)
   @override
@@ -185,7 +181,7 @@ abstract class _AppState implements AppState {
       {required final String appName,
       required final String packageName,
       required final String version,
-      final bool? isDarkTheme}) = _$_AppState;
+      final ThemeMode themeMode}) = _$_AppState;
 
   @override
   String get appName;
@@ -194,7 +190,7 @@ abstract class _AppState implements AppState {
   @override
   String get version;
   @override
-  bool? get isDarkTheme;
+  ThemeMode get themeMode;
   @override
   @JsonKey(ignore: true)
   _$$_AppStateCopyWith<_$_AppState> get copyWith =>
