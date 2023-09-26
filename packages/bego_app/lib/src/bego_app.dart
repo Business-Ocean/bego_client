@@ -130,8 +130,7 @@ class BegoApp extends StatelessWidget {
     );
     return GetBuilder<BegoAppController>(
       // init: BegoAppController(state),
-      builder: (controller) {
-        return BeTheme(
+      builder: (controller) => BeTheme(
           themeMode: controller.state.themeMode,
           child: GetMaterialApp(
             title: controller.state.appName,
@@ -188,8 +187,7 @@ class BegoApp extends StatelessWidget {
             highContrastDarkTheme: highContrastDarkTheme,
             actions: actions,
           ),
-        );
-      },
+        ),
     );
   }
 

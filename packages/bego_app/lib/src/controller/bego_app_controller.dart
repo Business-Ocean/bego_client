@@ -7,7 +7,7 @@ class BegoAppController extends BePageController<AppState> {
   BegoAppController(super.value);
 
   void toggleTheme() {
-    bool isDark = state.themeMode == ThemeMode.dark;
+    final isDark = state.themeMode == ThemeMode.dark;
     final newState =
         state.copyWith(themeMode: !isDark ? ThemeMode.dark : ThemeMode.light);
     state = newState;

@@ -39,7 +39,7 @@ abstract class BePageController<S> extends GetxController {
   }
 
   void futurize(Future<S> Function() body,
-      {S? initialData, String? errorMessage, bool useEmpty = true}) {
+      {S? initialData, String? errorMessage, bool useEmpty = true,}) {
     final compute = body;
     if (initialData != null) {
       _state ??= initialData;
@@ -55,6 +55,6 @@ abstract class BePageController<S> extends GetxController {
     }, onError: (err) {
       status = GetStatus.error(errorMessage ?? err.toString());
       refresh();
-    });
+    },);
   }
 }

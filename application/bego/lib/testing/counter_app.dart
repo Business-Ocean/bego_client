@@ -4,12 +4,11 @@ import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
+  MyHomePage({super.key, required this.title});
   final String title;
   final MyHomePageController controller = Get.put(MyHomePageController());
-  MyHomePage({super.key, required this.title});
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
@@ -20,7 +19,7 @@ class MyHomePage extends StatelessWidget {
             const Text(
               'You have Incremented counter value to :',
             ),
-            ElevatedButton(onPressed: () {}, child: const Text("Hello")),
+            ElevatedButton(onPressed: () {}, child: const Text('Hello')),
             Obx(
               () => Text(
                 '${controller.count.value}',
@@ -30,7 +29,7 @@ class MyHomePage extends StatelessWidget {
             Container(
                 height: 200,
                 width: 200,
-                color: BeTheme.of(context).becolors.lightInverse)
+                color: BeTheme.of(context).becolors.lightInverse,),
           ],
         ),
       ),
@@ -43,10 +42,9 @@ class MyHomePage extends StatelessWidget {
         child: const Icon(Icons.add),
       ),
     );
-  }
 }
 
 class MyHomePageController extends GetxController {
   final count = 0.obs;
-  increment() => count.value++;
+  int increment() => count.value++;
 }

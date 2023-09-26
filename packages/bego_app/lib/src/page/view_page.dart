@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 /// component which required different state of the widget
 /// @override different state of the [Widget] base on the [ViewState<S>] type
 /// V is the BaseController which is responsible
-/// for [BaseController.updateViewState]
-/// [BaseController.updateState]
-/// based on  [BaseController.viewState] different view state get rendered.
+/// for [BePageController.state]
+/// [BePageController.state]
+/// based on  [BePageController.viewState] different view state get rendered.
 abstract class ViewPage<S, V extends BePageController<S>> extends GetView<V>
     implements IViewPage {
   const ViewPage({super.key});
@@ -18,15 +18,20 @@ abstract class ViewPage<S, V extends BePageController<S>> extends GetView<V>
   void hideLoading() {}
 
   @override
-  void showInfoDialog(Map<String, String> data,
-      {MessageStyle style = MessageStyle.success}) {}
+  void showInfoDialog(
+    Map<String, String> data, {
+    MessageStyle style = MessageStyle.success,
+  }) {}
 
   @override
   void showLoading() {}
 
   @override
-  void showMessage(String title, String message,
-      {MessageStyle style = MessageStyle.success}) {}
+  void showMessage(
+    String title,
+    String message, {
+    MessageStyle style = MessageStyle.success,
+  }) {}
 }
 
 // extension FindViewState<S, V extends BaseController<S>> on BasePage<S, V> {
