@@ -1,6 +1,6 @@
 // ignore_for_file: unused_import
 
-import 'package:bego/sample/crap.dart';
+import 'package:ui_test_play/sample/crap.dart';
 import 'package:bego_component/bego_component.dart';
 import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_responsive.dart';

@@ -125,13 +125,18 @@ class BegoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    controller.state = controller.state.copyWith(
+      themeMode: _getThemeMode(context),
+    );
     return GetBuilder<BegoAppController>(
       // init: BegoAppController(state),
       builder: (controller) {
         return BeTheme(
           themeMode: controller.state.themeMode,
           child: GetMaterialApp(
+            title: controller.state.appName,
             navigatorKey: navigatorKey,
+            themeMode: controller.state.themeMode,
             scaffoldMessengerKey: scaffoldMessengerKey,
             home: home,
             routes: routes ?? const <String, WidgetBuilder>{},
@@ -143,12 +148,10 @@ class BegoApp extends StatelessWidget {
             navigatorObservers: navigatorObservers ?? <NavigatorObserver>[],
             builder: builder,
             textDirection: textDirection,
-            title: controller.state.appName,
             onGenerateTitle: onGenerateTitle,
             color: color,
             theme: BeTheme.createTheme(const BeThemeData.light()),
             darkTheme: BeTheme.createTheme(const BeThemeData.dark()),
-            themeMode: controller.state.themeMode,
             locale: locale,
             fallbackLocale: fallbackLocale,
             localizationsDelegates: localizationsDelegates,
@@ -188,5 +191,13 @@ class BegoApp extends StatelessWidget {
         );
       },
     );
+  }
+
+  ThemeMode _getThemeMode(BuildContext context) {
+    final brightness = MediaQuery.platformBrightnessOf(context);
+    final isDark = controller.state.themeMode == ThemeMode.dark ||
+        (controller.state.themeMode == ThemeMode.system &&
+            brightness == Brightness.dark);
+    return !isDark ? ThemeMode.dark : ThemeMode.light;
   }
 }

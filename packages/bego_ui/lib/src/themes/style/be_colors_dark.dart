@@ -27,7 +27,7 @@ class BeColorsDark implements BeColors {
   @override
   Color get darkInverse => BegoColors.slate900;
   @override
-  Color get lightInverse => BegoColors.white;
+  Color get lightInverse => BegoColors.blue100;
   @override
   Color get transparent => BegoColors.transparent;
 
