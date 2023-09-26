@@ -35,16 +35,16 @@ class BeColorsDark implements BeColors {
   Color get overlayOutline => BegoColors.gray200;
 
   @override
-  Color get formInputBackground => BegoColors.blue50;
+  Color get formInputBackground => BegoColors.slate500;
 
   @override
-  Color get icon => BegoColors.blue50;
+  Color get icon => BegoColors.white;
 
   @override
   Color get error => BegoColors.red700;
 // -----------------------------------------------------
   @override
-  Color get card => BegoColors.white;
+  Color get card => BegoColors.slate800;
 
   @override
   Color get dialogBackground => BegoColors.black200;
@@ -77,7 +77,7 @@ class BeColorsDark implements BeColors {
   Color get primaryColorLight => BegoColors.slate600;
 
   @override
-  Color get scaffoldBackground => BegoColors.white;
+  Color get scaffoldBackground => BegoColors.slate800;
 
   @override
   Color get secondaryHeader => BegoColors.slate600;
