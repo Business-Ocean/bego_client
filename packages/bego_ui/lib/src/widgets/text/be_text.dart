@@ -213,7 +213,7 @@ class BeText extends StatelessWidget {
   Widget build(BuildContext context) {
     final textInset = padding ?? BeTheme.ofInsets(context).textInset;
     final textColor = color ?? variant?.textColor;
-    return text == null && text!.isEmpty
+    return text == null || text!.isEmpty
         ? emptyWidget
         : BeTextResponsive(
             resolveStyle: (breakPoint) =>

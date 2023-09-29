@@ -17,6 +17,9 @@ class BegoColors {
   static const outerSpace = Color(0xFF3C4746);
   static const darkGreen = Color(0xFF0F3428);
 
+  //  backgorund
+  static const backgrounLight = Color(0xFFFAF9F6);
+
   static const primary = Color(0xFF6BC6A5);
   static const secondary = Color(0xFFF3954F);
   static const tertiary = Color(0xFF0A5688);

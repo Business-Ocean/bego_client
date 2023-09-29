@@ -223,3 +223,16 @@ MaterialStateProperty<double?> elevationInteraction() =>
       }
       return 0;
     });
+
+MaterialStateTextStyle inputLabelStyle(BeThemeData betheme) =>
+    MaterialStateTextStyle.resolveWith((states) {
+      if (states.contains(MaterialState.error)) {
+        return betheme.bestyle.bodyMedium
+            .copyWith(color: betheme.becolors.error);
+      }
+      if (states.contains(MaterialState.disabled)) {
+        return betheme.bestyle.bodyMedium
+            .copyWith(color: betheme.becolors.disabled);
+      }
+      return betheme.bestyle.bodyMedium;
+    });

@@ -1,5 +1,6 @@
 import 'package:bego_ui/bego_widgets.dart';
 import 'package:bego_ui/src/helper/theme_getter.dart';
+import 'package:bego_ui/src/notification/be_inline_notification.dart';
 import 'package:flutter/material.dart';
 
 final class BeNotification extends BeInlineNotification {
