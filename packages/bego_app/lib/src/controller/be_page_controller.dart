@@ -1,22 +1,23 @@
+import 'package:bego_app/src/state/be_data.dart';
 import 'package:bego_core/bego_get.dart';
 
 abstract class BePageController<S> extends GetxController {
   BePageController(this._state);
   S _state;
-  GetStatus<S>? _status;
+  BeData<S>? _status;
 
-  GetStatus<S> get status {
+  BeData<S> get status {
     reportRead();
-    return _status ??= _status = GetStatus.loading();
+    return _status ??= _status = const BeData.loading();
   }
 
   S get viewState => state;
 
-  set status(GetStatus<S> newStatus) {
+  set status(BeData<S> newStatus) {
     if (newStatus == status) return;
     _status = newStatus;
-    if (newStatus is SuccessStatus<S>) {
-      _state = newStatus.data!;
+    if (newStatus is BeSuccess<S>) {
+      _state = newStatus.data;
     }
     refresh();
   }
@@ -32,7 +33,7 @@ abstract class BePageController<S> extends GetxController {
     refresh();
   }
 
-  void change(GetStatus<S> status) {
+  void change(BeData<S> status) {
     if (status != this.status) {
       this.status = status;
     }
@@ -51,15 +52,14 @@ abstract class BePageController<S> extends GetxController {
     compute().then(
       (newstate) {
         if ((newstate == null) && useEmpty) {
-          status = GetStatus<S>.loading();
+          status = BeData<S>.loading();
         } else {
-          status = GetStatus<S>.success(newstate);
+          status = BeData<S>.success(newstate);
         }
-
         refresh();
       },
       onError: (dynamic err) {
-        status = GetStatus.error(errorMessage ?? err.toString());
+        status = BeError(err as S);
         refresh();
       },
     );

@@ -1,3 +1,5 @@
+// ignore_for_file: comment_references
+
 import 'package:flutter/material.dart';
 
 /// Determines which type of shared axis transition is used.
