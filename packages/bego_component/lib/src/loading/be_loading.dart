@@ -92,6 +92,9 @@ class BeLoadingDialog extends Dialog {
   ///*[context] Context.
   static void dismiss<T extends Object?>(BuildContext context, [T? result]) {
     BeSafeDialog.dismiss<T>(
-        context: context, tag: _loadingDialogTag, result: result);
+      context: context,
+      tag: _loadingDialogTag,
+      result: result,
+    );
   }
 }

@@ -109,11 +109,11 @@ class BegoApp extends StatelessWidget {
   final LogWriterCallback? logWriterCallback;
   final bool? popGesture;
   final SmartManagement smartManagement;
-  final List<Bind> binds;
+  final List<Bind<dynamic>> binds;
   final Duration? transitionDuration;
   final bool? defaultGlobalState;
-  final List<GetPage>? getPages;
-  final GetPage? unknownRoute;
+  final List<GetPage<dynamic>>? getPages;
+  final GetPage<dynamic>? unknownRoute;
   final RouteInformationProvider? routeInformationProvider;
   final RouteInformationParser<Object>? routeInformationParser;
   final RouterDelegate<Object>? routerDelegate;
@@ -126,76 +126,76 @@ class BegoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     controller.state = controller.state.copyWith(
-      themeMode: _getThemeMode(context),
+      themeMode: ThemeMode.light, //_getThemeMode(context),
     );
     return GetBuilder<BegoAppController>(
-      // init: BegoAppController(state),
       builder: (controller) => BeTheme(
+        themeMode: controller.state.themeMode,
+        child: GetMaterialApp(
+          title: controller.state.appName,
+          navigatorKey: navigatorKey,
           themeMode: controller.state.themeMode,
-          child: GetMaterialApp(
-            title: controller.state.appName,
-            navigatorKey: navigatorKey,
-            themeMode: controller.state.themeMode,
-            scaffoldMessengerKey: scaffoldMessengerKey,
-            home: home,
-            routes: routes ?? const <String, WidgetBuilder>{},
-            initialRoute: initialRoute,
-            onGenerateRoute: onGenerateRoute,
-            onGenerateInitialRoutes: onGenerateInitialRoutes,
-            onUnknownRoute: onUnknownRoute,
-            useInheritedMediaQuery: useInheritedMediaQuery,
-            navigatorObservers: navigatorObservers ?? <NavigatorObserver>[],
-            builder: builder,
-            textDirection: textDirection,
-            onGenerateTitle: onGenerateTitle,
-            color: color,
-            theme: BeTheme.createTheme(const BeThemeData.light()),
-            darkTheme: BeTheme.createTheme(const BeThemeData.dark()),
-            locale: locale,
-            fallbackLocale: fallbackLocale,
-            localizationsDelegates: localizationsDelegates,
-            localeListResolutionCallback: localeListResolutionCallback,
-            localeResolutionCallback: localeResolutionCallback,
-            supportedLocales: supportedLocales,
-            debugShowMaterialGrid: debugShowMaterialGrid,
-            showPerformanceOverlay: showPerformanceOverlay,
-            checkerboardRasterCacheImages: checkerboardRasterCacheImages,
-            checkerboardOffscreenLayers: checkerboardOffscreenLayers,
-            showSemanticsDebugger: showSemanticsDebugger,
-            debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-            shortcuts: shortcuts,
-            scrollBehavior: scrollBehavior,
-            customTransition: customTransition,
-            translationsKeys: translationsKeys,
-            translations: translations,
-            onInit: onInit,
-            onReady: onReady,
-            onDispose: onDispose,
-            routingCallback: routingCallback,
-            defaultTransition: defaultTransition,
-            getPages: getPages,
-            opaqueRoute: opaqueRoute,
-            enableLog: enableLog ?? kDebugMode,
-            logWriterCallback: logWriterCallback,
-            popGesture: popGesture,
-            transitionDuration: transitionDuration,
-            defaultGlobalState: defaultGlobalState,
-            smartManagement: smartManagement,
-            binds: binds,
-            unknownRoute: unknownRoute,
-            highContrastTheme: highContrastTheme,
-            highContrastDarkTheme: highContrastDarkTheme,
-            actions: actions,
-          ),
+          scaffoldMessengerKey: scaffoldMessengerKey,
+          home: home,
+          routes: routes ?? const <String, WidgetBuilder>{},
+          initialRoute: initialRoute,
+          onGenerateRoute: onGenerateRoute,
+          onGenerateInitialRoutes: onGenerateInitialRoutes,
+          onUnknownRoute: onUnknownRoute,
+          useInheritedMediaQuery: useInheritedMediaQuery,
+          navigatorObservers: navigatorObservers ?? <NavigatorObserver>[],
+          builder: builder,
+          textDirection: textDirection,
+          onGenerateTitle: onGenerateTitle,
+          color: color,
+          theme: BeTheme.createTheme(const BeThemeData.light()),
+          darkTheme: BeTheme.createTheme(const BeThemeData.dark()),
+          locale: locale,
+          fallbackLocale: fallbackLocale,
+          localizationsDelegates: localizationsDelegates,
+          localeListResolutionCallback: localeListResolutionCallback,
+          localeResolutionCallback: localeResolutionCallback,
+          supportedLocales: supportedLocales,
+          debugShowMaterialGrid: debugShowMaterialGrid,
+          showPerformanceOverlay: showPerformanceOverlay,
+          checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+          checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+          showSemanticsDebugger: showSemanticsDebugger,
+          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+          shortcuts: shortcuts,
+          scrollBehavior: scrollBehavior,
+          customTransition: customTransition,
+          translationsKeys: translationsKeys,
+          translations: translations,
+          onInit: onInit,
+          onReady: onReady,
+          onDispose: onDispose,
+          routingCallback: routingCallback,
+          defaultTransition: defaultTransition ?? Transition.rightToLeft,
+          getPages: getPages,
+          opaqueRoute: opaqueRoute,
+          enableLog: enableLog ?? kDebugMode,
+          logWriterCallback: logWriterCallback,
+          popGesture: popGesture,
+          transitionDuration:
+              transitionDuration ?? const Duration(milliseconds: 200),
+          defaultGlobalState: defaultGlobalState,
+          smartManagement: smartManagement,
+          binds: binds,
+          unknownRoute: unknownRoute,
+          highContrastTheme: highContrastTheme,
+          highContrastDarkTheme: highContrastDarkTheme,
+          actions: actions,
         ),
+      ),
     );
   }
 
-  ThemeMode _getThemeMode(BuildContext context) {
-    final brightness = MediaQuery.platformBrightnessOf(context);
-    final isDark = controller.state.themeMode == ThemeMode.dark ||
-        (controller.state.themeMode == ThemeMode.system &&
-            brightness == Brightness.dark);
-    return !isDark ? ThemeMode.dark : ThemeMode.light;
-  }
+  // ThemeMode _getThemeMode(BuildContext context) {
+  //   final brightness = MediaQuery.platformBrightnessOf(context);
+  //   final isDark = controller.state.themeMode == ThemeMode.dark ||
+  //       (controller.state.themeMode == ThemeMode.system &&
+  //           brightness == Brightness.dark);
+  //   return !isDark ? ThemeMode.dark : ThemeMode.light;
+  // }
 }

@@ -28,32 +28,47 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  flutter:
-    sdk: flutter
-
-  bego_ui:
-    path: ../../packages/bego_ui
-
-  bego_core:
-    path: ../../packages/bego_core
 
   be_auth:
     path: ../../features/be_auth
 
+
   bego_app:
     path: ../../packages/bego_app 
 
+
+  bego_component:
+    path: ../../packages/bego_component
+
+  bego_core:
+    path: ../../packages/bego_core
+
+
   bego_network:
-    path: ../../packages/bego_network    
+    path: ../../packages/bego_network
+
+
+  bego_ui:
+    path: ../../packages/bego_ui
+      
     
-  hive_flutter: ^1.1.0
+  
+
+  flutter:
+    sdk: flutter
+  
+  # flutter_gen: ^5.3.2
+  flutter_svg: ^2.0.7
   freezed_annotation: ^2.4.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   # cupertino_icons: ^1.0.2
-
+  hive_flutter: ^2.0.0-dev # TODO: check for latest version of hive at the time of implementation
+  url_launcher: ^6.1.14
 dev_dependencies:
-  freezed: ^2.4.2
+  build_runner: ^2.4.6
+  flutter_gen_runner: ^5.3.2
+  flutter_lints: ^2.0.3
   flutter_test:
     sdk: flutter
 
@@ -62,12 +77,23 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.3
-  build_runner: ^2.4.6
+  freezed: ^2.4.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
+flutter_gen:
+  output: lib/generated/
+  line_length: 80
+  integrations:
+    flutter_svg: true
+    flare_flutter: false
+    rive: false
+    lottie: false
+  assets:
+    enabled: true
+    outputs:
+      # package_parameter_enabled: true
+      class_name: AppAssets    
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -77,9 +103,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/image/
+    - assets/logo/
+    - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -4,6 +4,9 @@ import 'package:bego_core/bego_get.dart';
 
 class HomeBinding extends Binding {
   @override
-  List<Bind<dynamic>> dependencies() =>
-      [Bind.put(HomeController(HomeState.initial()))];
+  List<Bind<dynamic>> dependencies() => [
+        Bind.put(
+          HomeController(HomeState.initial()),
+        ),
+      ];
 }

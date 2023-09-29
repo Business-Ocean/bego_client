@@ -2,8 +2,8 @@ import 'dart:io' show Platform;
 
 import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_ui.dart';
+import 'package:bego_ui/src/animations/be_shared_axis_transition.dart';
 import 'package:bego_ui/src/themes/style/material_state_property.dart';
-import 'package:bego_ui/src/ui_const/bego_edge_insets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -78,12 +78,15 @@ SliderThemeData sliderTheme(BeThemeData betheme) => SliderThemeData(
 
 PageTransitionsTheme pageTransitionsTheme(BeThemeData betheme) =>
     const PageTransitionsTheme(
-        // builders: Map<TargetPlatform, PageTransitionsBuilder>.fromIterable(
-        //   TargetPlatform.values,
-        //   value: (dynamic _) => const FadeUpwardsPageTransitionsBuilder(),
-        // ),
-
-        );
+      builders: {
+        TargetPlatform.android: SharedAxisPageTransitionsBuilder(
+          transitionType: SharedAxisTransitionType.horizontal,
+        ),
+        TargetPlatform.iOS: SharedAxisPageTransitionsBuilder(
+          transitionType: SharedAxisTransitionType.horizontal,
+        ),
+      },
+    );
 
 ScrollbarThemeData scrollbarTheme(BeThemeData betheme) => ScrollbarThemeData(
       thumbColor: MaterialStateProperty.resolveWith((states) {

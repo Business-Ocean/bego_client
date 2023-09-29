@@ -38,23 +38,30 @@ abstract class BePageController<S> extends GetxController {
     }
   }
 
-  void futurize(Future<S> Function() body,
-      {S? initialData, String? errorMessage, bool useEmpty = true,}) {
+  void futurize(
+    Future<S> Function() body, {
+    S? initialData,
+    String? errorMessage,
+    bool useEmpty = true,
+  }) {
     final compute = body;
     if (initialData != null) {
       _state ??= initialData;
     }
-    compute().then((newstate) {
-      if ((newstate == null) && useEmpty) {
-        status = GetStatus<S>.loading();
-      } else {
-        status = GetStatus<S>.success(newstate);
-      }
+    compute().then(
+      (newstate) {
+        if ((newstate == null) && useEmpty) {
+          status = GetStatus<S>.loading();
+        } else {
+          status = GetStatus<S>.success(newstate);
+        }
 
-      refresh();
-    }, onError: (err) {
-      status = GetStatus.error(errorMessage ?? err.toString());
-      refresh();
-    },);
+        refresh();
+      },
+      onError: (dynamic err) {
+        status = GetStatus.error(errorMessage ?? err.toString());
+        refresh();
+      },
+    );
   }
 }

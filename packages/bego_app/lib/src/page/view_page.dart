@@ -34,7 +34,7 @@ abstract class ViewPage<S, V extends BePageController<S>> extends GetView<V>
   }) {}
 }
 
-// extension FindViewState<S, V extends BaseController<S>> on BasePage<S, V> {
-//   ViewState<S> get state => controller.viewState.value;
-//   S get viewState => controller.viewState.value.state;
-// }
+extension FindViewState<S, V extends BePageController<S>> on ViewPage<S, V> {
+  // ViewState<S> get state => controller.viewState.value;
+  // S get viewState => controller.viewState.value.state;
+}

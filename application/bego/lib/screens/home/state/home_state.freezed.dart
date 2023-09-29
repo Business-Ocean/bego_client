@@ -17,7 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HomeState {
   String get title => throw _privateConstructorUsedError;
-  ThemeMode get themeMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -29,7 +28,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({String title, ThemeMode themeMode});
+  $Res call({String title});
 }
 
 /// @nodoc
@@ -46,17 +45,12 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @override
   $Res call({
     Object? title = null,
-    Object? themeMode = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      themeMode: null == themeMode
-          ? _value.themeMode
-          : themeMode // ignore: cast_nullable_to_non_nullable
-              as ThemeMode,
     ) as $Val);
   }
 }
@@ -68,7 +62,7 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       __$$_HomeStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, ThemeMode themeMode});
+  $Res call({String title});
 }
 
 /// @nodoc
@@ -83,17 +77,12 @@ class __$$_HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = null,
-    Object? themeMode = null,
   }) {
     return _then(_$_HomeState(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      themeMode: null == themeMode
-          ? _value.themeMode
-          : themeMode // ignore: cast_nullable_to_non_nullable
-              as ThemeMode,
     ));
   }
 }
@@ -101,17 +90,14 @@ class __$$_HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeState implements _HomeState {
-  const _$_HomeState({required this.title, this.themeMode = ThemeMode.system});
+  const _$_HomeState({required this.title});
 
   @override
   final String title;
-  @override
-  @JsonKey()
-  final ThemeMode themeMode;
 
   @override
   String toString() {
-    return 'HomeState(title: $title, themeMode: $themeMode)';
+    return 'HomeState(title: $title)';
   }
 
   @override
@@ -119,13 +105,11 @@ class _$_HomeState implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeState &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.themeMode, themeMode) ||
-                other.themeMode == themeMode));
+            (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, themeMode);
+  int get hashCode => Object.hash(runtimeType, title);
 
   @JsonKey(ignore: true)
   @override
@@ -135,13 +119,10 @@ class _$_HomeState implements _HomeState {
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState(
-      {required final String title, final ThemeMode themeMode}) = _$_HomeState;
+  const factory _HomeState({required final String title}) = _$_HomeState;
 
   @override
   String get title;
-  @override
-  ThemeMode get themeMode;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   bego_ui:
     path: ../bego_ui
+  url_launcher: ^6.1.14
     
 dev_dependencies:
   flutter_test:

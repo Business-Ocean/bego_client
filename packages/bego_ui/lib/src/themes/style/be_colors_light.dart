@@ -75,7 +75,7 @@ class BeColorsLight implements BeColors {
       ColorUtils.getShade(primary, darker: false, value: 0.4);
 
   @override
-  Color get scaffoldBackground => const Color(0xFFFAF9F6);
+  Color get scaffoldBackground => BegoColors.backgrounLight;
 
   @override
   Color get secondaryHeader => BegoColors.hookerGreen;

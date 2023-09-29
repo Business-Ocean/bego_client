@@ -8,19 +8,16 @@ part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
-  static const initial = Routes.home;
+  static const initial = AppRoutes.signInSignUp;
   static final routes = [
-    GetPage<PageArgument>(
+    GetPage<void>(
       name: _Paths.signInSignUp,
       page: SignInSignUpPage.new,
       binding: AuthBinding(),
-
-      // page: () => const LoginPage(),
-      // binding: LoginBinding(),
     ),
-    GetPage<PageArgument>(
+    GetPage<void>(
       name: _Paths.home,
-      page: () => const HomePage(),
+      page: HomePage.new,
       binding: HomeBinding(),
     ),
   ];

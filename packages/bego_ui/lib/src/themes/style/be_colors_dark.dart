@@ -13,7 +13,7 @@ class BeColorsDark implements BeColors {
   Color get primary => BegoColors.slate900;
 
   @override
-  Color get text => BegoColors.black;
+  Color get text => BegoColors.white;
 
   @override
   Color get intraction => BegoColors.black;
