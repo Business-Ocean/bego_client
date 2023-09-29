@@ -14,6 +14,7 @@ class AppState with _$AppState {
     required String appName,
     required String packageName,
     required String version,
+    required String? deviceId,
     @Default(ThemeMode.system) ThemeMode themeMode,
   }) = _AppState;
 }

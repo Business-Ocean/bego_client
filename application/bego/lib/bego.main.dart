@@ -4,16 +4,19 @@ import 'package:bego/setup/setup.dart';
 import 'package:bego_app/bego_app.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  appSystemConfigSetup();
-  setupConfig();
+  await appSystemConfigSetup();
+  await setupConfig();
+  final deviceId = await BeDeviceInfo.getDeviceId();
+
   runApp(
     BegoApp(
-      state: const AppState(
+      state: AppState(
         appName: 'Bego',
         packageName: 'com.businessocean.bego',
         version: '0.0.1',
+        deviceId: deviceId,
       ),
       initialRoute: AppPages.initial,
       getPages: AppPages.routes,

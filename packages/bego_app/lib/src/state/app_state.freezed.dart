@@ -19,6 +19,7 @@ mixin _$AppState {
   String get appName => throw _privateConstructorUsedError;
   String get packageName => throw _privateConstructorUsedError;
   String get version => throw _privateConstructorUsedError;
+  String? get deviceId => throw _privateConstructorUsedError;
   ThemeMode get themeMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -35,6 +36,7 @@ abstract class $AppStateCopyWith<$Res> {
       {String appName,
       String packageName,
       String version,
+      String? deviceId,
       ThemeMode themeMode});
 }
 
@@ -54,6 +56,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
     Object? appName = null,
     Object? packageName = null,
     Object? version = null,
+    Object? deviceId = freezed,
     Object? themeMode = null,
   }) {
     return _then(_value.copyWith(
@@ -69,6 +72,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as String,
+      deviceId: freezed == deviceId
+          ? _value.deviceId
+          : deviceId // ignore: cast_nullable_to_non_nullable
+              as String?,
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
@@ -88,6 +95,7 @@ abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
       {String appName,
       String packageName,
       String version,
+      String? deviceId,
       ThemeMode themeMode});
 }
 
@@ -105,6 +113,7 @@ class __$$_AppStateCopyWithImpl<$Res>
     Object? appName = null,
     Object? packageName = null,
     Object? version = null,
+    Object? deviceId = freezed,
     Object? themeMode = null,
   }) {
     return _then(_$_AppState(
@@ -120,6 +129,10 @@ class __$$_AppStateCopyWithImpl<$Res>
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as String,
+      deviceId: freezed == deviceId
+          ? _value.deviceId
+          : deviceId // ignore: cast_nullable_to_non_nullable
+              as String?,
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
@@ -135,6 +148,7 @@ class _$_AppState implements _AppState {
       {required this.appName,
       required this.packageName,
       required this.version,
+      required this.deviceId,
       this.themeMode = ThemeMode.system});
 
   @override
@@ -144,12 +158,14 @@ class _$_AppState implements _AppState {
   @override
   final String version;
   @override
+  final String? deviceId;
+  @override
   @JsonKey()
   final ThemeMode themeMode;
 
   @override
   String toString() {
-    return 'AppState(appName: $appName, packageName: $packageName, version: $version, themeMode: $themeMode)';
+    return 'AppState(appName: $appName, packageName: $packageName, version: $version, deviceId: $deviceId, themeMode: $themeMode)';
   }
 
   @override
@@ -161,13 +177,15 @@ class _$_AppState implements _AppState {
             (identical(other.packageName, packageName) ||
                 other.packageName == packageName) &&
             (identical(other.version, version) || other.version == version) &&
+            (identical(other.deviceId, deviceId) ||
+                other.deviceId == deviceId) &&
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, appName, packageName, version, themeMode);
+  int get hashCode => Object.hash(
+      runtimeType, appName, packageName, version, deviceId, themeMode);
 
   @JsonKey(ignore: true)
   @override
@@ -181,6 +199,7 @@ abstract class _AppState implements AppState {
       {required final String appName,
       required final String packageName,
       required final String version,
+      required final String? deviceId,
       final ThemeMode themeMode}) = _$_AppState;
 
   @override
@@ -189,6 +208,8 @@ abstract class _AppState implements AppState {
   String get packageName;
   @override
   String get version;
+  @override
+  String? get deviceId;
   @override
   ThemeMode get themeMode;
   @override
