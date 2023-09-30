@@ -28,16 +28,24 @@ class BeReactiveWidget<T> extends StatelessWidget {
         offset: offset ?? Offset.zero,
         position: badgePosition,
         badge: overlayBuilder?.call(data) ?? _overLayBuilder(data),
-        child: builder(data),
+        child: AbsorbPointer(
+          absorbing: data.map(
+            loading: (loading) => true,
+            error: (error) => true,
+            empty: (empty) => false,
+            success: (success) => false,
+          ),
+          child: builder(data),
+        ),
       );
 
   Widget _overLayBuilder(BeData<T> data) => data.when(
-        loading: (d) => _blurLoadinOrEmptyState(),
-        empty: (c, d) => _blurLoadinOrEmptyState(),
+        loading: (d) => _blurLoadinState(),
         error: (d, title, message, code) => _blurErrorState(title, message),
+        empty: (c, d) => emptyWidget,
         success: (c, d) => emptyWidget,
       );
-  Widget _blurLoadinOrEmptyState() => BackdropFilter(
+  Widget _blurLoadinState() => BackdropFilter(
         filter: ImageFilter.compose(
           outer: BegoStyle.tinyBlur,
           inner: const ColorFilter.mode(

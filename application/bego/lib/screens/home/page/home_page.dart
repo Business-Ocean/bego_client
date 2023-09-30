@@ -47,7 +47,7 @@ class HomePage extends ViewPage<HomeState, HomeController> {
                         position: BeInputLabelPosition.centerRight,
                         offset: const Offset(-40, 0),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async => controller.getLoginURL(),
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.all(24),
                           ),
