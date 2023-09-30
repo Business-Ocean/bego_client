@@ -1,8 +1,6 @@
-import 'package:bego/components/login/login_with_google.dart';
 import 'package:bego/screens/home/controller/home_controller.dart';
 import 'package:bego/screens/home/state/home_state.dart';
 import 'package:bego_app/bego_app.dart';
-import 'package:bego_component/bego_component.dart';
 import 'package:bego_core/bego_get.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/bego_widgets.dart';
@@ -22,6 +20,7 @@ class HomePage extends ViewPage<HomeState, HomeController> {
               child: Obx(
                 () => BeReactiveWidget(
                   data: controller.innerData.value,
+                  offset: const Offset(-100, 0),
                   retryCallback: () async => controller.getLoginURL(),
                   builder: (BeData<String> data) => Column(
                     mainAxisSize: MainAxisSize.min,
@@ -39,22 +38,14 @@ class HomePage extends ViewPage<HomeState, HomeController> {
                       ),
                       space32,
                       // const Spacer(),
-                      BeInputLabel(
-                        label: const BeTinyLoader(
-                          show: true,
-                          color: Colors.white,
+                      ElevatedButton(
+                        onPressed: () async => controller.getLoginURL(),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(24),
                         ),
-                        position: BeInputLabelPosition.centerRight,
-                        offset: const Offset(-40, 0),
-                        child: ElevatedButton(
-                          onPressed: () async => controller.getLoginURL(),
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.all(24),
-                          ),
-                          child: const Text(
-                            'Login',
-                            style: TextStyle(fontSize: 16),
-                          ),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(fontSize: 16),
                         ),
                       ),
                       const BeText(
@@ -62,10 +53,7 @@ class HomePage extends ViewPage<HomeState, HomeController> {
                         padding: EdgeInsets.symmetric(vertical: 16),
                         align: TextAlign.center,
                       ),
-                      LoginInWithGoogle(
-                        loading: true,
-                        onPressed: () => controller.getLoginURL(),
-                      ),
+
                       space24,
                       const Center(
                         child: TextButton(
