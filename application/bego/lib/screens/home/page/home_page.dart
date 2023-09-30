@@ -3,6 +3,7 @@ import 'package:bego/screens/home/state/home_state.dart';
 import 'package:bego_app/bego_app.dart';
 import 'package:bego_core/bego_get.dart';
 import 'package:bego_ui/bego_ui.dart';
+import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends ViewPage<HomeState, HomeController> {
@@ -13,35 +14,96 @@ class HomePage extends ViewPage<HomeState, HomeController> {
         appBar: AppBar(
           title: const Text('Title'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have Incremented counter value to :',
-              ),
-              ElevatedButton(onPressed: () {}, child: const Text('Hello')),
-              Obx(
-                () => Text(
-                  '${controller.count.value}',
-                  style: Theme.of(context).textTheme.headlineMedium,
+        body: Row(
+          children: [
+            Expanded(
+              child: Obx(
+                () => BeReactiveWidget(
+                  data: controller.innerData.value,
+                  offset: const Offset(-100, 0),
+                  retryCallback: () async => controller.getLoginURL(),
+                  builder: (BeData<String> data) => Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      space32,
+                      const BeTextField(
+                        hint: 'Enter Email',
+                        label: 'Email',
+                      ),
+                      space32,
+                      const BeTextField(
+                        hint: 'Enter Password',
+                        label: 'Password',
+                      ),
+                      space32,
+                      // const Spacer(),
+                      ElevatedButton(
+                        onPressed: () async => controller.getLoginURL(),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(24),
+                        ),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                      const BeText(
+                        'OR',
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        align: TextAlign.center,
+                      ),
+
+                      space24,
+                      const Center(
+                        child: TextButton(
+                          onPressed: null,
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                height: 200,
-                width: 200,
-                color: BeTheme.of(context).becolors.lightInverse,
-              ),
-            ],
-          ),
+            ),
+            TextButton(
+              onPressed: () async {
+                await controller.executeSyncTask();
+              },
+              child: const Text('Get State '),
+            ),
+          ],
         ),
-        floatingActionButton: FloatingActionButton.small(
-          onPressed: () {
-            // Get.changeTheme(BeTheme.createTheme(const BeThemeData.dark()));
-            Get.find<BegoAppController>().toggleTheme();
-          },
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ),
+        //
+        //     Column(
+        //   crossAxisAlignment: CrossAxisAlignment.stretch,
+        //   children: [
+        //     Expanded(
+        //       child: BeAsyncStateWidget(
+        //         onInit: controller.getLoginURL,
+        //         childSuccess: (data) => ListView.builder(
+        //           itemCount: controller.todos.length,
+        //           itemBuilder: itemBuilder,
+        //         ),
+        //       ),
+        //     ),
+        //     TextButton(
+        //       onPressed: () {
+        //         controller.getLoginURL();
+        //       },
+        //       child: const Text('Get Data'),
+        //     ),
+        //   ],
+        // ),
+      );
+
+  Widget? itemBuilder(BuildContext context, int index) => ListTile(
+        title: Text(controller.todos[index]['title'].toString()),
       );
 }

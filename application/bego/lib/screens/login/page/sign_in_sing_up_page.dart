@@ -25,34 +25,19 @@ class SignInSignUpPage
           children: [
             Expanded(
               flex: 2,
-              child: DecoratedBox(
-                // padding: const EdgeInsets.only(top: 32),
-                // color: becolors(context).primary,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AppAssets.image.headerBg3.provider(),
-                    fit: BoxFit.cover,
-                    // colorFilter: const ColorFilter.mode(
-                    //   BegoColors.roseRed,
-                    //   BlendMode.colorBurn,
-                    // ),
-                    // invertColors: true,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  AppAssets.svg.begoIcon.svg(
+                    width: context.width * 0.4,
                   ),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    AppAssets.svg.begoIcon.svg(
-                      width: context.width * 0.4,
-                    ),
-                    // const BusinessOceanLogo(),
-                    const Expanded(
-                      child: AppTitle(),
-                    ),
-                  ],
-                ),
+                  // const BusinessOceanLogo(),
+                  const Expanded(
+                    child: AppTitle(),
+                  ),
+                ],
               ),
             ),
             const Divider(endIndent: 0, indent: 0),

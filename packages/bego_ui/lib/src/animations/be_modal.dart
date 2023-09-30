@@ -205,7 +205,7 @@ abstract class ModalConfiguration {
 
   /// A builder that defines how the route arrives on and leaves the screen.
   ///
-  /// The [buildTransitions] method is typically used to define transitions
+  /// The buildTransitions method is typically used to define transitions
   /// that animate the new topmost route's comings and goings. When the
   /// [Navigator] pushes a route on the top of its stack, the new route's
   /// primary [animation] runs from 0.0 to 1.0. When the [Navigator] pops the

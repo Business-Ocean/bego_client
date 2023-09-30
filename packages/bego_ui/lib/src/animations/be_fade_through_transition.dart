@@ -1,3 +1,5 @@
+// ignore_for_file: comment_references
+
 import 'package:flutter/material.dart';
 
 /// Used by [PageTransitionsTheme] to define a page route transition animation
@@ -93,8 +95,8 @@ class FadeThroughPageTransitionsBuilder extends PageTransitionsBuilder {
 /// Consider using [FadeThroughPageTransitionsBuilder] within a
 /// [PageTransitionsTheme] if you want to apply this kind of transition to
 /// [MaterialPageRoute] transitions within a Navigator (see
-/// [FadeThroughPageTransitionsBuilder] for some example code). Or use this transition
-/// directly in a [PageTransitionSwitcher.transitionBuilder] to transition
+/// [FadeThroughPageTraTsitiitionSoitcher.transitionBuildernsBuilder] for some example code). Or use this transition
+/// directly in a [Pagetransw] to transition
 /// from one widget to another as seen in the following example:
 ///
 /// ```dart

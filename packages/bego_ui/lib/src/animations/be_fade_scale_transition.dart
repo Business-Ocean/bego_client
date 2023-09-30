@@ -1,3 +1,5 @@
+// ignore_for_file: comment_references
+
 import 'package:bego_ui/src/animations/be_modal.dart';
 import 'package:flutter/material.dart';
 

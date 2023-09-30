@@ -30,7 +30,7 @@ class BeBadge extends MultiChildRenderObjectWidget {
     _BeBadgeRenderObject renderObject,
   ) {
     renderObject
-      .._position = position
+      .._badgePosition = position
       .._rounded = rounded
       .._offset = offset;
   }
@@ -44,13 +44,13 @@ class _BeBadgeRenderObject extends RenderBox
     required BeBadgePosition position,
     required bool isRounded,
     required Offset offset,
-  })  : _position = position,
+  })  : _badgePosition = position,
         _rounded = isRounded,
         _offset = offset;
 
-  BeBadgePosition _position;
+  BeBadgePosition _badgePosition;
   set position(BeBadgePosition position) {
-    _position = position;
+    _badgePosition = position;
     markNeedsPaint();
   }
 
@@ -108,7 +108,11 @@ class _BeBadgeRenderObject extends RenderBox
 
   @override
   bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
-      defaultHitTestChildren(result, position: position);
+      defaultHitTestChildren(
+        result,
+        position: position - _offset,
+      );
+
   Offset _getOffset(
     Offset originalOffset,
     double badgeWidth,
@@ -119,7 +123,7 @@ class _BeBadgeRenderObject extends RenderBox
     final radius = min(size.width, size.height) / 2;
     final roundShift = radius / 2;
 
-    final (double x, double y) = switch (_position) {
+    final (double x, double y) = switch (_badgePosition) {
       BeBadgePosition.topLeft => (
           (-badgeWidth / 2) + (_rounded ? roundShift : 0),
           -badgeHeight / 2 + (_rounded ? roundShift / 3 : 0)

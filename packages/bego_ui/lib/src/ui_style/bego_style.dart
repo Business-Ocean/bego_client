@@ -35,6 +35,7 @@ class BegoStyle {
 
   // static const Color blurLevel1 = Color.fromRGBO(41, 93, 141, 0.15);
   static final dialogBlur = ImageFilter.blur(sigmaX: 1, sigmaY: 1);
+  static final tinyBlur = ImageFilter.blur(sigmaX: 0.8, sigmaY: 0.8);
   static final blurLevel1 = ImageFilter.blur(sigmaX: 6, sigmaY: 6);
   static final blurLevel2 = ImageFilter.blur(sigmaX: 12, sigmaY: 12);
   static final blurLevel3 = ImageFilter.blur(sigmaX: 25, sigmaY: 25);

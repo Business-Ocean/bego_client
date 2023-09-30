@@ -9,6 +9,6 @@ abstract class AppRoutes {
 
 abstract class _Paths {
   _Paths._();
-  static const home = '/home';
+  static const home = '/';
   static const signInSignUp = '/sign';
 }

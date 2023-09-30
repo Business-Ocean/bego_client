@@ -1,7 +1,4 @@
-// Copyright 2013 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
+// ignore_for_file: comment_references, prefer_asserts_with_message
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -67,7 +64,6 @@ typedef ClosedCallback<S> = void Function(S data);
 /// `T` refers to the type of data returned by the route when the container
 /// is closed. This value can be accessed in the `onClosed` function.
 ///
-// TODO(goderbauer): Add example animations and sample code.
 ///
 /// See also:
 ///
@@ -826,12 +822,14 @@ class _OpenContainerRoute<T> extends ModalRoute<T> {
                                             .animate(animation),
                                         child: Builder(
                                           key: closedBuilderKey,
-                                          builder: (BuildContext context) {
-                                            // Use dummy "open container" callback
-                                            // since we are in the process of opening.
-                                            return closedBuilder(
-                                                context, () {});
-                                          },
+
+                                          // Use dummy "open container" callback
+                                          // since we are in the process of opening.
+                                          builder: (BuildContext context) =>
+                                              closedBuilder(
+                                            context,
+                                            () {},
+                                          ),
                                         ),
                                       ),
                               ),
