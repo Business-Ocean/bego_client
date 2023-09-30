@@ -54,12 +54,12 @@ abstract class BePageController<S> extends GetxController {
         if ((newstate == null) && useEmpty) {
           status = BeData<S>.loading();
         } else {
-          status = BeData<S>.success(newstate);
+          status = BeData<S>.success(data: newstate);
         }
         refresh();
       },
       onError: (dynamic err) {
-        status = BeError(err as S);
+        status = BeError(data: err as S);
         refresh();
       },
     );

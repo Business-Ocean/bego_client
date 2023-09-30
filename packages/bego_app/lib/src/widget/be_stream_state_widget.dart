@@ -1,4 +1,4 @@
-import 'package:bego_app/src/widget/be_loading_widget.dart';
+import 'package:bego_app/bego_app.dart';
 import 'package:flutter/material.dart';
 
 class BeStreamStateWidget<T> extends StatelessWidget {
@@ -22,7 +22,11 @@ class BeStreamStateWidget<T> extends StatelessWidget {
         stream: onStream, // a previously-obtained Future<T> or null
         builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
           if (snapshot.hasError) {
-            return childError?.call(snapshot.error) ?? const BeLoadingWidget();
+            return childError?.call(snapshot.error) ??
+                BeErrorWidget(
+                  title: defaultErrorTitle,
+                  description: snapshot.error.toString(),
+                );
           }
           switch (snapshot.connectionState) {
             case ConnectionState.none:

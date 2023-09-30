@@ -60,11 +60,13 @@ class BeStyleLight implements BeStyle {
 
   @override
   TextStyle textStyle(BeTextType? textType, Breakpoint breakpoint) =>
-      switch (textType) {
-        BeTextType.displayLarge => displayLarge,
-        BeTextType.bodyMedium => bodyMedium,
-        _ => bodyMedium
-      };
+      textType != null
+          ? textType.style
+          : switch (textType) {
+              BeTextType.displayLarge => displayLarge,
+              BeTextType.bodyMedium => bodyMedium,
+              _ => bodyMedium
+            };
 
   @override
   BorderRadius get cardRadius => BegoStyle.cardRadiusMedium;

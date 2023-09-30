@@ -23,7 +23,7 @@ mixin _$BeData<T> {
     required TResult Function(int code, T? data) empty,
     required TResult Function(T? data, String title, String message, int code)
         error,
-    required TResult Function(T data, int code) success,
+    required TResult Function(int code, T data) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$BeData<T> {
     TResult? Function(T? data)? loading,
     TResult? Function(int code, T? data)? empty,
     TResult? Function(T? data, String title, String message, int code)? error,
-    TResult? Function(T data, int code)? success,
+    TResult? Function(int code, T data)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +39,7 @@ mixin _$BeData<T> {
     TResult Function(T? data)? loading,
     TResult Function(int code, T? data)? empty,
     TResult Function(T? data, String title, String message, int code)? error,
-    TResult Function(T data, int code)? success,
+    TResult Function(int code, T data)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -110,7 +110,7 @@ class __$$_LoadingCopyWithImpl<T, $Res>
     Object? data = freezed,
   }) {
     return _then(_$_Loading<T>(
-      freezed == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T?,
@@ -121,7 +121,7 @@ class __$$_LoadingCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$_Loading<T> implements _Loading<T> {
-  const _$_Loading([this.data]);
+  const _$_Loading({this.data});
 
   @override
   final T? data;
@@ -156,7 +156,7 @@ class _$_Loading<T> implements _Loading<T> {
     required TResult Function(int code, T? data) empty,
     required TResult Function(T? data, String title, String message, int code)
         error,
-    required TResult Function(T data, int code) success,
+    required TResult Function(int code, T data) success,
   }) {
     return loading(data);
   }
@@ -167,7 +167,7 @@ class _$_Loading<T> implements _Loading<T> {
     TResult? Function(T? data)? loading,
     TResult? Function(int code, T? data)? empty,
     TResult? Function(T? data, String title, String message, int code)? error,
-    TResult? Function(T data, int code)? success,
+    TResult? Function(int code, T data)? success,
   }) {
     return loading?.call(data);
   }
@@ -178,7 +178,7 @@ class _$_Loading<T> implements _Loading<T> {
     TResult Function(T? data)? loading,
     TResult Function(int code, T? data)? empty,
     TResult Function(T? data, String title, String message, int code)? error,
-    TResult Function(T data, int code)? success,
+    TResult Function(int code, T data)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -226,7 +226,7 @@ class _$_Loading<T> implements _Loading<T> {
 }
 
 abstract class _Loading<T> implements BeData<T> {
-  const factory _Loading([final T? data]) = _$_Loading<T>;
+  const factory _Loading({final T? data}) = _$_Loading<T>;
 
   @override
   T? get data;
@@ -258,11 +258,11 @@ class __$$_EmptyCopyWithImpl<T, $Res>
     Object? data = freezed,
   }) {
     return _then(_$_Empty<T>(
-      null == code
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as int,
-      freezed == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T?,
@@ -273,7 +273,7 @@ class __$$_EmptyCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$_Empty<T> implements _Empty<T> {
-  const _$_Empty([this.code = -1, this.data]);
+  const _$_Empty({this.code = 0, this.data});
 
   @override
   @JsonKey()
@@ -312,7 +312,7 @@ class _$_Empty<T> implements _Empty<T> {
     required TResult Function(int code, T? data) empty,
     required TResult Function(T? data, String title, String message, int code)
         error,
-    required TResult Function(T data, int code) success,
+    required TResult Function(int code, T data) success,
   }) {
     return empty(code, data);
   }
@@ -323,7 +323,7 @@ class _$_Empty<T> implements _Empty<T> {
     TResult? Function(T? data)? loading,
     TResult? Function(int code, T? data)? empty,
     TResult? Function(T? data, String title, String message, int code)? error,
-    TResult? Function(T data, int code)? success,
+    TResult? Function(int code, T data)? success,
   }) {
     return empty?.call(code, data);
   }
@@ -334,7 +334,7 @@ class _$_Empty<T> implements _Empty<T> {
     TResult Function(T? data)? loading,
     TResult Function(int code, T? data)? empty,
     TResult Function(T? data, String title, String message, int code)? error,
-    TResult Function(T data, int code)? success,
+    TResult Function(int code, T data)? success,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -382,7 +382,7 @@ class _$_Empty<T> implements _Empty<T> {
 }
 
 abstract class _Empty<T> implements BeData<T> {
-  const factory _Empty([final int code, final T? data]) = _$_Empty<T>;
+  const factory _Empty({final int code, final T? data}) = _$_Empty<T>;
 
   int get code;
   @override
@@ -418,7 +418,7 @@ class __$$BeErrorCopyWithImpl<T, $Res>
     Object? code = null,
   }) {
     return _then(_$BeError<T>(
-      freezed == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T?,
@@ -441,9 +441,10 @@ class __$$BeErrorCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$BeError<T> implements BeError<T> {
-  const _$BeError(this.data,
-      {this.title = defaultTitle,
-      this.message = defaultMessage,
+  const _$BeError(
+      {this.data,
+      this.title = defaultErrorTitle,
+      this.message = defaultErrorMessage,
       this.code = 500});
 
   @override
@@ -491,7 +492,7 @@ class _$BeError<T> implements BeError<T> {
     required TResult Function(int code, T? data) empty,
     required TResult Function(T? data, String title, String message, int code)
         error,
-    required TResult Function(T data, int code) success,
+    required TResult Function(int code, T data) success,
   }) {
     return error(data, title, message, code);
   }
@@ -502,7 +503,7 @@ class _$BeError<T> implements BeError<T> {
     TResult? Function(T? data)? loading,
     TResult? Function(int code, T? data)? empty,
     TResult? Function(T? data, String title, String message, int code)? error,
-    TResult? Function(T data, int code)? success,
+    TResult? Function(int code, T data)? success,
   }) {
     return error?.call(data, title, message, code);
   }
@@ -513,7 +514,7 @@ class _$BeError<T> implements BeError<T> {
     TResult Function(T? data)? loading,
     TResult Function(int code, T? data)? empty,
     TResult Function(T? data, String title, String message, int code)? error,
-    TResult Function(T data, int code)? success,
+    TResult Function(int code, T data)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -561,8 +562,9 @@ class _$BeError<T> implements BeError<T> {
 }
 
 abstract class BeError<T> implements BeData<T> {
-  const factory BeError(final T? data,
-      {final String title,
+  const factory BeError(
+      {final T? data,
+      final String title,
       final String message,
       final int code}) = _$BeError<T>;
 
@@ -582,7 +584,7 @@ abstract class _$$BeSuccessCopyWith<T, $Res> {
           _$BeSuccess<T> value, $Res Function(_$BeSuccess<T>) then) =
       __$$BeSuccessCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({T data, int code});
+  $Res call({int code, T data});
 }
 
 /// @nodoc
@@ -596,18 +598,18 @@ class __$$BeSuccessCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
     Object? code = null,
+    Object? data = freezed,
   }) {
     return _then(_$BeSuccess<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as int,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
@@ -615,17 +617,17 @@ class __$$BeSuccessCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$BeSuccess<T> implements BeSuccess<T> {
-  const _$BeSuccess(this.data, {this.code = 200});
+  const _$BeSuccess({this.code = 200, required this.data});
 
-  @override
-  final T data;
   @override
   @JsonKey()
   final int code;
+  @override
+  final T data;
 
   @override
   String toString() {
-    return 'BeData<$T>.success(data: $data, code: $code)';
+    return 'BeData<$T>.success(code: $code, data: $data)';
   }
 
   @override
@@ -633,13 +635,13 @@ class _$BeSuccess<T> implements BeSuccess<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BeSuccess<T> &&
-            const DeepCollectionEquality().equals(other.data, data) &&
-            (identical(other.code, code) || other.code == code));
+            (identical(other.code, code) || other.code == code) &&
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data), code);
+      Object.hash(runtimeType, code, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -654,9 +656,9 @@ class _$BeSuccess<T> implements BeSuccess<T> {
     required TResult Function(int code, T? data) empty,
     required TResult Function(T? data, String title, String message, int code)
         error,
-    required TResult Function(T data, int code) success,
+    required TResult Function(int code, T data) success,
   }) {
-    return success(data, code);
+    return success(code, data);
   }
 
   @override
@@ -665,9 +667,9 @@ class _$BeSuccess<T> implements BeSuccess<T> {
     TResult? Function(T? data)? loading,
     TResult? Function(int code, T? data)? empty,
     TResult? Function(T? data, String title, String message, int code)? error,
-    TResult? Function(T data, int code)? success,
+    TResult? Function(int code, T data)? success,
   }) {
-    return success?.call(data, code);
+    return success?.call(code, data);
   }
 
   @override
@@ -676,11 +678,11 @@ class _$BeSuccess<T> implements BeSuccess<T> {
     TResult Function(T? data)? loading,
     TResult Function(int code, T? data)? empty,
     TResult Function(T? data, String title, String message, int code)? error,
-    TResult Function(T data, int code)? success,
+    TResult Function(int code, T data)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(data, code);
+      return success(code, data);
     }
     return orElse();
   }
@@ -724,11 +726,12 @@ class _$BeSuccess<T> implements BeSuccess<T> {
 }
 
 abstract class BeSuccess<T> implements BeData<T> {
-  const factory BeSuccess(final T data, {final int code}) = _$BeSuccess<T>;
+  const factory BeSuccess({final int code, required final T data}) =
+      _$BeSuccess<T>;
 
+  int get code;
   @override
   T get data;
-  int get code;
   @JsonKey(ignore: true)
   _$$BeSuccessCopyWith<T, _$BeSuccess<T>> get copyWith =>
       throw _privateConstructorUsedError;

@@ -7,24 +7,37 @@ part 'be_data.freezed.dart';
 /// Note: Use [freezed](https://pub.dev/packages/freezed) package for creating
 /// immutable class. Immutable class help to improved performance of flutter
 /// Widget As per doc Flutter team promotes StatelessWidget over StatefullWidget
-@Freezed(genericArgumentFactories: true)
+@Freezed()
 abstract class BeData<T> with _$BeData<T> {
-  const factory BeData.loading([T? data]) = _Loading;
-  const factory BeData.empty([@Default(-1) int code, T? data]) = _Empty;
+  // Loading State
+  const factory BeData.loading({
+    T? data,
+  }) = _Loading;
 
-  const factory BeData.error(
-    T? data, {
-    @Default(defaultTitle) String title,
-    @Default(defaultMessage) String message,
+  // Empty State
+  const factory BeData.empty({
+    @Default(0) int code,
+    T? data,
+  }) = _Empty;
+
+  // Loading State
+  const factory BeData.error({
+    T? data,
+    @Default(defaultErrorTitle) String title,
+    @Default(defaultErrorMessage) String message,
     @Default(500) int code,
   }) = BeError;
 
-  const factory BeData.success(T data, {@Default(200) int code}) = BeSuccess;
+  // Loading State
+  const factory BeData.success({
+    @Default(200) int code,
+    required T data,
+  }) = BeSuccess;
 
   @override
   T? get data;
 }
 
-const defaultTitle = 'Oops! Something went wrong!';
-const defaultMessage = 'The application has encountered an unknown error.'
+const defaultErrorTitle = 'Oops! Something went wrong!';
+const defaultErrorMessage = 'The application has encountered an unknown error.'
     ' We are looking into it.';

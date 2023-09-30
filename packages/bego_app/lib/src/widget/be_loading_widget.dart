@@ -6,7 +6,7 @@ class BeLoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const Center(
         child: SizedBox.square(
-          dimension: 32,
+          dimension: 24,
           child: CircularProgressIndicator(),
         ),
       );
