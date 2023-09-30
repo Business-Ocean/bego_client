@@ -73,7 +73,7 @@ ConditionStyleTextWidget conditionStyleTextWidget =
           style: condition ? ifStyle : elseStyle,
         );
 
-WidgetBlock widgetBlock = (Function function) => function();
+WidgetBlock widgetBlock = (Widget Function() function) => function();
 
 Widget swithchWidget<Value>(
   Value value,

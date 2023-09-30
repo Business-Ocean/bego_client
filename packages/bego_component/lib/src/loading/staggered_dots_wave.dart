@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class StaggeredDotsWave extends StatefulWidget {
-  final double size;
-  final Color color;
 
   const StaggeredDotsWave({
-    Key? key,
+    super.key,
     required this.size,
     required this.color,
-  }) : super(key: key);
+  });
+  final double size;
+  final Color color;
 
   @override
   State<StaggeredDotsWave> createState() => _StaggeredDotsWaveState();
@@ -30,8 +30,8 @@ class _StaggeredDotsWaveState extends State<StaggeredDotsWave>
 
   @override
   Widget build(BuildContext context) {
-    final double oddDotHeight = widget.size * 0.4;
-    final double evenDotHeight = widget.size * 0.7;
+    final oddDotHeight = widget.size * 0.4;
+    final evenDotHeight = widget.size * 0.7;
 
     return Container(
       alignment: Alignment.center,
@@ -107,6 +107,18 @@ class _StaggeredDotsWaveState extends State<StaggeredDotsWave>
 }
 
 class DotContainer extends StatelessWidget {
+
+  const DotContainer({
+    super.key,
+    required this.offsetInterval,
+    required this.size,
+    required this.color,
+    required this.reverseOffsetInterval,
+    required this.heightInterval,
+    required this.reverseHeightInterval,
+    required this.maxHeight,
+    required this.controller,
+  });
   final Interval offsetInterval;
   final double size;
   final Color color;
@@ -117,18 +129,6 @@ class DotContainer extends StatelessWidget {
   final double maxHeight;
   final AnimationController controller;
 
-  const DotContainer({
-    Key? key,
-    required this.offsetInterval,
-    required this.size,
-    required this.color,
-    required this.reverseOffsetInterval,
-    required this.heightInterval,
-    required this.reverseHeightInterval,
-    required this.maxHeight,
-    required this.controller,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     // final Interval interval = widget.offsetInterval;
@@ -137,12 +137,11 @@ class DotContainer extends StatelessWidget {
     // final double size = widget.size;
     // final Interval reverseHeightInterval = widget.reverseHeightInterval;
     // final double maxHeight = widget.maxHeight;
-    final double maxDy = -(size * 0.20);
+    final maxDy = -(size * 0.20);
 
     return AnimatedBuilder(
       animation: controller,
-      builder: (_, __) {
-        return Stack(
+      builder: (_, __) => Stack(
           alignment: Alignment.center,
           children: <Widget>[
             Opacity(
@@ -215,8 +214,7 @@ class DotContainer extends StatelessWidget {
               ),
             ),
           ],
-        );
-      },
+        ),
     );
   }
 }

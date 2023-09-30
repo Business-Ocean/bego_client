@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_asserts_with_message, avoid_catches_without_on_clauses, comment_references
+
 import 'dart:async';
 
 import 'package:bego_ui/bego_ui.dart';
@@ -13,7 +15,7 @@ class BeSafeDialog {
   static const String _safeDialogDefaultTag = '_safeDialogDefaultTag';
 
   ///According to the tag, the queue status of a certain type of Dialog is distinguished
-  static final Map<String, List<_SafeDialogRoute>> _dialogStates = {};
+  static final Map<String, List<_SafeDialogRoute<dynamic>>> _dialogStates = {};
 
   ///Used to close a Dialog and only remove the last Dialog in the corresponding tag list.
   ///[tag]: Dialog used to remove the corresponding tag
@@ -26,10 +28,10 @@ class BeSafeDialog {
     String tag = _safeDialogDefaultTag,
     T? result,
   }) {
-    List<_SafeDialogRoute> typeStates = (_dialogStates[tag] ??= []);
+    final typeStates = _dialogStates[tag] ??= [];
     if (typeStates.isNotEmpty) {
       try {
-        _SafeDialogRoute safeDialogRoute = typeStates.removeLast();
+        final safeDialogRoute = typeStates.removeLast();
         Navigator.removeRoute(context, safeDialogRoute);
         if (!safeDialogRoute.completer.isCompleted) {
           safeDialogRoute.completer.complete(result);
@@ -54,7 +56,7 @@ class BeSafeDialog {
     RouteSettings? routeSettings,
   }) {
     assert(debugCheckHasMaterialLocalizations(context));
-    final CapturedThemes themes = InheritedTheme.capture(
+    final themes = InheritedTheme.capture(
       from: context,
       to: Navigator.of(
         context,
@@ -62,7 +64,7 @@ class BeSafeDialog {
       ).context,
     );
 
-    _SafeDialogRoute<T> safeDialogRoute = _SafeDialogRoute<T>(
+    final safeDialogRoute = _SafeDialogRoute<T>(
       context: context,
       builder: builder,
       barrierColor: barrierColor ??
@@ -78,40 +80,31 @@ class BeSafeDialog {
     //Forward the results through Completer
     _dialogStates[tag] ??= [];
     _dialogStates[tag]?.add(safeDialogRoute);
-    Future<T?> future = Navigator.of(context, rootNavigator: useRootNavigator)
-        .push<T>(safeDialogRoute);
-    future.then((result) {
-      _dialogStates[tag]?.remove(safeDialogRoute);
-      if (!safeDialogRoute.completer.isCompleted) {
-        safeDialogRoute.completer.complete(result);
-      }
-    });
+    final _ = Navigator.of(context, rootNavigator: useRootNavigator)
+        .push<T>(safeDialogRoute)
+      ..then((result) {
+        _dialogStates[tag]?.remove(safeDialogRoute);
+        if (!safeDialogRoute.completer.isCompleted) {
+          safeDialogRoute.completer.complete(result);
+        }
+      });
     return safeDialogRoute.completer.future;
   }
 }
 
 ///Based on DialogRoute, Completer is simply encapsulated for forwarding Route results.
 class _SafeDialogRoute<T> extends DialogRoute<T> {
+  _SafeDialogRoute({
+    required super.context,
+    required super.builder,
+    super.themes,
+    super.barrierColor,
+    super.barrierDismissible,
+    super.barrierLabel,
+    super.useSafeArea,
+    super.settings,
+  });
+
   /// Forward Route results
   final Completer<T?> completer = Completer<T?>();
-
-  _SafeDialogRoute({
-    required BuildContext context,
-    required WidgetBuilder builder,
-    CapturedThemes? themes,
-    Color? barrierColor = Colors.black54,
-    bool barrierDismissible = true,
-    String? barrierLabel,
-    bool useSafeArea = true,
-    RouteSettings? settings,
-  }) : super(
-          context: context,
-          builder: builder,
-          themes: themes,
-          barrierColor: barrierColor,
-          barrierDismissible: barrierDismissible,
-          barrierLabel: barrierLabel,
-          useSafeArea: useSafeArea,
-          settings: settings,
-        );
 }

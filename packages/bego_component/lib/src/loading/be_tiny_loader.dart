@@ -7,8 +7,7 @@ class BeTinyLoader extends StatelessWidget {
   final Color? color;
 
   @override
-  Widget build(BuildContext context) {
-    return show
+  Widget build(BuildContext context) => show
         ? SizedBox.square(
             dimension: 20,
             child: CircularProgressIndicator(
@@ -18,5 +17,4 @@ class BeTinyLoader extends StatelessWidget {
             ),
           )
         : emptyWidget;
-  }
 }

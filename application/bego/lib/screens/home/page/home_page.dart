@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_dynamic_calls
+
 import 'package:bego/screens/home/controller/home_controller.dart';
 import 'package:bego/screens/home/state/home_state.dart';
 import 'package:bego_app/bego_app.dart';
