@@ -13,6 +13,6 @@ class SignInSignUpController extends BePageController<SignInSignUpState> {
   }
 
   Future<void> navigateHome() async {
-    await Get.toNamed<void>(AppRoutes.home);
+    await Get.offNamed<void>(AppRoutes.home);
   }
 }

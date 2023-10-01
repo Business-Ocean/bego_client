@@ -46,7 +46,7 @@ class BeToast {
   static void showInCenter(
       {required String text,
       required BuildContext context,
-      Duration? duration}) {
+      Duration? duration,}) {
     show(
       context,
       text,
@@ -66,18 +66,17 @@ class BeToast {
       double verticalOffset = 16,
       VoidCallback? onDismiss,
       BeToastGravity gravity = BeToastGravity.bottom,
-      BoxConstraints? constraints}) {
-    final OverlayState overlayState = Overlay.of(context);
+      BoxConstraints? constraints,}) {
+    final overlayState = Overlay.of(context);
 
     preToastView?._dismiss();
     preToastView = null;
 
     ///Automatically determine the display duration based on the content length, making it more user-friendly
-    final int autoDuration = min(text.length * 0.06 + 0.8, 5.0).ceil();
-    final Duration finalDuration = duration ?? Duration(seconds: autoDuration);
-    final OverlayEntry overlayEntry = OverlayEntry(
-      builder: (context) {
-        return _ToastWidget(
+    final autoDuration = min(text.length * 0.06 + 0.8, 5.0).ceil();
+    final finalDuration = duration ?? Duration(seconds: autoDuration);
+    final overlayEntry = OverlayEntry(
+      builder: (context) => _ToastWidget(
           widget: ToastChild(
             background: background,
             radius: radius,
@@ -89,10 +88,9 @@ class BeToast {
             verticalOffset: verticalOffset,
             constraints: constraints,
           ),
-        );
-      },
+        ),
     );
-    final _ToastView toastView =
+    final toastView =
         _ToastView(overlayState: overlayState, overlayEntry: overlayEntry);
     preToastView = toastView;
     toastView._show(
@@ -103,16 +101,16 @@ class BeToast {
 }
 
 class _ToastView {
-  OverlayState overlayState;
-  OverlayEntry overlayEntry;
-  bool _isVisible = false;
 
   _ToastView({
     required this.overlayState,
     required this.overlayEntry,
   });
+  OverlayState overlayState;
+  OverlayEntry overlayEntry;
+  bool _isVisible = false;
 
-  void _show({required Duration duration, VoidCallback? onDismiss}) async {
+  Future<void> _show({required Duration duration, VoidCallback? onDismiss}) async {
     _isVisible = true;
     overlayState.insert(overlayEntry);
     Future.delayed(duration, () {
@@ -121,7 +119,7 @@ class _ToastView {
     });
   }
 
-  void _dismiss() async {
+  Future<void> _dismiss() async {
     if (!_isVisible) {
       return;
     }
@@ -132,7 +130,7 @@ class _ToastView {
 
 class ToastChild extends StatelessWidget {
   const ToastChild({
-    Key? key,
+    super.key,
     required this.msg,
     required this.verticalOffset,
     this.gravity = BeToastGravity.bottom,
@@ -142,7 +140,7 @@ class ToastChild extends StatelessWidget {
     this.trailing,
     this.constraints,
     this.textStyle,
-  }) : super(key: key);
+  });
 
   EdgeInsets get padding {
     switch (gravity) {
@@ -166,23 +164,18 @@ class ToastChild extends StatelessWidget {
   final TextStyle? textStyle;
   final BoxConstraints? constraints;
 
-  InlineSpan get leadingSpan {
-    return WidgetSpan(
+  InlineSpan get leadingSpan => WidgetSpan(
       alignment: PlaceholderAlignment.middle,
       child: Padding(padding: const EdgeInsets.only(right: 8), child: leading!),
     );
-  }
 
-  InlineSpan get trailingSpan {
-    return WidgetSpan(
+  InlineSpan get trailingSpan => WidgetSpan(
       alignment: PlaceholderAlignment.middle,
       child: Padding(padding: const EdgeInsets.only(left: 8), child: trailing!),
     );
-  }
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
+  Widget build(BuildContext context) => Container(
       margin: padding,
       alignment: gravity.alignment,
       child: Container(
@@ -200,38 +193,34 @@ class ToastChild extends StatelessWidget {
           children: [
             if (leading != null)
               Padding(
-                  padding: const EdgeInsets.only(right: 8), child: leading!),
+                  padding: const EdgeInsets.only(right: 8), child: leading!,),
             Expanded(
               child: RichText(
                 textAlign: TextAlign.start,
                 text: TextSpan(children: <InlineSpan>[
                   TextSpan(text: msg, style: textStyle),
-                ]),
+                ],),
               ),
             ),
             if (trailing != null)
               Padding(
-                  padding: const EdgeInsets.only(left: 8), child: trailing!),
+                  padding: const EdgeInsets.only(left: 8), child: trailing!,),
           ],
         ),
       ),
     );
-  }
 }
 
 class _ToastWidget extends StatelessWidget {
   const _ToastWidget({
-    Key? key,
     required this.widget,
-  }) : super(key: key);
+  });
 
   final Widget widget;
 
   ///Use IgnorePointer to facilitate gesture transmission
   @override
-  Widget build(BuildContext context) {
-    return IgnorePointer(
+  Widget build(BuildContext context) => IgnorePointer(
       child: Material(color: Colors.transparent, child: widget),
     );
-  }
 }

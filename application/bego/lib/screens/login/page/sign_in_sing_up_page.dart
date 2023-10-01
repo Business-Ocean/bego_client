@@ -6,7 +6,6 @@ import 'package:bego/screens/login/controller/sign_in_sign_up_controller.dart';
 import 'package:bego/screens/login/state/sign_in_sing_up_state.dart';
 import 'package:bego_app/bego_app.dart';
 import 'package:bego_component/bego_component.dart';
-import 'package:bego_core/bego_get.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,8 @@ class SignInSignUpPage
   const SignInSignUpPage({super.key});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget buildStateWidget(BuildContext context, SignInSignUpState? state) =>
+      Scaffold(
         body: Flex(
           direction: Axis.vertical,
           mainAxisSize: MainAxisSize.max,
@@ -30,12 +30,13 @@ class SignInSignUpPage
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AppAssets.svg.begoIcon.svg(
-                    width: context.width * 0.4,
-                  ),
-                  // const BusinessOceanLogo(),
+                  AppAssets.svg.begoIcon.svg(height: 180),
                   const Expanded(
-                    child: AppTitle(),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.centerLeft,
+                      child: AppTitle(),
+                    ),
                   ),
                 ],
               ),

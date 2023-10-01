@@ -7,7 +7,7 @@ part 'be_data.freezed.dart';
 /// Note: Use [freezed](https://pub.dev/packages/freezed) package for creating
 /// immutable class. Immutable class help to improved performance of flutter
 /// Widget As per doc Flutter team promotes StatelessWidget over StatefullWidget
-@Freezed()
+@Freezed(genericArgumentFactories: true)
 abstract class BeData<T> with _$BeData<T> {
   // Loading State
   const factory BeData.loading({

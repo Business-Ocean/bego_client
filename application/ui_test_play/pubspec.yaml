@@ -33,6 +33,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  bego_app:
+    path: ../../packages/bego_app
+
+
   bego_ui:
     path: ../../packages/bego_ui
   bego_component:
@@ -40,6 +44,7 @@ dependencies:
 
   bego_core:
     path: ../../packages/bego_core
+
   loading_animation_widget:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

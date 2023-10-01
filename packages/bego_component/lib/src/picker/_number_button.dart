@@ -15,8 +15,7 @@ class NumberPickerButton extends StatelessWidget {
   bool get _isEnabled => onPressed != null;
 
   @override
-  Widget build(BuildContext context) {
-    return BeEnabled(
+  Widget build(BuildContext context) => BeEnabled(
       isEnabled: _isEnabled,
       child: GestureDetector(
         onTap: onPressed,
@@ -27,5 +26,4 @@ class NumberPickerButton extends StatelessWidget {
         ),
       ),
     );
-  }
 }

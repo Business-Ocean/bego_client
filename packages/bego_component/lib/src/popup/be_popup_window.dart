@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, prefer_asserts_with_message, comment_references, avoid_catches_without_on_clauses
 
 import 'dart:core';
 
@@ -17,6 +17,28 @@ enum BePopupDirection {
 
 ///General Popup Window prompt, with triangle number
 class BePopupWindow extends StatefulWidget {
+  const BePopupWindow(
+    this.context, {
+    super.key,
+    this.text,
+    required this.popKey,
+    this.arrowHeight = 6.0,
+    this.textStyle,
+    this.backgroundColor,
+    this.isShowCloseIcon = false,
+    this.offset = 0,
+    this.popDirection = BePopupDirection.bottom,
+    this.widget,
+    this.paddingInsets =
+        const EdgeInsets.only(left: 18, top: 14, right: 18, bottom: 14),
+    this.borderRadius = 12,
+    this.borderColor,
+    this.canWrap = false,
+    this.spaceMargin = 20,
+    this.arrowOffset,
+    this.turnOverFromBottom = 50.0,
+  });
+
   ///Context of the attached component
   final BuildContext context;
 
@@ -69,27 +91,6 @@ class BePopupWindow extends StatefulWidget {
   ///Automatically popup popWindow on targetView
   final double turnOverFromBottom;
 
-  const BePopupWindow(this.context,
-      {Key? key,
-      this.text,
-      required this.popKey,
-      this.arrowHeight = 6.0,
-      this.textStyle,
-      this.backgroundColor,
-      this.isShowCloseIcon = false,
-      this.offset = 0,
-      this.popDirection = BePopupDirection.bottom,
-      this.widget,
-      this.paddingInsets =
-          const EdgeInsets.only(left: 18, top: 14, right: 18, bottom: 14),
-      this.borderRadius = 12,
-      this.borderColor,
-      this.canWrap = false,
-      this.spaceMargin = 20,
-      this.arrowOffset,
-      this.turnOverFromBottom = 50.0})
-      : super(key: key);
-
   ///Display popUpWindow
   ///[text] The text content displayed
   ///[popKey] The GlobalKey held by the attached component and the BePopUpWindow component
@@ -109,33 +110,39 @@ class BePopupWindow extends StatefulWidget {
   ///[arrowOffset] The absolute offset of the arrow icon in the horizontal direction. If it is null, it will be automatically calculated.
   ///[dismissCallback] popUpWindow disappears callback, this callback will be executed after pop
   ///[turnOverFromBottom] When popWindow is less than this value, popWindow will automatically pop up on targetView. Default is 50
-  static void showPopWindow(context, GlobalKey popKey, String? text,
-      {BePopupDirection popDirection = BePopupDirection.bottom,
-      double arrowHeight = 6.0,
-      TextStyle? textStyle =
-          const TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)),
-      Color? backgroundColor = BegoColors.blueGray900,
-      bool hasCloseIcon = false,
-      double offset = 0,
-      Widget? widget,
-      EdgeInsets paddingInsets =
-          const EdgeInsets.only(left: 18, top: 14, right: 18, bottom: 14),
-      double borderRadius = 8,
-      Color? borderColor = Colors.transparent,
-      double borderWidth = 1,
-      bool canWrap = false,
-      double spaceMargin = 20,
-      double? arrowOffset,
-      VoidCallback? dismissCallback,
-      double turnOverFromBottom = 50.0}) {
-    assert(popKey.currentContext != null &&
-        popKey.currentContext!.findRenderObject() != null);
+  static void showPopWindow(
+    BuildContext context,
+    GlobalKey popKey,
+    String? text, {
+    BePopupDirection popDirection = BePopupDirection.bottom,
+    double arrowHeight = 6.0,
+    TextStyle? textStyle =
+        const TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)),
+    Color? backgroundColor = BegoColors.blueGray900,
+    bool hasCloseIcon = false,
+    double offset = 0,
+    Widget? widget,
+    EdgeInsets paddingInsets =
+        const EdgeInsets.only(left: 18, top: 14, right: 18, bottom: 14),
+    double borderRadius = 8,
+    Color? borderColor = Colors.transparent,
+    double borderWidth = 1,
+    bool canWrap = false,
+    double spaceMargin = 20,
+    double? arrowOffset,
+    VoidCallback? dismissCallback,
+    double turnOverFromBottom = 50.0,
+  }) {
+    assert(
+      popKey.currentContext != null &&
+          popKey.currentContext!.findRenderObject() != null,
+    );
     if (popKey.currentContext == null ||
         popKey.currentContext!.findRenderObject() == null) return;
     Navigator.push(
-        context,
-        BePopupRoute(
-            child: BePopupWindow(
+      context,
+      BePopupRoute(
+        child: BePopupWindow(
           context,
           arrowHeight: arrowHeight,
           text: text,
@@ -153,7 +160,9 @@ class BePopupWindow extends StatefulWidget {
           spaceMargin: spaceMargin,
           arrowOffset: arrowOffset,
           turnOverFromBottom: turnOverFromBottom,
-        )));
+        ),
+      ),
+    );
   }
 
   @override
@@ -204,12 +213,16 @@ class _BePopupWindowState extends State<BePopupWindow> {
   //Get the position of targetView
   Rect _getWidgetGlobalRect(GlobalKey key) {
     try {
-      BuildContext? ctx = key.currentContext;
-      RenderObject? renderObject = ctx?.findRenderObject();
-      RenderBox renderBox = renderObject as RenderBox;
-      var offset = renderBox.localToGlobal(Offset.zero);
+      final ctx = key.currentContext;
+      final renderObject = ctx?.findRenderObject();
+      final renderBox = renderObject as RenderBox;
+      final offset = renderBox.localToGlobal(Offset.zero);
       return Rect.fromLTWH(
-          offset.dx, offset.dy, renderBox.size.width, renderBox.size.height);
+        offset.dx,
+        offset.dy,
+        renderBox.size.width,
+        renderBox.size.height,
+      );
     } catch (e) {
       debugPrint('Exception in obtaining size information');
       return Rect.zero;
@@ -241,10 +254,9 @@ class _BePopupWindowState extends State<BePopupWindow> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return ExcludeSemantics(
-      excluding: true,
-      child: WillPopScope(
+  Widget build(BuildContext context) => ExcludeSemantics(
+        excluding: true,
+        child: WillPopScope(
           child: GestureDetector(
             behavior: HitTestBehavior.translucent,
             onTap: () {
@@ -261,177 +273,190 @@ class _BePopupWindowState extends State<BePopupWindow> {
               ),
             ),
           ),
-          onWillPop: () {
-            return Future.value(true);
-          }),
-    );
-  }
+          onWillPop: () => Future.value(true),
+        ),
+      );
 
   //draw arrow
-  Widget _buildArrowWidget() {
-    return _expandedRight
-        ? Positioned(
-            left: widget.arrowOffset ??
-                _left +
-                    (_showRect.width - _arrowSpacing) / 2 -
-                    widget.spaceMargin,
-            top: _popDirection == BePopupDirection.bottom
-                ? _top - widget.arrowHeight
-                : null,
-            bottom: _popDirection == BePopupDirection.top
-                ? _bottom - widget.arrowHeight
-                : null,
-            child: CustomPaint(
-              size: Size(15.0, widget.arrowHeight),
-              painter: _TrianglePainter(
-                  isDownArrow: _popDirection == BePopupDirection.top,
-                  color: _backgroundColor,
-                  borderColor: _borderColor),
+  Widget _buildArrowWidget() => _expandedRight
+      ? Positioned(
+          left: widget.arrowOffset ??
+              _left +
+                  (_showRect.width - _arrowSpacing) / 2 -
+                  widget.spaceMargin,
+          top: _popDirection == BePopupDirection.bottom
+              ? _top - widget.arrowHeight
+              : null,
+          bottom: _popDirection == BePopupDirection.top
+              ? _bottom - widget.arrowHeight
+              : null,
+          child: CustomPaint(
+            size: Size(15.0, widget.arrowHeight),
+            painter: _TrianglePainter(
+              isDownArrow: _popDirection == BePopupDirection.top,
+              color: _backgroundColor,
+              borderColor: _borderColor,
             ),
-          )
-        : Positioned(
-            right: widget.arrowOffset ??
-                _right +
-                    (_showRect.width - _arrowSpacing) / 2 -
-                    widget.spaceMargin,
-            top: _popDirection == BePopupDirection.bottom
-                ? _top - widget.arrowHeight
-                : null,
-            bottom: _popDirection == BePopupDirection.top
-                ? _bottom - widget.arrowHeight
-                : null,
-            child: CustomPaint(
-              size: Size(15.0, widget.arrowHeight),
-              painter: _TrianglePainter(
-                  isDownArrow: _popDirection == BePopupDirection.top,
-                  color: _backgroundColor,
-                  borderColor: _borderColor),
+          ),
+        )
+      : Positioned(
+          right: widget.arrowOffset ??
+              _right +
+                  (_showRect.width - _arrowSpacing) / 2 -
+                  widget.spaceMargin,
+          top: _popDirection == BePopupDirection.bottom
+              ? _top - widget.arrowHeight
+              : null,
+          bottom: _popDirection == BePopupDirection.top
+              ? _bottom - widget.arrowHeight
+              : null,
+          child: CustomPaint(
+            size: Size(15.0, widget.arrowHeight),
+            painter: _TrianglePainter(
+              isDownArrow: _popDirection == BePopupDirection.top,
+              color: _backgroundColor,
+              borderColor: _borderColor,
             ),
-          );
-  }
+          ),
+        );
 
   //Popup style of popupWindow
   Widget _buildPopWidget(BuildContext context) {
     //Status bar height
-    double statusBarHeight =
+    final statusBarHeight =
         MediaQueryData.fromView(View.of(context)).padding.top;
     return Positioned(
-        left: _expandedRight ? _left : null,
-        right: _expandedRight ? null : _right,
-        top: _popDirection == BePopupDirection.bottom ? _top : null,
-        bottom: _popDirection == BePopupDirection.top ? _bottom : null,
-        child: Container(
-            padding: widget.paddingInsets,
-            decoration: BoxDecoration(
-                color: _backgroundColor,
-                // border: Border.all(color: _borderColor, width: 0.5),
-                borderRadius: BorderRadius.circular(widget.borderRadius)),
-            constraints: BoxConstraints(
-                maxWidth: _expandedRight
-                    ? _screenSize.width - _left
-                    : _screenSize.width - _right,
-                maxHeight: _popDirection == BePopupDirection.bottom
-                    ? _screenSize.height - _top
-                    : _screenSize.height - _bottom - statusBarHeight),
-            child: widget.widget ??
-                SingleChildScrollView(
-                    child: widget.canWrap
-                        ? RichText(
-                            text: TextSpan(children: <InlineSpan>[
-                            TextSpan(
-                                text: widget.text, style: widget.textStyle),
-                            widget.isShowCloseIcon
-                                ? const WidgetSpan(
-                                    alignment: PlaceholderAlignment.middle,
-                                    child: Padding(
-                                        padding: EdgeInsets.only(left: 6),
-                                        child: Icon(Icons.close)))
-                                : const TextSpan(text: "")
-                          ]))
-                        : Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Flexible(
-                                fit: FlexFit.loose,
-                                child: Text(
-                                  widget.text ?? '',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: widget.textStyle,
-                                ),
+      left: _expandedRight ? _left : null,
+      right: _expandedRight ? null : _right,
+      top: _popDirection == BePopupDirection.bottom ? _top : null,
+      bottom: _popDirection == BePopupDirection.top ? _bottom : null,
+      child: Container(
+        padding: widget.paddingInsets,
+        decoration: BoxDecoration(
+          color: _backgroundColor,
+          // border: Border.all(color: _borderColor, width: 0.5),
+          borderRadius: BorderRadius.circular(widget.borderRadius),
+        ),
+        constraints: BoxConstraints(
+          maxWidth: _expandedRight
+              ? _screenSize.width - _left
+              : _screenSize.width - _right,
+          maxHeight: _popDirection == BePopupDirection.bottom
+              ? _screenSize.height - _top
+              : _screenSize.height - _bottom - statusBarHeight,
+        ),
+        child: widget.widget ??
+            SingleChildScrollView(
+              child: widget.canWrap
+                  ? RichText(
+                      text: TextSpan(
+                        children: <InlineSpan>[
+                          TextSpan(
+                            text: widget.text,
+                            style: widget.textStyle,
+                          ),
+                          if (widget.isShowCloseIcon)
+                            const WidgetSpan(
+                              alignment: PlaceholderAlignment.middle,
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 6),
+                                child: Icon(Icons.close),
                               ),
-                              widget.isShowCloseIcon
-                                  ? const Padding(
-                                      padding: EdgeInsets.only(left: 6),
-                                      child: Icon(Icons.close),
-                                    )
-                                  : const Text("")
-                            ],
-                          ))));
+                            )
+                          else
+                            const TextSpan(text: ''),
+                        ],
+                      ),
+                    )
+                  : Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: Text(
+                            widget.text ?? '',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: widget.textStyle,
+                          ),
+                        ),
+                        if (widget.isShowCloseIcon)
+                          const Padding(
+                            padding: EdgeInsets.only(left: 6),
+                            child: Icon(Icons.close),
+                          )
+                        else
+                          const Text(''),
+                      ],
+                    ),
+            ),
+      ),
+    );
   }
 }
 
 //draw arrow
 class _TrianglePainter extends CustomPainter {
-  bool isDownArrow;
-  Color color;
-  Color borderColor;
-
   _TrianglePainter({
     required this.isDownArrow,
     required this.color,
     required this.borderColor,
   });
+  bool isDownArrow;
+  Color color;
+  Color borderColor;
 
   @override
   void paint(Canvas canvas, Size size) {
-    Path path = Path();
-    Paint paint = Paint();
-    paint.strokeWidth = 2.0;
-    paint.color = color;
-    paint.style = PaintingStyle.fill;
+    final path = Path();
+    final paint = Paint()
+      ..strokeWidth = 2.0
+      ..color = color
+      ..style = PaintingStyle.fill;
 
     if (isDownArrow) {
-      path.moveTo(0.0, -1.5);
-      path.lineTo(size.width / 2.0, size.height);
-      path.lineTo(size.width, -1.5);
+      path
+        ..moveTo(0.0, -1.5)
+        ..lineTo(size.width / 2.0, size.height)
+        ..lineTo(size.width, -1.5);
     } else {
-      path.moveTo(0.0, size.height + 1.5);
-      path.lineTo(size.width / 2.0, 0.0);
-      path.lineTo(size.width, size.height + 1.5);
+      path
+        ..moveTo(0.0, size.height + 1.5)
+        ..lineTo(size.width / 2.0, 0.0)
+        ..lineTo(size.width, size.height + 1.5);
     }
 
     canvas.drawPath(path, paint);
-    Paint paintBorder = Paint();
-    Path pathBorder = Path();
-    paintBorder.strokeWidth = 0.5;
-    paintBorder.color = borderColor;
-    paintBorder.style = PaintingStyle.stroke;
+    final paintBorder = Paint();
+    final pathBorder = Path();
+    paintBorder
+      ..strokeWidth = 0.5
+      ..color = borderColor
+      ..style = PaintingStyle.stroke;
 
     if (isDownArrow) {
-      pathBorder.moveTo(0.0, -0.5);
-      pathBorder.lineTo(size.width / 2.0, size.height);
-      pathBorder.lineTo(size.width, -0.5);
+      pathBorder
+        ..moveTo(0.0, -0.5)
+        ..lineTo(size.width / 2.0, size.height)
+        ..lineTo(size.width, -0.5);
     } else {
-      pathBorder.moveTo(0.5, size.height + 0.5);
-      pathBorder.lineTo(size.width / 2.0, 0);
-      pathBorder.lineTo(size.width - 0.5, size.height + 0.5);
+      pathBorder
+        ..moveTo(0.5, size.height + 0.5)
+        ..lineTo(size.width / 2.0, 0)
+        ..lineTo(size.width - 0.5, size.height + 0.5);
     }
 
     canvas.drawPath(pathBorder, paintBorder);
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
-  }
+  bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
 
-class BePopupRoute extends PopupRoute {
+class BePopupRoute extends PopupRoute<dynamic> {
+  BePopupRoute({required this.child});
   final Duration _duration = const Duration(milliseconds: 200);
   Widget child;
-
-  BePopupRoute({required this.child});
 
   @override
   Color? get barrierColor => null;
@@ -443,10 +468,12 @@ class BePopupRoute extends PopupRoute {
   String? get barrierLabel => null;
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
-    return child;
-  }
+  Widget buildPage(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) =>
+      child;
 
   @override
   Duration get transitionDuration => _duration;
@@ -474,7 +501,7 @@ class BePopupListWindow {
   ///[onItemClickInterceptor] item click interception callback
   ///[onDismiss] popUpWindow disappears callback
   static void showButtonPanelPopList(
-    context,
+    BuildContext context,
     GlobalKey popKey, {
     List<String>? data,
     BePopupDirection popDirection = BePopupDirection.bottom,
@@ -482,25 +509,27 @@ class BePopupListWindow {
     BePopupListItemClick? onItemClick,
     VoidCallback? onDismiss,
   }) {
-    TextStyle textStyle = BeTheme.of(context).bestyle.bodyMedium;
-    double arrowHeight = 6.0;
-    Color borderColor = const Color(0xffCCCCCC);
-    Color backgroundColor = Colors.white;
-    double offset = 4;
-    double spaceMargin = -10;
-    double minWidth = 100;
-    double maxWidth = 150;
-    double maxHeight = 200;
-    double borderRadius = 4;
-    bool hasCloseIcon = true;
-    assert(popKey.currentContext != null &&
-        popKey.currentContext!.findRenderObject() != null);
+    final textStyle = BeTheme.of(context).bestyle.bodyMedium;
+    const arrowHeight = 6.0;
+    const borderColor = Color(0xffCCCCCC);
+    const backgroundColor = Colors.white;
+    const offset = 4.0;
+    const spaceMargin = -10.0;
+    const minWidth = 100.0;
+    const maxWidth = 150.0;
+    const maxHeight = 200.0;
+    const borderRadius = 4.0;
+    const hasCloseIcon = true;
+    assert(
+      popKey.currentContext != null &&
+          popKey.currentContext!.findRenderObject() != null,
+    );
     if (popKey.currentContext == null ||
         popKey.currentContext!.findRenderObject() == null) return;
     Navigator.push(
-        context,
-        BePopupRoute(
-            child: BePopupWindow(
+      context,
+      BePopupRoute(
+        child: BePopupWindow(
           context,
           arrowHeight: arrowHeight,
           popKey: popKey,
@@ -510,12 +539,16 @@ class BePopupListWindow {
           offset: offset,
           widget: data?.isEmpty ?? false
               ? Container(
-                  constraints:
-                      BoxConstraints(maxWidth: maxWidth, maxHeight: maxHeight),
+                  constraints: const BoxConstraints(
+                    maxWidth: maxWidth,
+                    maxHeight: maxHeight,
+                  ),
                 )
               : Container(
-                  constraints:
-                      BoxConstraints(maxWidth: maxWidth, maxHeight: maxHeight),
+                  constraints: const BoxConstraints(
+                    maxWidth: maxWidth,
+                    maxHeight: maxHeight,
+                  ),
                   child: SingleChildScrollView(
                     child: Container(
                       padding: const EdgeInsets.only(top: 6, bottom: 6),
@@ -523,11 +556,13 @@ class BePopupListWindow {
                         children: _getItems(context, minWidth, maxWidth,
                             itemBuilder, textStyle, data!, (index, item) {
                           if (onItemClick != null) {
-                            bool isIntercept = onItemClick(index, item);
+                            final isIntercept = onItemClick(index, item);
                             if (isIntercept) return;
                           }
                           Navigator.pop(
-                              context, {'index': index, 'item': item});
+                            context,
+                            {'index': index, 'item': item},
+                          );
                         }),
                       ),
                     ),
@@ -537,7 +572,9 @@ class BePopupListWindow {
           borderRadius: borderRadius,
           borderColor: borderColor,
           spaceMargin: spaceMargin,
-        ))).then((result) {
+        ),
+      ),
+    ).then((result) {
       if (onDismiss != null) {
         onDismiss();
       }
@@ -552,28 +589,33 @@ class BePopupListWindow {
   ///[onItemClick] item click callback
   ///[onItemClickInterceptor] item click interception callback
   ///[onDismiss] popUpWindow disappears callback
-  static void showPopListWindow(context, GlobalKey popKey,
-      {List<String>? data,
-      BePopupDirection popDirection = BePopupDirection.bottom,
-      double offset = 0,
-      double? arrowOffset,
-      BePopupListItemClick? onItemClick,
-      VoidCallback? onDismiss}) {
-    assert(popKey.currentContext != null &&
-        popKey.currentContext!.findRenderObject() != null);
+  static void showPopListWindow(
+    BuildContext context,
+    GlobalKey popKey, {
+    List<String>? data,
+    BePopupDirection popDirection = BePopupDirection.bottom,
+    double offset = 0,
+    double? arrowOffset,
+    BePopupListItemClick? onItemClick,
+    VoidCallback? onDismiss,
+  }) {
+    assert(
+      popKey.currentContext != null &&
+          popKey.currentContext!.findRenderObject() != null,
+    );
     if (popKey.currentContext == null ||
         popKey.currentContext!.findRenderObject() == null) return;
 
-    double arrowHeight = 6.0;
-    double borderRadius = 4;
-    double spaceMargin = 0;
-    double minWidth = 100;
-    double maxWidth = 150;
-    double maxHeight = 200;
-    Color borderColor = BeTheme.of(context).becolors.hint;
-    Color backgroundColor = Colors.white;
-    TextStyle textStyle = TextStyle(color: BeTheme.of(context).becolors.text);
-    bool hasCloseIcon = true;
+    const arrowHeight = 6.0;
+    const borderRadius = 4.0;
+    const spaceMargin = 0.0;
+    const minWidth = 100.0;
+    const maxWidth = 150.0;
+    const maxHeight = 200.0;
+    final borderColor = BeTheme.of(context).becolors.hint;
+    const backgroundColor = Colors.white;
+    final textStyle = TextStyle(color: BeTheme.of(context).becolors.text);
+    const hasCloseIcon = true;
 
     Navigator.push(
       context,
@@ -589,12 +631,16 @@ class BePopupListWindow {
           offset: offset,
           widget: data?.isEmpty ?? false
               ? Container(
-                  constraints:
-                      BoxConstraints(maxWidth: maxWidth, maxHeight: maxHeight),
+                  constraints: const BoxConstraints(
+                    maxWidth: maxWidth,
+                    maxHeight: maxHeight,
+                  ),
                 )
               : Container(
-                  constraints:
-                      BoxConstraints(maxWidth: maxWidth, maxHeight: maxHeight),
+                  constraints: const BoxConstraints(
+                    maxWidth: maxWidth,
+                    maxHeight: maxHeight,
+                  ),
                   child: SingleChildScrollView(
                     child: Container(
                       padding: const EdgeInsets.only(top: 6, bottom: 6),
@@ -603,7 +649,7 @@ class BePopupListWindow {
                             context, minWidth, maxWidth, null, textStyle, data!,
                             (index, item) {
                           if (onItemClick != null) {
-                            bool isIntercept = onItemClick(index, item);
+                            final isIntercept = onItemClick(index, item);
                             if (isIntercept) return;
                           }
                           Navigator.pop(context);
@@ -626,14 +672,15 @@ class BePopupListWindow {
   }
 
   static List<Widget> _getItems(
-      BuildContext context,
-      double minWidth,
-      double maxWidth,
-      BePopupListItemBuilder? itemBuilder,
-      TextStyle textStyle,
-      List<String> data,
-      void Function(int index, String item) onItemClick) {
-    double textMaxWidth = _getMaxWidth(textStyle, data);
+    BuildContext context,
+    double minWidth,
+    double maxWidth,
+    BePopupListItemBuilder? itemBuilder,
+    TextStyle textStyle,
+    List<String> data,
+    void Function(int index, String item) onItemClick,
+  ) {
+    var textMaxWidth = _getMaxWidth(textStyle, data);
     if (textMaxWidth + 52 < minWidth) {
       textMaxWidth = minWidth;
     } else if (textMaxWidth + 52 > maxWidth) {
@@ -641,28 +688,32 @@ class BePopupListWindow {
     } else {
       textMaxWidth = textMaxWidth + 52;
     }
-    return data.map((f) {
-      return GestureDetector(
-          onTap: () {
-            onItemClick(data.indexOf(f), f);
-          },
-          child: Container(
+    return data
+        .map(
+          (f) => GestureDetector(
+            onTap: () {
+              onItemClick(data.indexOf(f), f);
+            },
+            child: Container(
               width: textMaxWidth,
               alignment: Alignment.center,
               color: Colors.transparent,
               padding:
                   const EdgeInsets.only(left: 26, right: 26, top: 6, bottom: 6),
-              child: _getTextWidget(itemBuilder, data, f, textStyle)));
-    }).toList();
+              child: _getTextWidget(itemBuilder, data, f, textStyle),
+            ),
+          ),
+        )
+        .toList();
   }
 
   ///Traverse the data, calculate the content of each Item, and return the maximum display width of all Items
   static double _getMaxWidth(TextStyle textStyle, List<String> data) {
-    double maxWidth = 0;
+    var maxWidth = 0.0;
     if (data.isEmpty) {
       Size? maxWidthSize;
-      for (String entity in data) {
-        Size size = BeTextUtil.textSize(entity, textStyle);
+      for (final entity in data) {
+        final size = BeTextUtil.textSize(entity, textStyle);
         if (maxWidthSize == null) {
           maxWidthSize = size;
         } else {
@@ -678,8 +729,12 @@ class BePopupListWindow {
     return maxWidth;
   }
 
-  static Widget _getTextWidget(BePopupListItemBuilder? itemBuilder,
-      List<String> data, String text, TextStyle textStyle) {
+  static Widget _getTextWidget(
+    BePopupListItemBuilder? itemBuilder,
+    List<String> data,
+    String text,
+    TextStyle textStyle,
+  ) {
     if (itemBuilder == null) {
       return _getDefaultText(text, textStyle);
     } else {
@@ -688,12 +743,10 @@ class BePopupListWindow {
     }
   }
 
-  static Text _getDefaultText(String text, TextStyle textStyle) {
-    return Text(
-      text,
-      overflow: TextOverflow.ellipsis,
-      maxLines: 1,
-      style: textStyle,
-    );
-  }
+  static Text _getDefaultText(String text, TextStyle textStyle) => Text(
+        text,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 1,
+        style: textStyle,
+      );
 }
