@@ -12,18 +12,20 @@ class LoginInWithGoogle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => TextButton(
         onPressed: onPressed,
-        style: TextButton.styleFrom(padding: p0),
+        style: TextButton.styleFrom(
+          padding: p0,
+        ),
         child: BeInputLabel(
           label: BeTinyLoader(show: loading),
           position: BeInputLabelPosition.centerRight,
-          offset: const Offset(-40, 0),
+          offset: const Offset(-24, 0),
           child: Container(
+            height: 48,
             decoration: BoxDecoration(
               color: becolors(context).lightInverse,
               borderRadius: bestyles(context).borderRadius,
               border: Border.all(color: BegoColors.gray300),
             ),
-            padding: const EdgeInsets.all(16),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +36,6 @@ class LoginInWithGoogle extends StatelessWidget {
                   'Login with Google',
                   style: TextStyle(
                     color: becolors(context).darkInverse,
-                    fontSize: 16,
                   ),
                 ),
               ],
