@@ -1,7 +1,7 @@
-import 'package:bego_core/bego_get.dart';
 import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_responsive.dart';
 import 'package:bego_ui/bego_ui.dart';
+import 'package:bego_ui/bego_ui_utils.dart';
 import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:uibook/widgets/icons/icons_list.dart';
@@ -19,42 +19,29 @@ class DisplayIcons extends StatelessWidget {
         return Container(
           color: becolors(context).scaffoldBackground,
           child: StatefulBuilder(builder: (context, setState) {
-            return MouseRegion(
-              onEnter: (_) {
-                scaleFactor = 1.1;
-                setState(() {});
-              },
-              onExit: (_) {
-                scaleFactor = 1;
-                setState(() {});
-              },
-              child: Transform.scale(
-                scale: scaleFactor,
-                child: Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(4),
-                  decoration: scaleFactor == 1
-                      ? null
-                      : BoxDecoration(
-                          color: becolors(context).primary.withAlpha(50),
-                        ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        iconDetails.data,
-                        // color: becolors(context).lightInverse,
-                      ),
-                      BeText(
-                        iconDetails.name,
-                        maxLine: 2,
-                        overflow: TextOverflow.ellipsis,
-                        align: TextAlign.center,
-                      ),
-                    ],
+            return Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(4),
+              decoration: scaleFactor == 1
+                  ? null
+                  : BoxDecoration(
+                      color: becolors(context).primary.withAlpha(50),
+                    ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    iconDetails.data,
+                    // color: becolors(context).lightInverse,
                   ),
-                ),
+                  BeText(
+                    iconDetails.name,
+                    maxLine: 2,
+                    overflow: TextOverflow.ellipsis,
+                    align: TextAlign.center,
+                  ),
+                ],
               ),
             );
           }),

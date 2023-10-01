@@ -19,7 +19,6 @@ void main() async {
         deviceId: deviceId,
       ),
       initialRoute: AppPages.initial,
-      getPages: AppPages.routes,
       // home: MyHomePage(title: 'Flutter GetX Tutorial'),
     ),
   );

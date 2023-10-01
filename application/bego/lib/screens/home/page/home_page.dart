@@ -9,7 +9,7 @@ class HomePage extends ViewPage<HomeState, HomeController> {
   const HomePage({super.key});
 
   @override
-  Widget buildStateWidget(BuildContext context, HomeState? state) => Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: const Text('Title'),
         ),
@@ -102,7 +102,7 @@ class HomePage extends ViewPage<HomeState, HomeController> {
         // ),
       );
 
-  Widget? itemBuilder(BuildContext context, int index) => ListTile(
-        title: Text(controller.todos[index]['title'].toString()),
+  Widget? itemBuilder(BuildContext context, int index) => const ListTile(
+        title: Text("controller.todos[index]['title'].toString()"),
       );
 }

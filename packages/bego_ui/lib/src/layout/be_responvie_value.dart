@@ -1,4 +1,4 @@
-import 'package:bego_core/bego_get.dart';
+import 'package:bego_ui/src/helper/context_extensions.dart';
 import 'package:bego_ui/src/layout/breakpoint.dart';
 import 'package:flutter/widgets.dart';
 
