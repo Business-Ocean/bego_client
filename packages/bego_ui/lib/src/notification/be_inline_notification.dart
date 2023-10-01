@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:bego_core/bego_get.dart';
 import 'package:bego_ui/bego_ui.dart';
+import 'package:bego_ui/src/helper/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 abstract class BeInlineNotification extends StatelessWidget {

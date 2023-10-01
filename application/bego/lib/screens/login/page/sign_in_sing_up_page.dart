@@ -15,8 +15,7 @@ class SignInSignUpPage
   const SignInSignUpPage({super.key});
 
   @override
-  Widget buildStateWidget(BuildContext context, SignInSignUpState? state) =>
-      Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         body: Flex(
           direction: Axis.vertical,
           mainAxisSize: MainAxisSize.max,
@@ -88,14 +87,15 @@ class SignInSignUpPage
                       padding: EdgeInsets.symmetric(vertical: 16),
                       align: TextAlign.center,
                     ),
-                    LoginInWithGoogle(
+                    const LoginInWithGoogle(
                       loading: true,
-                      onPressed: () => controller.getLoginURL(),
+                      // onPressed: controller.getLoginURL,
                     ),
                     space24,
                     Center(
                       child: TextButton(
-                        onPressed: controller.navigateHome,
+                        onPressed: () {},
+                        // onPressed: controller.navigateHome,
                         child: const Text(
                           'Skip',
                           style: TextStyle(

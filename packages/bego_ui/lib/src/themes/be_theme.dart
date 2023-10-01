@@ -1,4 +1,4 @@
-import 'package:bego_core/bego_get.dart';
+import 'package:bego_ui/src/helper/context_extensions.dart';
 import 'package:bego_ui/src/layout/breakpoint.dart';
 import 'package:bego_ui/src/themes/_be_theme_creation.dart';
 import 'package:bego_ui/src/themes/be_edge_insets.dart';
