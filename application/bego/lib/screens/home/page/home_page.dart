@@ -9,7 +9,7 @@ class HomePage extends ViewPage<HomeState, HomeController> {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget buildStateWidget(BuildContext context, HomeState? state) => Scaffold(
         appBar: AppBar(
           title: const Text('Title'),
         ),

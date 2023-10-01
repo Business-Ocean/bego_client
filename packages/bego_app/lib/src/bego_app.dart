@@ -125,8 +125,10 @@ class BegoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    controller.state = controller.state.copyWith(
-      themeMode: ThemeMode.light, //_getThemeMode(context),
+    controller.updageState(
+      controller.state.copyWith(
+        themeMode: ThemeMode.light, //_getThemeMode(context),
+      ),
     );
     return GetBuilder<BegoAppController>(
       builder: (controller) => BeTheme(

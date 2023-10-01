@@ -1,8 +1,12 @@
-# melos_managed_dependency_overrides: bego_component,bego_core,bego_ui
+# melos_managed_dependency_overrides: bego_component,bego_core,bego_ui,bego_app,bego_network
 dependency_overrides:
+  bego_app:
+    path: ../../packages/bego_app
   bego_component:
     path: ../../packages/bego_component
   bego_core:
     path: ../../packages/bego_core
+  bego_network:
+    path: ../../packages/bego_network
   bego_ui:
     path: ../../packages/bego_ui

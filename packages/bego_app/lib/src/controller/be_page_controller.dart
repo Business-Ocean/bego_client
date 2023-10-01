@@ -1,41 +1,45 @@
+// ignore_for_file: use_setters_to_change_properties
+
+import 'package:bego_app/src/actions/event_action.dart';
+import 'package:bego_app/src/page/i_view_page.dart';
 import 'package:bego_app/src/state/be_data.dart';
 import 'package:bego_core/bego_get.dart';
 
-abstract class BePageController<S> extends GetxController {
-  BePageController(this._state);
-  S _state;
-  BeData<S>? _status;
+class BePageController<S> extends GetxController implements IViewPage {
+  BePageController(S state) : _page = Rx(BeData.empty(data: state));
+  final Rx<BeData<S>> _page;
 
-  BeData<S> get status {
+  // BeData<S> _page;
+
+  Rx<BeData<S>> get pageState => _page;
+
+  BeData<S> get page {
     reportRead();
-    return _status ??= _status = const BeData.loading();
+    return _page.value;
   }
 
   S get viewState => state;
 
-  set status(BeData<S> newStatus) {
-    if (newStatus == status) return;
-    _status = newStatus;
-    if (newStatus is BeSuccess<S>) {
-      _state = newStatus.data;
-    }
+  set page(BeData<S> newStatus) {
+    if (newStatus == page) return;
+    _page.value = newStatus;
     refresh();
   }
 
   S get state {
     reportRead();
-    return _state;
+    return _page.value.data!;
   }
 
-  set state(S newstate) {
-    if (_state == newstate) return;
-    _state = newstate;
+  void updageState(S newstate) {
+    if (_page.value.data == newstate) return;
+    _page.value = BeData.success(data: newstate);
     refresh();
   }
 
   void change(BeData<S> status) {
-    if (status != this.status) {
-      this.status = status;
+    if (status != this.page) {
+      this.page = status;
     }
   }
 
@@ -47,21 +51,64 @@ abstract class BePageController<S> extends GetxController {
   }) {
     final compute = body;
     if (initialData != null) {
-      _state ??= initialData;
+      _page.value = BeData.empty(data: initialData);
     }
     compute().then(
       (newstate) {
         if ((newstate == null) && useEmpty) {
-          status = BeData<S>.loading();
+          page = BeData<S>.loading();
         } else {
-          status = BeData<S>.success(data: newstate);
+          page = BeData<S>.success(data: newstate);
         }
         refresh();
       },
       onError: (dynamic err) {
-        status = BeError(data: err as S);
+        page = BeError(
+          message: errorMessage ?? defaultErrorMessage,
+          data: err as S,
+        );
         refresh();
       },
     );
   }
+
+  late IViewPage? _viewPage;
+
+  IViewPage? get viewPage => _viewPage;
+
+  void attach(IViewPage viewPage) => _viewPage = viewPage;
+
+  void dettach() => _viewPage = null;
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    dettach();
+    super.onClose();
+  }
+
+  @override
+  void handleAction(
+    EventAction action, {
+    MessageStyle style = MessageStyle.success,
+  }) =>
+      _viewPage?.handleAction(action, style: style);
+
+  @override
+  void hideLoading() => _viewPage?.showLoading();
+
+  @override
+  void showLoading() => _viewPage?.hideLoading();
+
+  @override
+  void showMessage(
+    String title,
+    String message, {
+    MessageStyle style = MessageStyle.success,
+  }) =>
+      _viewPage?.showMessage(title, message);
 }

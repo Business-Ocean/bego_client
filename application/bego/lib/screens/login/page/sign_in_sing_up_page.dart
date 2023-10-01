@@ -15,7 +15,8 @@ class SignInSignUpPage
   const SignInSignUpPage({super.key});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget buildStateWidget(BuildContext context, SignInSignUpState? state) =>
+      Scaffold(
         body: Flex(
           direction: Axis.vertical,
           mainAxisSize: MainAxisSize.max,

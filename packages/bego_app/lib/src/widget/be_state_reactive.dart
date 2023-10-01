@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 class BeReactiveWidget<T> extends StatelessWidget {
   const BeReactiveWidget({
     super.key,
-    this.data = const BeData.loading(),
+    this.data = const BeData.empty(),
     this.badgePosition = BeBadgePosition.center,
     required this.builder,
     this.overlayBuilder,
