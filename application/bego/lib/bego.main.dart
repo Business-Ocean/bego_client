@@ -1,4 +1,4 @@
-import 'package:bego/routes/app_pages.dart';
+import 'package:bego/routes/app_routes.dart';
 import 'package:bego/setup/di/di.dart';
 import 'package:bego/setup/setup.dart';
 import 'package:bego_app/bego_app.dart';
@@ -11,14 +11,16 @@ void main() async {
   final deviceId = await BeDeviceInfo.getDeviceId();
 
   runApp(
-    BegoApp(
+    BegoApp.router(
       state: AppState(
         appName: 'Bego',
         packageName: 'com.businessocean.bego',
         version: '0.0.1',
         deviceId: deviceId,
+        themeMode: ThemeMode.light,
       ),
-      initialRoute: AppPages.initial,
+      routerConfig: appRouter,
+
       // home: MyHomePage(title: 'Flutter GetX Tutorial'),
     ),
   );

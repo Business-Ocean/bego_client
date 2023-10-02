@@ -16,17 +16,17 @@ class AppTitle extends StatelessWidget {
             'BEGO',
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 80,
+              fontSize: 58,
               shadows: BegoShadows.boxShadow1,
             ),
           ),
           BeText(
             'Discover Nearby Seamlessly',
-            padding: EdgeInsets.only(left: 6),
+            padding: EdgeInsets.only(left: 4),
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 16,
-              height: 0.1,
+              fontSize: 14,
+              height: 0.01,
             ),
           ),
         ],

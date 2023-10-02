@@ -1,14 +1,23 @@
-part of 'app_pages.dart';
-// DO NOT EDIT. This is code generated via package:get_cli/get_cli.dart
+import 'package:bego/routes/route_names.dart';
+import 'package:bego/screens/home/page/home_page.dart';
+import 'package:bego/screens/login/page/sign_in_sing_up_page.dart';
+import 'package:bego_app/go_router.dart';
+import 'package:flutter/material.dart';
 
-abstract class AppRoutes {
-  AppRoutes._();
-  static const home = _Paths.home;
-  static const signInSignUp = _Paths.signInSignUp;
-}
-
-abstract class _Paths {
-  _Paths._();
-  static const home = '/home';
-  static const signInSignUp = '/sign';
-}
+/// The route configuration.
+final GoRouter appRouter = GoRouter(
+  routes: <RouteBase>[
+    GoRoute(
+      path: AppRoutes.signInSignUP,
+      builder: (BuildContext context, GoRouterState state) =>
+          const SignInSignUpPage(),
+      routes: <RouteBase>[
+        GoRoute(
+          path: AppRoutes.home,
+          builder: (BuildContext context, GoRouterState state) =>
+              const HomePage(),
+        ),
+      ],
+    ),
+  ],
+);
