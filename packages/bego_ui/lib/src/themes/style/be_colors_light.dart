@@ -12,7 +12,7 @@ class BeColorsLight implements BeColors {
   Color get primary => BegoColors.roseRed;
 
   @override
-  Color get text => BegoColors.black;
+  Color get text => BegoColors.slate900;
 
   @override
   Color get intraction => BegoColors.gray.withAlpha(50);

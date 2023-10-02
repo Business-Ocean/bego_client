@@ -24,26 +24,13 @@ class BeTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textField = TextField(
-      decoration: InputDecoration(
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-        hintText: hint ?? '',
-        alignLabelWithHint: true,
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-      ),
-    );
-
     final labelTextField = BeInputLabel(
       label: BeText(
         label,
-        style: labelStyle ??
-            bestyles(context)
-                .labelLarge
-                .copyWith(color: becolors(context).text),
+        style: labelStyle ?? bestyles(context).labelLarge,
       ),
       offset: labelOffset ?? const Offset(0, -4),
-      child: textField,
+      child: const TextField(),
     );
     if (!mandatory) return labelTextField;
 

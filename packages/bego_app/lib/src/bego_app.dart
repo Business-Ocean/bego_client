@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_asserts_with_message
 
 import 'package:bego_app/src/state/app_state.dart';
+import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
 class BegoApp extends StatefulWidget {
@@ -180,42 +181,52 @@ class BegoApp extends StatefulWidget {
 
 class _BegoAppState extends State<BegoApp> {
   @override
-  Widget build(BuildContext context) => MaterialApp(
-        navigatorKey: widget.navigatorKey,
-        scaffoldMessengerKey: widget.scaffoldMessengerKey,
-        home: widget.home,
-        routes: widget.routes ?? const <String, WidgetBuilder>{},
-        initialRoute: widget.initialRoute,
-        onGenerateRoute: widget.onGenerateRoute,
-        onGenerateInitialRoutes: widget.onGenerateInitialRoutes,
-        onUnknownRoute: widget.onUnknownRoute,
-        navigatorObservers:
-            widget.navigatorObservers ?? const <NavigatorObserver>[],
-        builder: widget.builder,
-        title: widget.title,
-        onGenerateTitle: widget.onGenerateTitle,
-        color: widget.color,
-        theme: widget.theme,
-        darkTheme: widget.darkTheme,
-        highContrastTheme: widget.highContrastTheme,
-        highContrastDarkTheme: widget.highContrastDarkTheme,
-        themeMode: widget.themeMode,
-        themeAnimationDuration: widget.themeAnimationDuration,
-        themeAnimationCurve: widget.themeAnimationCurve,
-        locale: widget.locale,
-        localizationsDelegates: widget.localizationsDelegates,
-        localeListResolutionCallback: widget.localeListResolutionCallback,
-        localeResolutionCallback: widget.localeResolutionCallback,
-        supportedLocales: widget.supportedLocales,
-        debugShowMaterialGrid: widget.debugShowMaterialGrid,
-        showPerformanceOverlay: widget.showPerformanceOverlay,
-        checkerboardRasterCacheImages: widget.checkerboardRasterCacheImages,
-        checkerboardOffscreenLayers: widget.checkerboardOffscreenLayers,
-        showSemanticsDebugger: widget.showSemanticsDebugger,
-        debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
-        shortcuts: widget.shortcuts,
-        actions: widget.actions,
-        restorationScopeId: widget.restorationScopeId,
-        scrollBehavior: widget.scrollBehavior,
+  Widget build(BuildContext context) => Builder(
+        builder: (context) => BeTheme(
+          child: MaterialApp.router(
+            routerConfig: widget.routerConfig,
+            // navigatorKey: widget.navigatorKey,
+            scaffoldMessengerKey: widget.scaffoldMessengerKey,
+            // home: widget.home,
+            // routes: widget.routes ?? const <String, WidgetBuilder>{},
+            // initialRoute: widget.initialRoute,
+            // onGenerateRoute: widget.onGenerateRoute,
+            // onGenerateInitialRoutes: widget.onGenerateInitialRoutes,
+            // onUnknownRoute: widget.onUnknownRoute,
+            // navigatorObservers:
+            // widget.navigatorObservers ?? const <NavigatorObserver>[],
+
+            builder: widget.builder,
+            title: widget.title,
+            onGenerateTitle: widget.onGenerateTitle,
+            color: widget.color,
+            theme: BeTheme.createTheme(const BeThemeData.light()),
+            darkTheme: BeTheme.createTheme(const BeThemeData.dark()),
+            highContrastTheme: widget.highContrastTheme,
+            highContrastDarkTheme: widget.highContrastDarkTheme,
+            themeMode: ThemeMode.light,
+            themeAnimationDuration: widget.themeAnimationDuration,
+            themeAnimationCurve: widget.themeAnimationCurve,
+            locale: widget.locale,
+            localizationsDelegates: widget.localizationsDelegates,
+            localeListResolutionCallback: widget.localeListResolutionCallback,
+            localeResolutionCallback: widget.localeResolutionCallback,
+            supportedLocales: widget.supportedLocales,
+            debugShowMaterialGrid: widget.debugShowMaterialGrid,
+            showPerformanceOverlay: widget.showPerformanceOverlay,
+            checkerboardRasterCacheImages: widget.checkerboardRasterCacheImages,
+            checkerboardOffscreenLayers: widget.checkerboardOffscreenLayers,
+            showSemanticsDebugger: widget.showSemanticsDebugger,
+            debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
+            shortcuts: widget.shortcuts,
+            actions: widget.actions,
+            restorationScopeId: widget.restorationScopeId,
+            scrollBehavior: widget.scrollBehavior,
+            backButtonDispatcher: widget.backButtonDispatcher,
+            routeInformationParser: widget.routeInformationParser,
+            routeInformationProvider: widget.routeInformationProvider,
+            routerDelegate: widget.routerDelegate,
+          ),
+        ),
       );
 }

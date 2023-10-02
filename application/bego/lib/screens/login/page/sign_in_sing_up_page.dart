@@ -22,8 +22,13 @@ class SignInSignUpPage
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Expanded(
-              flex: 2,
+            Container(
+              padding: py32,
+              constraints: const BoxConstraints(
+                maxWidth: 500,
+                maxHeight: 200,
+                minWidth: 500,
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
