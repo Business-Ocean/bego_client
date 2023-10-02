@@ -39,11 +39,11 @@ class BeReactiveWidget<T> extends StatelessWidget {
         ),
       );
 
-  Widget _overLayBuilder(BeData<T> data) => data.when(
-        loading: (d) => _blurLoadinState(),
-        error: (d, title, message, code) => _blurErrorState(title, message),
-        empty: (c, d) => emptyWidget,
-        success: (c, d) => emptyWidget,
+  Widget _overLayBuilder(BeData<T> bedata) => bedata.when(
+        loading: (data) => _blurLoadinState(),
+        error: (code, error, data) => _blurErrorState(error, data),
+        empty: (code, data) => emptyWidget,
+        success: (code, data) => emptyWidget,
       );
   Widget _blurLoadinState() => BackdropFilter(
         filter: ImageFilter.compose(
@@ -55,7 +55,7 @@ class BeReactiveWidget<T> extends StatelessWidget {
         ),
         child: const BeLoadingWidget(),
       );
-  Widget _blurErrorState(String title, String message) => BackdropFilter(
+  Widget _blurErrorState(dynamic error, T? data) => BackdropFilter(
         filter: ImageFilter.compose(
           outer: BegoStyle.tinyBlur,
           inner: const ColorFilter.mode(
@@ -64,8 +64,6 @@ class BeReactiveWidget<T> extends StatelessWidget {
           ),
         ),
         child: BeErrorWidget(
-          title: title,
-          description: message,
           retryCallback: retryCallback,
         ),
       );

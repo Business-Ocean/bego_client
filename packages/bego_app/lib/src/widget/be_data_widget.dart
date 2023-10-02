@@ -13,8 +13,7 @@ class BeDataWidget<T> extends StatelessWidget {
   });
 
   final BeData<T> data;
-  final Widget Function(String title, String message, int code, dynamic data)?
-      onErrorWidget;
+  final Widget Function(int code, dynamic error, T? data)? onErrorWidget;
   final Widget Function(int code, T data) onSuccessWidget;
   // final Widget Function(T data)? onInitWidget;
 
@@ -22,12 +21,8 @@ class BeDataWidget<T> extends StatelessWidget {
   Widget build(BuildContext context) => data.when(
         loading: (data) => const BeLoadingWidget(),
         empty: (code, data) => const BeEmptyWidget(),
-        error: (data, title, message, code) =>
-            onErrorWidget?.call(title, message, code, data) ??
-            BeErrorWidget(
-              title: title,
-              description: message,
-            ),
+        error: (code, error, data) =>
+            onErrorWidget?.call(code, error, data) ?? const BeErrorWidget(),
         success: onSuccessWidget,
       );
 }

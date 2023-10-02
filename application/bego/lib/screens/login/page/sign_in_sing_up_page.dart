@@ -12,10 +12,11 @@ import 'package:flutter/material.dart';
 
 class SignInSignUpPage
     extends ViewPage<SignInSignUpState, SignInSignUpController> {
-  const SignInSignUpPage({super.key});
+  const SignInSignUpPage({super.key, required super.controller});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget buildPage(BuildContext context, SignInSignUpState? pageData) =>
+      Scaffold(
         body: Flex(
           direction: Axis.vertical,
           mainAxisSize: MainAxisSize.max,

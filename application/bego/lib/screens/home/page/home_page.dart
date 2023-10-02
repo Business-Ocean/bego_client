@@ -6,10 +6,10 @@ import 'package:bego_app/bego_app.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends ViewPage<HomeState, HomeController> {
-  const HomePage({super.key});
+  const HomePage({super.key, required super.controller});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget buildPage(BuildContext context, HomeState? pageData) => Scaffold(
         appBar: AppBar(
           title: const Text('Title'),
         ),
