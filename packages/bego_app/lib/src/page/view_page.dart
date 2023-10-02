@@ -1,5 +1,6 @@
 import 'package:bego_app/src/actions/event_action.dart';
 import 'package:bego_app/src/controller/be_page_controller.dart';
+import 'package:bego_app/src/di/di.dart';
 import 'package:bego_app/src/page/i_view_page.dart';
 import 'package:bego_app/src/state/be_data.dart';
 import 'package:bego_app/src/widget/be_error_widget.dart';
@@ -8,8 +9,8 @@ import 'package:flutter/material.dart';
 
 abstract class ViewPage<S, V extends BePageController<S>>
     extends StatelessWidget implements IViewPage {
-  const ViewPage({super.key, required this.controller});
-  final V controller;
+  ViewPage({super.key});
+  final V controller = BegoDi.get<V>();
   @override
   void hideLoading() {}
 

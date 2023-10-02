@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 
 class SignInSignUpPage
     extends ViewPage<SignInSignUpState, SignInSignUpController> {
-  const SignInSignUpPage({super.key, required super.controller});
+  SignInSignUpPage({super.key});
 
   @override
   Widget buildPage(BuildContext context, SignInSignUpState? pageData) =>
