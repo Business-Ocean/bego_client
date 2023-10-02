@@ -8,15 +8,15 @@ class BegoApp extends StatefulWidget {
   const BegoApp({
     super.key,
     required this.state,
-    this.navigatorKey,
+    // this.navigatorKey,
     this.scaffoldMessengerKey,
-    this.home,
-    this.routes = const <String, WidgetBuilder>{},
-    this.initialRoute,
-    this.onGenerateRoute,
-    this.onGenerateInitialRoutes,
-    this.onUnknownRoute,
-    this.navigatorObservers = const <NavigatorObserver>[],
+    // this.home,
+    // this.routes = const <String, WidgetBuilder>{},
+    // this.initialRoute,
+    // this.onGenerateRoute,
+    // this.onGenerateInitialRoutes,
+    // this.onUnknownRoute,
+    // this.navigatorObservers = const <NavigatorObserver>[],
     this.builder,
     this.title = '',
     this.onGenerateTitle,
@@ -84,34 +84,34 @@ class BegoApp extends StatefulWidget {
     this.actions,
     this.restorationScopeId,
     this.scrollBehavior,
-  })  : assert(routerDelegate != null || routerConfig != null),
-        navigatorObservers = null,
-        navigatorKey = null,
-        onGenerateRoute = null,
-        home = null,
-        onGenerateInitialRoutes = null,
-        onUnknownRoute = null,
-        routes = null,
-        initialRoute = null;
+  }) : assert(routerDelegate != null || routerConfig != null);
+  // navigatorObservers = null,
+  // navigatorKey = null,
+  // onGenerateRoute = null,
+  // home = null,
+  // onGenerateInitialRoutes = null,
+  // onUnknownRoute = null,
+  // routes = null,
+  // initialRoute = null;
 
   final AppState state;
-  final GlobalKey<NavigatorState>? navigatorKey;
+  // final GlobalKey<NavigatorState>? navigatorKey;
 
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
 
-  final Widget? home;
+  // final Widget? home;
 
-  final Map<String, WidgetBuilder>? routes;
+  // final Map<String, WidgetBuilder>? routes;
 
-  final String? initialRoute;
+  // final String? initialRoute;
 
-  final RouteFactory? onGenerateRoute;
+  // final RouteFactory? onGenerateRoute;
 
-  final InitialRouteListFactory? onGenerateInitialRoutes;
+  // final InitialRouteListFactory? onGenerateInitialRoutes;
 
-  final RouteFactory? onUnknownRoute;
+  // final RouteFactory? onUnknownRoute;
 
-  final List<NavigatorObserver>? navigatorObservers;
+  // final List<NavigatorObserver>? navigatorObservers;
 
   final TransitionBuilder? builder;
 
@@ -184,9 +184,7 @@ class _BegoAppState extends State<BegoApp> {
   Widget build(BuildContext context) => Builder(
         builder: (context) => BeTheme(
           child: MaterialApp.router(
-            routerConfig: widget.routerConfig,
             // navigatorKey: widget.navigatorKey,
-            scaffoldMessengerKey: widget.scaffoldMessengerKey,
             // home: widget.home,
             // routes: widget.routes ?? const <String, WidgetBuilder>{},
             // initialRoute: widget.initialRoute,
@@ -195,7 +193,9 @@ class _BegoAppState extends State<BegoApp> {
             // onUnknownRoute: widget.onUnknownRoute,
             // navigatorObservers:
             // widget.navigatorObservers ?? const <NavigatorObserver>[],
-
+            key: widget.key,
+            routerConfig: widget.routerConfig,
+            scaffoldMessengerKey: widget.scaffoldMessengerKey,
             builder: widget.builder,
             title: widget.title,
             onGenerateTitle: widget.onGenerateTitle,

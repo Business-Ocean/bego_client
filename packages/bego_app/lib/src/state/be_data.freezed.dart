@@ -21,8 +21,7 @@ mixin _$BeData<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T? data) loading,
     required TResult Function(int code, T? data) empty,
-    required TResult Function(T? data, String title, String message, int code)
-        error,
+    required TResult Function(int code, dynamic error, T? data) error,
     required TResult Function(int code, T data) success,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +29,7 @@ mixin _$BeData<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T? data)? loading,
     TResult? Function(int code, T? data)? empty,
-    TResult? Function(T? data, String title, String message, int code)? error,
+    TResult? Function(int code, dynamic error, T? data)? error,
     TResult? Function(int code, T data)? success,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,7 +37,7 @@ mixin _$BeData<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T? data)? loading,
     TResult Function(int code, T? data)? empty,
-    TResult Function(T? data, String title, String message, int code)? error,
+    TResult Function(int code, dynamic error, T? data)? error,
     TResult Function(int code, T data)? success,
     required TResult orElse(),
   }) =>
@@ -154,8 +153,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T? data) loading,
     required TResult Function(int code, T? data) empty,
-    required TResult Function(T? data, String title, String message, int code)
-        error,
+    required TResult Function(int code, dynamic error, T? data) error,
     required TResult Function(int code, T data) success,
   }) {
     return loading(data);
@@ -166,7 +164,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T? data)? loading,
     TResult? Function(int code, T? data)? empty,
-    TResult? Function(T? data, String title, String message, int code)? error,
+    TResult? Function(int code, dynamic error, T? data)? error,
     TResult? Function(int code, T data)? success,
   }) {
     return loading?.call(data);
@@ -177,7 +175,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T? data)? loading,
     TResult Function(int code, T? data)? empty,
-    TResult Function(T? data, String title, String message, int code)? error,
+    TResult Function(int code, dynamic error, T? data)? error,
     TResult Function(int code, T data)? success,
     required TResult orElse(),
   }) {
@@ -310,8 +308,7 @@ class _$_Empty<T> implements _Empty<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T? data) loading,
     required TResult Function(int code, T? data) empty,
-    required TResult Function(T? data, String title, String message, int code)
-        error,
+    required TResult Function(int code, dynamic error, T? data) error,
     required TResult Function(int code, T data) success,
   }) {
     return empty(code, data);
@@ -322,7 +319,7 @@ class _$_Empty<T> implements _Empty<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T? data)? loading,
     TResult? Function(int code, T? data)? empty,
-    TResult? Function(T? data, String title, String message, int code)? error,
+    TResult? Function(int code, dynamic error, T? data)? error,
     TResult? Function(int code, T data)? success,
   }) {
     return empty?.call(code, data);
@@ -333,7 +330,7 @@ class _$_Empty<T> implements _Empty<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T? data)? loading,
     TResult Function(int code, T? data)? empty,
-    TResult Function(T? data, String title, String message, int code)? error,
+    TResult Function(int code, dynamic error, T? data)? error,
     TResult Function(int code, T data)? success,
     required TResult orElse(),
   }) {
@@ -398,7 +395,7 @@ abstract class _$$BeErrorCopyWith<T, $Res> {
           _$BeError<T> value, $Res Function(_$BeError<T>) then) =
       __$$BeErrorCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({T? data, String title, String message, int code});
+  $Res call({int code, dynamic error, T? data});
 }
 
 /// @nodoc
@@ -412,28 +409,23 @@ class __$$BeErrorCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
-    Object? title = null,
-    Object? message = null,
     Object? code = null,
+    Object? error = freezed,
+    Object? data = freezed,
   }) {
     return _then(_$BeError<T>(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T?,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as int,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T?,
     ));
   }
 }
@@ -441,27 +433,20 @@ class __$$BeErrorCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$BeError<T> implements BeError<T> {
-  const _$BeError(
-      {this.data,
-      this.title = defaultErrorTitle,
-      this.message = defaultErrorMessage,
-      this.code = 500});
+  const _$BeError({this.code = 500, this.error = errorValue, this.data});
 
-  @override
-  final T? data;
-  @override
-  @JsonKey()
-  final String title;
-  @override
-  @JsonKey()
-  final String message;
   @override
   @JsonKey()
   final int code;
+  @override
+  @JsonKey()
+  final dynamic error;
+  @override
+  final T? data;
 
   @override
   String toString() {
-    return 'BeData<$T>.error(data: $data, title: $title, message: $message, code: $code)';
+    return 'BeData<$T>.error(code: $code, error: $error, data: $data)';
   }
 
   @override
@@ -469,15 +454,17 @@ class _$BeError<T> implements BeError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BeError<T> &&
-            const DeepCollectionEquality().equals(other.data, data) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.message, message) || other.message == message) &&
-            (identical(other.code, code) || other.code == code));
+            (identical(other.code, code) || other.code == code) &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(data), title, message, code);
+  int get hashCode => Object.hash(
+      runtimeType,
+      code,
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -490,11 +477,10 @@ class _$BeError<T> implements BeError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T? data) loading,
     required TResult Function(int code, T? data) empty,
-    required TResult Function(T? data, String title, String message, int code)
-        error,
+    required TResult Function(int code, dynamic error, T? data) error,
     required TResult Function(int code, T data) success,
   }) {
-    return error(data, title, message, code);
+    return error(code, this.error, data);
   }
 
   @override
@@ -502,10 +488,10 @@ class _$BeError<T> implements BeError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T? data)? loading,
     TResult? Function(int code, T? data)? empty,
-    TResult? Function(T? data, String title, String message, int code)? error,
+    TResult? Function(int code, dynamic error, T? data)? error,
     TResult? Function(int code, T data)? success,
   }) {
-    return error?.call(data, title, message, code);
+    return error?.call(code, this.error, data);
   }
 
   @override
@@ -513,12 +499,12 @@ class _$BeError<T> implements BeError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T? data)? loading,
     TResult Function(int code, T? data)? empty,
-    TResult Function(T? data, String title, String message, int code)? error,
+    TResult Function(int code, dynamic error, T? data)? error,
     TResult Function(int code, T data)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(data, title, message, code);
+      return error(code, this.error, data);
     }
     return orElse();
   }
@@ -562,17 +548,13 @@ class _$BeError<T> implements BeError<T> {
 }
 
 abstract class BeError<T> implements BeData<T> {
-  const factory BeError(
-      {final T? data,
-      final String title,
-      final String message,
-      final int code}) = _$BeError<T>;
+  const factory BeError({final int code, final dynamic error, final T? data}) =
+      _$BeError<T>;
 
+  int get code;
+  dynamic get error;
   @override
   T? get data;
-  String get title;
-  String get message;
-  int get code;
   @JsonKey(ignore: true)
   _$$BeErrorCopyWith<T, _$BeError<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -654,8 +636,7 @@ class _$BeSuccess<T> implements BeSuccess<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T? data) loading,
     required TResult Function(int code, T? data) empty,
-    required TResult Function(T? data, String title, String message, int code)
-        error,
+    required TResult Function(int code, dynamic error, T? data) error,
     required TResult Function(int code, T data) success,
   }) {
     return success(code, data);
@@ -666,7 +647,7 @@ class _$BeSuccess<T> implements BeSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T? data)? loading,
     TResult? Function(int code, T? data)? empty,
-    TResult? Function(T? data, String title, String message, int code)? error,
+    TResult? Function(int code, dynamic error, T? data)? error,
     TResult? Function(int code, T data)? success,
   }) {
     return success?.call(code, data);
@@ -677,7 +658,7 @@ class _$BeSuccess<T> implements BeSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T? data)? loading,
     TResult Function(int code, T? data)? empty,
-    TResult Function(T? data, String title, String message, int code)? error,
+    TResult Function(int code, dynamic error, T? data)? error,
     TResult Function(int code, T data)? success,
     required TResult orElse(),
   }) {
