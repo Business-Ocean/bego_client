@@ -2,6 +2,7 @@ library bego_component;
 
 export 'src/common/be_dash_line.dart';
 export 'src/common/be_select_tag.dart';
+export 'src/data/be_tag_data.dart';
 export 'src/dialog/be_safe_dialog.dart';
 //
 export 'src/loading/be_loading.dart';

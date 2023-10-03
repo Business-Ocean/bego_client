@@ -2,6 +2,7 @@
 
 import 'dart:math';
 
+import 'package:bego_component/src/data/be_tag_data.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class BeSelectTag extends StatefulWidget {
   BeSelectTag({
     super.key,
     required this.tags,
-    this.onSelect,
+    required this.onSelect,
     this.spacing = 12,
     this.verticalSpacing = 10,
     this.tagTextStyle,
@@ -23,14 +24,13 @@ class BeSelectTag extends StatefulWidget {
     this.tagBackgroundColor,
     this.selectedTagBackgroundColor,
     this.tagWidth = 75,
-    this.tagHeight,
     this.isSingleSelect = true,
     this.initTagState,
     this.softWrap = true,
     this.alignment = Alignment.centerLeft,
     this.fixWidthMode = false,
     this.tagPadding =
-        const EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+        const EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
   }) {
     if (isSingleSelect == true) {
       assert(
@@ -41,10 +41,10 @@ class BeSelectTag extends StatefulWidget {
   }
 
   /// List of displayed tags
-  final List<String> tags;
+  final List<BeTagData> tags;
 
   /// Select tag callback and return the position of the selected tag
-  final void Function(List<int>)? onSelect;
+  final void Function(List<BeTagData>) onSelect;
 
   /// Horizontal spacing, default 12
   final double spacing;
@@ -66,9 +66,6 @@ class BeSelectTag extends StatefulWidget {
 
   /// Label width. Default global configuration width 75
   final double? tagWidth;
-
-  /// Label height. Default global configuration height 34
-  final double? tagHeight;
 
   /// true for streaming display, false for horizontal sliding display, default true
   final bool softWrap;
@@ -170,13 +167,11 @@ class _BeSelectTagState extends State<BeSelectTag> {
             });
           }
 
-          if (null != widget.onSelect) {
-            final selectedIndexes = <int>[];
-            for (var index = 0; index < _tagState.length; index++) {
-              if (_tagState[index]) selectedIndexes.add(index);
-            }
-            widget.onSelect!(selectedIndexes);
+          final selectedTags = <BeTagData>[];
+          for (var index = 0; index < _tagState.length; index++) {
+            if (_tagState[index]) selectedTags.add(widget.tags[index]);
           }
+          widget.onSelect(selectedTags);
         },
       );
       list.add(gdt);
@@ -187,17 +182,16 @@ class _BeSelectTagState extends State<BeSelectTag> {
   Widget _tagWidgetAtIndex(int nameIndex) {
     final selected = _tagState[nameIndex];
     final tx = Text(
-      widget.tags[nameIndex],
+      widget.tags[nameIndex].label,
       style: selected ? _selectedTextStyle() : _tagTextStyle(),
       overflow: TextOverflow.ellipsis,
     );
     final container = Container(
-      constraints: const BoxConstraints(minWidth: 100),
       decoration: BoxDecoration(
         color: selected
             ? (becolors.primary.withAlpha(50))
-            : (becolors.primary.withAlpha(10)),
-        borderRadius: bestyles.xsRadius,
+            : (becolors.accent.withAlpha(10)),
+        borderRadius: bestyles.borderRadius,
       ),
       width: widget.fixWidthMode ? widget.tagWidth : null,
       padding: widget.tagPadding,
@@ -221,13 +215,13 @@ class _BeSelectTagState extends State<BeSelectTag> {
   }
 
   /// Compare the contents of the two arrays to see if they are consistent. If they are consistent, return true, otherwise false
-  bool _sameList(List<String> first, List<String> second) {
+  bool _sameList(List<BeTagData> first, List<BeTagData> second) {
     if (first.length != second.length) return false;
     var index = 0;
     return first.firstWhere(
           (item) => item != second[index++],
-          orElse: () => '',
+          orElse: () => BeTagData(label: ''),
         ) ==
-        '';
+        BeTagData(label: '');
   }
 }
