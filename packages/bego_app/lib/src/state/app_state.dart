@@ -17,4 +17,7 @@ class AppState with _$AppState {
     required String? deviceId,
     @Default(ThemeMode.system) ThemeMode themeMode,
   }) = _AppState;
+
+  factory AppState.initial() =>
+      const AppState(appName: '', deviceId: null, packageName: '', version: '');
 }

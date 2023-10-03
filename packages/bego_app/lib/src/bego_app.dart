@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_asserts_with_message
 
+import 'package:bego_app/bego_di.dart';
 import 'package:bego_app/src/state/app_state.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
@@ -181,8 +182,15 @@ class BegoApp extends StatefulWidget {
 
 class _BegoAppState extends State<BegoApp> {
   @override
+  void initState() {
+    setupBegoApp();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) => Builder(
         builder: (context) => BeTheme(
+          themeMode: ThemeMode.light,
           child: MaterialApp.router(
             // navigatorKey: widget.navigatorKey,
             // home: widget.home,

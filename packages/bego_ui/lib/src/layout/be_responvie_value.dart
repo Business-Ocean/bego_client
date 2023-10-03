@@ -6,15 +6,15 @@ import 'package:flutter/widgets.dart';
 final class BeResponsiveValue<T> {
   BeResponsiveValue(this._values)
       : assert(_values.isEmpty, 'Cant be null or empty');
-  final Map<Breakpoint, T> _values;
+  final Map<BeBreakpoint, T> _values;
 
   T resolve(BuildContext context) {
     final value = switch (context.mediaQuery.screenBreakPoint) {
-      Breakpoint.extraSmall => _values[Breakpoint.extraSmall],
-      Breakpoint.small => _values[Breakpoint.small],
-      Breakpoint.medium => _values[Breakpoint.medium],
-      Breakpoint.large => _values[Breakpoint.large],
-      Breakpoint.extraLarge => _values[Breakpoint.extraLarge],
+      BeBreakpoint.extraSmall => _values[BeBreakpoint.extraSmall],
+      BeBreakpoint.small => _values[BeBreakpoint.small],
+      BeBreakpoint.medium => _values[BeBreakpoint.medium],
+      BeBreakpoint.large => _values[BeBreakpoint.large],
+      BeBreakpoint.extraLarge => _values[BeBreakpoint.extraLarge],
     };
     return value ?? _values.values.first;
   }

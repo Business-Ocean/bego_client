@@ -20,7 +20,7 @@ class BegoColors {
   //  backgorund
   static const backgrounLight = Color(0xFFFAF9F6);
 
-  static const primary = Color(0xFF6BC6A5);
+  static const primary = roseRed;
   static const secondary = Color(0xFFF3954F);
   static const tertiary = Color(0xFF0A5688);
   static const error = Color(0xFFF9D162);

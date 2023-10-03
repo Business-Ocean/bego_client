@@ -5,8 +5,8 @@ class BeTextUtil {
   const BeTextUtil._();
 
   ///Calculate text width based on TextStyle.
-  static Size textSize(String text, TextStyle style) {
-    if (text.trim().isEmpty) return Size.zero;
+  static Size textSize(String? text, TextStyle style) {
+    if (text == null || text.trim().isEmpty) return Size.zero;
     final textPainter = TextPainter(
       text: TextSpan(text: text, style: style),
       maxLines: 1,

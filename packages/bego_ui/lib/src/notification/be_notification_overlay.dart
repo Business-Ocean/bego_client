@@ -104,7 +104,7 @@ class _BeNotificationsOverlayState extends State<BeNotificationsOverlay>
   @override
   Widget build(BuildContext context) {
     final isCompact = MediaQuery.of(context).screenBreakPoint.index <=
-        Breakpoint.medium.index;
+        BeBreakpoint.medium.index;
 
     return Builder(
       builder: (context) => _BeNotificationData(

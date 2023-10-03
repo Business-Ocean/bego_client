@@ -59,7 +59,7 @@ class BeStyleLight implements BeStyle {
       );
 
   @override
-  TextStyle textStyle(BeTextType? textType, Breakpoint breakpoint) =>
+  TextStyle textStyle(BeTextType? textType, BeBreakpoint breakpoint) =>
       textType != null
           ? textType.style
           : switch (textType) {
