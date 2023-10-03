@@ -1,6 +1,9 @@
 library bego_ui;
 
 export 'src/common_widget.dart';
+export 'src/data/be_group_item_data.dart';
+export 'src/layout/be_expandable_container.dart';
+export 'src/list/be_group_card.dart';
 export 'src/widgets/be_enable.dart';
 export 'src/widgets/container/be_blur.dart';
 export 'src/widgets/container/be_invert_color.dart';

@@ -26,7 +26,7 @@
 //   void initState() {
 //     super.initState();
 
-//     // _brnTabbarController = BrnTabbarController();
+//     // _beTabbarController = beTabbarController();
 //   }
 
 //   @override
@@ -52,10 +52,10 @@
 //       // onTap: (index) {
 //       //   if (widget.onTap != null) {
 //       //     widget.onTap!(this, index);
-//       //     _brnTabbarController.setSelectIndex(index);
-//       //     _brnTabbarController.isShow = false;
-//       //     _brnTabbarController.entry?.remove();
-//       //     _brnTabbarController.entry = null;
+//       //     _beTabbarController.setSelectIndex(index);
+//       //     _beTabbarController.isShow = false;
+//       //     _beTabbarController.entry?.remove();
+//       //     _beTabbarController.entry = null;
 //       //   }
 //       // },
 //       // indicator: CustomWidthUnderlineTabIndicator(

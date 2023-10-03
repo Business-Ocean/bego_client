@@ -1,5 +1,4 @@
 import 'package:bego_ui/bego_ui.dart';
-import 'package:bego_ui/src/ui_style/bego_text_style.dart';
 import 'package:flutter/material.dart';
 
 // ReadexPro-Bold.ttf

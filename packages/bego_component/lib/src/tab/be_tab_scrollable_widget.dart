@@ -42,12 +42,12 @@ class _BeTabScrollableWidgetState<T> extends State<BeTabScrollableWidget<T>>
   late final List<double> _cardOffsetList;
   late final List<GlobalKey> _bodyKeyList;
 
-  /// BrnTabBarBadge expands more close handling controllers
+  /// beTabBarBadge expands more close handling controllers
   BeCloseWindowPopupController? _closeWindowController;
   // The position of the sliding component on the screen
 
-  /// BrnTabBarBadge expands more data processing controllers
-  late BeTabbarController _brnTabbarController;
+  /// beTabBarBadge expands more data processing controllers
+  late BeTabbarController _beTabbarController;
   double listDy = 0;
   bool tab = false;
 
@@ -97,14 +97,14 @@ class _BeTabScrollableWidgetState<T> extends State<BeTabScrollableWidget<T>>
       _tabController = TabController(length: widget.tabs.length, vsync: this);
     }
     _tabController.addListener(() {
-      _closeWindowController?.syncWindowState(_brnTabbarController.isShow);
+      _closeWindowController?.syncWindowState(_beTabbarController.isShow);
 
       // Update TabBar selected position
       if (widget.controller != null) {
-        widget.controller!.animateTo(_brnTabbarController.selectIndex);
+        widget.controller!.animateTo(_beTabbarController.selectIndex);
       }
       // Refresh the selected TabBar red dot
-      refreshBadgeState(_brnTabbarController.selectIndex);
+      refreshBadgeState(_beTabbarController.selectIndex);
       //Update Tabbar with more icon styles
       setState(() {});
     });

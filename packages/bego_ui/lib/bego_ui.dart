@@ -19,9 +19,10 @@ export 'src/ui_const/bego_insets.dart';
 export 'src/ui_const/bego_space.dart';
 export 'src/ui_const/bego_widget_position.dart';
 export 'src/ui_const/temp_sample_data.dart';
+export 'src/ui_style/be_round_cliprrect.dart';
 export 'src/ui_style/bego_shadow.dart';
 export 'src/ui_style/bego_style.dart';
 export 'src/ui_style/bego_text_style.dart';
 
-const widthInfinity = double.infinity;
-const heightInfinity = double.infinity;
+const infinityWidth = double.infinity;
+const infinityHeight = double.infinity;

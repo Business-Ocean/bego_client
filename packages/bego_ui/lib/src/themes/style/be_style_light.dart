@@ -1,7 +1,6 @@
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/src/layout/breakpoint.dart';
 import 'package:bego_ui/src/themes/style/be_colors_light.dart';
-import 'package:bego_ui/src/ui_style/bego_text_style.dart';
 import 'package:bego_ui/src/widgets/text/be_text_type.dart';
 import 'package:flutter/widgets.dart';
 

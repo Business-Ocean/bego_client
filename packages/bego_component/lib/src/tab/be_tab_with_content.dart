@@ -1,4 +1,4 @@
-/// Display configuration of BrnTabBar tab
+/// Display configuration of beTabBar tab
 class BeTabWithContent<T> {
   BeTabWithContent({
     required this.tabTitle,
