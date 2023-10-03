@@ -190,6 +190,7 @@ class _BegoAppState extends State<BegoApp> {
   @override
   Widget build(BuildContext context) => Builder(
         builder: (context) => BeTheme(
+          themeMode: ThemeMode.light,
           child: MaterialApp.router(
             // navigatorKey: widget.navigatorKey,
             // home: widget.home,

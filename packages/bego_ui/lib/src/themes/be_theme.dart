@@ -56,11 +56,11 @@ class BeTheme extends StatelessWidget {
   }
 
   // ThemeData createTheme(BeThemeData betheme) => createBegoTheme(betheme);
-  BeEdgeInsets getBegoInsts(Breakpoint breakpoint) => switch (breakpoint) {
+  BeEdgeInsets getBegoInsts(BeBreakpoint breakpoint) => switch (breakpoint) {
         // TO-DO(sourav): change insets for different breakpoint
-        Breakpoint.extraLarge => const BeInsetsMobile(),
-        Breakpoint.large => const BeInsetsMobile(),
-        Breakpoint.medium => const BeInsetsMobile(),
+        BeBreakpoint.extraLarge => const BeInsetsMobile(),
+        BeBreakpoint.large => const BeInsetsMobile(),
+        BeBreakpoint.medium => const BeInsetsMobile(),
         _ => const BeInsetsMobile(),
       };
 

@@ -63,7 +63,7 @@ class BeStyleDark implements BeStyle {
   BorderRadius get xsRadius => BegoStyle.borderRadius4;
   // To-do(sourav) : change to dynamic style based on breakpoint
   @override
-  TextStyle textStyle(BeTextType? textType, Breakpoint breakpoint) =>
+  TextStyle textStyle(BeTextType? textType, BeBreakpoint breakpoint) =>
       switch (textType) {
         BeTextType.displayLarge => displayLarge,
         //.copyWith(fontSize:BegoTextStyle.displayLargeTextSize*BegoStyle.textScleFactor),

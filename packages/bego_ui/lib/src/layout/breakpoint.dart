@@ -1,36 +1,36 @@
 import 'package:flutter/material.dart';
 
-enum Breakpoint {
+enum BeBreakpoint {
   extraSmall(360),
   small(600),
   medium(1024),
   large(1400),
   extraLarge(1600);
 
-  const Breakpoint(this.maxwidth);
+  const BeBreakpoint(this.maxwidth);
   final double maxwidth;
 }
 
 extension MediaQueryDataScreenBreakpoint on MediaQueryData {
-  Breakpoint get screenBreakPoint {
+  BeBreakpoint get screenBreakPoint {
     final width = size.width;
     // return Breakpoint.extraLarge;
-    if (width < Breakpoint.extraSmall.maxwidth) {
-      return Breakpoint.extraSmall;
+    if (width < BeBreakpoint.extraSmall.maxwidth) {
+      return BeBreakpoint.extraSmall;
     }
 
-    if (width < Breakpoint.small.maxwidth) {
-      return Breakpoint.small;
+    if (width < BeBreakpoint.small.maxwidth) {
+      return BeBreakpoint.small;
     }
 
-    if (width < Breakpoint.medium.maxwidth) {
-      return Breakpoint.medium;
+    if (width < BeBreakpoint.medium.maxwidth) {
+      return BeBreakpoint.medium;
     }
 
-    if (width < Breakpoint.large.maxwidth) {
-      return Breakpoint.large;
+    if (width < BeBreakpoint.large.maxwidth) {
+      return BeBreakpoint.large;
     }
 
-    return Breakpoint.extraLarge;
+    return BeBreakpoint.extraLarge;
   }
 }

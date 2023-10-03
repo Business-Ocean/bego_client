@@ -61,11 +61,11 @@ class DisplayIcons extends StatelessWidget {
 
   int getCrossCount(BuildContext context) {
     final value = switch (context.mediaQuery.screenBreakPoint) {
-      Breakpoint.extraSmall => 3,
-      Breakpoint.small => 4,
-      Breakpoint.medium => 5,
-      Breakpoint.large => 6,
-      Breakpoint.extraLarge => 8,
+      BeBreakpoint.extraSmall => 3,
+      BeBreakpoint.small => 4,
+      BeBreakpoint.medium => 5,
+      BeBreakpoint.large => 6,
+      BeBreakpoint.extraLarge => 8,
     };
     return value;
   }

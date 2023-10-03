@@ -6,16 +6,16 @@ import 'package:flutter/widgets.dart';
 /// First value will be the default value
 final class BeResponsiveVisibility {
   BeResponsiveVisibility({required this.child, this.onVisible});
-  final Map<Breakpoint, bool>? onVisible;
+  final Map<BeBreakpoint, bool>? onVisible;
   final Widget child;
   Widget resolve(BuildContext context) {
     if (onVisible == null) return child;
     final isVisible = switch (context.mediaQuery.screenBreakPoint) {
-          Breakpoint.extraSmall => onVisible![Breakpoint.extraSmall],
-          Breakpoint.small => onVisible![Breakpoint.small],
-          Breakpoint.medium => onVisible![Breakpoint.medium],
-          Breakpoint.large => onVisible![Breakpoint.large],
-          Breakpoint.extraLarge => onVisible![Breakpoint.extraLarge],
+          BeBreakpoint.extraSmall => onVisible![BeBreakpoint.extraSmall],
+          BeBreakpoint.small => onVisible![BeBreakpoint.small],
+          BeBreakpoint.medium => onVisible![BeBreakpoint.medium],
+          BeBreakpoint.large => onVisible![BeBreakpoint.large],
+          BeBreakpoint.extraLarge => onVisible![BeBreakpoint.extraLarge],
         } ??
         true;
     return isVisible ? child : emptyWidget;

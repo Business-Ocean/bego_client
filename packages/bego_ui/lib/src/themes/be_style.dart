@@ -34,5 +34,5 @@ abstract class BeStyle {
   /// used for checkbox component
   BorderRadius get xsRadius;
 
-  TextStyle textStyle(BeTextType? textType, Breakpoint breakpoint);
+  TextStyle textStyle(BeTextType? textType, BeBreakpoint breakpoint);
 }

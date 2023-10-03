@@ -8,5 +8,6 @@ export 'src/widgets/form/be_text_field.dart';
 export 'src/widgets/notice/be_badge.dart';
 export 'src/widgets/notice/be_input_label.dart';
 export 'src/widgets/text/be_text.dart';
+export 'src/widgets/text/be_text_tagged.dart';
 export 'src/widgets/text/be_text_type.dart';
 export 'src/widgets/text/be_text_variant.dart';
