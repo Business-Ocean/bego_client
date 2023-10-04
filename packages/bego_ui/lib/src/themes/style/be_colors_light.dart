@@ -21,7 +21,7 @@ class BeColorsLight implements BeColors {
   Color get accent => BegoColors.spaceCadet;
 
   @override
-  Color get secandory => BegoColors.darkSpringGreen;
+  Color get secandory => BegoColors.darkSpringGreen.withAlpha(100);
 
   @override
   Color get darkInverse => BegoColors.slate900;
