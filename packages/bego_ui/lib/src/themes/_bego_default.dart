@@ -512,7 +512,7 @@ IconButtonThemeData iconButtonTheme(BeThemeData betheme) => IconButtonThemeData(
 
 ListTileThemeData listTileTheme(BeThemeData betheme) => ListTileThemeData(
       selectedColor: betheme.becolors.primary,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       minVerticalPadding: 0,
       minLeadingWidth: 0,
       tileColor: BegoColors.transparent,

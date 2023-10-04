@@ -9,8 +9,10 @@ class BeListItem<T extends BeListItemModal> extends StatelessWidget {
     required this.modal,
     this.borderRadius,
     this.padding,
+    this.onPressed,
   });
   final T modal;
+  final ValueChanged<T>? onPressed;
 
   final BorderRadius? borderRadius;
   final EdgeInsets? padding;
@@ -25,13 +27,22 @@ class BeListItem<T extends BeListItemModal> extends StatelessWidget {
         : null;
     //
     return ListTile(
-      onTap: () {},
+      onTap: onPressed == null ? null : () => onPressed?.call(modal),
       leading: leading,
       trailing: leading,
+      dense: modal.enabled,
+      horizontalTitleGap: 10,
+      visualDensity: VisualDensity.compact,
+      contentPadding: padding,
+      // style: ListTileStyle.list,
+      shape: RoundedRectangleBorder(borderRadius: bestyles(context).tileRadius),
+      enabled: modal.enabled ?? true,
+      hoverColor: becolors(context).accent.withAlpha(50),
+      selected: modal.selected ?? false,
       title: Row(
         children: [
           Expanded(
-            flex: 4,
+            flex: 5,
             child: BeText(
               modal.title,
               textType: BeTextType.titleSmall,
@@ -40,15 +51,12 @@ class BeListItem<T extends BeListItemModal> extends StatelessWidget {
               ),
             ),
           ),
-          const Spacer(
-            flex: 1,
-          ),
-          ...ifTrueWidgets(
-            modal.captions != null,
-            modal.captions!
+          const Spacer(flex: 1),
+          if (modal.captions != null || modal.captions!.isEmpty)
+            ...modal.captions!
                 .map(
                   (e) => Expanded(
-                    flex: 1,
+                    flex: 2,
                     child: BeText(
                       e,
                       textType: BeTextType.titleSmall,
@@ -59,20 +67,13 @@ class BeListItem<T extends BeListItemModal> extends StatelessWidget {
                   ),
                 )
                 .toList(),
-          ),
         ],
       ),
       subtitle: BeText.bodySmall(
         modal.subtitle,
       ),
       // dense: true,
-      horizontalTitleGap: 10,
-      visualDensity: VisualDensity.compact,
-      contentPadding: padding,
-      // style: ListTileStyle.list,
-      shape: RoundedRectangleBorder(borderRadius: bestyles(context).tileRadius),
 
-      hoverColor: becolors(context).accent.withAlpha(50),
       // selected: true,
       // enabled: false,
     );

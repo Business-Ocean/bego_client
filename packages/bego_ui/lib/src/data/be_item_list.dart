@@ -23,7 +23,8 @@ abstract class BeListItemModal {
   String get title;
   String? get subtitle;
   String? get description;
-  String? get selected;
   String? get tag;
   List<String>? get captions;
+  bool? get selected;
+  bool? get enabled;
 }
