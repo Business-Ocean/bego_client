@@ -1,4 +1,4 @@
-import 'package:bego_ui/bego_ui.dart';
+import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
 
 class BeTinyLoader extends StatelessWidget {
@@ -8,13 +8,13 @@ class BeTinyLoader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => show
-        ? SizedBox.square(
-            dimension: 20,
-            child: CircularProgressIndicator(
-              color: color,
-              strokeWidth: 3,
-              // backgroundColor: becolors(context).lightInverse,
-            ),
-          )
-        : emptyWidget;
+      ? SizedBox.square(
+          dimension: 20,
+          child: CircularProgressIndicator(
+            color: color,
+            strokeWidth: 3,
+            // backgroundColor: becolors(context).lightInverse,
+          ),
+        )
+      : emptyWidget;
 }

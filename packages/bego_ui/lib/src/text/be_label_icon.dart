@@ -53,7 +53,7 @@ class BeLabelIcon extends StatelessWidget {
                     child: leading!,
                   ),
                 ),
-                WidgetSpan(child: space2),
+                const WidgetSpan(child: space2),
               ],
               TextSpan(
                 text: text,
@@ -65,7 +65,7 @@ class BeLabelIcon extends StatelessWidget {
                   style: TextStyle(color: becolors(context).primary),
                 ),
               if (trailing != null) ...[
-                WidgetSpan(child: space2),
+                const WidgetSpan(child: space2),
                 WidgetSpan(
                   alignment: PlaceholderAlignment.middle,
                   child: InkWell(

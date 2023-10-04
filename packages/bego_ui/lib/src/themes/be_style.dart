@@ -1,5 +1,5 @@
 import 'package:bego_ui/src/layout/breakpoint.dart';
-import 'package:bego_ui/src/widgets/text/be_text_type.dart';
+import 'package:bego_ui/src/text/be_text_type.dart';
 import 'package:flutter/material.dart';
 
 /// Style of ui component like heading text , body text,
@@ -31,8 +31,15 @@ abstract class BeStyle {
 
   BorderRadius get cardRadius;
 
+  BorderRadius get tileRadius;
+
   /// used for checkbox component
   BorderRadius get xsRadius;
 
+  BorderRadiusGeometry get bottomSheetRadius;
+
   TextStyle textStyle(BeTextType? textType, BeBreakpoint breakpoint);
+
+  //  Responsive radius
+  BorderRadius sizeRadius(BuildContext context);
 }

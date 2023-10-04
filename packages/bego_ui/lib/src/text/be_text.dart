@@ -1,9 +1,11 @@
+import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/src/common_widget.dart';
-import 'package:bego_ui/src/themes/be_theme.dart';
-import 'package:bego_ui/src/widgets/text/be_text_responsive.dart';
-import 'package:bego_ui/src/widgets/text/be_text_type.dart';
-import 'package:bego_ui/src/widgets/text/be_text_variant.dart';
+import 'package:bego_ui/src/text/be_text_responsive.dart';
+import 'package:bego_ui/src/text/be_text_type.dart';
+import 'package:bego_ui/src/text/be_text_variant.dart';
 import 'package:flutter/material.dart';
+
+const _defaultMaxLine = 10000;
 
 class BeText extends StatelessWidget {
   const BeText(
@@ -131,7 +133,7 @@ class BeText extends StatelessWidget {
     this.text, {
     super.key,
     this.color,
-    this.maxLine,
+    this.maxLine = _defaultMaxLine,
     this.align,
     this.padding,
     this.variant,
@@ -143,7 +145,7 @@ class BeText extends StatelessWidget {
     this.text, {
     super.key,
     this.color,
-    this.maxLine,
+    this.maxLine = _defaultMaxLine,
     this.align,
     this.padding,
     this.variant,
@@ -155,7 +157,7 @@ class BeText extends StatelessWidget {
     this.text, {
     super.key,
     this.color,
-    this.maxLine,
+    this.maxLine = _defaultMaxLine,
     this.align,
     this.padding,
     this.variant,

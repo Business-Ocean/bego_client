@@ -101,22 +101,22 @@ class _$BeThemeDataCopyWithImpl<$Res, $Val extends BeThemeData>
 }
 
 /// @nodoc
-abstract class _$$_BeLightThemeCopyWith<$Res>
+abstract class _$$BeLightThemeImplCopyWith<$Res>
     implements $BeThemeDataCopyWith<$Res> {
-  factory _$$_BeLightThemeCopyWith(
-          _$_BeLightTheme value, $Res Function(_$_BeLightTheme) then) =
-      __$$_BeLightThemeCopyWithImpl<$Res>;
+  factory _$$BeLightThemeImplCopyWith(
+          _$BeLightThemeImpl value, $Res Function(_$BeLightThemeImpl) then) =
+      __$$BeLightThemeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({BeStyle bestyle, BeColors becolors});
 }
 
 /// @nodoc
-class __$$_BeLightThemeCopyWithImpl<$Res>
-    extends _$BeThemeDataCopyWithImpl<$Res, _$_BeLightTheme>
-    implements _$$_BeLightThemeCopyWith<$Res> {
-  __$$_BeLightThemeCopyWithImpl(
-      _$_BeLightTheme _value, $Res Function(_$_BeLightTheme) _then)
+class __$$BeLightThemeImplCopyWithImpl<$Res>
+    extends _$BeThemeDataCopyWithImpl<$Res, _$BeLightThemeImpl>
+    implements _$$BeLightThemeImplCopyWith<$Res> {
+  __$$BeLightThemeImplCopyWithImpl(
+      _$BeLightThemeImpl _value, $Res Function(_$BeLightThemeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +125,7 @@ class __$$_BeLightThemeCopyWithImpl<$Res>
     Object? bestyle = null,
     Object? becolors = null,
   }) {
-    return _then(_$_BeLightTheme(
+    return _then(_$BeLightThemeImpl(
       bestyle: null == bestyle
           ? _value.bestyle
           : bestyle // ignore: cast_nullable_to_non_nullable
@@ -140,8 +140,8 @@ class __$$_BeLightThemeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_BeLightTheme extends _BeLightTheme {
-  const _$_BeLightTheme(
+class _$BeLightThemeImpl extends _BeLightTheme {
+  const _$BeLightThemeImpl(
       {this.bestyle = const BeStyleLight(),
       this.becolors = const BeColorsLight()})
       : super._();
@@ -162,7 +162,7 @@ class _$_BeLightTheme extends _BeLightTheme {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BeLightTheme &&
+            other is _$BeLightThemeImpl &&
             (identical(other.bestyle, bestyle) || other.bestyle == bestyle) &&
             (identical(other.becolors, becolors) ||
                 other.becolors == becolors));
@@ -174,8 +174,8 @@ class _$_BeLightTheme extends _BeLightTheme {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BeLightThemeCopyWith<_$_BeLightTheme> get copyWith =>
-      __$$_BeLightThemeCopyWithImpl<_$_BeLightTheme>(this, _$identity);
+  _$$BeLightThemeImplCopyWith<_$BeLightThemeImpl> get copyWith =>
+      __$$BeLightThemeImplCopyWithImpl<_$BeLightThemeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -242,7 +242,7 @@ class _$_BeLightTheme extends _BeLightTheme {
 
 abstract class _BeLightTheme extends BeThemeData {
   const factory _BeLightTheme(
-      {final BeStyle bestyle, final BeColors becolors}) = _$_BeLightTheme;
+      {final BeStyle bestyle, final BeColors becolors}) = _$BeLightThemeImpl;
   const _BeLightTheme._() : super._();
 
   @override
@@ -251,27 +251,27 @@ abstract class _BeLightTheme extends BeThemeData {
   BeColors get becolors;
   @override
   @JsonKey(ignore: true)
-  _$$_BeLightThemeCopyWith<_$_BeLightTheme> get copyWith =>
+  _$$BeLightThemeImplCopyWith<_$BeLightThemeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_BeDarkThemeCopyWith<$Res>
+abstract class _$$BeDarkThemeImplCopyWith<$Res>
     implements $BeThemeDataCopyWith<$Res> {
-  factory _$$_BeDarkThemeCopyWith(
-          _$_BeDarkTheme value, $Res Function(_$_BeDarkTheme) then) =
-      __$$_BeDarkThemeCopyWithImpl<$Res>;
+  factory _$$BeDarkThemeImplCopyWith(
+          _$BeDarkThemeImpl value, $Res Function(_$BeDarkThemeImpl) then) =
+      __$$BeDarkThemeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({BeStyle bestyle, BeColors becolors});
 }
 
 /// @nodoc
-class __$$_BeDarkThemeCopyWithImpl<$Res>
-    extends _$BeThemeDataCopyWithImpl<$Res, _$_BeDarkTheme>
-    implements _$$_BeDarkThemeCopyWith<$Res> {
-  __$$_BeDarkThemeCopyWithImpl(
-      _$_BeDarkTheme _value, $Res Function(_$_BeDarkTheme) _then)
+class __$$BeDarkThemeImplCopyWithImpl<$Res>
+    extends _$BeThemeDataCopyWithImpl<$Res, _$BeDarkThemeImpl>
+    implements _$$BeDarkThemeImplCopyWith<$Res> {
+  __$$BeDarkThemeImplCopyWithImpl(
+      _$BeDarkThemeImpl _value, $Res Function(_$BeDarkThemeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -280,7 +280,7 @@ class __$$_BeDarkThemeCopyWithImpl<$Res>
     Object? bestyle = null,
     Object? becolors = null,
   }) {
-    return _then(_$_BeDarkTheme(
+    return _then(_$BeDarkThemeImpl(
       bestyle: null == bestyle
           ? _value.bestyle
           : bestyle // ignore: cast_nullable_to_non_nullable
@@ -295,8 +295,8 @@ class __$$_BeDarkThemeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_BeDarkTheme extends _BeDarkTheme {
-  const _$_BeDarkTheme(
+class _$BeDarkThemeImpl extends _BeDarkTheme {
+  const _$BeDarkThemeImpl(
       {this.bestyle = const BeStyleDark(),
       this.becolors = const BeColorsDark()})
       : super._();
@@ -317,7 +317,7 @@ class _$_BeDarkTheme extends _BeDarkTheme {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BeDarkTheme &&
+            other is _$BeDarkThemeImpl &&
             (identical(other.bestyle, bestyle) || other.bestyle == bestyle) &&
             (identical(other.becolors, becolors) ||
                 other.becolors == becolors));
@@ -329,8 +329,8 @@ class _$_BeDarkTheme extends _BeDarkTheme {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BeDarkThemeCopyWith<_$_BeDarkTheme> get copyWith =>
-      __$$_BeDarkThemeCopyWithImpl<_$_BeDarkTheme>(this, _$identity);
+  _$$BeDarkThemeImplCopyWith<_$BeDarkThemeImpl> get copyWith =>
+      __$$BeDarkThemeImplCopyWithImpl<_$BeDarkThemeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -397,7 +397,7 @@ class _$_BeDarkTheme extends _BeDarkTheme {
 
 abstract class _BeDarkTheme extends BeThemeData {
   const factory _BeDarkTheme({final BeStyle bestyle, final BeColors becolors}) =
-      _$_BeDarkTheme;
+      _$BeDarkThemeImpl;
   const _BeDarkTheme._() : super._();
 
   @override
@@ -406,6 +406,6 @@ abstract class _BeDarkTheme extends BeThemeData {
   BeColors get becolors;
   @override
   @JsonKey(ignore: true)
-  _$$_BeDarkThemeCopyWith<_$_BeDarkTheme> get copyWith =>
+  _$$BeDarkThemeImplCopyWith<_$BeDarkThemeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

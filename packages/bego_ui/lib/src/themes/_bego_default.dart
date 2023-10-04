@@ -333,8 +333,8 @@ DialogTheme dialogTheme(BeThemeData betheme) => DialogTheme(
 
 DividerThemeData dividerTheme(BeThemeData betheme) => DividerThemeData(
       color: betheme.becolors.accent.withAlpha(30),
-      indent: 16,
-      endIndent: 16,
+      indent: 12,
+      endIndent: 12,
       space: 1,
       thickness: 1,
     );
@@ -512,7 +512,7 @@ IconButtonThemeData iconButtonTheme(BeThemeData betheme) => IconButtonThemeData(
 
 ListTileThemeData listTileTheme(BeThemeData betheme) => ListTileThemeData(
       selectedColor: betheme.becolors.primary,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       minVerticalPadding: 0,
       minLeadingWidth: 0,
       tileColor: BegoColors.transparent,

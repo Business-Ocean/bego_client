@@ -1,7 +1,7 @@
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/src/layout/breakpoint.dart';
+import 'package:bego_ui/src/text/be_text_type.dart';
 import 'package:bego_ui/src/themes/style/be_colors_dark.dart';
-import 'package:bego_ui/src/widgets/text/be_text_type.dart';
 import 'package:flutter/widgets.dart';
 
 class BeStyleDark implements BeStyle {
@@ -102,4 +102,20 @@ class BeStyleDark implements BeStyle {
 
   @override
   BorderRadius get radius40 => const BorderRadius.all(Radius.circular(40));
+
+  @override
+  BorderRadiusGeometry get bottomSheetRadius => const BorderRadius.vertical(
+        top: Radius.elliptical(16, 14),
+      );
+
+  @override
+  BorderRadius sizeRadius(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return switch (size) {
+      _ => const BorderRadius.all(Radius.circular(28)),
+    };
+  }
+
+  @override
+  BorderRadius get tileRadius => const BorderRadius.all(Radius.circular(12));
 }
