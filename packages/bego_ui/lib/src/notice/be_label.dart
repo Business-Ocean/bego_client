@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class BeInputLabel extends MultiChildRenderObjectWidget {
-  BeInputLabel({
+class BeLabel extends MultiChildRenderObjectWidget {
+  BeLabel({
     super.key,
     required this.child,
     required this.label,
     this.offset = Offset.zero,
-    this.position = BeInputLabelPosition.topLeft,
+    this.position = BeLabelPosition.topLeft,
   }) : super(children: [child, label]);
   final Widget child;
   final Widget label;
-  final BeInputLabelPosition position;
+  final BeLabelPosition position;
   final Offset offset;
   @override
   RenderObject createRenderObject(BuildContext context) => _BeBadgeRenderObject(
@@ -35,13 +35,13 @@ class _BeBadgeRenderObject extends RenderBox
         ContainerRenderObjectMixin<RenderBox, _BeBadgeChild>,
         RenderBoxContainerDefaultsMixin<RenderBox, _BeBadgeChild> {
   _BeBadgeRenderObject({
-    required BeInputLabelPosition position,
+    required BeLabelPosition position,
     required Offset offset,
   })  : _position = position,
         _offset = offset;
 
-  BeInputLabelPosition _position;
-  set position(BeInputLabelPosition position) {
+  BeLabelPosition _position;
+  set position(BeLabelPosition position) {
     _position = position;
     markNeedsPaint();
   }
@@ -105,37 +105,31 @@ class _BeBadgeRenderObject extends RenderBox
     var translateY = 0.0;
 
     final (double x, double y) = switch (_position) {
-      BeInputLabelPosition.topLeft => (0, -labelHeight),
-      BeInputLabelPosition.topCenter => (
+      BeLabelPosition.topLeft => (0, -labelHeight),
+      BeLabelPosition.topCenter => (
           ((size.width - labelWidth) / 2),
-          -labelHeight / 2
+          -labelHeight
         ),
-      BeInputLabelPosition.topRight => (
+      BeLabelPosition.topRight => ((size.width - labelWidth), (-labelHeight)),
+      BeLabelPosition.bottomRight => (
           (size.width - labelWidth / 2),
-          (-labelHeight / 2)
+          (size.height)
         ),
-      BeInputLabelPosition.bottomRight => (
-          (size.width - labelWidth / 2),
-          (size.height - labelHeight / 2)
-        ),
-      BeInputLabelPosition.bottomCenter => (
+      BeLabelPosition.bottomCenter => (
           (size.width - labelWidth) / 2,
-          (size.height - labelHeight / 2)
+          (size.height)
         ),
-      BeInputLabelPosition.bottomLeft => (
-          (-labelWidth / 2),
-          (size.height - labelHeight / 2)
-        ),
-      BeInputLabelPosition.centerLeft => (
-          (-labelWidth / 2),
+      BeLabelPosition.bottomLeft => ((-labelWidth / 2), (size.height)),
+      BeLabelPosition.centerLeft => (
+          (-labelWidth),
           (size.height - labelHeight) / 2
         ),
-      BeInputLabelPosition.center => (
+      BeLabelPosition.center => (
           (size.width - labelWidth) / 2,
           (size.height - labelHeight) / 2
         ),
-      BeInputLabelPosition.centerRight => (
-          (size.width - labelWidth / 2),
+      BeLabelPosition.centerRight => (
+          (size.width),
           (size.height - labelHeight) / 2
         ),
     };
@@ -149,7 +143,7 @@ class _BeBadgeRenderObject extends RenderBox
 class _BeBadgeChild extends ContainerBoxParentData<RenderBox>
     with ContainerParentDataMixin<RenderBox> {}
 
-enum BeInputLabelPosition {
+enum BeLabelPosition {
   topLeft,
   topCenter,
   topRight,

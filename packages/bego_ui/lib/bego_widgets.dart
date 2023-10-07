@@ -17,7 +17,7 @@ export 'src/list/be_group_card.dart';
 export 'src/list/be_list_item.dart';
 // notification
 export 'src/notice/be_badge.dart';
-export 'src/notice/be_input_label.dart';
+export 'src/notice/be_label.dart';
 // Text
 export 'src/text/be_label_icon.dart';
 export 'src/text/be_text.dart';
