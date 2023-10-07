@@ -24,7 +24,7 @@ class BeTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final labelTextField = BeInputLabel(
+    final labelTextField = BeLabel(
       label: BeText(
         label,
         style: labelStyle ?? bestyles(context).labelLarge,

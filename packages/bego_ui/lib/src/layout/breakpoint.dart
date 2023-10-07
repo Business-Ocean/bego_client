@@ -34,3 +34,27 @@ extension MediaQueryDataScreenBreakpoint on MediaQueryData {
     return BeBreakpoint.extraLarge;
   }
 }
+
+extension MediaQuerySizeDataScreenBreakpoint on Size {
+  BeBreakpoint get screenBreakPoint {
+    final width = this.width;
+    // return Breakpoint.extraLarge;
+    if (width < BeBreakpoint.extraSmall.maxwidth) {
+      return BeBreakpoint.extraSmall;
+    }
+
+    if (width < BeBreakpoint.small.maxwidth) {
+      return BeBreakpoint.small;
+    }
+
+    if (width < BeBreakpoint.medium.maxwidth) {
+      return BeBreakpoint.medium;
+    }
+
+    if (width < BeBreakpoint.large.maxwidth) {
+      return BeBreakpoint.large;
+    }
+
+    return BeBreakpoint.extraLarge;
+  }
+}
