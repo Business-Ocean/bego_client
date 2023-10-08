@@ -1,5 +1,9 @@
 library bego_ui;
 
+// Button
+
+export 'src/button/be_icon_text_button.dart';
+//
 export 'src/common/be_enable.dart';
 export 'src/common_widget.dart';
 export 'src/container/be_blur.dart';

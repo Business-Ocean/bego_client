@@ -15,9 +15,9 @@ class LoginInWithGoogle extends StatelessWidget {
         style: TextButton.styleFrom(
           padding: p0,
         ),
-        child: BeInputLabel(
+        child: BeLabel(
           label: BeTinyLoader(show: loading),
-          position: BeInputLabelPosition.centerRight,
+          position: BeLabelPosition.centerRight,
           offset: const Offset(-24, 0),
           child: Container(
             height: 48,

@@ -70,12 +70,12 @@ class SignInSignUpPage
                     ),
                     space32,
                     // const Spacer(),
-                    BeInputLabel(
+                    BeLabel(
                       label: const BeTinyLoader(
                         show: true,
                         color: Colors.white,
                       ),
-                      position: BeInputLabelPosition.centerRight,
+                      position: BeLabelPosition.centerRight,
                       offset: const Offset(-40, 0),
                       child: ElevatedButton(
                         onPressed: () {},
