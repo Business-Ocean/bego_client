@@ -19,7 +19,7 @@ class CustomWidthUnderlineTabIndicator extends Decoration {
   ///
   /// The [TabBar.indicatorSize] property can be used to define the
   /// tab indicator's bounds in terms of its (centered) tab widget with
-  /// [TabIndicatorSize.label], or the entire tab with [TabIndicatorSize.tab].
+  /// TabIndicatorSize.label], or the entire tab with TabIndicatorSize.tab].
   final EdgeInsetsGeometry insets;
 
   /// The with of indicator.
@@ -80,7 +80,7 @@ class _UnderlinePainter extends BoxPainter {
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    assert(configuration.size != null);
+    assert(configuration.size != null, 'configuration.size != null');
     final rect = offset & configuration.size!;
     final textDirection = configuration.textDirection!;
     final indicator =

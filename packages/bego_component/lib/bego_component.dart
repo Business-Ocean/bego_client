@@ -12,6 +12,9 @@ export 'src/loading/staggered_dots_wave.dart';
 export 'src/picker/be_number_form_field.dart';
 export 'src/popup/be_popup_window.dart';
 // Selection
+export 'src/selection/banner_selector/be_banner_selector.dart';
+export 'src/selection/banner_selector/be_selection_view_controller.dart';
+// Selection
 export 'src/selection/tile/be_custom_width_indicator.dart';
 export 'src/selection/tile/be_switch_title.dart';
 // Tab

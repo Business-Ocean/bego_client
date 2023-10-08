@@ -11,6 +11,9 @@ environment:
 dependencies:
   bego_ui:
     path: ../bego_ui
+
+  bego_core:
+    path: ../bego_core  
   bindings_compatible: ^1.0.1
   flutter:
     sdk: flutter
