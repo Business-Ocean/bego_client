@@ -2,7 +2,7 @@ import 'package:bego_ui/bego_widgets.dart';
 import 'package:bego_ui/src/bottomsheet/be_common_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
-//  TODO (Soruav  ): Build this component and other form component
+// TODO(Soruav): Build this component and other form component
 class BeBottomSheet {
   const BeBottomSheet._();
 

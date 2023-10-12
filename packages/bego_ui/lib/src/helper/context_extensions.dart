@@ -177,3 +177,17 @@ extension IterableExt<T> on Iterable<T> {
     return null;
   }
 }
+
+extension BuildContextExtensions on BuildContext {
+  DefaultTextStyle get defaultTextStyle => DefaultTextStyle.of(this);
+
+  MediaQueryData get mq => MediaQuery.of(this);
+
+  NavigatorState get navigator => Navigator.of(this);
+
+  FocusScopeNode get focusScope => FocusScope.of(this);
+
+  ScaffoldState get scaffold => Scaffold.of(this);
+
+  ScaffoldMessengerState get scaffoldMessenger => ScaffoldMessenger.of(this);
+}
