@@ -7,7 +7,6 @@ export 'src/page/view_page.dart';
 export 'src/state/app_state.dart';
 export 'src/state/be_data.dart';
 export 'src/tools/be_device_info.dart';
-export 'src/tools/be_event_bus.dart';
 // Sync widget
 export 'src/widget/be_async_state_widget.dart';
 export 'src/widget/be_data_widget.dart';
