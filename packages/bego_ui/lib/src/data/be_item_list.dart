@@ -13,6 +13,7 @@
 
 // }
 
+import 'package:bego_ui/bego_ui_modals.dart';
 import 'package:flutter/material.dart';
 
 abstract class BeListItemModal {
@@ -27,4 +28,42 @@ abstract class BeListItemModal {
   List<String>? get captions;
   bool? get selected;
   bool? get enabled;
+}
+
+/// https://stackoverflow.com/questions/59854088/how-to-convert-a-flutter-string-to-icon-value  look into furter improvement
+/// SSD - S=> key S=> value (display) D=>dynamic data (extra value)
+/// [BeKeyValIconS3] Key is Integer and value is String
+class BeKeyValIconS3 implements BeKeyValue {
+  BeKeyValIconS3({
+    required this.icon,
+    required this.key,
+    required String title,
+    required this.subtitle,
+    required this.description,
+  }) : value = title;
+
+  @override
+  final String key;
+
+  @override
+  final String value;
+
+  String get title => value;
+
+  final String description;
+  final String subtitle;
+
+  final IconData icon;
+
+  @override
+  String get display => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is BeKeyValIconS3 &&
+      other.runtimeType == runtimeType &&
+      other.key == key;
+
+  @override
+  int get hashCode => key.hashCode;
 }
