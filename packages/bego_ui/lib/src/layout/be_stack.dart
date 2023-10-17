@@ -41,7 +41,7 @@ class BeStack extends StatelessWidget {
     this.crossAxisAlignment = BeStackAlignment.center,
     this.distribution = BeStackDistribution.basic,
     this.breakpoint,
-    this.space = 0,
+    this.spacing = 0.0,
     this.mainAxisSize = MainAxisSize.max,
   });
 
@@ -65,7 +65,7 @@ class BeStack extends StatelessWidget {
   final BeBreakpoint? breakpoint;
 
   /// Changes spacing between stack items.
-  final double space;
+  final double spacing;
 
   /// Defines amount of space taken by the main axis.
   final MainAxisSize mainAxisSize;
@@ -100,8 +100,8 @@ class BeStack extends StatelessWidget {
   ) {
     final direction = _direction(context);
     final spacer = SizedBox(
-      width: direction == Axis.vertical ? null : space,
-      height: direction == Axis.vertical ? space : null,
+      width: direction == Axis.vertical ? null : spacing,
+      height: direction == Axis.vertical ? spacing : null,
     );
 
     return children.intersperse(spacer).toList();
