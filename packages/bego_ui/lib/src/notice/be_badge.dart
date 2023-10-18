@@ -30,9 +30,9 @@ class BeBadge extends MultiChildRenderObjectWidget {
     _BeBadgeRenderObject renderObject,
   ) {
     renderObject
-      .._badgePosition = position
-      .._rounded = rounded
-      .._offset = offset;
+      ..badgePosition = position
+      ..rounded = rounded
+      ..offset = offset;
   }
 }
 
@@ -49,13 +49,13 @@ class _BeBadgeRenderObject extends RenderBox
         _offset = offset;
 
   BeBadgePosition _badgePosition;
-  set position(BeBadgePosition position) {
+  set badgePosition(BeBadgePosition position) {
     _badgePosition = position;
     markNeedsPaint();
   }
 
   bool _rounded;
-  set isRounded(bool value) {
+  set rounded(bool value) {
     _rounded = value;
     markNeedsPaint();
   }

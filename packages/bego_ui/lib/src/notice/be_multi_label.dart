@@ -143,16 +143,32 @@
 //   bottomRight,
 // }
 
-// class BeLabelChild extends StatelessWidget {
+// class BeLabelChild extends SingleChildRenderObjectWidget {
 //   const BeLabelChild({
 //     super.key,
 //     this.offset = Offset.zero,
 //     required this.position,
-//     required this.child,
+//     required super.child,
 //   });
 //   final BeMultiLabelPosition position;
 //   final Offset offset;
-//   final Widget child;
+
 //   @override
-//   Widget build(BuildContext context) => child;
+//   RenderObject createRenderObject(BuildContext context) => _LabelRenderBox();
+// }
+
+// class _LabelRenderBox extends RenderBox
+//     with RenderObjectWithChildMixin<RenderObject> {
+//   // Add any properties and constructor you need
+
+//   // @override
+//   // void paint(PaintingContext context, Offset offset) {
+//   //   super.paint(context, offset);
+//   // }
+
+//   // @override
+//   // bool hitTestSelf(Offset position) {
+//   //   // Implement hit testing logic if needed
+//   //   return false;
+//   // }
 // }

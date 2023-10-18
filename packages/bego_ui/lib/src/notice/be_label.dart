@@ -25,8 +25,8 @@ class BeLabel extends MultiChildRenderObjectWidget {
     _BeLabelRenderObject renderObject,
   ) {
     renderObject
-      .._position = position
-      .._offset = offset;
+      ..position = position
+      ..offset = offset;
   }
 }
 

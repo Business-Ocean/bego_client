@@ -7,6 +7,7 @@ export 'src/button/be_icon_text_button.dart';
 export 'src/common/be_enable.dart';
 export 'src/common_widget.dart';
 export 'src/container/be_blur.dart';
+export 'src/container/be_inner_shadowed.dart';
 export 'src/container/be_invert_color.dart';
 export 'src/data/be_group_item_data.dart';
 // forms
