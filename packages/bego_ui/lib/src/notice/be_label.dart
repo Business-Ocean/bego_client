@@ -14,7 +14,7 @@ class BeLabel extends MultiChildRenderObjectWidget {
   final BeLabelPosition position;
   final Offset offset;
   @override
-  RenderObject createRenderObject(BuildContext context) => _BeBadgeRenderObject(
+  RenderObject createRenderObject(BuildContext context) => _BeLabelRenderObject(
         position: position,
         offset: offset,
       );
@@ -22,19 +22,19 @@ class BeLabel extends MultiChildRenderObjectWidget {
   @override
   void updateRenderObject(
     BuildContext context,
-    _BeBadgeRenderObject renderObject,
+    _BeLabelRenderObject renderObject,
   ) {
     renderObject
-      .._position = position
-      .._offset = offset;
+      ..position = position
+      ..offset = offset;
   }
 }
 
-class _BeBadgeRenderObject extends RenderBox
+class _BeLabelRenderObject extends RenderBox
     with
         ContainerRenderObjectMixin<RenderBox, _BeBadgeChild>,
         RenderBoxContainerDefaultsMixin<RenderBox, _BeBadgeChild> {
-  _BeBadgeRenderObject({
+  _BeLabelRenderObject({
     required BeLabelPosition position,
     required Offset offset,
   })  : _position = position,
