@@ -214,7 +214,7 @@ class BeText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textInset = padding ?? BeTheme.ofInsets(context).textInset;
-    final textColor = color ?? variant?.textColor;
+    final textColor = color ?? variant?.color;
 
     return text == null || text!.isEmpty
         ? emptyWidget
