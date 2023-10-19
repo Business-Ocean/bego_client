@@ -80,21 +80,17 @@ class _BeLabelRenderObject extends RenderBox
   @override
   void paint(PaintingContext context, Offset offset) {
     final children = getChildrenAsList();
-    final badge = lastChild;
+    final label = lastChild;
     for (final child in children) {
-      if (child == badge) {
-        final badgeOffset =
+      if (child == label) {
+        final labelOffset =
             _getOffset(offset, child.size.width, child.size.height);
-        context.paintChild(child, badgeOffset);
+        context.paintChild(child, labelOffset);
       } else {
         context.paintChild(child, offset);
       }
     }
   }
-
-  @override
-  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
-      defaultHitTestChildren(result, position: position);
 
   Offset _getOffset(
     Offset originalOffset,
@@ -138,6 +134,10 @@ class _BeLabelRenderObject extends RenderBox
 
     return originalOffset.translate(translateX, translateY);
   }
+
+  @override
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
+      defaultHitTestChildren(result, position: position);
 }
 
 class _BeBadgeChild extends ContainerBoxParentData<RenderBox>
