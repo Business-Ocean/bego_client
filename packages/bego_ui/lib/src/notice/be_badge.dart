@@ -20,7 +20,7 @@ class BeBadge extends MultiChildRenderObjectWidget {
   @override
   RenderObject createRenderObject(BuildContext context) => _BeBadgeRenderObject(
         position: position,
-        isRounded: rounded,
+        rounded: rounded,
         offset: offset,
       );
 
@@ -42,10 +42,10 @@ class _BeBadgeRenderObject extends RenderBox
         RenderBoxContainerDefaultsMixin<RenderBox, _BeBadgeChild> {
   _BeBadgeRenderObject({
     required BeBadgePosition position,
-    required bool isRounded,
+    required bool rounded,
     required Offset offset,
   })  : _badgePosition = position,
-        _rounded = isRounded,
+        _rounded = rounded,
         _offset = offset;
 
   BeBadgePosition _badgePosition;
@@ -106,13 +106,6 @@ class _BeBadgeRenderObject extends RenderBox
     }
   }
 
-  @override
-  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
-      defaultHitTestChildren(
-        result,
-        position: position - _offset,
-      );
-
   Offset _getOffset(
     Offset originalOffset,
     double badgeWidth,
@@ -166,6 +159,13 @@ class _BeBadgeRenderObject extends RenderBox
 
     return originalOffset.translate(translateX, translateY);
   }
+
+  @override
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
+      defaultHitTestChildren(
+        result,
+        position: position - _offset,
+      );
 }
 
 class _BeBadgeChild extends ContainerBoxParentData<RenderBox>

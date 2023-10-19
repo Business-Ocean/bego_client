@@ -1,32 +1,42 @@
-// ignore_for_file: unused_field
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class BeMultiLabel extends MultiChildRenderObjectWidget {
-  BeMultiLabel({
+class BeMultiBadge extends MultiChildRenderObjectWidget {
+  BeMultiBadge({
     super.key,
     required this.child,
     required this.labels,
+    this.rounded = false,
   }) : super(children: [child, ...labels]);
   final Widget child;
-  final List<BeLabelChild> labels;
+  final bool rounded;
+  final List<BeBadgeChild> labels;
   @override
   RenderObject createRenderObject(BuildContext context) =>
-      _BeMultiLabelRenderObject();
+      _BeMultiLabelRenderObject(rounded: rounded);
 
   @override
   void updateRenderObject(
     BuildContext context,
     _BeMultiLabelRenderObject renderObject,
-  ) {}
+  ) {
+    renderObject.rounded = rounded;
+  }
 }
 
 class _BeMultiLabelRenderObject extends RenderBox
     with
         ContainerRenderObjectMixin<RenderBox, _BeBadgeChild>,
         RenderBoxContainerDefaultsMixin<RenderBox, _BeBadgeChild> {
-  _BeMultiLabelRenderObject();
+  _BeMultiLabelRenderObject({required bool rounded}) : _rounded = rounded;
+
+  bool _rounded;
+  set rounded(bool value) {
+    _rounded = value;
+    markNeedsPaint();
+  }
 
   @override
   void setupParentData(covariant RenderObject child) {
@@ -58,7 +68,7 @@ class _BeMultiLabelRenderObject extends RenderBox
   void paint(PaintingContext context, Offset offset) {
     final children = getChildrenAsList();
     for (final child in children) {
-      if (child is _LabelRenderBox) {
+      if (child is _BadgeRenderBox) {
         final labelOffset = _getOffset(
           child._position,
           child._offset,
@@ -74,45 +84,53 @@ class _BeMultiLabelRenderObject extends RenderBox
   }
 
   Offset _getOffset(
-    BeMultiLabelPosition position,
+    BeMultiBadgePosition badgePosition,
     Offset childOffset,
     Offset originalOffset,
-    double labelWidth,
-    double labelHeight,
+    double badgeWidth,
+    double badgeHeight,
   ) {
     var translateX = 0.0;
     var translateY = 0.0;
+    final radius = min(size.width, size.height) / 2;
+    final roundShift = radius / 2;
 
-    final (double x, double y) = switch (position) {
-      BeMultiLabelPosition.topLeft => (0, -labelHeight),
-      BeMultiLabelPosition.topCenter => (
-          ((size.width - labelWidth) / 2),
-          -labelHeight
+    final (double x, double y) = switch (badgePosition) {
+      BeMultiBadgePosition.topLeft => (
+          (-badgeWidth / 2) + (_rounded ? roundShift : 0),
+          -badgeHeight / 2 + (_rounded ? roundShift / 3 : 0)
         ),
-      BeMultiLabelPosition.topRight => (
-          (size.width - labelWidth),
-          (-labelHeight)
+      BeMultiBadgePosition.topCenter => (
+          ((size.width - badgeWidth) / 2),
+          -badgeHeight / 2
         ),
-      BeMultiLabelPosition.bottomRight => (
-          (size.width - labelWidth / 2),
-          (size.height)
+      BeMultiBadgePosition.topRight => (
+          (size.width - badgeWidth / 2) - (_rounded ? roundShift : 0),
+          (-badgeHeight / 2) + (_rounded ? roundShift / 3 : 0)
         ),
-      BeMultiLabelPosition.bottomCenter => (
-          (size.width - labelWidth) / 2,
-          (size.height)
+      BeMultiBadgePosition.bottomRight => (
+          (size.width - badgeWidth / 2) - (_rounded ? roundShift : 0),
+          (size.height - badgeHeight / 2) - (_rounded ? roundShift / 3 : 0)
         ),
-      BeMultiLabelPosition.bottomLeft => ((-labelWidth / 2), (size.height)),
-      BeMultiLabelPosition.centerLeft => (
-          (-labelWidth),
-          (size.height - labelHeight) / 2
+      BeMultiBadgePosition.bottomCenter => (
+          (size.width - badgeWidth) / 2,
+          (size.height - badgeHeight / 2)
         ),
-      BeMultiLabelPosition.center => (
-          (size.width - labelWidth) / 2,
-          (size.height - labelHeight) / 2
+      BeMultiBadgePosition.bottomLeft => (
+          (-badgeWidth / 2) + (_rounded ? roundShift : 0),
+          (size.height - badgeHeight / 2) - (_rounded ? roundShift / 3 : 0)
         ),
-      BeMultiLabelPosition.centerRight => (
-          (size.width),
-          (size.height - labelHeight) / 2
+      BeMultiBadgePosition.centerLeft => (
+          (-badgeWidth / 2),
+          (size.height - badgeHeight) / 2
+        ),
+      BeMultiBadgePosition.center => (
+          (size.width - badgeWidth) / 2,
+          (size.height - badgeHeight) / 2
+        ),
+      BeMultiBadgePosition.centerRight => (
+          (size.width - badgeWidth / 2),
+          (size.height - badgeHeight) / 2
         ),
     };
     translateX = x + childOffset.dx;
@@ -131,18 +149,18 @@ class _BeBadgeChild extends ContainerBoxParentData<RenderBox>
 
 // ==========================================================================
 
-class BeLabelChild extends SingleChildRenderObjectWidget {
-  const BeLabelChild({
+class BeBadgeChild extends SingleChildRenderObjectWidget {
+  const BeBadgeChild({
     super.key,
     this.offset = Offset.zero,
     required this.position,
     required super.child,
   });
-  final BeMultiLabelPosition position;
+  final BeMultiBadgePosition position;
   final Offset offset;
 
   @override
-  RenderObject createRenderObject(BuildContext context) => _LabelRenderBox(
+  RenderObject createRenderObject(BuildContext context) => _BadgeRenderBox(
         offset: offset,
         position: position,
       );
@@ -150,7 +168,7 @@ class BeLabelChild extends SingleChildRenderObjectWidget {
   @override
   void updateRenderObject(
     BuildContext context,
-    _LabelRenderBox renderObject,
+    _BadgeRenderBox renderObject,
   ) {
     renderObject
       ..position = position
@@ -158,19 +176,19 @@ class BeLabelChild extends SingleChildRenderObjectWidget {
   }
 }
 
-class _LabelRenderBox extends RenderBox
+class _BadgeRenderBox extends RenderBox
     with RenderObjectWithChildMixin<RenderBox> {
   // Add any properties and constructor you need
-  _LabelRenderBox({
-    required BeMultiLabelPosition position,
+  _BadgeRenderBox({
+    required BeMultiBadgePosition position,
     required Offset offset,
   })  : _position = position,
         _offset = offset;
 
   var _lastSize = Size.zero;
 
-  BeMultiLabelPosition _position;
-  set position(BeMultiLabelPosition position) {
+  BeMultiBadgePosition _position;
+  set position(BeMultiBadgePosition position) {
     _position = position;
     markNeedsPaint();
   }
@@ -210,7 +228,7 @@ class _LabelRenderBox extends RenderBox
       child?.hitTest(result, position: position) == true;
 }
 
-enum BeMultiLabelPosition {
+enum BeMultiBadgePosition {
   topLeft,
   topCenter,
   topRight,

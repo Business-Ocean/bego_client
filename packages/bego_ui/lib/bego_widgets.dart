@@ -25,10 +25,12 @@ export 'src/list/be_scroll_behavior.dart';
 // notification
 export 'src/notice/be_badge.dart';
 export 'src/notice/be_label.dart';
+export 'src/notice/be_multi_badge.dart';
 export 'src/notice/be_multi_label.dart';
 // Text
 export 'src/text/be_animated_text.dart';
 export 'src/text/be_label_icon.dart';
+export 'src/text/be_neumorphic_text.dart';
 export 'src/text/be_text.dart';
 export 'src/text/be_text_tagged.dart';
 export 'src/text/be_text_type.dart';

@@ -12,7 +12,7 @@ const fontFamily = 'ReadexPro';
 
 ThemeData createBegoTheme(BeThemeData betheme) {
   // Build theme from bego theme data
-  debugPrint('Creating ThemeData from Bego Theme Data ${betheme.runtimeType}');
+  // debugPrint('Creating ThemeData from Bego Theme Data ${betheme.runtimeType}');
   const useMaterial3 = true;
 
   return ThemeData(
