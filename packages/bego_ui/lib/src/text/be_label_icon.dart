@@ -57,7 +57,7 @@ class BeLabelIcon extends StatelessWidget {
               ],
               TextSpan(
                 text: text,
-                style: TextStyle(color: becolors(context).text),
+                style: TextStyle(color: color),
               ),
               if (isMandatory)
                 TextSpan(

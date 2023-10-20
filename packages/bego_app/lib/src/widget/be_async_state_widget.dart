@@ -1,6 +1,6 @@
 import 'package:bego_app/src/state/be_data.dart';
 import 'package:bego_app/src/widget/be_error_widget.dart';
-import 'package:bego_app/src/widget/be_loading_widget.dart';
+import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
 
 class BeAsyncStateWidget<T> extends StatelessWidget {
@@ -34,8 +34,7 @@ class BeAsyncStateWidget<T> extends StatelessWidget {
             case ConnectionState.none:
             case ConnectionState.active:
             case ConnectionState.waiting:
-              return childUnknown?.call(snapshot.data) ??
-                  const BeLoadingWidget();
+              return childUnknown?.call(snapshot.data) ?? const BeLoading();
             case ConnectionState.done:
               return childSuccess(snapshot.data);
           }

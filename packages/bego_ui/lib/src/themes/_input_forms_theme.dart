@@ -7,7 +7,7 @@ InputDecorationTheme inputDecorationTheme(BeThemeData betheme) {
   final primary = betheme.becolors.primary;
   const border = Color.fromARGB(255, 235, 235, 241);
   return InputDecorationTheme(
-    fillColor: BegoColors.gray100,
+    fillColor: const Color.fromRGBO(245, 245, 245, 1),
     filled: true,
     // border: const OutlineInputBorder(borderRadius: borderRadius),
     errorMaxLines: 1,

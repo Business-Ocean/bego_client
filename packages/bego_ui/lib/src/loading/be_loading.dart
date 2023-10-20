@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BeLoadingWidget extends StatelessWidget {
-  const BeLoadingWidget({super.key});
+class BeLoading extends StatelessWidget {
+  const BeLoading({super.key});
 
   @override
   Widget build(BuildContext context) => const Center(

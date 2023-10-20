@@ -59,7 +59,7 @@ class BeColorsDark implements BeColors {
   Color get focus => BegoColors.slate600;
 
   @override
-  Color get highlight => BegoColors.slate600;
+  Color get highlight => BegoColors.slate100;
 
   @override
   Color get hint => BegoColors.slate600;
