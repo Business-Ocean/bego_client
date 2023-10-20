@@ -9,6 +9,7 @@ export 'src/common_widget.dart';
 export 'src/container/be_blur.dart';
 export 'src/container/be_inner_shadowed.dart';
 export 'src/container/be_invert_color.dart';
+export 'src/container/be_outer_shadowed.dart';
 export 'src/data/be_group_item_data.dart';
 // forms
 export 'src/form/be_multi_choice_checkbox_item.dart';
