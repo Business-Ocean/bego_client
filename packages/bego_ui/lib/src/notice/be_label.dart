@@ -5,12 +5,12 @@ class BeLabel extends MultiChildRenderObjectWidget {
   BeLabel({
     super.key,
     required this.child,
-    required this.label,
+    this.label,
     this.offset = Offset.zero,
     this.position = BeLabelPosition.topLeft,
-  }) : super(children: [child, label]);
+  }) : super(children: [child, if (label != null) label]);
   final Widget child;
-  final Widget label;
+  final Widget? label;
   final BeLabelPosition position;
   final Offset offset;
   @override
@@ -67,12 +67,14 @@ class _BeLabelRenderObject extends RenderBox
       childConstraints = BoxConstraints.tight(child.size);
     }
 
-    if (badge != null) {
-      badge.layout(
-        BoxConstraints.loose(
-          Size(childConstraints.minWidth, childConstraints.minHeight),
-        ),
-      );
+    if (childCount > 1) {
+      if (badge != null) {
+        badge.layout(
+          BoxConstraints.loose(
+            Size(childConstraints.minWidth, childConstraints.minHeight),
+          ),
+        );
+      }
     }
     size = child?.size ?? badge?.size ?? constraints.smallest;
   }
@@ -82,7 +84,7 @@ class _BeLabelRenderObject extends RenderBox
     final children = getChildrenAsList();
     final label = lastChild;
     for (final child in children) {
-      if (child == label) {
+      if (child == label && child != firstChild) {
         final labelOffset =
             _getOffset(offset, child.size.width, child.size.height);
         context.paintChild(child, labelOffset);

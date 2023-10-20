@@ -58,9 +58,11 @@ class _BeSwitchTileState extends State<BeSwitchTile> {
               )
             : null,
         value: _enabled ?? false,
-        onChanged: (v) {
-          setState(() => _enabled = v);
-          widget.onChange?.call(v);
-        },
+        onChanged: widget.onChange == null
+            ? null
+            : (v) {
+                setState(() => _enabled = v);
+                widget.onChange?.call(v);
+              },
       );
 }

@@ -65,9 +65,11 @@ class _BeCheckTileState extends State<BeCheckTile> {
                 roundRadius: 4,
               )
             : null,
-        onChanged: (v) {
-          setState(() => _checked = v);
-          widget.onChange?.call(v);
-        },
+        onChanged: widget.onChange == null
+            ? null
+            : (v) {
+                setState(() => _checked = v);
+                widget.onChange?.call(v);
+              },
       );
 }

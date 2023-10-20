@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 // https://stackoverflow.com/questions/49713189/how-to-use-conditional-statement-within-child-attribute-of-a-flutter-widget-cen
 typedef IfTrueWidget = List<Widget> Function(bool, Widget);
 
-typedef IfNullWidget = Widget Function(Widget?);
+typedef IfNullWidget = Widget? Function(Widget?);
+typedef NullWhen = Widget? Function(bool condition, Widget);
 
 typedef IfTrueWidgets = List<Widget> Function(bool, List<Widget>);
 
@@ -49,6 +50,8 @@ IfElseWidget ifElseWidget =
 
 IfWidget ifWidget = (bool condition, Widget isTrueChild) =>
     condition ? isTrueChild : emptyWidget;
+NullWhen nullWhen =
+    (bool condition, Widget isTrueChild) => condition ? isTrueChild : null;
 
 IfWidgets ifWidgets = (bool condition, List<Widget> children) =>
     condition ? children : [emptyWidget];

@@ -1,4 +1,5 @@
 import 'package:bego_app/bego_app.dart';
+import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
 
 class BeStreamStateWidget<T> extends StatelessWidget {
@@ -32,8 +33,7 @@ class BeStreamStateWidget<T> extends StatelessWidget {
             case ConnectionState.none:
             case ConnectionState.active:
             case ConnectionState.waiting:
-              return childStream?.call(snapshot.data) ??
-                  const BeLoadingWidget();
+              return childStream?.call(snapshot.data) ?? const BeLoading();
             case ConnectionState.done:
               return childSuccess(snapshot.data);
           }

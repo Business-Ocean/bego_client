@@ -53,7 +53,7 @@ class BeReactiveWidget<T> extends StatelessWidget {
             BlendMode.saturation,
           ),
         ),
-        child: const BeLoadingWidget(),
+        child: const BeLoading(),
       );
   Widget _blurErrorState(dynamic error, T? data) => BackdropFilter(
         filter: ImageFilter.compose(

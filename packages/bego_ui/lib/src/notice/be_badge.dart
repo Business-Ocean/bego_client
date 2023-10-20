@@ -11,9 +11,9 @@ class BeBadge extends MultiChildRenderObjectWidget {
     this.rounded = false,
     this.offset = Offset.zero,
     this.position = BeBadgePosition.topRight,
-  }) : super(children: [child, badge]);
+  }) : super(children: [child, if (badge != null) badge]);
   final Widget child;
-  final Widget badge;
+  final Widget? badge;
   final BeBadgePosition position;
   final bool rounded;
   final Offset offset;
@@ -75,19 +75,21 @@ class _BeBadgeRenderObject extends RenderBox
   void performLayout() {
     var childConstraints = constraints;
     final child = firstChild;
-    final badge = lastChild;
     if (child != null) {
       child.layout(constraints, parentUsesSize: true);
       childConstraints = BoxConstraints.tight(child.size);
     }
-
-    if (badge != null) {
-      badge.layout(
-        BoxConstraints.loose(
-          Size(childConstraints.minWidth, childConstraints.minHeight),
-        ),
-      );
+    final badge = lastChild;
+    if (childCount > 1) {
+      if (badge != null) {
+        badge.layout(
+          BoxConstraints.loose(
+            Size(childConstraints.minWidth, childConstraints.minHeight),
+          ),
+        );
+      }
     }
+
     size = child?.size ?? badge?.size ?? constraints.smallest;
   }
 
@@ -96,7 +98,7 @@ class _BeBadgeRenderObject extends RenderBox
     final children = getChildrenAsList();
     final badge = lastChild;
     for (final child in children) {
-      if (child == badge) {
+      if (child == badge && child != firstChild) {
         final badgeOffset =
             _getOffset(offset, child.size.width, child.size.height);
         context.paintChild(child, badgeOffset);
