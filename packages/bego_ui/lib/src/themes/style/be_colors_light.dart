@@ -55,7 +55,7 @@ class BeColorsLight implements BeColors {
   Color get focus => primary.withAlpha(50);
 
   @override
-  Color get highlight => secandory;
+  Color get highlight => BegoColors.slate50;
 
   @override
   Color get hint => BegoColors.gray400;
