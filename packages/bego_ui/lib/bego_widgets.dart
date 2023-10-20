@@ -15,8 +15,9 @@ export 'src/data/be_group_item_data.dart';
 export 'src/form/be_multi_choice_checkbox_item.dart';
 // form
 export 'src/form/be_text_field.dart';
-export 'src/form/box_selection/be_check_tile.dart';
-export 'src/form/box_selection/be_radio_tile.dart';
+export 'src/form/tile/be_check_tile.dart';
+export 'src/form/tile/be_radio_tile.dart';
+export 'src/form/tile/be_switch_tile.dart';
 // container
 export 'src/layout/be_expandable_container.dart';
 export 'src/layout/be_stack.dart';
