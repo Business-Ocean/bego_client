@@ -1,3 +1,5 @@
+// ignore_for_file: comment_references
+
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/src/form/tooltip/tooltip_alignment.dart';
 import 'package:bego_ui/src/form/tooltip/tooltip_overlay.dart';

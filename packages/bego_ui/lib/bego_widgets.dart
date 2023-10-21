@@ -19,8 +19,14 @@ export 'src/form/be_multi_choice_checkbox_item.dart';
 // input field
 export 'src/form/be_text_field.dart';
 export 'src/form/common.dart';
+export 'src/form/dropdown/base_dropdown_tile.dart';
+export 'src/form/dropdown/dropdown_select.dart';
+export 'src/form/dropdown/dropdown_tile.dart';
+export 'src/form/dropdown/embedded_search.dart';
+export 'src/form/fields/be_text_input_form_field.dart';
 export 'src/form/input/be_text_input_field.dart';
 export 'src/form/input/field_wrapper.dart';
+export 'src/form/selection/select_input.dart';
 //  Tile
 export 'src/form/tile/be_check_tile.dart';
 export 'src/form/tile/be_radio_tile.dart';
