@@ -84,10 +84,10 @@ class _FieldWrapper extends State<FormFieldWrapper> {
   Color get _borderColor {
     if (!widget.isEnabled) return becolors.disabled;
     if (widget.hasError) return becolors.error;
-    if (_isFocused) return becolors.text;
-    if (_isHovered) return becolors.primary.withAlpha(50);
+    if (_isFocused) return BegoColors.gray400;
+    if (_isHovered) return BegoColors.gray300;
 
-    return becolors.text;
+    return BegoColors.gray200;
   }
 
   @override
@@ -99,7 +99,7 @@ class _FieldWrapper extends State<FormFieldWrapper> {
     final suffix = widget.suffix;
 
     return BeBadge(
-      offset: const Offset(0, 10),
+      // offset: const Offset(0, 20),
       position: BeBadgePosition.topRight,
       // rounded: true,
       badge: widget.isRequired

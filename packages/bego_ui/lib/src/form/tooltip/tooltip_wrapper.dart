@@ -11,7 +11,7 @@ class BeTooltipWrapper extends StatefulWidget {
     required this.text,
     required this.child,
     this.tooltipPosition = BeTooltipPosition.top,
-    this.size = BeToolTipSize.small,
+    this.size,
     this.autoHideDuration = const Duration(seconds: 1),
   });
 
@@ -23,7 +23,7 @@ class BeTooltipWrapper extends StatefulWidget {
   final Widget child;
 
   /// Size of the tooltip.
-  final BeToolTipSize size;
+  final double? size;
 
   /// Position of the tooltip relative to the child widget. If not specified,
   /// the tooltip will be positioned automatically. Defaults to

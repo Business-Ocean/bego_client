@@ -272,7 +272,8 @@ class _BeTextInputFieldState extends State<BeTextInputField> {
             onSubmitted: widget.onSubmitted,
             textInputAction: widget.textInputAction,
             placeholder: widget.placeholder,
-            placeholderStyle: widget.placeholderStyle,
+            placeholderStyle: widget.placeholderStyle ??
+                bestyles.bodyLarge.copyWith(color: becolors.hint),
             focusNode: _effectiveFocusNode,
             enabled: widget.isEnabled,
             // maxLength: 2,

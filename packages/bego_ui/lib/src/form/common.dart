@@ -1,6 +1,5 @@
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/bego_widgets.dart';
-import 'package:bego_ui/src/form/tooltip/tooltip_wrapper.dart';
 import 'package:flutter/material.dart';
 
 class Suffix extends StatelessWidget {
@@ -21,7 +20,11 @@ class Suffix extends StatelessWidget {
   final Widget? inlineError;
   final bool showLoader;
 
-  BeLoading get _loader => const BeLoading();
+  BeLoading get _loader => const BeLoading(
+        color: BegoColors.blue,
+        strokeWidth: 2.5,
+        dimension: 18,
+      );
 
   @override
   Widget build(BuildContext context) {
