@@ -7,6 +7,7 @@ export 'src/button/be_icon_text_button.dart';
 export 'src/button/dropdown.dart';
 //
 export 'src/common/be_enable.dart';
+export 'src/common/group_item.dart';
 export 'src/common_widget.dart';
 export 'src/container/be_blur.dart';
 export 'src/container/be_inner_shadowed.dart';
@@ -32,6 +33,8 @@ export 'src/form/dropdown/embedded_search.dart';
 export 'src/form/fields/be_text_input_form_field.dart';
 export 'src/form/input/be_text_input_field.dart';
 export 'src/form/input/field_wrapper.dart';
+export 'src/form/segmented_control/segmented_control.dart';
+export 'src/form/segmented_control/wrapper.dart';
 export 'src/form/selection/select_input.dart';
 //  Tile
 export 'src/form/tile/be_check_tile.dart';
