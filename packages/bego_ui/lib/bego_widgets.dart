@@ -54,6 +54,10 @@ export 'src/notice/be_badge.dart';
 export 'src/notice/be_label.dart';
 export 'src/notice/be_multi_badge.dart';
 export 'src/notice/be_multi_label.dart';
+// stepper
+export 'src/step_bar/step_bar.dart';
+export 'src/step_bar/step_bar_compact.dart';
+export 'src/step_bar/step_bar_item.dart';
 // Text
 export 'src/text/be_animated_text.dart';
 export 'src/text/be_label_icon.dart';

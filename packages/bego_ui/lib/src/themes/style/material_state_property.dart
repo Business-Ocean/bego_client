@@ -22,14 +22,14 @@ MaterialStateBorderSide sideMaterialState(BeThemeData betheme) =>
     MaterialStateBorderSide.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
         return BorderSide(
-          color: betheme.becolors.disabled,
+          color: betheme.colors.disabled,
           width: 2,
           strokeAlign: 0,
           style: BorderStyle.solid,
         );
       }
       return BorderSide(
-        color: betheme.becolors.primary,
+        color: betheme.colors.primary,
         width: 2,
         strokeAlign: 0,
         style: BorderStyle.solid,
@@ -40,11 +40,11 @@ MaterialStateColor fillColorState(BeThemeData betheme) =>
     MaterialStateColor.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
         if (states.contains(MaterialState.selected)) {
-          return betheme.becolors.disabled;
+          return betheme.colors.disabled;
         }
       }
       if (states.contains(MaterialState.selected)) {
-        return betheme.becolors.primary;
+        return betheme.colors.primary;
       }
       return Colors.transparent;
     });
@@ -52,20 +52,20 @@ MaterialStateColor fillColorState(BeThemeData betheme) =>
 MaterialStateColor fillColorRadioState(BeThemeData betheme) =>
     MaterialStateColor.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
-        return betheme.becolors.disabled;
+        return betheme.colors.disabled;
       }
-      return betheme.becolors.primary;
+      return betheme.colors.primary;
     });
 
 MaterialStateProperty<Color?> trackColorMaterialState(BeThemeData betheme) =>
     MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
-        return betheme.becolors.disabled;
+        return betheme.colors.disabled;
       }
       if (states.contains(MaterialState.selected)) {
-        return betheme.becolors.primary;
+        return betheme.colors.primary;
       }
-      return betheme.becolors.hint;
+      return betheme.colors.hint;
     });
 
 MaterialStatePropertyAll<Icon?> iconInvisibleMaterialStateAll() =>
@@ -80,11 +80,11 @@ MaterialStateProperty<Color?> switchThumbColor(BeThemeData betheme) =>
     MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
         return ColorUtils.getShade(
-          betheme.becolors.disabled,
+          betheme.colors.disabled,
           darker: true,
         );
       }
-      return betheme.becolors.colorScheme.background;
+      return betheme.colors.colorScheme.background;
     });
 
 MaterialStateProperty<BorderSide?> inputSideBorder(BeThemeData betheme) =>
@@ -94,24 +94,24 @@ MaterialStateProperty<BorderSide?> inputSideBorder(BeThemeData betheme) =>
       }
       return BorderSide(
         width: 1,
-        color: betheme.becolors.primary.withAlpha(20),
+        color: betheme.colors.primary.withAlpha(20),
       );
     });
 
 MaterialStateBorderSide elvatedSideBorder(BeThemeData betheme) =>
     MaterialStateBorderSide.resolveWith((states) {
       if (states.any(interactiveStates.contains)) {
-        return BorderSide(color: betheme.becolors.primary, width: 2);
+        return BorderSide(color: betheme.colors.primary, width: 2);
       }
       if (states.contains(MaterialState.disabled)) {
         return BorderSide(
-          color: betheme.becolors.disabled.withAlpha(40),
+          color: betheme.colors.disabled.withAlpha(40),
           width: 1.5,
         );
       }
       // return BorderSide(color: betheme.becolors.primary);
       return BorderSide(
-        color: betheme.becolors.primary,
+        color: betheme.colors.primary,
         width: 1.5,
       );
     });
@@ -119,17 +119,17 @@ MaterialStateBorderSide elvatedSideBorder(BeThemeData betheme) =>
 MaterialStateBorderSide outlineSideBorder(BeThemeData betheme) =>
     MaterialStateBorderSide.resolveWith((states) {
       if (states.any(interactiveStates.contains)) {
-        return BorderSide(color: betheme.becolors.primary, width: 2);
+        return BorderSide(color: betheme.colors.primary, width: 2);
       }
       if (states.contains(MaterialState.disabled)) {
         return BorderSide(
-          color: betheme.becolors.disabled,
+          color: betheme.colors.disabled,
           width: 1.5,
         );
       }
       // return BorderSide(color: betheme.becolors.primary);
       return BorderSide(
-        color: betheme.becolors.primary,
+        color: betheme.colors.primary,
         width: 1.5,
       );
     });
@@ -138,11 +138,11 @@ MaterialStateProperty<OutlinedBorder?> roundRectShape(BeThemeData betheme) =>
     MaterialStateProperty.resolveWith((states) {
       if (states.any(interactiveStates.contains)) {
         return RoundedRectangleBorder(
-          borderRadius: betheme.bestyle.borderRadius,
+          borderRadius: betheme.style.borderRadius,
         );
       }
       return RoundedRectangleBorder(
-        borderRadius: betheme.bestyle.borderRadius,
+        borderRadius: betheme.style.borderRadius,
       );
     });
 
@@ -150,9 +150,9 @@ MaterialStateProperty<Color?> primaryOrDisableColor(BeThemeData betheme) =>
     MaterialStateProperty.resolveWith(
       (states) {
         if (states.contains(MaterialState.disabled)) {
-          return betheme.becolors.disabled;
+          return betheme.colors.disabled;
         }
-        return betheme.becolors.primary;
+        return betheme.colors.primary;
       },
     );
 
@@ -160,12 +160,12 @@ MaterialStateTextStyle buttonTextStyle(BeThemeData betheme) =>
     MaterialStateTextStyle.resolveWith(
       (states) {
         if (states.any(interactiveSelectionStates.contains)) {
-          return betheme.bestyle.labelMedium.copyWith(
+          return betheme.style.labelMedium.copyWith(
             fontWeight: FontWeight.w600,
             letterSpacing: 1.2,
           );
         }
-        return betheme.bestyle.labelMedium.copyWith(
+        return betheme.style.labelMedium.copyWith(
           letterSpacing: 1.2,
         );
       },
@@ -175,9 +175,9 @@ MaterialStateProperty<Color?> buttonForegroundColor(BeThemeData betheme) =>
     MaterialStateProperty.resolveWith(
       (states) {
         if (states.contains(MaterialState.disabled)) {
-          return betheme.becolors.disabled;
+          return betheme.colors.disabled;
         }
-        return betheme.becolors.lightInverse;
+        return betheme.colors.lightInverse;
       },
     );
 MaterialStateProperty<Color?> buttonFilledForegroundColor(
@@ -186,21 +186,21 @@ MaterialStateProperty<Color?> buttonFilledForegroundColor(
     MaterialStateProperty.resolveWith(
       (states) {
         if (states.contains(MaterialState.disabled)) {
-          return betheme.becolors.disabled;
+          return betheme.colors.disabled;
         }
-        return betheme.becolors.primary;
+        return betheme.colors.primary;
       },
     );
 
 MaterialStateProperty<Color?> buttonBackgroundColor(BeThemeData betheme) =>
     MaterialStateProperty.resolveWith((states) {
       if (states.any(interactiveSelectionStates.contains)) {
-        return betheme.becolors.primary;
+        return betheme.colors.primary;
       }
       if (states.contains(MaterialState.disabled)) {
-        return betheme.becolors.disabled.withAlpha(80);
+        return betheme.colors.disabled.withAlpha(80);
       }
-      return betheme.becolors.primary;
+      return betheme.colors.primary;
     });
 
 MaterialStateProperty<Color?> buttonFilledBackgroundColor(
@@ -208,12 +208,12 @@ MaterialStateProperty<Color?> buttonFilledBackgroundColor(
 ) =>
     MaterialStateProperty.resolveWith((states) {
       if (states.any(interactiveSelectionStates.contains)) {
-        return betheme.becolors.primary;
+        return betheme.colors.primary;
       }
       if (states.contains(MaterialState.disabled)) {
-        return betheme.becolors.disabled.withAlpha(80);
+        return betheme.colors.disabled.withAlpha(80);
       }
-      return ColorUtils.getShade(betheme.becolors.primary, value: 0.45);
+      return ColorUtils.getShade(betheme.colors.primary, value: 0.45);
     });
 
 MaterialStateProperty<double?> elevationInteraction() =>
@@ -227,12 +227,11 @@ MaterialStateProperty<double?> elevationInteraction() =>
 MaterialStateTextStyle inputLabelStyle(BeThemeData betheme) =>
     MaterialStateTextStyle.resolveWith((states) {
       if (states.contains(MaterialState.error)) {
-        return betheme.bestyle.bodyMedium
-            .copyWith(color: betheme.becolors.error);
+        return betheme.style.bodyMedium.copyWith(color: betheme.colors.error);
       }
       if (states.contains(MaterialState.disabled)) {
-        return betheme.bestyle.bodyMedium
-            .copyWith(color: betheme.becolors.disabled);
+        return betheme.style.bodyMedium
+            .copyWith(color: betheme.colors.disabled);
       }
-      return betheme.bestyle.bodyMedium;
+      return betheme.style.bodyMedium;
     });

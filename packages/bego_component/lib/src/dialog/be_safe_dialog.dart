@@ -68,7 +68,7 @@ class BeSafeDialog {
       context: context,
       builder: builder,
       barrierColor: barrierColor ??
-          BeTheme.of(context).becolors.lightInverse.withOpacity(0.1),
+          BeTheme.of(context).colors.lightInverse.withOpacity(0.1),
       barrierDismissible: barrierDismissible,
       barrierLabel: barrierLabel,
       useSafeArea: useSafeArea,

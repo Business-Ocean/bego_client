@@ -48,12 +48,12 @@ final class BeNotification extends BeInlineNotification {
           margin: const EdgeInsets.only(top: 4),
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: betheme(context).becolors.primary.withOpacity(0.2),
+            color: betheme(context).colors.primary.withOpacity(0.2),
             shape: BoxShape.circle,
           ),
           child: Icon(
             icon,
-            color: betheme(context).becolors.primary,
+            color: betheme(context).colors.primary,
           ),
         );
 
