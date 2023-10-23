@@ -47,6 +47,7 @@ export 'src/layout/be_banner.dart';
 // container
 export 'src/layout/be_expandable_container.dart';
 export 'src/layout/be_stack.dart';
+export 'src/layout/expansion/expansion_tile.dart';
 // form
 export 'src/link/be_link_rich_text.dart';
 // list

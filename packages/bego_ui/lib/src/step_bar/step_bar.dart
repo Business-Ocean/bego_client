@@ -5,7 +5,6 @@ import 'package:bego_ui/bego_widgets.dart';
 import 'package:bego_ui/src/helper/context_extensions.dart';
 import 'package:bego_ui/src/layout/be_breakpoint.dart';
 import 'package:bego_ui/src/step_bar/_step_bar_common.dart';
-import 'package:bego_ui/src/step_bar/step_bar_item.dart';
 import 'package:flutter/material.dart';
 
 /// Step-bars are used to communicate a sense of progress visually through
