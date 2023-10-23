@@ -100,7 +100,23 @@ class SignInSignUpPage
                     space24,
                     Center(
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          BeNotificationsOverlay.of(context)?.show(
+                            const BeNotification(
+                              title: 'Hello',
+                              description:
+                                  'Sint tempor laborum ex tempor voluptate tempor minim labore et aliqua dolor ut occaecat nulla.',
+                            ),
+                          );
+                          // DialogWrapper.of(context)?.show(
+                          //   title: const Text('Hello'),
+                          //   content: Container(
+                          //     width: 100,
+                          //     height: 100,
+                          //     color: Colors.blue,
+                          //   ),
+                          // );
+                        },
                         // onPressed: controller.navigateHome,
                         child: const Text(
                           'Skip',

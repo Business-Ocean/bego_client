@@ -23,22 +23,25 @@ final class BeNotification extends BeInlineNotification {
   final IconData? icon;
   final VoidCallback? onActionPressed;
   @override
-  Widget buildContent(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          BeText(
-            title,
-            maxLine: 1,
-            textType: BeTextType.titleSmall,
-          ),
-          Flexible(
-            child: BeText(
-              description,
-              maxLine: 2,
-              textType: BeTextType.bodySmall,
+  Widget buildContent(BuildContext context) => Material(
+        color: becolors(context).scaffoldBackground,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            BeText(
+              title,
+              maxLine: 1,
+              textType: BeTextType.titleSmall,
             ),
-          ),
-        ],
+            Flexible(
+              child: BeText(
+                description,
+                maxLine: 2,
+                textType: BeTextType.bodySmall,
+              ),
+            ),
+          ],
+        ),
       );
 
   @override
