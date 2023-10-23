@@ -1,5 +1,5 @@
 import 'package:bego_ui/src/helper/context_extensions.dart';
-import 'package:bego_ui/src/layout/breakpoint.dart';
+import 'package:bego_ui/src/layout/be_breakpoint.dart';
 import 'package:flutter/widgets.dart';
 
 /// First value will be the default value

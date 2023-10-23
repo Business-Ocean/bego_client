@@ -94,4 +94,19 @@ final class ColorUtils {
   static Color getRandomColor({double opacity = 1.0}) =>
       Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
           .withOpacity(opacity);
+
+  static Color solidOpacity(Color color, {double opacity = 0.10}) {
+    if (opacity < 0.0) {
+      opacity = 0.0;
+    } else if (opacity > 1.0) {
+      opacity = 1.0;
+    }
+
+    final alpha = (opacity * 255).round();
+    final red = color.red;
+    final green = color.green;
+    final blue = color.blue;
+
+    return Color.fromARGB(alpha, red, green, blue);
+  }
 }

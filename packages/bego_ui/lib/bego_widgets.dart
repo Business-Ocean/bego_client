@@ -1,8 +1,10 @@
 library bego_ui;
 
+export 'src/button/base_dropdown_button.dart';
 // Button
 
 export 'src/button/be_icon_text_button.dart';
+export 'src/button/dropdown.dart';
 //
 export 'src/common/be_enable.dart';
 export 'src/common_widget.dart';
@@ -37,6 +39,7 @@ export 'src/form/tooltip/tooltip_alignment.dart';
 export 'src/form/tooltip/tooltip_controller.dart';
 export 'src/form/tooltip/tooltip_overlay.dart';
 export 'src/form/tooltip/tooltip_wrapper.dart';
+export 'src/layout/be_banner.dart';
 // container
 export 'src/layout/be_expandable_container.dart';
 export 'src/layout/be_stack.dart';
