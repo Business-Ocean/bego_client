@@ -22,8 +22,6 @@ export 'src/dialog/inline_dialog.dart';
 export 'src/form/be_form_variant.dart';
 // forms
 export 'src/form/be_multi_choice_checkbox_item.dart';
-// form
-
 // input field
 export 'src/form/be_text_field.dart';
 export 'src/form/common.dart';
@@ -49,6 +47,8 @@ export 'src/layout/be_banner.dart';
 // container
 export 'src/layout/be_expandable_container.dart';
 export 'src/layout/be_stack.dart';
+// form
+export 'src/link/be_link_rich_text.dart';
 // list
 export 'src/list/be_group_card.dart';
 export 'src/list/be_list_item.dart';
