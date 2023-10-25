@@ -22,10 +22,10 @@
 //   /// Key of the widget that the dialog should be anchored to.
 //   final GlobalKey anchorKey;
 
-//   /// {@macro optimus.dialog.wrapper}
+//   /// {@macro bego.dialog.wrapper}
 //   final ContentWrapperBuilder? contentWrapperBuilder;
 
-//   /// {@macro optimus.dialog.actions}
+//   /// {@macro bego.dialog.actions}
 //   final List<BeDialogAction> actions;
 
 //   final VoidCallback? close;

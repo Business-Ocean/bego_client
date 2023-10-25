@@ -137,7 +137,7 @@ class BeTextInputField extends StatefulWidget {
   /// {@macro flutter.widgets.editableText.inputFormatters}
   final List<TextInputFormatter>? inputFormatters;
 
-  /// {@template optimus.input.keyboardAppearance}
+  /// {@template bego.input.keyboardAppearance}
   /// The appearance of the keyboard.
   ///
   /// This setting is only honored on iOS devices.

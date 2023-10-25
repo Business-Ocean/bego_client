@@ -133,13 +133,13 @@
 
 //   final Widget? content;
 
-//   /// {@template optimus.dialog.wrapper}
+//   /// {@template bego.dialog.wrapper}
 //   /// Builds custom content. If content padding needed wrap in
 //   /// [BeDialogContentPadding].
 //   /// {@endtemplate}
 //   final ContentWrapperBuilder? contentWrapperBuilder;
 
-//   /// {@template optimus.dialog.actions}
+//   /// {@template bego.dialog.actions}
 //   /// Controls dialog actions.
 //   ///
 //   /// First button should always contain primary action. When single button it
