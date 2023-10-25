@@ -1,3 +1,5 @@
+// ignore_for_file: comment_references
+
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/src/form/tooltip/tooltip_alignment.dart';
 import 'package:bego_ui/src/form/tooltip/tooltip_overlay.dart';
@@ -11,7 +13,7 @@ class BeTooltip extends StatelessWidget {
   const BeTooltip({
     super.key,
     required this.content,
-    this.size = BeToolTipSize.small,
+    this.size,
     this.tooltipPosition,
   });
 
@@ -21,7 +23,7 @@ class BeTooltip extends StatelessWidget {
   final Widget content;
 
   /// The size of the tooltip. Defaults to [BeToolTipSize.small].
-  final BeToolTipSize size;
+  final double? size;
 
   /// The position of the tooltip. Defaults to [BeTooltipPosition.top].
   /// If wrapped with [BeTooltipWrapper], the position will be set
@@ -35,8 +37,8 @@ class BeTooltip extends StatelessWidget {
   Widget build(BuildContext context) {
     final alignment = TooltipOverlay.of(context)?.alignment ??
         _fallbackPosition.toTooltipAlignment();
-    final foregroundColor = becolors(context).error;
-    const backgroundColor = BegoColors.red200;
+    final foregroundColor = becolors(context).lightInverse;
+    final backgroundColor = becolors(context).error;
 
     return Padding(
       padding: const EdgeInsets.all(_arrowHeight),
@@ -47,7 +49,7 @@ class BeTooltip extends StatelessWidget {
           borderRadius: const Radius.circular(16),
         ),
         child: Container(
-          width: size.maxWidth,
+          width: size,
           padding: const EdgeInsets.symmetric(
             vertical: 8,
             horizontal: 16,
@@ -161,17 +163,17 @@ class _TooltipPainter extends CustomPainter {
       oldDelegate.color != color || oldDelegate.alignment != alignment;
 }
 
-enum BeToolTipSize { small, medium, large }
+// enum BeToolTipSize { small, medium, large }
 
 enum BeTooltipPosition { top, bottom, left, right }
 
-extension on BeToolTipSize {
-  double get maxWidth => switch (this) {
-        BeToolTipSize.small => 100,
-        BeToolTipSize.medium => 200,
-        BeToolTipSize.large => 300,
-      };
-}
+// extension on BeToolTipSize {
+//   double get maxWidth => switch (this) {
+//         BeToolTipSize.small => 100,
+//         BeToolTipSize.medium => 200,
+//         BeToolTipSize.large => 300,
+//       };
+// }
 
 extension on BeTooltipPosition {
   TooltipAlignment toTooltipAlignment() => switch (this) {

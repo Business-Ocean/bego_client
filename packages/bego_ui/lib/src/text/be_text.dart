@@ -220,7 +220,7 @@ class BeText extends StatelessWidget {
         ? emptyWidget
         : BeTextResponsive(
             resolveStyle: (breakPoint) => BeTheme.of(context)
-                .bestyle
+                .style
                 .textStyle(textType, breakPoint)
                 .merge(style),
             color: textColor,

@@ -16,24 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BeThemeData {
-  BeStyle get bestyle => throw _privateConstructorUsedError;
-  BeColors get becolors => throw _privateConstructorUsedError;
+  BeStyle get style => throw _privateConstructorUsedError;
+  BeColors get colors => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BeStyle bestyle, BeColors becolors) light,
-    required TResult Function(BeStyle bestyle, BeColors becolors) dark,
+    required TResult Function(BeStyle style, BeColors colors) light,
+    required TResult Function(BeStyle style, BeColors colors) dark,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BeStyle bestyle, BeColors becolors)? light,
-    TResult? Function(BeStyle bestyle, BeColors becolors)? dark,
+    TResult? Function(BeStyle style, BeColors colors)? light,
+    TResult? Function(BeStyle style, BeColors colors)? dark,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BeStyle bestyle, BeColors becolors)? light,
-    TResult Function(BeStyle bestyle, BeColors becolors)? dark,
+    TResult Function(BeStyle style, BeColors colors)? light,
+    TResult Function(BeStyle style, BeColors colors)? dark,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,7 +68,7 @@ abstract class $BeThemeDataCopyWith<$Res> {
           BeThemeData value, $Res Function(BeThemeData) then) =
       _$BeThemeDataCopyWithImpl<$Res, BeThemeData>;
   @useResult
-  $Res call({BeStyle bestyle, BeColors becolors});
+  $Res call({BeStyle style, BeColors colors});
 }
 
 /// @nodoc
@@ -84,17 +84,17 @@ class _$BeThemeDataCopyWithImpl<$Res, $Val extends BeThemeData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bestyle = null,
-    Object? becolors = null,
+    Object? style = null,
+    Object? colors = null,
   }) {
     return _then(_value.copyWith(
-      bestyle: null == bestyle
-          ? _value.bestyle
-          : bestyle // ignore: cast_nullable_to_non_nullable
+      style: null == style
+          ? _value.style
+          : style // ignore: cast_nullable_to_non_nullable
               as BeStyle,
-      becolors: null == becolors
-          ? _value.becolors
-          : becolors // ignore: cast_nullable_to_non_nullable
+      colors: null == colors
+          ? _value.colors
+          : colors // ignore: cast_nullable_to_non_nullable
               as BeColors,
     ) as $Val);
   }
@@ -108,7 +108,7 @@ abstract class _$$BeLightThemeImplCopyWith<$Res>
       __$$BeLightThemeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BeStyle bestyle, BeColors becolors});
+  $Res call({BeStyle style, BeColors colors});
 }
 
 /// @nodoc
@@ -122,17 +122,17 @@ class __$$BeLightThemeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bestyle = null,
-    Object? becolors = null,
+    Object? style = null,
+    Object? colors = null,
   }) {
     return _then(_$BeLightThemeImpl(
-      bestyle: null == bestyle
-          ? _value.bestyle
-          : bestyle // ignore: cast_nullable_to_non_nullable
+      style: null == style
+          ? _value.style
+          : style // ignore: cast_nullable_to_non_nullable
               as BeStyle,
-      becolors: null == becolors
-          ? _value.becolors
-          : becolors // ignore: cast_nullable_to_non_nullable
+      colors: null == colors
+          ? _value.colors
+          : colors // ignore: cast_nullable_to_non_nullable
               as BeColors,
     ));
   }
@@ -142,20 +142,19 @@ class __$$BeLightThemeImplCopyWithImpl<$Res>
 
 class _$BeLightThemeImpl extends _BeLightTheme {
   const _$BeLightThemeImpl(
-      {this.bestyle = const BeStyleLight(),
-      this.becolors = const BeColorsLight()})
+      {this.style = const BeStyleLight(), this.colors = const BeColorsLight()})
       : super._();
 
   @override
   @JsonKey()
-  final BeStyle bestyle;
+  final BeStyle style;
   @override
   @JsonKey()
-  final BeColors becolors;
+  final BeColors colors;
 
   @override
   String toString() {
-    return 'BeThemeData.light(bestyle: $bestyle, becolors: $becolors)';
+    return 'BeThemeData.light(style: $style, colors: $colors)';
   }
 
   @override
@@ -163,13 +162,12 @@ class _$BeLightThemeImpl extends _BeLightTheme {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BeLightThemeImpl &&
-            (identical(other.bestyle, bestyle) || other.bestyle == bestyle) &&
-            (identical(other.becolors, becolors) ||
-                other.becolors == becolors));
+            (identical(other.style, style) || other.style == style) &&
+            (identical(other.colors, colors) || other.colors == colors));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bestyle, becolors);
+  int get hashCode => Object.hash(runtimeType, style, colors);
 
   @JsonKey(ignore: true)
   @override
@@ -180,30 +178,30 @@ class _$BeLightThemeImpl extends _BeLightTheme {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BeStyle bestyle, BeColors becolors) light,
-    required TResult Function(BeStyle bestyle, BeColors becolors) dark,
+    required TResult Function(BeStyle style, BeColors colors) light,
+    required TResult Function(BeStyle style, BeColors colors) dark,
   }) {
-    return light(bestyle, becolors);
+    return light(style, colors);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BeStyle bestyle, BeColors becolors)? light,
-    TResult? Function(BeStyle bestyle, BeColors becolors)? dark,
+    TResult? Function(BeStyle style, BeColors colors)? light,
+    TResult? Function(BeStyle style, BeColors colors)? dark,
   }) {
-    return light?.call(bestyle, becolors);
+    return light?.call(style, colors);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BeStyle bestyle, BeColors becolors)? light,
-    TResult Function(BeStyle bestyle, BeColors becolors)? dark,
+    TResult Function(BeStyle style, BeColors colors)? light,
+    TResult Function(BeStyle style, BeColors colors)? dark,
     required TResult orElse(),
   }) {
     if (light != null) {
-      return light(bestyle, becolors);
+      return light(style, colors);
     }
     return orElse();
   }
@@ -241,14 +239,14 @@ class _$BeLightThemeImpl extends _BeLightTheme {
 }
 
 abstract class _BeLightTheme extends BeThemeData {
-  const factory _BeLightTheme(
-      {final BeStyle bestyle, final BeColors becolors}) = _$BeLightThemeImpl;
+  const factory _BeLightTheme({final BeStyle style, final BeColors colors}) =
+      _$BeLightThemeImpl;
   const _BeLightTheme._() : super._();
 
   @override
-  BeStyle get bestyle;
+  BeStyle get style;
   @override
-  BeColors get becolors;
+  BeColors get colors;
   @override
   @JsonKey(ignore: true)
   _$$BeLightThemeImplCopyWith<_$BeLightThemeImpl> get copyWith =>
@@ -263,7 +261,7 @@ abstract class _$$BeDarkThemeImplCopyWith<$Res>
       __$$BeDarkThemeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BeStyle bestyle, BeColors becolors});
+  $Res call({BeStyle style, BeColors colors});
 }
 
 /// @nodoc
@@ -277,17 +275,17 @@ class __$$BeDarkThemeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bestyle = null,
-    Object? becolors = null,
+    Object? style = null,
+    Object? colors = null,
   }) {
     return _then(_$BeDarkThemeImpl(
-      bestyle: null == bestyle
-          ? _value.bestyle
-          : bestyle // ignore: cast_nullable_to_non_nullable
+      style: null == style
+          ? _value.style
+          : style // ignore: cast_nullable_to_non_nullable
               as BeStyle,
-      becolors: null == becolors
-          ? _value.becolors
-          : becolors // ignore: cast_nullable_to_non_nullable
+      colors: null == colors
+          ? _value.colors
+          : colors // ignore: cast_nullable_to_non_nullable
               as BeColors,
     ));
   }
@@ -297,20 +295,19 @@ class __$$BeDarkThemeImplCopyWithImpl<$Res>
 
 class _$BeDarkThemeImpl extends _BeDarkTheme {
   const _$BeDarkThemeImpl(
-      {this.bestyle = const BeStyleDark(),
-      this.becolors = const BeColorsDark()})
+      {this.style = const BeStyleDark(), this.colors = const BeColorsDark()})
       : super._();
 
   @override
   @JsonKey()
-  final BeStyle bestyle;
+  final BeStyle style;
   @override
   @JsonKey()
-  final BeColors becolors;
+  final BeColors colors;
 
   @override
   String toString() {
-    return 'BeThemeData.dark(bestyle: $bestyle, becolors: $becolors)';
+    return 'BeThemeData.dark(style: $style, colors: $colors)';
   }
 
   @override
@@ -318,13 +315,12 @@ class _$BeDarkThemeImpl extends _BeDarkTheme {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BeDarkThemeImpl &&
-            (identical(other.bestyle, bestyle) || other.bestyle == bestyle) &&
-            (identical(other.becolors, becolors) ||
-                other.becolors == becolors));
+            (identical(other.style, style) || other.style == style) &&
+            (identical(other.colors, colors) || other.colors == colors));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bestyle, becolors);
+  int get hashCode => Object.hash(runtimeType, style, colors);
 
   @JsonKey(ignore: true)
   @override
@@ -335,30 +331,30 @@ class _$BeDarkThemeImpl extends _BeDarkTheme {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BeStyle bestyle, BeColors becolors) light,
-    required TResult Function(BeStyle bestyle, BeColors becolors) dark,
+    required TResult Function(BeStyle style, BeColors colors) light,
+    required TResult Function(BeStyle style, BeColors colors) dark,
   }) {
-    return dark(bestyle, becolors);
+    return dark(style, colors);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BeStyle bestyle, BeColors becolors)? light,
-    TResult? Function(BeStyle bestyle, BeColors becolors)? dark,
+    TResult? Function(BeStyle style, BeColors colors)? light,
+    TResult? Function(BeStyle style, BeColors colors)? dark,
   }) {
-    return dark?.call(bestyle, becolors);
+    return dark?.call(style, colors);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BeStyle bestyle, BeColors becolors)? light,
-    TResult Function(BeStyle bestyle, BeColors becolors)? dark,
+    TResult Function(BeStyle style, BeColors colors)? light,
+    TResult Function(BeStyle style, BeColors colors)? dark,
     required TResult orElse(),
   }) {
     if (dark != null) {
-      return dark(bestyle, becolors);
+      return dark(style, colors);
     }
     return orElse();
   }
@@ -396,14 +392,14 @@ class _$BeDarkThemeImpl extends _BeDarkTheme {
 }
 
 abstract class _BeDarkTheme extends BeThemeData {
-  const factory _BeDarkTheme({final BeStyle bestyle, final BeColors becolors}) =
+  const factory _BeDarkTheme({final BeStyle style, final BeColors colors}) =
       _$BeDarkThemeImpl;
   const _BeDarkTheme._() : super._();
 
   @override
-  BeStyle get bestyle;
+  BeStyle get style;
   @override
-  BeColors get becolors;
+  BeColors get colors;
   @override
   @JsonKey(ignore: true)
   _$$BeDarkThemeImplCopyWith<_$BeDarkThemeImpl> get copyWith =>

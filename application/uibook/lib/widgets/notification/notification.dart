@@ -64,7 +64,7 @@ class _NotificationStoryContent extends StatelessWidget {
                 description:
                     ' Excepteur magna laborum excepteur consectetur labore sunt sunt culpa qui. Anim dolore elit proident officia proident consequat ea qui veniam sint est.',
                 action: 'ok',
-                icon: BeIcons.at,
+                icon: BeIcons.icon_at,
                 onActionPressed: () {},
                 height: 80,
               ),
@@ -76,7 +76,7 @@ class _NotificationStoryContent extends StatelessWidget {
                       description:
                           ' Fugiat sunt excepteur dolor ad est elit tempor. ',
                       action: 'ok',
-                      icon: BeIcons.at,
+                      icon: BeIcons.icon_at,
                       onActionPressed: () {},
                     ),
                   );

@@ -32,7 +32,7 @@ CheckboxThemeData checkboxTheme(BeThemeData betheme) => CheckboxThemeData(
 
       visualDensity: VisualDensity.compact,
       shape: RoundedRectangleBorder(
-        borderRadius: betheme.bestyle.xsRadius,
+        borderRadius: betheme.style.xsRadius,
       ),
     );
 
@@ -62,12 +62,12 @@ RadioThemeData radioTheme(BeThemeData betheme) => RadioThemeData(
     );
 
 SliderThemeData sliderTheme(BeThemeData betheme) => SliderThemeData(
-      activeTrackColor: betheme.becolors.primary,
-      inactiveTrackColor: betheme.becolors.disabled,
-      disabledInactiveTrackColor: betheme.becolors.disabled,
-      disabledActiveTrackColor: betheme.becolors.disabled,
-      disabledThumbColor: betheme.becolors.disabled,
-      overlayColor: betheme.becolors.intraction,
+      activeTrackColor: betheme.colors.primary,
+      inactiveTrackColor: betheme.colors.disabled,
+      disabledInactiveTrackColor: betheme.colors.disabled,
+      disabledActiveTrackColor: betheme.colors.disabled,
+      disabledThumbColor: betheme.colors.disabled,
+      overlayColor: betheme.colors.intraction,
       trackHeight: 2,
       minThumbSeparation: 3,
 
@@ -91,9 +91,9 @@ PageTransitionsTheme pageTransitionsTheme(BeThemeData betheme) =>
 ScrollbarThemeData scrollbarTheme(BeThemeData betheme) => ScrollbarThemeData(
       thumbColor: MaterialStateProperty.resolveWith((states) {
         if (states.any(interactiveSelectionStates.contains)) {
-          return betheme.becolors.accent;
+          return betheme.colors.accent;
         }
-        return betheme.becolors.accent.withAlpha(150);
+        return betheme.colors.accent.withAlpha(150);
       }),
       // interactive: false,
       thickness: MaterialStateProperty.resolveWith((states) {
@@ -142,18 +142,18 @@ ActionIconThemeData actionIconTheme(BeThemeData betheme) => ActionIconThemeData(
 // https://flutter.github.io/assets-for-api-docs/assets/material/app_bar.png
 AppBarTheme appBarTheme(BeThemeData betheme) => AppBarTheme(
       surfaceTintColor: BegoColors.transparent,
-      backgroundColor: betheme.becolors.scaffoldBackground,
+      backgroundColor: betheme.colors.scaffoldBackground,
       shadowColor: BegoColors.gray100,
       scrolledUnderElevation: 0.5,
       titleSpacing: 16,
       elevation: 0,
       systemOverlayStyle: SystemUiOverlayStyle.dark,
-      titleTextStyle: betheme.bestyle.titleMedium.copyWith(
+      titleTextStyle: betheme.style.titleMedium.copyWith(
         fontWeight: FontWeight.bold,
         // leadingDistribution: TextLeadingDistribution.even,
         overflow: TextOverflow.ellipsis,
       ),
-      toolbarTextStyle: betheme.bestyle.bodySmall,
+      toolbarTextStyle: betheme.style.bodySmall,
       // toolbarHeight: 10,
       // actionsIconTheme: const IconThemeData(weight: 1),
       // shape: ContinuousRectangleBorder(
@@ -168,13 +168,13 @@ AppBarTheme appBarTheme(BeThemeData betheme) => AppBarTheme(
     );
 
 BadgeThemeData badgeTheme(BeThemeData betheme) => BadgeThemeData(
-      backgroundColor: betheme.becolors.accent,
+      backgroundColor: betheme.colors.accent,
       // largeSize: 1,
       // smallSize: 2,
       alignment: Alignment.topRight,
       // offset: const Offset(-10, 0),
       textStyle: TextStyle(
-        color: betheme.becolors.lightInverse,
+        color: betheme.colors.lightInverse,
         fontSize: 10,
         letterSpacing: 1,
       ),
@@ -183,9 +183,9 @@ BadgeThemeData badgeTheme(BeThemeData betheme) => BadgeThemeData(
 
 MaterialBannerThemeData bannerTheme(BeThemeData betheme) =>
     MaterialBannerThemeData(
-      backgroundColor: betheme.becolors.accent,
-      contentTextStyle: betheme.bestyle.bodySmall.copyWith(
-        color: betheme.becolors.lightInverse,
+      backgroundColor: betheme.colors.accent,
+      contentTextStyle: betheme.style.bodySmall.copyWith(
+        color: betheme.colors.lightInverse,
       ),
       elevation: 1,
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 0),
@@ -199,28 +199,28 @@ BottomAppBarTheme bottomAppBarTheme(BeThemeData betheme) => BottomAppBarTheme(
       // surfaceTintColor: BegoColors.transparent,
       // shape: AutomaticNotchedShape(
       //   RoundedRectangleBorder(
-      //     borderRadius: betheme.bestyle.borderRadius,
+      //     borderRadius: betheme.style.borderRadius,
       //     side: const BorderSide(color: Colors.green),
       //   ),
       //   RoundedRectangleBorder(
-      //     borderRadius: betheme.bestyle.borderRadius,
+      //     borderRadius: betheme.style.borderRadius,
       //     side: const BorderSide(color: Colors.green),
       //   ),
       // ),
       elevation: 1,
       padding: p16,
-      shadowColor: betheme.becolors.accent,
+      shadowColor: betheme.colors.accent,
       surfaceTintColor: BegoColors.transparent,
     );
 
 BottomNavigationBarThemeData bottomNavigationBarTheme(BeThemeData betheme) =>
     BottomNavigationBarThemeData(
       elevation: 1,
-      selectedLabelStyle: betheme.bestyle.titleSmall.copyWith(
-        color: betheme.becolors.primary,
+      selectedLabelStyle: betheme.style.titleSmall.copyWith(
+        color: betheme.colors.primary,
         fontSize: 14,
       ),
-      unselectedLabelStyle: betheme.bestyle.titleSmall.copyWith(
+      unselectedLabelStyle: betheme.style.titleSmall.copyWith(
         fontSize: 14,
       ),
 
@@ -237,13 +237,13 @@ BottomSheetThemeData bottomSheetTheme(BeThemeData betheme) =>
           topRight: Radius.circular(12),
         ),
       ),
-      backgroundColor: betheme.becolors.card,
+      backgroundColor: betheme.colors.card,
       // elevation: 50,
       // modalElevation: 50,
       // constraints: const BoxConstraints(maxWidth: widthInfinity),
-      dragHandleColor: betheme.becolors.accent,
-      modalBackgroundColor: betheme.becolors.card,
-      modalBarrierColor: betheme.becolors.accent.withAlpha(50),
+      dragHandleColor: betheme.colors.accent,
+      modalBackgroundColor: betheme.colors.card,
+      modalBarrierColor: betheme.colors.accent.withAlpha(50),
       // showDragHandle: true,
     );
 
@@ -259,11 +259,11 @@ ButtonBarThemeData buttonBarTheme(BeThemeData betheme) =>
 
 CardTheme cardTheme(BeThemeData betheme) => CardTheme(
       elevation: 0.5,
-      color: betheme.becolors.lightInverse,
+      color: betheme.colors.lightInverse,
       surfaceTintColor: BegoColors.transparent,
       margin: EdgeInsets.zero,
-      shadowColor: betheme.becolors.primary.withAlpha(150),
-      shape: RoundedRectangleBorder(borderRadius: betheme.bestyle.borderRadius),
+      shadowColor: betheme.colors.primary.withAlpha(150),
+      shape: RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
       clipBehavior: Clip.antiAlias,
     );
 
@@ -278,19 +278,18 @@ ChipThemeData chipTheme(BeThemeData betheme) => ChipThemeData(
       pressElevation: 2,
       // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
 
-      labelStyle:
-          betheme.bestyle.bodySmall.copyWith(color: betheme.becolors.text),
+      labelStyle: betheme.style.bodySmall.copyWith(color: betheme.colors.text),
       labelPadding: EdgeInsets.zero,
-      disabledColor: betheme.becolors.disabled,
+      disabledColor: betheme.colors.disabled,
       color: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.disabled)) {
-          return betheme.becolors.disabled;
+          return betheme.colors.disabled;
         }
-        return betheme.becolors.primary.withAlpha(20);
+        return betheme.colors.primary.withAlpha(20);
       }),
       // showCheckmark: true,
-      selectedColor: betheme.becolors.primary,
-      iconTheme: IconThemeData(color: betheme.becolors.text),
+      selectedColor: betheme.colors.primary,
+      iconTheme: IconThemeData(color: betheme.colors.text),
       padding: const EdgeInsets.only(
         top: 4,
         bottom: 4,
@@ -307,32 +306,32 @@ DataTableThemeData dataTableTheme(BeThemeData betheme) => DataTableThemeData(
       //   betheme.becolors.primary.withAlpha(30),
       // ),
       headingTextStyle:
-          betheme.bestyle.titleSmall.copyWith(fontWeight: FontWeight.bold),
+          betheme.style.titleSmall.copyWith(fontWeight: FontWeight.bold),
       decoration: BoxDecoration(
-        color: betheme.becolors.lightInverse,
+        color: betheme.colors.lightInverse,
         borderRadius: BegoStyle.borderRadius16,
       ),
     );
 
 DatePickerThemeData datePickerTheme(BeThemeData betheme) => DatePickerThemeData(
-      backgroundColor: betheme.becolors.lightInverse,
+      backgroundColor: betheme.colors.lightInverse,
       surfaceTintColor: BegoColors.transparent,
     );
 
 DialogTheme dialogTheme(BeThemeData betheme) => DialogTheme(
-      backgroundColor: betheme.becolors.card,
+      backgroundColor: betheme.colors.card,
       surfaceTintColor: BegoColors.transparent,
       elevation: 0,
       // alignment: Alignment.topCenter,
       actionsPadding: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
-      contentTextStyle: betheme.bestyle.bodyMedium,
-      titleTextStyle: betheme.bestyle.headlineSmall,
+      contentTextStyle: betheme.style.bodyMedium,
+      titleTextStyle: betheme.style.headlineSmall,
       shape:
           const RoundedRectangleBorder(borderRadius: BegoStyle.borderRadius28),
     );
 
 DividerThemeData dividerTheme(BeThemeData betheme) => DividerThemeData(
-      color: betheme.becolors.accent.withAlpha(30),
+      color: betheme.colors.accent.withAlpha(30),
       indent: 12,
       endIndent: 12,
       space: 1,
@@ -341,16 +340,16 @@ DividerThemeData dividerTheme(BeThemeData betheme) => DividerThemeData(
 
 DrawerThemeData drawerTheme(BeThemeData betheme) => DrawerThemeData(
       elevation: 0,
-      backgroundColor: betheme.becolors.lightInverse,
+      backgroundColor: betheme.colors.lightInverse,
       endShape: const RoundedRectangleBorder(),
-      scrimColor: betheme.becolors.accent.withAlpha(50),
+      scrimColor: betheme.colors.accent.withAlpha(50),
       surfaceTintColor: BegoColors.transparent,
       shape: const RoundedRectangleBorder(),
       shadowColor: BegoColors.black,
     );
 
 DropdownMenuThemeData dropdownMenuTheme(BeThemeData betheme) {
-  final primary = betheme.becolors.primary;
+  final primary = betheme.colors.primary;
   const radius = BorderRadius.all(Radius.circular(12.0));
   return DropdownMenuThemeData(
     inputDecorationTheme: InputDecorationTheme(
@@ -373,27 +372,26 @@ DropdownMenuThemeData dropdownMenuTheme(BeThemeData betheme) {
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: BorderSide(color: betheme.becolors.error),
+        borderSide: BorderSide(color: betheme.colors.error),
       ),
       outlineBorder: MaterialStateBorderSide.resolveWith((states) {
         if (states.contains(MaterialState.disabled)) {
-          return BorderSide(color: betheme.becolors.disabled);
+          return BorderSide(color: betheme.colors.disabled);
         }
         return BorderSide(color: primary);
       }),
-      errorStyle:
-          betheme.bestyle.bodySmall.copyWith(color: betheme.becolors.error),
+      errorStyle: betheme.style.bodySmall.copyWith(color: betheme.colors.error),
       errorBorder: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: BorderSide(color: betheme.becolors.error),
+        borderSide: BorderSide(color: betheme.colors.error),
       ),
       focusColor: primary.withAlpha(20),
       fillColor: primary.withAlpha(10),
-      suffixIconColor: betheme.becolors.accent,
+      suffixIconColor: betheme.colors.accent,
       filled: true,
       // contentPadding: EdgeInsets.zero,
       errorMaxLines: 1,
-      hintStyle: betheme.bestyle.titleMedium,
+      hintStyle: betheme.style.titleMedium,
       hoverColor: primary.withAlpha(30),
       floatingLabelBehavior: FloatingLabelBehavior.never,
       isCollapsed: true,
@@ -409,11 +407,11 @@ DropdownMenuThemeData dropdownMenuTheme(BeThemeData betheme) {
         ),
       ),
       side: MaterialStatePropertyAll(
-        BorderSide(color: betheme.becolors.disabled),
+        BorderSide(color: betheme.colors.disabled),
       ),
     ),
-    textStyle: betheme.bestyle.titleSmall.copyWith(
-      color: betheme.becolors.accent,
+    textStyle: betheme.style.titleSmall.copyWith(
+      color: betheme.colors.accent,
     ),
   );
 }
@@ -423,17 +421,17 @@ ExpansionTileThemeData expansionTileTheme(BeThemeData betheme) =>
       tilePadding: EdgeInsets.zero,
       childrenPadding: EdgeInsets.zero,
       // expandedAlignment: Alignment.topCenter,
-      collapsedIconColor: betheme.becolors.primary,
-      backgroundColor: betheme.becolors.primary.withAlpha(5),
-      textColor: betheme.becolors.text,
+      collapsedIconColor: betheme.colors.primary,
+      backgroundColor: betheme.colors.primary.withAlpha(5),
+      textColor: betheme.colors.text,
       clipBehavior: Clip.hardEdge,
 
-      collapsedBackgroundColor: betheme.becolors.lightInverse,
+      collapsedBackgroundColor: betheme.colors.lightInverse,
       // clipBehavior: Clip.antiAliasWithSaveLayer,
-      shape: RoundedRectangleBorder(borderRadius: betheme.bestyle.borderRadius),
+      shape: RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
       collapsedShape:
-          RoundedRectangleBorder(borderRadius: betheme.bestyle.borderRadius),
-      iconColor: betheme.becolors.accent,
+          RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
+      iconColor: betheme.colors.accent,
     );
 
 FilledButtonThemeData filledButtonTheme(BeThemeData betheme) =>
@@ -446,14 +444,14 @@ FilledButtonThemeData filledButtonTheme(BeThemeData betheme) =>
         minimumSize: const MaterialStatePropertyAll(Size(100, 48)),
         shape: MaterialStatePropertyAll(
           RoundedRectangleBorder(
-            borderRadius: betheme.bestyle.borderRadius,
+            borderRadius: betheme.style.borderRadius,
           ),
         ),
 
         textStyle: MaterialStatePropertyAll(
-          betheme.bestyle.labelMedium.copyWith(color: betheme.becolors.primary),
+          betheme.style.labelMedium.copyWith(color: betheme.colors.primary),
         ),
-        shadowColor: MaterialStatePropertyAll(betheme.becolors.primary),
+        shadowColor: MaterialStatePropertyAll(betheme.colors.primary),
         elevation: const MaterialStatePropertyAll(0),
         // side: elvatedSideBorder(betheme),
       ),
@@ -461,9 +459,9 @@ FilledButtonThemeData filledButtonTheme(BeThemeData betheme) =>
 
 FloatingActionButtonThemeData floatingActionButtonTheme(BeThemeData betheme) =>
     FloatingActionButtonThemeData(
-      backgroundColor: betheme.becolors.accent,
+      backgroundColor: betheme.colors.accent,
       extendedTextStyle: MaterialStateTextStyle.resolveWith(
-        (states) => betheme.bestyle.labelMedium,
+        (states) => betheme.style.labelMedium,
       ),
       extendedPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       elevation: 4,
@@ -491,19 +489,18 @@ FloatingActionButtonThemeData floatingActionButtonTheme(BeThemeData betheme) =>
         minWidth: 32,
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: betheme.bestyle.borderRadius,
+        borderRadius: betheme.style.borderRadius,
       ),
-      foregroundColor: betheme.becolors.lightInverse,
+      foregroundColor: betheme.colors.lightInverse,
       extendedSizeConstraints: const BoxConstraints(),
     );
 
 IconButtonThemeData iconButtonTheme(BeThemeData betheme) => IconButtonThemeData(
       style: IconButton.styleFrom(
-        shape:
-            RoundedRectangleBorder(borderRadius: betheme.bestyle.borderRadius),
+        shape: RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
         elevation: 0,
         // side: const BorderSide(),
-        foregroundColor: betheme.becolors.accent,
+        foregroundColor: betheme.colors.accent,
 
         // visualDensity: VisualDensity.standard,
         // backgroundColor: betheme.becolors.primary.withAlpha(50),
@@ -511,34 +508,34 @@ IconButtonThemeData iconButtonTheme(BeThemeData betheme) => IconButtonThemeData(
     );
 
 ListTileThemeData listTileTheme(BeThemeData betheme) => ListTileThemeData(
-      selectedColor: betheme.becolors.primary,
+      selectedColor: betheme.colors.primary,
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       minVerticalPadding: 0,
       minLeadingWidth: 0,
       tileColor: BegoColors.transparent,
       // dense: true,
-      selectedTileColor: betheme.becolors.primary.withAlpha(20),
+      selectedTileColor: betheme.colors.primary.withAlpha(20),
       // tileColor: Colors.green,
       titleAlignment: ListTileTitleAlignment.titleHeight,
       horizontalTitleGap: 4,
       leadingAndTrailingTextStyle: MaterialStateTextStyle.resolveWith(
-        (states) => betheme.bestyle.bodySmall,
+        (states) => betheme.style.bodySmall,
       ),
       // shape: RoundedRectangleBorder(
-      //   borderRadius: betheme.bestyle.borderRadius,
+      //   borderRadius: betheme.style.borderRadius,
       // ),
       // style: ListTileStyle.drawer
       // textColor: betheme.becolors.text,
       subtitleTextStyle: MaterialStateTextStyle.resolveWith(
-        (states) => betheme.bestyle.bodySmall,
+        (states) => betheme.style.bodySmall,
       ),
       titleTextStyle: MaterialStateTextStyle.resolveWith(
-        (states) => betheme.bestyle.titleSmall,
+        (states) => betheme.style.titleSmall,
       ),
 
       // dense: true,
 
-      textColor: betheme.becolors.text,
+      textColor: betheme.colors.text,
       visualDensity: VisualDensity.comfortable,
     );
 
@@ -554,12 +551,12 @@ MenuButtonThemeData menuButtonTheme(BeThemeData betheme) => MenuButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.resolveWith((states) {
           if (states.any(interactiveSelectionStates.contains)) {
-            return betheme.becolors.primary.withAlpha(10);
+            return betheme.colors.primary.withAlpha(10);
           }
         }),
         shape: MaterialStateProperty.resolveWith(
           (states) => RoundedRectangleBorder(
-            borderRadius: betheme.bestyle.xsRadius,
+            borderRadius: betheme.style.xsRadius,
           ),
         ),
         padding: MaterialStateProperty.all(const EdgeInsets.all(16)),
@@ -576,36 +573,36 @@ MenuThemeData menuTheme(BeThemeData betheme) => MenuThemeData(
           ),
         ),
         side: MaterialStatePropertyAll(
-          BorderSide(color: betheme.becolors.disabled),
+          BorderSide(color: betheme.colors.disabled),
         ),
       ),
     );
 
 NavigationBarThemeData navigationBarTheme(BeThemeData betheme) =>
     NavigationBarThemeData(
-      backgroundColor: betheme.becolors.primary.withAlpha(10),
+      backgroundColor: betheme.colors.primary.withAlpha(10),
       elevation: 0,
       labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
       iconTheme: MaterialStateProperty.resolveWith(
         (states) {
           if (states.contains(MaterialState.selected)) {
-            return IconThemeData(size: 20, color: betheme.becolors.primary);
+            return IconThemeData(size: 20, color: betheme.colors.primary);
           }
-          return IconThemeData(size: 20, color: betheme.becolors.accent);
+          return IconThemeData(size: 20, color: betheme.colors.accent);
         },
       ),
       indicatorShape: RoundedRectangleBorder(
-        borderRadius: betheme.bestyle.borderRadius,
-        side: BorderSide(color: betheme.becolors.primary.withAlpha(10)),
+        borderRadius: betheme.style.borderRadius,
+        side: BorderSide(color: betheme.colors.primary.withAlpha(10)),
       ),
       surfaceTintColor: BegoColors.transparent,
       labelTextStyle: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {
-          return betheme.bestyle.labelSmall.copyWith(
-            color: betheme.becolors.primary,
+          return betheme.style.labelSmall.copyWith(
+            color: betheme.colors.primary,
           );
         }
-        return betheme.bestyle.labelSmall;
+        return betheme.style.labelSmall;
       }),
       shadowColor: BegoColors.transparent,
     );
@@ -613,22 +610,22 @@ NavigationBarThemeData navigationBarTheme(BeThemeData betheme) =>
 NavigationDrawerThemeData navigationDrawerTheme(BeThemeData betheme) =>
     NavigationDrawerThemeData(
       elevation: 0,
-      backgroundColor: betheme.becolors.primary,
+      backgroundColor: betheme.colors.primary,
       iconTheme: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {
-          return IconThemeData(color: betheme.becolors.primary, size: 20);
+          return IconThemeData(color: betheme.colors.primary, size: 20);
         }
         return const IconThemeData(size: 20);
       }),
       indicatorShape: RoundedRectangleBorder(
-        borderRadius: betheme.bestyle.borderRadius,
+        borderRadius: betheme.style.borderRadius,
       ),
       labelTextStyle: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {
-          return betheme.bestyle.labelMedium
-              .copyWith(color: betheme.becolors.primary);
+          return betheme.style.labelMedium
+              .copyWith(color: betheme.colors.primary);
         }
-        return betheme.bestyle.labelMedium;
+        return betheme.style.labelMedium;
       }),
       tileHeight: 48,
       surfaceTintColor: BegoColors.transparent,
@@ -636,24 +633,23 @@ NavigationDrawerThemeData navigationDrawerTheme(BeThemeData betheme) =>
 
 NavigationRailThemeData navigationRailTheme(BeThemeData betheme) =>
     NavigationRailThemeData(
-      backgroundColor:
-          ColorUtils.getShade(betheme.becolors.primary, value: 0.5),
+      backgroundColor: ColorUtils.getShade(betheme.colors.primary, value: 0.5),
       elevation: 0,
       indicatorShape: const RoundedRectangleBorder(
         borderRadius: BegoStyle.borderRadius12,
       ),
       groupAlignment: 3,
       labelType: NavigationRailLabelType.selected,
-      indicatorColor: betheme.becolors.primary.withAlpha(80),
+      indicatorColor: betheme.colors.primary.withAlpha(80),
       selectedIconTheme: IconThemeData(
-        color: betheme.becolors.primary,
+        color: betheme.colors.primary,
         grade: 10,
         size: 24,
       ),
       minWidth: 0,
-      unselectedLabelTextStyle: betheme.bestyle.labelSmall.copyWith(),
-      selectedLabelTextStyle: betheme.bestyle.labelSmall.copyWith(
-        color: betheme.becolors.primary,
+      unselectedLabelTextStyle: betheme.style.labelSmall.copyWith(),
+      selectedLabelTextStyle: betheme.style.labelSmall.copyWith(
+        color: betheme.colors.primary,
         fontWeight: FontWeight.bold,
       ),
     );
@@ -668,19 +664,19 @@ ElevatedButtonThemeData elevatedButtonTheme(BeThemeData betheme) =>
         minimumSize: const MaterialStatePropertyAll(Size(100, 48)),
         shape: MaterialStatePropertyAll(
           RoundedRectangleBorder(
-            borderRadius: betheme.bestyle.borderRadius,
+            borderRadius: betheme.style.borderRadius,
           ),
         ),
         textStyle: buttonTextStyle(betheme),
-        shadowColor: MaterialStatePropertyAll(betheme.becolors.primary),
+        shadowColor: MaterialStatePropertyAll(betheme.colors.primary),
         elevation: elevationInteraction(),
         side: elvatedSideBorder(betheme),
       ),
     );
 
 ButtonThemeData buttonTheme(BeThemeData betheme) => ButtonThemeData(
-      buttonColor: betheme.becolors.primary,
-      shape: RoundedRectangleBorder(borderRadius: betheme.bestyle.borderRadius),
+      buttonColor: betheme.colors.primary,
+      shape: RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
       height: 48,
       // textTheme: ButtonTextTheme.accent,
       layoutBehavior: ButtonBarLayoutBehavior.constrained,
@@ -704,25 +700,25 @@ PopupMenuThemeData popupMenuTheme(BeThemeData betheme) => PopupMenuThemeData(
       elevation: 10,
       position: PopupMenuPosition.under,
       shape: RoundedRectangleBorder(
-        borderRadius: betheme.bestyle.borderRadius,
-        side: BorderSide(color: betheme.becolors.overlayOutline),
+        borderRadius: betheme.style.borderRadius,
+        side: BorderSide(color: betheme.colors.overlayOutline),
       ),
       enableFeedback: false,
       textStyle: MaterialStateTextStyle.resolveWith((states) {
         if (states.any(interactiveSelectionStates.contains)) {
-          return betheme.bestyle.titleSmall
-              .copyWith(color: betheme.becolors.primary);
+          return betheme.style.titleSmall
+              .copyWith(color: betheme.colors.primary);
         }
         //   //
-        return betheme.bestyle.titleSmall;
+        return betheme.style.titleSmall;
       }),
       labelTextStyle: MaterialStateTextStyle.resolveWith((states) {
         if (states.any(interactiveSelectionStates.contains)) {
-          return betheme.bestyle.titleSmall
-              .copyWith(color: betheme.becolors.primary);
+          return betheme.style.titleSmall
+              .copyWith(color: betheme.colors.primary);
         }
         //   //
-        return betheme.bestyle.titleSmall;
+        return betheme.style.titleSmall;
       }),
       shadowColor: BegoColors.gray50,
 
@@ -738,19 +734,19 @@ ProgressIndicatorThemeData progressIndicatorTheme(BeThemeData betheme) =>
 SearchBarThemeData searchBarTheme(BeThemeData betheme) => SearchBarThemeData(
       shadowColor: const MaterialStatePropertyAll(Colors.transparent),
       overlayColor:
-          MaterialStatePropertyAll(betheme.becolors.primary.withAlpha(20)),
+          MaterialStatePropertyAll(betheme.colors.primary.withAlpha(20)),
       elevation: const MaterialStatePropertyAll(0),
       shape: MaterialStatePropertyAll(
-        RoundedRectangleBorder(borderRadius: betheme.bestyle.borderRadius),
+        RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
       ),
       padding: const MaterialStatePropertyAll(
         EdgeInsets.only(left: 8, right: 8),
       ),
       surfaceTintColor: const MaterialStatePropertyAll(BegoColors.transparent),
-      textStyle: MaterialStatePropertyAll(betheme.bestyle.labelMedium),
-      hintStyle: MaterialStatePropertyAll(betheme.bestyle.labelMedium),
+      textStyle: MaterialStatePropertyAll(betheme.style.labelMedium),
+      hintStyle: MaterialStatePropertyAll(betheme.style.labelMedium),
       backgroundColor:
-          MaterialStatePropertyAll(betheme.becolors.formInputBackground),
+          MaterialStatePropertyAll(betheme.colors.formInputBackground),
       side: inputSideBorder(betheme),
     );
 
@@ -758,17 +754,17 @@ SearchViewThemeData searchViewTheme(BeThemeData betheme) => SearchViewThemeData(
       // backgroundColor: betheme.becolors.lightInverse,
       elevation: 1,
       dividerColor: BegoColors.transparent,
-      headerHintStyle: betheme.bestyle.labelMedium,
-      headerTextStyle: betheme.bestyle.labelMedium,
+      headerHintStyle: betheme.style.labelMedium,
+      headerTextStyle: betheme.style.labelMedium,
       surfaceTintColor: BegoColors.transparent,
       backgroundColor: BegoColors.pink50,
       shape: RoundedRectangleBorder(
-        borderRadius: betheme.bestyle.borderRadius,
-        side: BorderSide(color: betheme.becolors.overlayOutline),
+        borderRadius: betheme.style.borderRadius,
+        side: BorderSide(color: betheme.colors.overlayOutline),
       ),
       side: BorderSide(
         width: 1,
-        color: betheme.becolors.primary.withAlpha(20),
+        color: betheme.colors.primary.withAlpha(20),
       ),
     );
 
@@ -786,9 +782,9 @@ SegmentedButtonThemeData segmentedButtonTheme(BeThemeData betheme) =>
         // }),
         iconSize: const MaterialStatePropertyAll(16),
 
-        textStyle: MaterialStatePropertyAll(betheme.bestyle.labelMedium),
+        textStyle: MaterialStatePropertyAll(betheme.style.labelMedium),
         foregroundColor: MaterialStateProperty.resolveWith(
-          (states) => betheme.becolors.primary,
+          (states) => betheme.colors.primary,
         ),
         shape: MaterialStateProperty.all(
           const RoundedRectangleBorder(
@@ -798,10 +794,10 @@ SegmentedButtonThemeData segmentedButtonTheme(BeThemeData betheme) =>
         side: MaterialStateProperty.resolveWith(
           (states) {
             if (states.contains(MaterialState.focused)) {
-              return BorderSide(color: betheme.becolors.accent);
+              return BorderSide(color: betheme.colors.accent);
             }
             return BorderSide(
-              color: betheme.becolors.primary.withAlpha(50),
+              color: betheme.colors.primary.withAlpha(50),
               width: 1,
             );
           },
@@ -812,7 +808,7 @@ SegmentedButtonThemeData segmentedButtonTheme(BeThemeData betheme) =>
         ),
         backgroundColor: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.selected)) {
-            return betheme.becolors.primary.withAlpha(50);
+            return betheme.colors.primary.withAlpha(50);
           }
           return null;
         }),
@@ -820,13 +816,13 @@ SegmentedButtonThemeData segmentedButtonTheme(BeThemeData betheme) =>
     );
 
 SnackBarThemeData snackBarTheme(BeThemeData betheme) => SnackBarThemeData(
-      backgroundColor: betheme.becolors.accent,
-      contentTextStyle: betheme.bestyle.bodySmall
-          .copyWith(color: betheme.becolors.lightInverse),
+      backgroundColor: betheme.colors.accent,
+      contentTextStyle:
+          betheme.style.bodySmall.copyWith(color: betheme.colors.lightInverse),
     );
 
 TabBarTheme tabBarTheme(BeThemeData betheme) => TabBarTheme(
-      unselectedLabelColor: betheme.becolors.accent,
+      unselectedLabelColor: betheme.colors.accent,
       // indicatorSize: TabBarIndicatorSize.tab,
       tabAlignment: TabAlignment.fill,
       // labelPadding: EdgeInsets.zero,
@@ -836,7 +832,7 @@ TextButtonThemeData textButtonTheme(BeThemeData betheme) => TextButtonThemeData(
       style: TextButton.styleFrom(
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: betheme.bestyle.borderRadius,
+          borderRadius: betheme.style.borderRadius,
         ),
         minimumSize: const Size(100, 48),
       ),
@@ -845,18 +841,18 @@ TextButtonThemeData textButtonTheme(BeThemeData betheme) => TextButtonThemeData(
 TextSelectionThemeData textSelectionTheme(BeThemeData betheme) =>
     TextSelectionThemeData(
       // cursorColor: betheme.becolors.accent,
-      selectionColor: betheme.becolors.highlight.withAlpha(50),
+      selectionColor: betheme.colors.highlight.withAlpha(50),
       // selectionHandleColor: Colors.blue,
     );
 
 TimePickerThemeData timePickerTheme(BeThemeData betheme) => TimePickerThemeData(
       // backgroundColor: Colors.white,
-      dialBackgroundColor: betheme.becolors.lightInverse,
+      dialBackgroundColor: betheme.colors.lightInverse,
       elevation: 0,
-      backgroundColor: betheme.becolors.card,
-      helpTextStyle: betheme.bestyle.titleMedium,
-      dialHandColor: betheme.becolors.primary,
-      hourMinuteTextColor: betheme.becolors.primary,
+      backgroundColor: betheme.colors.card,
+      helpTextStyle: betheme.style.titleMedium,
+      dialHandColor: betheme.colors.primary,
+      hourMinuteTextColor: betheme.colors.primary,
       hourMinuteShape: const RoundedRectangleBorder(
         // side: BorderSide.,
         borderRadius: BorderRadius.all(Radius.circular(16)),
@@ -864,36 +860,36 @@ TimePickerThemeData timePickerTheme(BeThemeData betheme) => TimePickerThemeData(
     );
 
 ToggleButtonsThemeData toggleButtonsTheme(BeThemeData betheme) {
-  final color = betheme.becolors.primary.withAlpha(50);
+  final color = betheme.colors.primary.withAlpha(50);
   return ToggleButtonsThemeData(
     hoverColor: BegoColors.black.withAlpha(20),
-    borderRadius: betheme.bestyle.radius40,
+    borderRadius: betheme.style.radius40,
     fillColor: color,
     borderColor: color,
-    color: betheme.becolors.text,
+    color: betheme.colors.text,
     constraints: const BoxConstraints(minHeight: 40, minWidth: 0),
     borderWidth: 1,
     selectedBorderColor: color,
-    disabledBorderColor: betheme.becolors.disabled,
-    selectedColor: betheme.becolors.primary,
-    textStyle: betheme.bestyle.labelMedium,
-    disabledColor: betheme.becolors.disabled,
-    splashColor: betheme.becolors.accent.withAlpha(20),
+    disabledBorderColor: betheme.colors.disabled,
+    selectedColor: betheme.colors.primary,
+    textStyle: betheme.style.labelMedium,
+    disabledColor: betheme.colors.disabled,
+    splashColor: betheme.colors.accent.withAlpha(20),
     // focusColor: betheme.becolors.primary.withAlpha(10),
   );
 }
 
 TooltipThemeData tooltipTheme(BeThemeData betheme) => TooltipThemeData(
       decoration: BoxDecoration(
-        color: betheme.becolors.accent,
-        borderRadius: betheme.bestyle.xsRadius,
+        color: betheme.colors.accent,
+        borderRadius: betheme.style.xsRadius,
         boxShadow: BegoShadows.boxShadow5,
       ),
       margin: EdgeInsets.zero,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       height: 0,
-      textStyle: betheme.bestyle.bodySmall.copyWith(
-        color: betheme.becolors.colorScheme.onPrimary,
+      textStyle: betheme.style.bodySmall.copyWith(
+        color: betheme.colors.colorScheme.onPrimary,
       ),
       excludeFromSemantics: true,
       preferBelow: false,

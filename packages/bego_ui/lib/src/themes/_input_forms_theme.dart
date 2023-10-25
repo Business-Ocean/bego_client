@@ -4,15 +4,14 @@ import 'package:flutter/material.dart';
 
 InputDecorationTheme inputDecorationTheme(BeThemeData betheme) {
   const radius = BegoStyle.borderRadius12;
-  final primary = betheme.becolors.primary;
+  final primary = betheme.colors.primary;
   const border = Color.fromARGB(255, 235, 235, 241);
   return InputDecorationTheme(
     fillColor: const Color.fromRGBO(245, 245, 245, 1),
     filled: true,
     // border: const OutlineInputBorder(borderRadius: borderRadius),
     errorMaxLines: 1,
-    errorStyle:
-        betheme.bestyle.bodySmall.copyWith(color: betheme.becolors.error),
+    errorStyle: betheme.style.bodySmall.copyWith(color: betheme.colors.error),
     floatingLabelAlignment: FloatingLabelAlignment.start,
     contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
     labelStyle: inputLabelStyle(betheme),
@@ -46,24 +45,23 @@ InputDecorationTheme inputDecorationTheme(BeThemeData betheme) {
     ),
     focusedErrorBorder: OutlineInputBorder(
       borderRadius: radius,
-      borderSide: BorderSide(color: betheme.becolors.error, width: 2),
+      borderSide: BorderSide(color: betheme.colors.error, width: 2),
     ),
     outlineBorder: MaterialStateBorderSide.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
-        return BorderSide(color: betheme.becolors.disabled);
+        return BorderSide(color: betheme.colors.disabled);
       }
       return BorderSide(color: primary);
     }),
 
     errorBorder: OutlineInputBorder(
       borderRadius: radius,
-      borderSide: BorderSide(color: betheme.becolors.error),
+      borderSide: BorderSide(color: betheme.colors.error),
     ),
     focusColor: primary.withAlpha(20),
-    suffixIconColor: betheme.becolors.accent,
+    suffixIconColor: betheme.colors.accent,
     // contentPadding: EdgeInsets.zero,
-    hintStyle:
-        betheme.bestyle.titleMedium.copyWith(color: betheme.becolors.hint),
+    hintStyle: betheme.style.titleMedium.copyWith(color: betheme.colors.hint),
     hoverColor: primary.withAlpha(30),
     floatingLabelBehavior: FloatingLabelBehavior.never,
     isCollapsed: true,

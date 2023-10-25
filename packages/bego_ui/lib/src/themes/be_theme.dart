@@ -1,5 +1,5 @@
 import 'package:bego_ui/src/helper/context_extensions.dart';
-import 'package:bego_ui/src/layout/breakpoint.dart';
+import 'package:bego_ui/src/layout/be_breakpoint.dart';
 import 'package:bego_ui/src/themes/_be_theme_creation.dart';
 import 'package:bego_ui/src/themes/be_edge_insets.dart';
 import 'package:bego_ui/src/themes/be_theme_data.dart';

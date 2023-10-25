@@ -1,5 +1,5 @@
 import 'package:bego_app/src/actions/event_action.dart';
-import 'package:flutter/material.dart';
+import 'package:bego_ui/bego_ui.dart';
 
 /// IView is which does not hold any object just abstract method which will
 /// get called for different view
@@ -13,72 +13,10 @@ abstract class IViewPage {
   void showMessage(
     String title,
     String message, {
-    MessageStyle style = MessageStyle.success,
+    BeStyleVariant style = BeStyleVariant.success,
   });
   void handleAction(
     EventAction action, {
-    MessageStyle style = MessageStyle.success,
+    BeStyleVariant style = BeStyleVariant.success,
   });
 }
-
-enum MessageStyle {
-  success(
-    color: Color(0xFF00CC99),
-    background: Color(0xFF2F3032),
-    iconData: Icons.done,
-  ),
-  error(
-    color: Color(0xFFEB5757),
-    background: Color(0xFF2F3032),
-    iconData: Icons.done,
-  ),
-  warning(
-    color: Color(0xFFF2C94C),
-    background: Color(0xFF2F3032),
-    iconData: Icons.done,
-  ),
-  info(
-    color: Color(0xFF5458F7),
-    background: Color(0xFF2F3032),
-    iconData: Icons.done,
-  );
-
-  const MessageStyle({
-    required this.color,
-    required this.background,
-    required this.iconData,
-  });
-
-  final Color color;
-  final Color background;
-  final IconData iconData;
-}
-
-// enum DialogStyle {
-//   success(
-//       color: Color(0xFF00CC99),
-//       background: Color(0xFF2F3032),
-//       iconData: Icons.done),
-//   error(
-//       color: Color(0xFFEB5757),
-//       background: Color(0xFF2F3032),
-//       iconData: Icons.done),
-//   warning(
-//       color: Color(0xFFF2C94C),
-//       background: Color(0xFF2F3032),
-//       iconData: Icons.done),
-//   info(
-//       color: Color(0xFF5458F7),
-//       background: Color(0xFF2F3032),
-//       iconData: Icons.done);
-
-//   const DialogStyle({
-//     required this.color,
-//     required this.background,
-//     required this.iconData,
-//   });
-
-//   final Color color;
-//   final Color background;
-//   final IconData iconData;
-// }

@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:bego_ui/src/layout/breakpoint.dart';
+import 'package:bego_ui/src/layout/be_breakpoint.dart';
 import 'package:bego_ui/src/notification/be_inline_notification.dart';
 import 'package:flutter/material.dart';
 

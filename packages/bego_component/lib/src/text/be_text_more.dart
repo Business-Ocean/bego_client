@@ -107,7 +107,7 @@ class _BeTextMoreState extends State<BeTextMore> {
 
   Widget _clickExpandTextWidget(context) {
     final btnColor = widget.color ?? Colors.white;
-    final textTheme = widget.textStyle ?? betheme.bestyle.bodyMedium;
+    final textTheme = widget.textStyle ?? betheme.style.bodyMedium;
 
     final tx = Text(
       '...more',
@@ -164,12 +164,12 @@ class _BeTextMoreState extends State<BeTextMore> {
   }
 
   TextStyle _defaultTextStyle() {
-    final style = widget.textStyle ?? betheme.bestyle.bodyMedium;
+    final style = widget.textStyle ?? betheme.style.bodyMedium;
     return style;
   }
 
   InlineSpan _foldButtonSpan(context) {
-    final textTheme = widget.textStyle ?? betheme.bestyle.bodyMedium;
+    final textTheme = widget.textStyle ?? betheme.style.bodyMedium;
 
     return TextSpan(
       text: 'less',

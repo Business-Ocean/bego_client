@@ -1,6 +1,6 @@
+import 'package:bego_core/bego_dfunc.dart';
 import 'package:bego_ui/src/form/tooltip/tooltip.dart';
 import 'package:bego_ui/src/form/tooltip/tooltip_overlay.dart';
-import 'package:dfunc/dfunc.dart';
 import 'package:flutter/material.dart';
 
 /// Controller for the tooltip widget. It is responsible for showing and hiding

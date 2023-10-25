@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -11,7 +12,7 @@ class BeBadge extends MultiChildRenderObjectWidget {
     this.rounded = false,
     this.offset = Offset.zero,
     this.position = BeBadgePosition.topRight,
-  }) : super(children: [child, if (badge != null) badge]);
+  }) : super(children: [child, badge ?? emptyWidget]);
   final Widget child;
   final Widget? badge;
   final BeBadgePosition position;
@@ -80,14 +81,12 @@ class _BeBadgeRenderObject extends RenderBox
       childConstraints = BoxConstraints.tight(child.size);
     }
     final badge = lastChild;
-    if (childCount > 1) {
-      if (badge != null) {
-        badge.layout(
-          BoxConstraints.loose(
-            Size(childConstraints.minWidth, childConstraints.minHeight),
-          ),
-        );
-      }
+    if (badge != null) {
+      badge.layout(
+        BoxConstraints.loose(
+          Size(childConstraints.minWidth, childConstraints.minHeight),
+        ),
+      );
     }
 
     size = child?.size ?? badge?.size ?? constraints.smallest;
@@ -98,7 +97,7 @@ class _BeBadgeRenderObject extends RenderBox
     final children = getChildrenAsList();
     final badge = lastChild;
     for (final child in children) {
-      if (child == badge && child != firstChild) {
+      if (child == badge) {
         final badgeOffset =
             _getOffset(offset, child.size.width, child.size.height);
         context.paintChild(child, badgeOffset);
@@ -162,12 +161,57 @@ class _BeBadgeRenderObject extends RenderBox
     return originalOffset.translate(translateX, translateY);
   }
 
+// TODO(sourav): fix the offset of the parent and child click
   @override
-  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
-      defaultHitTestChildren(
-        result,
-        position: position - _offset,
-      );
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
+    for (final child in getChildrenAsList()) {
+      if (child == firstChild) {
+        return defaultHitTestChildren(
+          result,
+          position: position,
+        );
+      } else {
+        return defaultHitTestChildren(
+          result,
+          position: position - _offset,
+        );
+      }
+    }
+
+    return false;
+  }
+
+//   @override
+//   bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
+//     // var child = lastChild;
+//     final label = lastChild;
+//     var offset = Offset.zero;
+//     for (final child in getChildrenAsList()) {
+//       // The x, y parameters have the top left of the node's box as the origin.
+//       final childParentData = child.parentData! as ContainerBoxParentData;
+
+//       if (child == label && child != firstChild) {
+//         offset = _offset;
+//       }
+//       final isHit = result.addWithPaintOffset(
+//         offset: childParentData.offset,
+//         position: position - offset,
+//         hitTest: (BoxHitTestResult result, Offset transformed) {
+//           assert(
+//             transformed == position - childParentData.offset,
+//             'transformed == position - childParentData.offset',
+//           );
+//           return child.hitTest(result, position: transformed);
+//         },
+//       );
+//       if (isHit) {
+//         return true;
+//       }
+//       // child = childParentData.previousSibling as RenderBox?;
+//     }
+//     return false;
+
+// }
 }
 
 class _BeBadgeChild extends ContainerBoxParentData<RenderBox>

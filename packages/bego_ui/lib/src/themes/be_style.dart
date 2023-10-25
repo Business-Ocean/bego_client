@@ -1,4 +1,4 @@
-import 'package:bego_ui/src/layout/breakpoint.dart';
+import 'package:bego_ui/src/layout/be_breakpoint.dart';
 import 'package:bego_ui/src/text/be_text_type.dart';
 import 'package:flutter/material.dart';
 

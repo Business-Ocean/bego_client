@@ -509,7 +509,7 @@ class BePopupListWindow {
     BePopupListItemClick? onItemClick,
     VoidCallback? onDismiss,
   }) {
-    final textStyle = BeTheme.of(context).bestyle.bodyMedium;
+    final textStyle = BeTheme.of(context).style.bodyMedium;
     const arrowHeight = 6.0;
     const borderColor = Color(0xffCCCCCC);
     const backgroundColor = Colors.white;
@@ -612,9 +612,9 @@ class BePopupListWindow {
     const minWidth = 100.0;
     const maxWidth = 150.0;
     const maxHeight = 200.0;
-    final borderColor = BeTheme.of(context).becolors.hint;
+    final borderColor = BeTheme.of(context).colors.hint;
     const backgroundColor = Colors.white;
-    final textStyle = TextStyle(color: BeTheme.of(context).becolors.text);
+    final textStyle = TextStyle(color: BeTheme.of(context).colors.text);
     const hasCloseIcon = true;
 
     Navigator.push(

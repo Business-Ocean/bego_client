@@ -4,6 +4,7 @@ import 'package:bego_app/src/actions/event_action.dart';
 import 'package:bego_app/src/page/i_view_page.dart';
 import 'package:bego_app/src/state/be_data.dart';
 import 'package:bego_core/bego_rx.dart';
+import 'package:bego_ui/bego_ui.dart';
 
 class BePageController<S> implements IViewPage {
   BePageController(this.initState);
@@ -39,7 +40,7 @@ class BePageController<S> implements IViewPage {
   @override
   void handleAction(
     EventAction action, {
-    MessageStyle style = MessageStyle.success,
+    BeStyleVariant style = BeStyleVariant.success,
   }) =>
       _viewPage?.handleAction(action, style: style);
 
@@ -53,7 +54,7 @@ class BePageController<S> implements IViewPage {
   void showMessage(
     String title,
     String message, {
-    MessageStyle style = MessageStyle.success,
+    BeStyleVariant style = BeStyleVariant.success,
   }) =>
       _viewPage?.showMessage(title, message);
 }

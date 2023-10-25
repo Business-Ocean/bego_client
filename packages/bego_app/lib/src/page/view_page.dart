@@ -5,6 +5,7 @@ import 'package:bego_app/src/page/i_view_page.dart';
 import 'package:bego_app/src/state/be_data.dart';
 import 'package:bego_app/src/widget/be_error_widget.dart';
 import 'package:bego_component/bego_component.dart';
+import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
 abstract class ViewPage<S, V extends BePageController<S>>
@@ -17,7 +18,7 @@ abstract class ViewPage<S, V extends BePageController<S>>
   @override
   void handleAction(
     EventAction action, {
-    MessageStyle style = MessageStyle.success,
+    BeStyleVariant style = BeStyleVariant.success,
   }) {}
 
   @override
@@ -27,7 +28,7 @@ abstract class ViewPage<S, V extends BePageController<S>>
   void showMessage(
     String title,
     String message, {
-    MessageStyle style = MessageStyle.success,
+    BeStyleVariant style = BeStyleVariant.success,
   }) {}
 
   @override
@@ -37,10 +38,9 @@ abstract class ViewPage<S, V extends BePageController<S>>
         builder: (BuildContext context, AsyncSnapshot<BeData<S>> snapshot) {
           final pageData = snapshot.data;
           return pageData!.when(
-                empty: (code, data) => buildPageLoading(context, pageData.data),
-                error: (code, error, data) =>
-                    buildPageError(context, error, data),
-                loading: (data) => buildPageLoading(
+                empty: (code, data) => buildLoading(context, pageData.data),
+                error: (code, error, data) => buildError(context, error, data),
+                loading: (data) => buildLoading(
                   context,
                   data ?? controller.initState,
                 ),
@@ -49,9 +49,9 @@ abstract class ViewPage<S, V extends BePageController<S>>
               buildPage(context, pageData.data as S);
         },
       );
-  Widget buildPageError(BuildContext context, dynamic erro, S? data) =>
+  Widget buildError(BuildContext context, dynamic erro, S? data) =>
       const BeErrorWidget();
-  Widget buildPageLoading(BuildContext context, S? pageData) =>
+  Widget buildLoading(BuildContext context, S? pageData) =>
       const BePageLoading();
   Widget buildPage(BuildContext context, S pageData);
 }

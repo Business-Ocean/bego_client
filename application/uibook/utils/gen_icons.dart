@@ -10,12 +10,14 @@ void main(List<String> arguments) {
       inputDir.listSync(followLinks: false).toList();
 
   for (final entity in directoryEntities) {
-    if (entity is File && entity.path.endsWith('.json')) {
+    if (entity is File && entity.path.endsWith('_icons.json')) {
       final Map<String, dynamic> fontConfig =
           json.decode(entity.readAsStringSync()) as Map<String, dynamic>;
-      final fontFamilyName = fontConfig['name'].toString();
+      final fontFamilyName = fontConfig["preferences"]["fontPref"]['metadata']
+              ["fontFamily"]
+          .toString();
 
-      final List<dynamic> icons = fontConfig['glyphs'] as List<dynamic>;
+      final List<dynamic> icons = fontConfig['icons'] as List<dynamic>;
       final buffer = StringBuffer()
         ..writeAll(
           [
@@ -36,8 +38,10 @@ void main(List<String> arguments) {
         ..writeln('const begoIcons = <IconDetails>[');
 
       for (int i = 0; i < icons.length; i++) {
-        final Map<String, dynamic> glyps = icons[i] as Map<String, dynamic>;
-        final glyphName = convertGlyphName(glyps['css'].toString());
+        final Map<String, dynamic> icon = icons[i] as Map<String, dynamic>;
+
+        final glyphName =
+            convertGlyphName(icon['properties']["name"].toString());
         buffer.writeln(
           "    IconDetails($fontFamilyName.$glyphName, '$glyphName'),",
         );

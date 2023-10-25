@@ -14,6 +14,7 @@ dependencies:
     path: ../bego_core
   flutter:
     sdk: flutter
+  flutter_slidable: ^3.0.0
   flutter_svg: ^2.0.6
   freezed_annotation: ^2.2.1
   google_fonts: ^5.0.0
@@ -77,7 +78,7 @@ flutter:
           weight: 600
         - asset: assets/fonts/ReadexPro-Bold.ttf
           weight: 700
-    - family: BegoIcons
+    - family: BeIcons
       fonts:
         - asset: assets/icons/BegoIcons.ttf
   # For details regarding fonts in packages, see

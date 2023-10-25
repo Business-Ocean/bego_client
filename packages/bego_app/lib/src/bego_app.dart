@@ -205,6 +205,13 @@ class _BegoAppState extends State<BegoApp> {
             routerConfig: widget.routerConfig,
             scaffoldMessengerKey: widget.scaffoldMessengerKey,
             builder: widget.builder,
+            // builder: (context, child) => Overlay(
+            //   initialEntries: [
+            //     OverlayEntry(
+            //       builder: (context) => DialogWrapper(child: child!),
+            //     ),
+            //   ],
+            // ),
             title: widget.title,
             onGenerateTitle: widget.onGenerateTitle,
             color: widget.color,

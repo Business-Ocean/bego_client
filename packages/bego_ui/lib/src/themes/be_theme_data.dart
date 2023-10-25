@@ -15,22 +15,22 @@ sealed class BeThemeData with _$BeThemeData {
   const BeThemeData._();
 
   const factory BeThemeData.light({
-    @Default(BeStyleLight()) BeStyle bestyle,
-    @Default(BeColorsLight()) BeColors becolors,
+    @Default(BeStyleLight()) BeStyle style,
+    @Default(BeColorsLight()) BeColors colors,
   }) = _BeLightTheme;
 
   const factory BeThemeData.dark({
-    @Default(BeStyleDark()) BeStyle bestyle,
-    @Default(BeColorsDark()) BeColors becolors,
+    @Default(BeStyleDark()) BeStyle style,
+    @Default(BeColorsDark()) BeColors colors,
   }) = _BeDarkTheme;
 
-  bool get isDark => becolors.isDark;
+  bool get isDark => colors.isDark;
 
   @override
-  BeStyle get bestyle;
+  BeStyle get style;
 
   @override
-  BeColors get becolors;
+  BeColors get colors;
 
   // @override
   // BeEdgeInsets get beinsets;
