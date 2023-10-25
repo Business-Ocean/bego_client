@@ -138,36 +138,13 @@ class _BeLabelRenderObject extends RenderBox
     return originalOffset.translate(translateX, translateY);
   }
 
+  // TODO(sourav): fix the offset of the parent and child click
   @override
-  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
-    // var child = lastChild;
-    final label = lastChild;
-    var offset = Offset.zero;
-    for (final child in getChildrenAsList()) {
-      // The x, y parameters have the top left of the node's box as the origin.
-      final childParentData = child.parentData! as ContainerBoxParentData;
-
-      if (child == label && child != firstChild) {
-        offset = _offset;
-      }
-      final isHit = result.addWithPaintOffset(
-        offset: childParentData.offset,
-        position: position - offset,
-        hitTest: (BoxHitTestResult result, Offset transformed) {
-          assert(
-            transformed == position - childParentData.offset,
-            'transformed == position - childParentData.offset',
-          );
-          return child.hitTest(result, position: transformed);
-        },
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
+      defaultHitTestChildren(
+        result,
+        position: position,
       );
-      if (isHit) {
-        return true;
-      }
-      // child = childParentData.previousSibling as RenderBox?;
-    }
-    return false;
-  }
 }
 
 class _BeBadgeChild extends ContainerBoxParentData<RenderBox>
