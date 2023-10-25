@@ -1,6 +1,6 @@
 import 'package:bego_ui/src/_resolve_style.dart';
 import 'package:bego_ui/src/layout/be_breakpoint.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class BeTextResponsive extends StatelessWidget {
   const BeTextResponsive({
