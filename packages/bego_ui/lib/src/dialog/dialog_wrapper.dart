@@ -10,15 +10,15 @@
 //     required Widget title,
 //     required Widget content,
 //     bool isDismissible = true,
-//     List<OptimusDialogAction> actions = const [],
-//     OptimusDialogSize size = OptimusDialogSize.regular,
+//     List<BeDialogAction> actions = const [],
+//     BeDialogSize size = BeDialogSize.regular,
 //     bool rootOverlay = false,
 //   });
 
 //   void showInline({
 //     required GlobalKey anchorKey,
 //     required Widget content,
-//     List<OptimusDialogAction> actions = const [],
+//     List<BeDialogAction> actions = const [],
 //     bool rootOverlay = false,
 //   });
 
@@ -64,13 +64,13 @@
 //     required Widget title,
 //     required Widget content,
 //     bool isDismissible = true,
-//     List<OptimusDialogAction> actions = const [],
-//     OptimusDialogSize size = OptimusDialogSize.regular,
+//     List<BeDialogAction> actions = const [],
+//     BeDialogSize size = BeDialogSize.regular,
 //     bool rootOverlay = false,
 //   }) {
 //     hide();
 //     final entry = OverlayEntry(
-//       builder: (context) => OptimusDialog.nonModal(
+//       builder: (context) => BeDialog.nonModal(
 //         title: title,
 //         content: content,
 //         close: hide,
@@ -87,7 +87,7 @@
 //   void showInline({
 //     required GlobalKey anchorKey,
 //     required Widget content,
-//     List<OptimusDialogAction> actions = const [],
+//     List<BeDialogAction> actions = const [],
 //     bool rootOverlay = false,
 //   }) {
 //     hide();
@@ -99,7 +99,7 @@
 //             behavior: HitTestBehavior.opaque,
 //             onTap: hide,
 //           ),
-//           OptimusInlineDialog(
+//           BeInlineDialog(
 //             content: content,
 //             close: hide,
 //             actions: actions,

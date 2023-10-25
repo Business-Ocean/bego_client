@@ -24,7 +24,7 @@
 //           'Either title or content need to be provided',
 //         );
 
-//   final List<OptimusDialogAction> actions;
+//   final List<BeDialogAction> actions;
 //   final Widget? title;
 //   final double? spacing;
 //   final double maxWidth;
@@ -32,9 +32,9 @@
 
 //   final Widget? content;
 //   final VoidCallback? close;
-//   final OptimusDialogSize size;
+//   final BeDialogSize size;
 //   final bool? isDismissible;
-//   final OptimusDialogType type;
+//   final BeDialogType type;
 
 //   final ContentWrapperBuilder? contentWrapperBuilder;
 
@@ -96,7 +96,7 @@
 //     final wrappedContent = contentWrapperBuilder == null
 //         ? BeNoScrollScrollConfiguration(
 //             child: SingleChildScrollView(
-//               child: OptimusDialogContentPadding(child: content),
+//               child: BeDialogContentPadding(child: content),
 //             ),
 //           )
 //         : contentWrapperBuilder(context, content);

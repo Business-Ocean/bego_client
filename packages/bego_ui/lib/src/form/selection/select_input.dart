@@ -17,8 +17,8 @@ typedef ValueBuilder<T> = String Function(T value);
 ///
 /// The list opens as a dropdown menu, and it is available in many variations.
 /// This select component is most commonly found in form patterns.
-class OptimusSelectInput<T> extends StatefulWidget {
-  const OptimusSelectInput({
+class BeSelectInput<T> extends StatefulWidget {
+  const BeSelectInput({
     required this.items,
     required this.builder,
     required this.onChanged,
@@ -54,7 +54,7 @@ class OptimusSelectInput<T> extends StatefulWidget {
   final String? label;
   final String placeholder;
   final T? value;
-  final List<OptimusDropdownTile<T>> items;
+  final List<BeDropdownTile<T>> items;
   final bool isEnabled;
   final bool isRequired;
   final Widget? leading;
@@ -78,7 +78,7 @@ class OptimusSelectInput<T> extends StatefulWidget {
   /// Will be displayed as a part of the dropdown menu. If the [controller] or
   /// [onTextChanged] is provided, the embedded search will not be used. Instead
   /// the search will be a part of the input field.
-  final OptimusDropdownEmbeddedSearch? embeddedSearch;
+  final BeDropdownEmbeddedSearch? embeddedSearch;
 
   /// A widget that is displayed when the list of items is empty. If not
   /// provided the dropdown will not be displayed.
@@ -91,7 +91,7 @@ class OptimusSelectInput<T> extends StatefulWidget {
 
   /// {@template optimus.select.groupBuilder}
   /// A builder that would create a group header. If not provided the
-  /// [OptimusDropdownGroupSeparator] widget will be used.
+  /// [BeDropdownGroupSeparator] widget will be used.
   /// {@endtemplate}
   final GroupBuilder? groupBuilder;
 
@@ -104,10 +104,10 @@ class OptimusSelectInput<T> extends StatefulWidget {
   final List<T>? selectedValues;
 
   @override
-  State<OptimusSelectInput<T>> createState() => _OptimusSelectInput<T>();
+  State<BeSelectInput<T>> createState() => _BeSelectInput<T>();
 }
 
-class _OptimusSelectInput<T> extends State<OptimusSelectInput<T>>
+class _BeSelectInput<T> extends State<BeSelectInput<T>>
     with SingleTickerProviderStateMixin {
   static final Animatable<double> _easeInTween =
       CurveTween(curve: Curves.fastOutSlowIn);
@@ -141,7 +141,7 @@ class _OptimusSelectInput<T> extends State<OptimusSelectInput<T>>
       widget.onTextChanged?.call(_effectiveController.text);
 
   @override
-  void didUpdateWidget(OptimusSelectInput<T> oldWidget) {
+  void didUpdateWidget(BeSelectInput<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.controller != widget.controller) {
       _effectiveController

@@ -20,7 +20,7 @@ class OverlayController<T> extends StatefulWidget {
 
   final Widget child;
 
-  final List<OptimusDropdownTile<T>> items;
+  final List<BeDropdownTile<T>> items;
   final ValueSetter<T> onItemSelected;
   final FocusNode focusNode;
   final double? width;
@@ -74,7 +74,7 @@ class _OverlayControllerState<T> extends State<OverlayController<T>> {
 
   OverlayEntry _createOverlayEntry() => OverlayEntry(
         builder: (context) => Stack(
-          key: const Key('OptimusSelectOverlay'),
+          key: const Key('BeSelectOverlay'),
           children: <Widget>[
             GestureDetector(
               behavior: HitTestBehavior.opaque,
@@ -82,7 +82,7 @@ class _OverlayControllerState<T> extends State<OverlayController<T>> {
             ),
             DropdownTapInterceptor(
               onTap: widget.focusNode.unfocus,
-              child: OptimusDropdown<T>(
+              child: BeDropdown<T>(
                 items: widget.items,
                 anchorKey: widget.anchorKey,
                 onChanged: widget.onItemSelected,

@@ -13,8 +13,8 @@ import 'package:flutter/material.dart';
 /// Every step-bar is composed of repeatable elements in individual steps
 /// linked by either horizontal or vertical lines to convey the sense
 /// of journeying through a process.
-class OptimusStepBar extends StatefulWidget {
-  const OptimusStepBar({
+class BeStepBar extends StatefulWidget {
+  const BeStepBar({
     super.key,
     required this.type,
     required this.layout,
@@ -24,7 +24,7 @@ class OptimusStepBar extends StatefulWidget {
   });
 
   /// Type of the step bar.
-  final OptimusStepBarType type;
+  final BeStepBarType type;
 
   /// Whether the step bar would be laid out horizontally or vertically.
   ///
@@ -33,7 +33,7 @@ class OptimusStepBar extends StatefulWidget {
   final Axis layout;
 
   /// Step bar items.
-  final List<OptimusStepBarItem> items;
+  final List<BeStepBarItem> items;
 
   /// Current (active) step.
   final int currentItem;
@@ -45,45 +45,44 @@ class OptimusStepBar extends StatefulWidget {
   final int? maxItem;
 
   @override
-  State<OptimusStepBar> createState() => _OptimusStepBarState();
+  State<BeStepBar> createState() => _BeStepBarState();
 }
 
-class _OptimusStepBarState extends State<OptimusStepBar> {
-  OptimusStepBarItemState _getItemState(OptimusStepBarItem item) {
+class _BeStepBarState extends State<BeStepBar> {
+  BeStepBarItemState _getItemState(BeStepBarItem item) {
     final position = widget.items.indexOf(item);
     if (position == widget.currentItem) {
-      return OptimusStepBarItemState.active;
+      return BeStepBarItemState.active;
     }
     if (position < widget.currentItem) {
-      return OptimusStepBarItemState.completed;
+      return BeStepBarItemState.completed;
     }
 
     final maxItem = widget.maxItem;
 
     return maxItem == null || position <= maxItem
-        ? OptimusStepBarItemState.enabled
-        : OptimusStepBarItemState.disabled;
+        ? BeStepBarItemState.enabled
+        : BeStepBarItemState.disabled;
   }
 
-  String _indicatorText(OptimusStepBarItem item) =>
+  String _indicatorText(BeStepBarItem item) =>
       (widget.items.indexOf(item) + 1).toString();
 
-  List<Widget> _buildItems(List<OptimusStepBarItem> items, double maxWidth) =>
-      items
-          .intersperseWith(
-            itemBuilder: (item) => StepBarItem(
-              maxWidth: maxWidth,
-              item: item,
-              state: _getItemState(item),
-              type: widget.type,
-              indicatorText: _indicatorText(item),
-            ),
-            separatorBuilder: (_, nextItem) => StepBarSpacer(
-              nextItemState: _getItemState(nextItem),
-              layout: _effectiveLayout,
-            ),
-          )
-          .toList();
+  List<Widget> _buildItems(List<BeStepBarItem> items, double maxWidth) => items
+      .intersperseWith(
+        itemBuilder: (item) => StepBarItem(
+          maxWidth: maxWidth,
+          item: item,
+          state: _getItemState(item),
+          type: widget.type,
+          indicatorText: _indicatorText(item),
+        ),
+        separatorBuilder: (_, nextItem) => StepBarSpacer(
+          nextItemState: _getItemState(nextItem),
+          layout: _effectiveLayout,
+        ),
+      )
+      .toList();
 
   Axis get _effectiveLayout =>
       context.mediaQuery.screenBreakPoint.index > BeBreakpoint.small.index
@@ -112,4 +111,4 @@ class _OptimusStepBarState extends State<OptimusStepBar> {
       );
 }
 
-enum OptimusStepBarType { icon, numbered }
+enum BeStepBarType { icon, numbered }

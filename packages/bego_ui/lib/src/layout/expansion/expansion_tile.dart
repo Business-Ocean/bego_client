@@ -7,11 +7,11 @@ const Duration _kExpand = Duration(milliseconds: 200);
 /// the tile to reveal or hide the [children].
 ///
 /// Based on flutter/lib/src/material/expansion_tile.dart
-class OptimusExpansionTile extends StatefulWidget {
-  /// Creates a single-line [OptimusListTile] with a trailing button that expands or
+class BeExpansionTile extends StatefulWidget {
+  /// Creates a single-line [BeListTile] with a trailing button that expands or
   /// collapses the tile to reveal or hide the [children]. The
   /// [initiallyExpanded] property must be non-null.
-  const OptimusExpansionTile({
+  const BeExpansionTile({
     super.key,
     this.leading,
     required this.title,
@@ -64,10 +64,10 @@ class OptimusExpansionTile extends StatefulWidget {
   /// or collapsed (false, the default).
   final bool initiallyExpanded;
 
-  /// Borders of the inner [OptimusSlidable] widget
+  /// Borders of the inner [BeSlidable] widget
   final bool hasBorders;
 
-  /// Width of the inner slidable actions in [OptimusSlidable] widget
+  /// Width of the inner slidable actions in [BeSlidable] widget
   final double actionsWidth;
 
   /// List of actions on list tile left swipe.
@@ -77,10 +77,10 @@ class OptimusExpansionTile extends StatefulWidget {
   final EdgeInsets? contentPadding;
 
   @override
-  State<OptimusExpansionTile> createState() => _OptimusExpansionTileState();
+  State<BeExpansionTile> createState() => _BeExpansionTileState();
 }
 
-class _OptimusExpansionTileState extends State<OptimusExpansionTile>
+class _BeExpansionTileState extends State<BeExpansionTile>
     with SingleTickerProviderStateMixin {
   static final Animatable<double> _easeInTween =
       CurveTween(curve: Curves.easeIn);

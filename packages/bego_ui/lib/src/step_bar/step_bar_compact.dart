@@ -5,10 +5,10 @@ import 'package:bego_ui/src/step_bar/step_bar_item.dart';
 import 'package:bego_ui/src/text/be_text.dart';
 import 'package:flutter/material.dart';
 
-/// The compact version of the OptimusStepBar that is using a modified vertical
+/// The compact version of the BeStepBar that is using a modified vertical
 /// layout that can be expanded and collapsed.
-class OptimusCompactStepBar extends StatefulWidget {
-  const OptimusCompactStepBar({
+class BeCompactStepBar extends StatefulWidget {
+  const BeCompactStepBar({
     super.key,
     required this.type,
     required this.items,
@@ -17,17 +17,17 @@ class OptimusCompactStepBar extends StatefulWidget {
     this.rootOverlay = false,
   });
 
-  final OptimusStepBarType type;
-  final List<OptimusStepBarItem> items;
+  final BeStepBarType type;
+  final List<BeStepBarItem> items;
   final int currentItem;
   final int? maxItem;
   final bool rootOverlay;
 
   @override
-  State<OptimusCompactStepBar> createState() => _OptimusCompactStepBarState();
+  State<BeCompactStepBar> createState() => _BeCompactStepBarState();
 }
 
-class _OptimusCompactStepBarState extends State<OptimusCompactStepBar>
+class _BeCompactStepBarState extends State<BeCompactStepBar>
     with SingleTickerProviderStateMixin {
   final LayerLink _layerLink = LayerLink();
   final GlobalKey _anchorKey = GlobalKey();
@@ -49,7 +49,7 @@ class _OptimusCompactStepBarState extends State<OptimusCompactStepBar>
   }
 
   @override
-  void didUpdateWidget(OptimusCompactStepBar oldWidget) {
+  void didUpdateWidget(BeCompactStepBar oldWidget) {
     super.didUpdateWidget(oldWidget);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
@@ -184,7 +184,7 @@ class _CompactStepBarItem extends StatelessWidget {
             child: StepBarItem(
               item: data.items[data.currentItem],
               maxWidth: double.infinity,
-              state: OptimusStepBarItemState.active,
+              state: BeStepBarItemState.active,
               type: data.type,
               indicatorText: indicatorText,
             ),
@@ -427,7 +427,7 @@ class _AnimatedStepBarState extends State<_AnimatedStepBar> {
                 ),
                 child: Stack(
                   children: [
-                    OptimusStepBar(
+                    BeStepBar(
                       type: data.type,
                       layout: Axis.vertical,
                       items: data.items,
@@ -462,8 +462,8 @@ class _StepBarData extends InheritedWidget {
     required super.child,
   });
 
-  final OptimusStepBarType type;
-  final List<OptimusStepBarItem> items;
+  final BeStepBarType type;
+  final List<BeStepBarItem> items;
   final int currentItem;
   final int? maxItem;
 

@@ -1,8 +1,8 @@
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/widgets.dart';
 
-class OptimusDropdownGroupSeparator extends StatelessWidget {
-  const OptimusDropdownGroupSeparator({super.key, required this.child});
+class BeDropdownGroupSeparator extends StatelessWidget {
+  const BeDropdownGroupSeparator({super.key, required this.child});
 
   final Widget child;
 

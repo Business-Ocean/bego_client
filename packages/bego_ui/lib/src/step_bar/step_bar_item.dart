@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// change in the step indicator and in the divider between steps.
 /// All of this forms a visual distinction between the finished and unfinished
 /// part of a process.
-enum OptimusStepBarItemState {
+enum BeStepBarItemState {
   /// The step is finished. The icon is always changed to a check icon.
   completed,
 
@@ -22,8 +22,8 @@ enum OptimusStepBarItemState {
   disabled,
 }
 
-class OptimusStepBarItem {
-  const OptimusStepBarItem({
+class BeStepBarItem {
+  const BeStepBarItem({
     required this.label,
     this.description,
     required this.icon,
@@ -45,18 +45,18 @@ class StepBarItem extends StatelessWidget {
   });
 
   final double maxWidth;
-  final OptimusStepBarItem item;
-  final OptimusStepBarItemState state;
-  final OptimusStepBarType type;
+  final BeStepBarItem item;
+  final BeStepBarItemState state;
+  final BeStepBarType type;
   final String indicatorText;
 
   Widget get _icon => switch (type) {
-        OptimusStepBarType.icon => StepBarItemIconIndicator(
+        BeStepBarType.icon => StepBarItemIconIndicator(
             icon: item.icon,
             state: state,
             type: type,
           ),
-        OptimusStepBarType.numbered =>
+        BeStepBarType.numbered =>
           StepBarItemNumberIndicator(state: state, text: indicatorText),
       };
 
@@ -68,7 +68,7 @@ class StepBarItem extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(minWidth: itemMinWidth),
       child: BeEnabled(
-        isEnabled: state != OptimusStepBarItemState.disabled,
+        isEnabled: state != BeStepBarItemState.disabled,
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -115,15 +115,15 @@ class StepBarItemIconIndicator extends StatelessWidget {
   });
 
   final IconData icon;
-  final OptimusStepBarItemState state;
-  final OptimusStepBarType type;
+  final BeStepBarItemState state;
+  final BeStepBarType type;
 
-  Color _color(BeThemeData betheme) => state == OptimusStepBarItemState.active
+  Color _color(BeThemeData betheme) => state == BeStepBarItemState.active
       ? betheme.colors.primary
       : Colors.transparent;
 
   IconData get _icon =>
-      state == OptimusStepBarItemState.completed ? Icons.done : icon;
+      state == BeStepBarItemState.completed ? Icons.done : icon;
 
   @override
   Widget build(BuildContext context) {
@@ -145,14 +145,14 @@ class StepBarItemNumberIndicator extends StatelessWidget {
     required this.text,
   });
 
-  final OptimusStepBarItemState state;
+  final BeStepBarItemState state;
   final String text;
 
   @override
   Widget build(BuildContext context) {
     final theme = BeTheme.of(context);
 
-    return state == OptimusStepBarItemState.completed
+    return state == BeStepBarItemState.completed
         ? SizedBox(
             width: _iconWrapperSize,
             height: _iconWrapperSize,
@@ -167,7 +167,7 @@ class StepBarItemNumberIndicator extends StatelessWidget {
               Container(
                 width: _iconWrapperSize,
                 height: _iconWrapperSize,
-                decoration: state == OptimusStepBarItemState.active
+                decoration: state == BeStepBarItemState.active
                     ? BoxDecoration(
                         shape: BoxShape.circle,
                         color: theme.colors.text,
@@ -202,7 +202,7 @@ class StepBarSpacer extends StatelessWidget {
     required this.layout,
   });
 
-  final OptimusStepBarItemState nextItemState;
+  final BeStepBarItemState nextItemState;
   final Axis layout;
 
   @override
@@ -235,37 +235,36 @@ class StepBarSpacer extends StatelessWidget {
   }
 }
 
-extension OptimusStepBarItemTheme on OptimusStepBarItemState {
+extension BeStepBarItemTheme on BeStepBarItemState {
   Color iconBackgroundColor(BeThemeData theme) => switch (this) {
-        OptimusStepBarItemState.completed ||
-        OptimusStepBarItemState.active =>
+        BeStepBarItemState.completed ||
+        BeStepBarItemState.active =>
           theme.colors.primary,
-        OptimusStepBarItemState.enabled ||
-        OptimusStepBarItemState.disabled =>
+        BeStepBarItemState.enabled ||
+        BeStepBarItemState.disabled =>
           theme.isDark ? theme.colors.primary : theme.colors.disabled,
       };
 
   Color textColor(BeThemeData theme) => switch (this) {
-        OptimusStepBarItemState.completed => theme.colors.primary,
-        OptimusStepBarItemState.active =>
+        BeStepBarItemState.completed => theme.colors.primary,
+        BeStepBarItemState.active =>
           theme.isDark ? theme.colors.primary : theme.colors.primary,
-        OptimusStepBarItemState.enabled ||
-        OptimusStepBarItemState.disabled =>
+        BeStepBarItemState.enabled ||
+        BeStepBarItemState.disabled =>
           theme.isDark ? theme.colors.disabled : theme.colors.disabled,
       };
 
   Color get iconColor => switch (this) {
-        OptimusStepBarItemState.completed ||
-        OptimusStepBarItemState.active =>
+        BeStepBarItemState.completed ||
+        BeStepBarItemState.active =>
           BegoColors.yellow,
-        OptimusStepBarItemState.enabled ||
-        OptimusStepBarItemState.disabled =>
+        BeStepBarItemState.enabled ||
+        BeStepBarItemState.disabled =>
           BegoColors.green300,
       };
 
   bool get isAccessible =>
-      this == OptimusStepBarItemState.completed ||
-      this == OptimusStepBarItemState.active;
+      this == BeStepBarItemState.completed || this == BeStepBarItemState.active;
 }
 
 const _iconWrapperSize = 40.0;

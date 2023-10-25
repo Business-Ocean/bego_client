@@ -6,7 +6,7 @@
 // import 'package:flutter/material.dart';
 
 // /// The position of a dialog is determined by functionality.
-// enum OptimusDialogPosition {
+// enum BeDialogPosition {
 //   /// Centered dialogs direct user attention to their content in order to make
 //   /// users focus on a single task within them. They are used in combination
 //   /// with modal behavior.
@@ -17,8 +17,8 @@
 //   corner,
 // }
 
-// class OptimusDialogAction {
-//   const OptimusDialogAction({
+// class BeDialogAction {
+//   const BeDialogAction({
 //     required this.title,
 //     this.onPressed,
 //     this.key,
@@ -31,21 +31,21 @@
 
 // /// [isDismissible] – If a dialog contains a close icon, it can also be closed
 // /// by clicking on background layer. Otherwise, only by buttons.
-// Future<T?> showOptimusDialog<T>({
+// Future<T?> showBeDialog<T>({
 //   required BuildContext context,
 //   required Widget title,
 //   Widget? content,
 //   ContentWrapperBuilder? contentWrapperBuilder,
-//   List<OptimusDialogAction> actions = const [],
-//   OptimusDialogSize size = OptimusDialogSize.regular,
-//   OptimusDialogType type = OptimusDialogType.common,
+//   List<BeDialogAction> actions = const [],
+//   BeDialogSize size = BeDialogSize.regular,
+//   BeDialogType type = BeDialogType.common,
 //   bool isDismissible = true,
 //   bool useRootNavigator = true,
 // }) =>
 //     showGeneralDialog<T>(
 //       context: context,
 //       pageBuilder: (buildContext, animation, secondaryAnimation) =>
-//           OptimusDialog.modal(
+//           BeDialog.modal(
 //         title: title,
 //         content: content,
 //         contentWrapperBuilder: contentWrapperBuilder,
@@ -66,28 +66,28 @@
 
 // /// A dialog is an overlay on top of a main page which lets a user perform
 // /// a short term task without losing the context of the underlying page.
-// class OptimusDialog extends StatelessWidget {
-//   const OptimusDialog._({
+// class BeDialog extends StatelessWidget {
+//   const BeDialog._({
 //     super.key,
 //     required this.title,
 //     required this.content,
 //     this.contentWrapperBuilder,
 //     this.actions = const [],
-//     this.size = OptimusDialogSize.regular,
-//     this.type = OptimusDialogType.common,
+//     this.size = BeDialogSize.regular,
+//     this.type = BeDialogType.common,
 //     this.close,
 //     this.isDismissible,
-//     this.position = OptimusDialogPosition.center,
+//     this.position = BeDialogPosition.center,
 //   });
 
-//   const OptimusDialog.modal({
+//   const BeDialog.modal({
 //     Key? key,
 //     required Widget title,
 //     Widget? content,
 //     ContentWrapperBuilder? contentWrapperBuilder,
-//     List<OptimusDialogAction> actions = const [],
-//     OptimusDialogSize size = OptimusDialogSize.regular,
-//     OptimusDialogType type = OptimusDialogType.common,
+//     List<BeDialogAction> actions = const [],
+//     BeDialogSize size = BeDialogSize.regular,
+//     BeDialogType type = BeDialogType.common,
 //     bool? isDismissible,
 //   }) : this._(
 //           key: key,
@@ -100,13 +100,13 @@
 //           isDismissible: isDismissible,
 //         );
 
-//   const OptimusDialog.nonModal({
+//   const BeDialog.nonModal({
 //     Key? key,
 //     required Widget title,
 //     Widget? content,
 //     ContentWrapperBuilder? contentWrapperBuilder,
-//     List<OptimusDialogAction> actions = const [],
-//     OptimusDialogSize size = OptimusDialogSize.regular,
+//     List<BeDialogAction> actions = const [],
+//     BeDialogSize size = BeDialogSize.regular,
 //     bool? isDismissible,
 //     required VoidCallback close,
 //   }) : this._(
@@ -115,17 +115,17 @@
 //           content: content,
 //           contentWrapperBuilder: contentWrapperBuilder,
 //           actions: actions,
-//           size: size == OptimusDialogSize.large
-//               ? OptimusDialogSize.regular
+//           size: size == BeDialogSize.large
+//               ? BeDialogSize.regular
 //               : size,
 //           isDismissible: isDismissible,
 //           close: close,
-//           position: OptimusDialogPosition.corner,
+//           position: BeDialogPosition.corner,
 //         );
 
 //   final VoidCallback? close;
 //   final bool? isDismissible;
-//   final OptimusDialogPosition position;
+//   final BeDialogPosition position;
 
 //   /// Serves as an identification of the action in the dialog. Can be
 //   /// a sentence, question, or just a subject.
@@ -135,7 +135,7 @@
 
 //   /// {@template optimus.dialog.wrapper}
 //   /// Builds custom content. If content padding needed wrap in
-//   /// [OptimusDialogContentPadding].
+//   /// [BeDialogContentPadding].
 //   /// {@endtemplate}
 //   final ContentWrapperBuilder? contentWrapperBuilder;
 
@@ -143,32 +143,32 @@
 //   /// Controls dialog actions.
 //   ///
 //   /// First button should always contain primary action. When single button it
-//   /// has [OptimusButtonVariant.tertiary] variant, otherwise it has
-//   /// [OptimusButtonVariant.primary] variant for [OptimusDialogType.common] type
-//   /// or [OptimusButtonVariant.danger] variant for
-//   /// [OptimusDialogType.destructive] type.
+//   /// has [BeButtonVariant.tertiary] variant, otherwise it has
+//   /// [BeButtonVariant.primary] variant for [BeDialogType.common] type
+//   /// or [BeButtonVariant.danger] variant for
+//   /// [BeDialogType.destructive] type.
 //   ///
 //   /// Second button represents secondary action. It always has
-//   /// [OptimusButtonVariant.tertiary] variant.
+//   /// [BeButtonVariant.tertiary] variant.
 //   ///
-//   /// All other buttons have [OptimusButtonVariant.ghost] variant and represent
+//   /// All other buttons have [BeButtonVariant.ghost] variant and represent
 //   /// additional actions.
 //   /// {@endtemplate}
-//   final List<OptimusDialogAction> actions;
+//   final List<BeDialogAction> actions;
 
 //   /// Controls dialog size.
 //   ///
 //   /// If screen size is small ([Breakpoint.small] or less), this parameter is
-//   /// ignored and [OptimusDialogSize.small] is always used.
-//   final OptimusDialogSize size;
+//   /// ignored and [BeDialogSize.small] is always used.
+//   final BeDialogSize size;
 
-//   final OptimusDialogType type;
+//   final BeDialogType type;
 
-//   OptimusDialogSize _autoSize(BuildContext context) =>
+//   BeDialogSize _autoSize(BuildContext context) =>
 //       switch (MediaQuery.sizeOf(context).screenBreakPoint) {
 //         BeBreakpoint.extraSmall ||
 //         BeBreakpoint.small =>
-//           OptimusDialogSize.small,
+//           BeDialogSize.small,
 //         BeBreakpoint.medium ||
 //         BeBreakpoint.large ||
 //         BeBreakpoint.extraLarge =>
@@ -185,13 +185,13 @@
 //       };
 
 //   Alignment get _smallScreenAlignment => switch (position) {
-//         OptimusDialogPosition.center => Alignment.center,
-//         OptimusDialogPosition.corner => Alignment.topCenter,
+//         BeDialogPosition.center => Alignment.center,
+//         BeDialogPosition.corner => Alignment.topCenter,
 //       };
 
 //   Alignment get _largeScreenAlignment => switch (position) {
-//         OptimusDialogPosition.center => Alignment.center,
-//         OptimusDialogPosition.corner => Alignment.bottomRight,
+//         BeDialogPosition.center => Alignment.center,
+//         BeDialogPosition.corner => Alignment.bottomRight,
 //       };
 
 //   @override
@@ -219,8 +219,8 @@
 //   }
 // }
 
-// class OptimusDialogContentPadding extends StatelessWidget {
-//   const OptimusDialogContentPadding({
+// class BeDialogContentPadding extends StatelessWidget {
+//   const BeDialogContentPadding({
 //     super.key,
 //     this.child,
 //   });

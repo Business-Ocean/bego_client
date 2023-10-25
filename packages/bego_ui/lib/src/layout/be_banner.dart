@@ -13,8 +13,8 @@ import 'package:flutter/material.dart';
 /// other elements (left icon, description, link, close icon) are optional.
 ///
 /// A banner always takes the full width of the component it is within.
-class OptimusBanner extends StatelessWidget {
-  const OptimusBanner({
+class BeBanner extends StatelessWidget {
+  const BeBanner({
     super.key,
     required this.title,
     this.description,
@@ -54,7 +54,7 @@ class OptimusBanner extends StatelessWidget {
   /// Called when close button is pressed (if [isDismissible] == true).
   final VoidCallback? onDismiss;
 
-  // Color _getDescriptionColor(OptimusThemeData theme) =>
+  // Color _getDescriptionColor(BeThemeData theme) =>
   // theme.isDark ? theme.colors.neutral0 : theme.colors.neutral1000t64;
   @override
   Widget build(BuildContext context) {

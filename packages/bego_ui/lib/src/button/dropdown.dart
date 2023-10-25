@@ -3,7 +3,7 @@ import 'package:bego_ui/src/form/dropdown/dropdown_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-enum OptimusDropdownButtonVariant {
+enum BeDropdownButtonVariant {
   /// The default option. Use this variant for the majority of cases.
   defaultButton,
 
@@ -17,23 +17,23 @@ enum OptimusDropdownButtonVariant {
 
 /// Dropdown buttons trigger a dropdown menu with more actions related to the
 /// context of the button.
-class OptimusDropDownButton<T> extends StatelessWidget {
-  const OptimusDropDownButton({
+class BeDropDownButton<T> extends StatelessWidget {
+  const BeDropDownButton({
     super.key,
     required this.child,
     required this.items,
     this.onItemSelected,
     this.size = 48,
-    this.variant = OptimusDropdownButtonVariant.defaultButton,
+    this.variant = BeDropdownButtonVariant.defaultButton,
   });
 
   /// Typically the button's label.
   final Widget child;
 
-  final List<OptimusDropdownTile<T>> items;
+  final List<BeDropdownTile<T>> items;
   final ValueSetter<T>? onItemSelected;
   final double size;
-  final OptimusDropdownButtonVariant variant;
+  final BeDropdownButtonVariant variant;
 
   @override
   Widget build(BuildContext context) => BaseDropDownButton(

@@ -1,5 +1,4 @@
 import 'package:bego_core/bego_dfunc.dart';
-import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/bego_widgets.dart';
 import 'package:bego_ui/src/chip/chip.dart';
@@ -9,7 +8,6 @@ import 'package:bego_ui/src/form/fields/multiselect_field.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
 class DropdownSelect<T> extends StatefulWidget {
   const DropdownSelect({
@@ -55,7 +53,7 @@ class DropdownSelect<T> extends StatefulWidget {
   final TextStyle? placeholderStyle;
   final TextEditingController? controller;
   final ValueSetter<String>? onTextChanged;
-  final List<OptimusDropdownTile<T>> items;
+  final List<BeDropdownTile<T>> items;
   final bool isUpdating;
   final bool isEnabled;
   final bool isRequired;
@@ -73,7 +71,7 @@ class DropdownSelect<T> extends StatefulWidget {
   final FocusNode? focusNode;
   final bool shouldCloseOnInputTap;
   final bool rootOverlay;
-  final OptimusDropdownEmbeddedSearch? embeddedSearch;
+  final BeDropdownEmbeddedSearch? embeddedSearch;
   final Widget? emptyResultPlaceholder;
   final VoidCallback? onDropdownShow;
   final VoidCallback? onDropdownHide;
@@ -206,7 +204,7 @@ class _DropdownSelectState<T> extends State<DropdownSelect<T>> {
     if (widget.builder case final builder?) {
       return widget.selectedValues
           ?.map(
-            (e) => OptimusChip(
+            (e) => BeChip(
               onRemoved: () => widget.onChanged(e),
               onTap: _handleChipTap,
               isEnabled: widget.isEnabled,
@@ -254,12 +252,12 @@ class _DropdownSelectState<T> extends State<DropdownSelect<T>> {
           }
 
           return GestureDetector(
-            key: const Key('OptimusDropdownOverlay'),
+            key: const Key('BeDropdownOverlay'),
             behavior: HitTestBehavior.translucent,
             onTapDown: onTapDown,
             child: DropdownTapInterceptor(
               onTap: widget.multiselect ? () {} : _removeOverlay,
-              child: OptimusDropdown(
+              child: BeDropdown(
                 items: widget.items,
                 anchorKey: _fieldBoxKey,
                 onChanged: widget.onChanged,
@@ -370,8 +368,8 @@ class _Trailing extends StatelessWidget {
             const BeLoading(
               dimension: 18,
               color: BegoColors.blue,
-              // size: OptimusCircleLoaderSize.small,
-              // variant: OptimusCircleLoaderVariant.indeterminate(),
+              // size: BeCircleLoaderSize.small,
+              // variant: BeCircleLoaderVariant.indeterminate(),
             ),
           if (trailing != null && !isUpdating) trailing,
           if (trailingImplicit != null && !isUpdating) trailingImplicit,
@@ -390,7 +388,7 @@ class _ClearAllButton extends StatelessWidget {
   Widget build(BuildContext context) => _CustomRawGestureDetector(
         onTap: onTap,
         child: const Icon(
-          BeIcons.cancel,
+          Icons.cancel,
           size: 24,
           color: BegoColors.gray200,
         ),

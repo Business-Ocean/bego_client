@@ -4,8 +4,8 @@ import 'package:bego_core/bego_dfunc.dart';
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
-class OptimusAvatar extends StatelessWidget {
-  const OptimusAvatar({
+class BeAvatar extends StatelessWidget {
+  const BeAvatar({
     super.key,
     required this.title,
     this.imageUrl,

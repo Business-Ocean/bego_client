@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 /// Chips are a visual representation of a keyword or phrase that the user has
 /// used for purposes of filtering the scope of content displayed in the
 /// application interface at any given time.
-class OptimusChip extends StatefulWidget {
-  const OptimusChip({
+class BeChip extends StatefulWidget {
+  const BeChip({
     super.key,
     required this.child,
     required this.onRemoved,
@@ -31,10 +31,10 @@ class OptimusChip extends StatefulWidget {
   final VoidCallback? onTap;
 
   @override
-  State<OptimusChip> createState() => _OptimusChipState();
+  State<BeChip> createState() => _BeChipState();
 }
 
-class _OptimusChipState extends State<OptimusChip> {
+class _BeChipState extends State<BeChip> {
   bool _isHovered = false;
   bool _isTapped = false;
 

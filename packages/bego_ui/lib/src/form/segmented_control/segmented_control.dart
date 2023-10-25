@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 
 /// Segmented Control is a set of two or more segments, that provide closely
 /// related choices that affect an object, state, or view.
-class OptimusSegmentedControl<T> extends StatelessWidget {
-  OptimusSegmentedControl({
+class BeSegmentedControl<T> extends StatelessWidget {
+  BeSegmentedControl({
     super.key,
     this.size = 48,
-    required Iterable<OptimusGroupItem<T>> items,
+    required Iterable<BeGroupItem<T>> items,
     required this.value,
     required this.onItemSelected,
     this.label,
@@ -28,7 +28,7 @@ class OptimusSegmentedControl<T> extends StatelessWidget {
   final double size;
 
   /// List of segment control items.
-  final List<OptimusGroupItem<T>> items;
+  final List<BeGroupItem<T>> items;
 
   /// Current selected value.
   final T value;
@@ -81,7 +81,7 @@ class OptimusSegmentedControl<T> extends StatelessWidget {
               spacing: 16,
               children: items
                   .map(
-                    (item) => _OptimusSegmentedControlItem<T>(
+                    (item) => _BeSegmentedControlItem<T>(
                       value: item.value,
                       size: size,
                       groupValue: value,
@@ -98,8 +98,8 @@ class OptimusSegmentedControl<T> extends StatelessWidget {
       );
 }
 
-class _OptimusSegmentedControlItem<T> extends StatefulWidget {
-  const _OptimusSegmentedControlItem({
+class _BeSegmentedControlItem<T> extends StatefulWidget {
+  const _BeSegmentedControlItem({
     super.key,
     required this.child,
     required this.size,
@@ -119,12 +119,12 @@ class _OptimusSegmentedControlItem<T> extends StatefulWidget {
   final int? maxLines;
 
   @override
-  _OptimusSegmentedControlItemState<T> createState() =>
-      _OptimusSegmentedControlItemState<T>();
+  _BeSegmentedControlItemState<T> createState() =>
+      _BeSegmentedControlItemState<T>();
 }
 
-class _OptimusSegmentedControlItemState<T>
-    extends State<_OptimusSegmentedControlItem<T>> {
+class _BeSegmentedControlItemState<T>
+    extends State<_BeSegmentedControlItem<T>> {
   bool _isHovering = false;
   bool _isTappedDown = false;
 

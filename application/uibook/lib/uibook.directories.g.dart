@@ -24,7 +24,7 @@ final directories = <_i1.WidgetbookNode>[
     name: 'icon',
     children: [
       _i1.WidgetbookComponent(
-        name: 'BegoIcons',
+        name: 'BeIcons',
         useCases: [
           _i1.WidgetbookUseCase(
             name: 'Icons',
@@ -62,44 +62,39 @@ final directories = <_i1.WidgetbookNode>[
     ],
   ),
   _i1.WidgetbookFolder(
-    name: 'widgets',
+    name: 'notice',
     children: [
-      _i1.WidgetbookFolder(
-        name: 'notice',
-        children: [
-          _i1.WidgetbookComponent(
+      _i1.WidgetbookComponent(
+        name: 'BeBadge',
+        useCases: [
+          _i1.WidgetbookUseCase(
             name: 'BeBadge',
-            useCases: [
-              _i1.WidgetbookUseCase(
-                name: 'BeBadge',
-                builder: _i6.displayBeBadgeUseCase,
-              )
-            ],
+            builder: _i6.displayBeBadgeUseCase,
           )
         ],
-      ),
-      _i1.WidgetbookFolder(
-        name: 'text',
-        children: [
-          _i1.WidgetbookComponent(
-            name: 'BeText',
-            useCases: [
-              _i1.WidgetbookUseCase(
-                name: 'Colors & Utils',
-                builder: _i7.displayColorsUseCase,
-              ),
-              _i1.WidgetbookUseCase(
-                name: 'Elevation',
-                builder: _i8.displayElevationUseCase,
-              ),
-              _i1.WidgetbookUseCase(
-                name: 'Typography',
-                builder: _i9.displayTypographyUseCase,
-              ),
-            ],
-          )
+      )
+    ],
+  ),
+  _i1.WidgetbookFolder(
+    name: 'text',
+    children: [
+      _i1.WidgetbookComponent(
+        name: 'BeText',
+        useCases: [
+          _i1.WidgetbookUseCase(
+            name: 'Colors & Utils',
+            builder: _i7.displayColorsUseCase,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'Elevation',
+            builder: _i8.displayElevationUseCase,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'Typography',
+            builder: _i9.displayTypographyUseCase,
+          ),
         ],
-      ),
+      )
     ],
   ),
 ];

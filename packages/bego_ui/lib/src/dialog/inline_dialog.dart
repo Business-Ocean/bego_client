@@ -9,8 +9,8 @@
 // ///
 // /// The dialog is used in cases where a user needs to make a local change or
 // /// display extra information while keeping the main content still visible.
-// class OptimusInlineDialog extends StatelessWidget {
-//   const OptimusInlineDialog({
+// class BeInlineDialog extends StatelessWidget {
+//   const BeInlineDialog({
 //     super.key,
 //     required this.content,
 //     this.contentWrapperBuilder,
@@ -26,7 +26,7 @@
 //   final ContentWrapperBuilder? contentWrapperBuilder;
 
 //   /// {@macro optimus.dialog.actions}
-//   final List<OptimusDialogAction> actions;
+//   final List<BeDialogAction> actions;
 
 //   final VoidCallback? close;
 //   final Widget content;
@@ -34,13 +34,13 @@
 //   @override
 //   Widget build(BuildContext context) => AnchoredOverlay(
 //         anchorKey: anchorKey,
-//         width: OptimusDialogSize.small.width,
+//         width: BeDialogSize.small.width,
 //         child: DialogContent(
 //           content: content,
 //           actions: actions,
-//           type: OptimusDialogType.common,
-//           size: OptimusDialogSize.small,
-//           maxWidth: OptimusDialogSize.small.width,
+//           type: BeDialogType.common,
+//           size: BeDialogSize.small,
+//           maxWidth: BeDialogSize.small.width,
 //           contentWrapperBuilder: contentWrapperBuilder,
 //           isDismissible: true,
 //           close: close,

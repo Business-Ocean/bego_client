@@ -12,7 +12,7 @@ class BaseDropDownButton<T> extends StatefulWidget {
     required this.items,
     this.onItemSelected,
     this.size = 48,
-    this.variant = OptimusDropdownButtonVariant.defaultButton,
+    this.variant = BeDropdownButtonVariant.defaultButton,
     this.borderRadius = const BorderRadius.all(Radius.circular(12)),
     this.borderColor,
   });
@@ -20,10 +20,10 @@ class BaseDropDownButton<T> extends StatefulWidget {
   /// Typically the button's label.
   final Widget? child;
 
-  final List<OptimusDropdownTile<T>> items;
+  final List<BeDropdownTile<T>> items;
   final ValueSetter<T>? onItemSelected;
   final double size;
-  final OptimusDropdownButtonVariant variant;
+  final BeDropdownButtonVariant variant;
   final BorderRadius borderRadius;
   final Color? borderColor;
   @override

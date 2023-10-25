@@ -1,4 +1,4 @@
-// enum OptimusDialogSize {
+// enum BeDialogSize {
 //   /// Intended for short, to the point messages.
 //   ///
 //   /// Not suitable for dialogs with a lot of UI elements. Mostly used for
@@ -19,19 +19,19 @@
 //   large,
 // }
 
-// enum OptimusDialogType {
+// enum BeDialogType {
 //   /// Default dialog type. Used for common action.
 //   common,
 
-//   /// Primary button has [OptimusDialogType.destructive] variant, used for
+//   /// Primary button has [BeDialogType.destructive] variant, used for
 //   /// destructive actions.
 //   destructive,
 // }
 
-// extension DialogSize on OptimusDialogSize {
+// extension DialogSize on BeDialogSize {
 //   double get width => switch (this) {
-//         OptimusDialogSize.small => 320,
-//         OptimusDialogSize.regular => 576,
-//         OptimusDialogSize.large => 896,
+//         BeDialogSize.small => 320,
+//         BeDialogSize.regular => 576,
+//         BeDialogSize.large => 896,
 //       };
 // }

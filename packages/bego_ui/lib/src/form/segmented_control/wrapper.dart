@@ -13,7 +13,7 @@
 
 //   final Widget child;
 
-//   final OptimusWidgetSize size;
+//   final BeWidgetSize size;
 
 //   final int selectedItemIndex;
 

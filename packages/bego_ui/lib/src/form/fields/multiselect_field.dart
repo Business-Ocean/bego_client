@@ -1,6 +1,5 @@
-import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_widgets.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 /// Field to display several selected values.
 class MultiSelectInputField extends StatefulWidget {
@@ -10,7 +9,7 @@ class MultiSelectInputField extends StatefulWidget {
     this.focusNode,
     this.label,
     this.caption,
-    this.captionIcon = BeIcons.info_outline,
+    this.captionIcon = Icons.closed_caption,
     this.helperMessage,
     this.error,
     this.errorVariant = BeInputErrorVariant.bottomHint,
@@ -50,11 +49,10 @@ class MultiSelectInputField extends StatefulWidget {
   }
 
   @override
-  State<MultiSelectInputField> createState() =>
-      _OptimusMultiSelectInputFieldState();
+  State<MultiSelectInputField> createState() => _BeMultiSelectInputFieldState();
 }
 
-class _OptimusMultiSelectInputFieldState extends State<MultiSelectInputField> {
+class _BeMultiSelectInputFieldState extends State<MultiSelectInputField> {
   FocusNode? _focusNode;
 
   FocusNode get _effectiveFocusNode =>

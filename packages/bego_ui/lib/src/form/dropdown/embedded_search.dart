@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 /// An embedded search that is designed to be used inside the dropdown menu.
 /// Is styled to be in line with the default dropdown list items. Will call for
 /// the focus on display.
-class OptimusDropdownEmbeddedSearch extends StatefulWidget {
-  const OptimusDropdownEmbeddedSearch({
+class BeDropdownEmbeddedSearch extends StatefulWidget {
+  const BeDropdownEmbeddedSearch({
     super.key,
     this.placeholder,
     this.onTextChanged,
@@ -26,12 +26,11 @@ class OptimusDropdownEmbeddedSearch extends StatefulWidget {
   final bool isClearEnabled;
 
   @override
-  State<OptimusDropdownEmbeddedSearch> createState() =>
-      _OptimusDropdownEmbeddedSearchState();
+  State<BeDropdownEmbeddedSearch> createState() =>
+      _BeDropdownEmbeddedSearchState();
 }
 
-class _OptimusDropdownEmbeddedSearchState
-    extends State<OptimusDropdownEmbeddedSearch> {
+class _BeDropdownEmbeddedSearchState extends State<BeDropdownEmbeddedSearch> {
   late final TextEditingController _controller;
   final FocusNode _focusNode = FocusNode();
 

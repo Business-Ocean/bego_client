@@ -11,8 +11,8 @@ import 'package:flutter/material.dart';
 typedef Grouper<T> = String Function(T item);
 typedef GroupBuilder = Widget Function(String value);
 
-class OptimusDropdown<T> extends StatelessWidget {
-  const OptimusDropdown({
+class BeDropdown<T> extends StatelessWidget {
+  const BeDropdown({
     super.key,
     required this.items,
     required this.anchorKey,
@@ -24,7 +24,7 @@ class OptimusDropdown<T> extends StatelessWidget {
     this.groupBuilder,
   });
 
-  final List<OptimusDropdownTile<T>> items;
+  final List<BeDropdownTile<T>> items;
   final ValueSetter<T> onChanged;
   final GlobalKey anchorKey;
   final double? width;
@@ -65,7 +65,7 @@ class _DropdownContent<T> extends StatelessWidget {
   });
 
   final ValueSetter<T> onChanged;
-  final List<OptimusDropdownTile<T>> items;
+  final List<BeDropdownTile<T>> items;
   final Widget? embeddedSearch;
   final Widget? emptyResultPlaceholder;
   final Grouper<T>? groupBy;
@@ -160,7 +160,7 @@ class _DropdownListView<T> extends StatelessWidget {
   });
 
   final ValueSetter<T> onChanged;
-  final List<OptimusDropdownTile<T>> items;
+  final List<BeDropdownTile<T>> items;
   final bool isReversed;
   final double maxHeight;
 
@@ -192,7 +192,7 @@ class _GroupedDropdownListView<T> extends StatefulWidget {
   });
 
   final ValueSetter<T> onChanged;
-  final List<OptimusDropdownTile<T>> items;
+  final List<BeDropdownTile<T>> items;
   final bool isReversed;
   final double maxHeight;
   final Grouper<T> groupBy;
@@ -205,7 +205,7 @@ class _GroupedDropdownListView<T> extends StatefulWidget {
 
 class _GroupedDropdownListViewState<T>
     extends State<_GroupedDropdownListView<T>> {
-  late List<OptimusDropdownTile<T>> _sortedItems;
+  late List<BeDropdownTile<T>> _sortedItems;
   late int _groupsCount;
 
   @override
@@ -224,10 +224,9 @@ class _GroupedDropdownListViewState<T>
 
   GroupBuilder get _effectiveGroupBuilder =>
       widget.groupBuilder ??
-      (value) =>
-          OptimusDropdownGroupSeparator(child: Text(value.toUpperCase()));
+      (value) => BeDropdownGroupSeparator(child: Text(value.toUpperCase()));
 
-  List<OptimusDropdownTile<T>> _sortItems() {
+  List<BeDropdownTile<T>> _sortItems() {
     var groupsCount = 1;
 
     final sorted = [...widget.items]..sort((e1, e2) {
@@ -258,8 +257,8 @@ class _GroupedDropdownListViewState<T>
       _listVerticalSpacing * 2;
 
   bool _isSameGroup(
-    OptimusDropdownTile<T> first,
-    OptimusDropdownTile<T> second,
+    BeDropdownTile<T> first,
+    BeDropdownTile<T> second,
   ) =>
       widget.groupBy(second.value) == widget.groupBy(first.value);
 
@@ -338,7 +337,7 @@ class _DropdownItem<T> extends StatefulWidget {
     required this.onChanged,
   });
 
-  final OptimusDropdownTile<T> child;
+  final BeDropdownTile<T> child;
   final ValueSetter<T> onChanged;
 
   @override

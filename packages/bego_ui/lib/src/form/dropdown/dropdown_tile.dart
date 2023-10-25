@@ -1,8 +1,8 @@
 import 'package:bego_ui/src/form/dropdown/base_dropdown_tile.dart';
 import 'package:flutter/widgets.dart';
 
-abstract class OptimusDropdownTile<T> extends StatelessWidget {
-  const OptimusDropdownTile({super.key, required this.value});
+abstract class BeDropdownTile<T> extends StatelessWidget {
+  const BeDropdownTile({super.key, required this.value});
 
   final T value;
 
@@ -10,7 +10,7 @@ abstract class OptimusDropdownTile<T> extends StatelessWidget {
   Widget build(BuildContext context);
 }
 
-class ListDropdownTile<T> extends OptimusDropdownTile<T> {
+class ListDropdownTile<T> extends BeDropdownTile<T> {
   const ListDropdownTile({
     super.key,
     required super.value,
