@@ -28,8 +28,7 @@ class BeLinkRichText extends StatelessWidget {
             TextSpan(
               text: word.replaceAll(
                 uriRegex,
-                // TODO(sourav): add regex replace with domain
-                'click here',
+                word,
               ),
               style: const TextStyle(
                 color: Colors.blue,
