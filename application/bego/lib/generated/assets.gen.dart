@@ -30,9 +30,13 @@ class $AssetsImageGen {
   AssetGenImage get headerBg3 =>
       const AssetGenImage('assets/image/header_bg_3.jpg');
 
+  /// File path: assets/image/stacked_waves.png
+  AssetGenImage get stackedWaves =>
+      const AssetGenImage('assets/image/stacked_waves.png');
+
   /// List of all assets
   List<AssetGenImage> get values =>
-      [bgAbstract, headerBg1, headerBg2, headerBg3];
+      [bgAbstract, headerBg1, headerBg2, headerBg3, stackedWaves];
 }
 
 class $AssetsLogoGen {
@@ -52,6 +56,15 @@ class $AssetsSvgGen {
   /// File path: assets/svg/bego_icon.svg
   SvgGenImage get begoIcon => const SvgGenImage('assets/svg/bego_icon.svg');
 
+  /// File path: assets/svg/blob_1.svg
+  SvgGenImage get blob1 => const SvgGenImage('assets/svg/blob_1.svg');
+
+  /// File path: assets/svg/blob_2.svg
+  SvgGenImage get blob2 => const SvgGenImage('assets/svg/blob_2.svg');
+
+  /// File path: assets/svg/blob_3.svg
+  SvgGenImage get blob3 => const SvgGenImage('assets/svg/blob_3.svg');
+
   /// File path: assets/svg/business_ocean.svg
   SvgGenImage get businessOcean =>
       const SvgGenImage('assets/svg/business_ocean.svg');
@@ -59,8 +72,13 @@ class $AssetsSvgGen {
   /// File path: assets/svg/google_logo.svg
   SvgGenImage get googleLogo => const SvgGenImage('assets/svg/google_logo.svg');
 
+  /// File path: assets/svg/stacked_waves.svg
+  SvgGenImage get stackedWaves =>
+      const SvgGenImage('assets/svg/stacked_waves.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [begoIcon, businessOcean, googleLogo];
+  List<SvgGenImage> get values =>
+      [begoIcon, blob1, blob2, blob3, businessOcean, googleLogo, stackedWaves];
 }
 
 class AppAssets {

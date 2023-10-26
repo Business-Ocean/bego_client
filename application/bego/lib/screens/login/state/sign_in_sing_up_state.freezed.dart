@@ -57,22 +57,22 @@ class _$SignInSignUpStateCopyWithImpl<$Res, $Val extends SignInSignUpState>
 }
 
 /// @nodoc
-abstract class _$$_SignInSignUpStateCopyWith<$Res>
+abstract class _$$SignInSignUpStateImplCopyWith<$Res>
     implements $SignInSignUpStateCopyWith<$Res> {
-  factory _$$_SignInSignUpStateCopyWith(_$_SignInSignUpState value,
-          $Res Function(_$_SignInSignUpState) then) =
-      __$$_SignInSignUpStateCopyWithImpl<$Res>;
+  factory _$$SignInSignUpStateImplCopyWith(_$SignInSignUpStateImpl value,
+          $Res Function(_$SignInSignUpStateImpl) then) =
+      __$$SignInSignUpStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String title});
 }
 
 /// @nodoc
-class __$$_SignInSignUpStateCopyWithImpl<$Res>
-    extends _$SignInSignUpStateCopyWithImpl<$Res, _$_SignInSignUpState>
-    implements _$$_SignInSignUpStateCopyWith<$Res> {
-  __$$_SignInSignUpStateCopyWithImpl(
-      _$_SignInSignUpState _value, $Res Function(_$_SignInSignUpState) _then)
+class __$$SignInSignUpStateImplCopyWithImpl<$Res>
+    extends _$SignInSignUpStateCopyWithImpl<$Res, _$SignInSignUpStateImpl>
+    implements _$$SignInSignUpStateImplCopyWith<$Res> {
+  __$$SignInSignUpStateImplCopyWithImpl(_$SignInSignUpStateImpl _value,
+      $Res Function(_$SignInSignUpStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_SignInSignUpStateCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
   }) {
-    return _then(_$_SignInSignUpState(
+    return _then(_$SignInSignUpStateImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_SignInSignUpStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SignInSignUpState implements _SignInSignUpState {
-  const _$_SignInSignUpState({required this.title});
+class _$SignInSignUpStateImpl implements _SignInSignUpState {
+  const _$SignInSignUpStateImpl({required this.title});
 
   @override
   final String title;
@@ -106,7 +106,7 @@ class _$_SignInSignUpState implements _SignInSignUpState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SignInSignUpState &&
+            other is _$SignInSignUpStateImpl &&
             (identical(other.title, title) || other.title == title));
   }
 
@@ -116,19 +116,19 @@ class _$_SignInSignUpState implements _SignInSignUpState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SignInSignUpStateCopyWith<_$_SignInSignUpState> get copyWith =>
-      __$$_SignInSignUpStateCopyWithImpl<_$_SignInSignUpState>(
+  _$$SignInSignUpStateImplCopyWith<_$SignInSignUpStateImpl> get copyWith =>
+      __$$SignInSignUpStateImplCopyWithImpl<_$SignInSignUpStateImpl>(
           this, _$identity);
 }
 
 abstract class _SignInSignUpState implements SignInSignUpState {
   const factory _SignInSignUpState({required final String title}) =
-      _$_SignInSignUpState;
+      _$SignInSignUpStateImpl;
 
   @override
   String get title;
   @override
   @JsonKey(ignore: true)
-  _$$_SignInSignUpStateCopyWith<_$_SignInSignUpState> get copyWith =>
+  _$$SignInSignUpStateImplCopyWith<_$SignInSignUpStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

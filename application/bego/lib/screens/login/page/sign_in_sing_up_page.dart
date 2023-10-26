@@ -1,6 +1,7 @@
 import 'package:bego/components/login/app_title.dart';
 import 'package:bego/components/login/login_footer.dart';
 import 'package:bego/components/login/login_with_google.dart';
+import 'package:bego/generated/assets.gen.dart';
 import 'package:bego/screens/login/controller/sign_in_sign_up_controller.dart';
 import 'package:bego/screens/login/state/sign_in_sing_up_state.dart';
 import 'package:bego_app/bego_app.dart';
@@ -16,17 +17,33 @@ class SignInSignUpPage
   @override
   Widget buildPage(BuildContext context, SignInSignUpState? pageData) =>
       Scaffold(
-        body: Flex(
-          direction: Axis.vertical,
+        body: Column(
           mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            space72,
-            // AppAssets.svg.begoIcon.svg(height: 170),
-            Container(padding: px32, child: const AppTitle()),
-
             Expanded(
+              flex: 2,
+              child: SizedBox(
+                width: infinityWidth,
+                // decoration: BoxDecoration(
+                //   image: DecorationImage(
+                //     fit: BoxFit.fill,
+                //     image: AssetImage(AppAssets.image.stackedWaves.path),
+                //   ),
+                // ),
+                child: Column(
+                  children: [
+                    space72,
+                    AppAssets.svg.begoIcon.svg(height: 120),
+                    Container(padding: px32, child: const AppTitle()),
+                    space32,
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 4,
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 32,

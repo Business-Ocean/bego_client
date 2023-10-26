@@ -1,4 +1,3 @@
-import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -11,13 +10,15 @@ class AppTitle extends StatelessWidget {
   Widget build(BuildContext context) => const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
           BeText(
             'BEGO',
+            padding: EdgeInsets.zero,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 58,
-              shadows: BegoShadows.boxShadow1,
+              fontSize: 76,
+              height: 1,
             ),
           ),
           BeText(
@@ -25,8 +26,9 @@ class AppTitle extends StatelessWidget {
             padding: EdgeInsets.only(left: 4),
             style: TextStyle(
               fontWeight: FontWeight.bold,
+              letterSpacing: 0.55,
               fontSize: 14,
-              height: 0.01,
+              // height: 0.01,
             ),
           ),
         ],
