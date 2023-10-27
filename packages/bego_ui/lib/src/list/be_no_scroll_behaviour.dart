@@ -19,17 +19,6 @@ class BeNoScrollScrollConfiguration extends StatelessWidget {
 
 class BeNoScrollBehaviour extends ScrollBehavior {
   const BeNoScrollBehaviour();
-
-  @override
-  Widget buildOverscrollIndicator(
-    BuildContext context,
-    Widget child,
-    ScrollableDetails details,
-  ) =>
-      child;
-}
-
-class BeNoThumbScrollBehavior extends ScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => {
         PointerDeviceKind.touch,
@@ -37,4 +26,11 @@ class BeNoThumbScrollBehavior extends ScrollBehavior {
         PointerDeviceKind.stylus,
         PointerDeviceKind.trackpad,
       };
+  @override
+  Widget buildOverscrollIndicator(
+    BuildContext context,
+    Widget child,
+    ScrollableDetails details,
+  ) =>
+      child;
 }
