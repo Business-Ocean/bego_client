@@ -27,6 +27,7 @@ export 'src/form/be_multi_choice_checkbox_item.dart';
 export 'src/form/be_text_field.dart';
 export 'src/form/common.dart';
 export 'src/form/dropdown/base_dropdown_tile.dart';
+export 'src/form/dropdown/be_drop_down_field.dart';
 export 'src/form/dropdown/dropdown_select.dart';
 export 'src/form/dropdown/dropdown_tile.dart';
 export 'src/form/dropdown/embedded_search.dart';
