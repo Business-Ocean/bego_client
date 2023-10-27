@@ -13,7 +13,7 @@ class AppTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -34,6 +34,8 @@ class AppTitle extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 14,
               color: tagColor,
+              letterSpacing: 0.6,
+
               // height: 0.01,
             ),
           ),

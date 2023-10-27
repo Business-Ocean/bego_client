@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 
 /// Removes platform native animations from scroll.
@@ -26,4 +27,14 @@ class BeNoScrollBehaviour extends ScrollBehavior {
     ScrollableDetails details,
   ) =>
       child;
+}
+
+class BeNoThumbScrollBehavior extends ScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.trackpad,
+      };
 }

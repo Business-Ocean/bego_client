@@ -43,62 +43,65 @@ class SignInSignUpPage
             ),
             Expanded(
               flex: 4,
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 32,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    space32,
-                    const BeTextField(
-                      hint: 'Enter Email',
-                      label: 'Email',
-                    ),
-                    space32,
-                    const BeTextField(
-                      hint: 'Enter Password',
-                      label: 'Password',
-                    ),
-                    space32,
-                    BeLabel(
-                      label: const BeTinyLoader(
-                        show: true,
-                        color: Colors.white,
+              child: Container(
+                constraints: const BoxConstraints(maxWidth: 600),
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 32,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      space32,
+                      const BeTextField(
+                        hint: 'Enter Email',
+                        label: 'Email',
                       ),
-                      position: BeLabelPosition.centerRight,
-                      offset: const Offset(-36, 0),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('Login'),
+                      space32,
+                      const BeTextField(
+                        hint: 'Enter Password',
+                        label: 'Password',
                       ),
-                    ),
-                    const BeText(
-                      'OR',
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      align: TextAlign.center,
-                    ),
-                    const LoginInWithGoogle(
-                      loading: true,
-                      // onPressed: controller.getLoginURL,
-                    ),
-                    space24,
-                    Center(
-                      child: TextButton(
-                        onPressed: () {},
-                        // onPressed: controller.navigateHome,
-                        child: const Text(
-                          'Skip',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                      space32,
+                      BeLabel(
+                        label: const BeTinyLoader(
+                          show: true,
+                          color: Colors.white,
+                        ),
+                        position: BeLabelPosition.centerRight,
+                        offset: const Offset(-36, 0),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text('Login'),
+                        ),
+                      ),
+                      const BeText(
+                        'OR',
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        align: TextAlign.center,
+                      ),
+                      const LoginInWithGoogle(
+                        loading: true,
+                        // onPressed: controller.getLoginURL,
+                      ),
+                      space24,
+                      Center(
+                        child: TextButton(
+                          onPressed: () {},
+                          // onPressed: controller.navigateHome,
+                          child: const Text(
+                            'Skip',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
