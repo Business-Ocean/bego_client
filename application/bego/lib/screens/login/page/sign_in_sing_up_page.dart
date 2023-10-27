@@ -22,24 +22,23 @@ class SignInSignUpPage
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Expanded(
-              flex: 2,
-              child: SizedBox(
-                width: infinityWidth,
-                // decoration: BoxDecoration(
-                //   image: DecorationImage(
-                //     fit: BoxFit.fill,
-                //     image: AssetImage(AppAssets.image.stackedWaves.path),
-                //   ),
-                // ),
-                child: Column(
-                  children: [
-                    space72,
-                    AppAssets.svg.begoIcon.svg(height: 120),
-                    Container(padding: px32, child: const AppTitle()),
-                    space32,
-                  ],
+            Container(
+              padding: const EdgeInsets.only(top: 56, bottom: 36),
+              width: infinityWidth,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: BeSvgProvider(AppAssets.svg.stackedWaves.path),
                 ),
+              ),
+              child: Column(
+                children: [
+                  AppAssets.svg.begoIcon.svg(height: 120),
+                  Container(
+                    padding: px32,
+                    child: const AppTitle(),
+                  ),
+                ],
               ),
             ),
             Expanded(

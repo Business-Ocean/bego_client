@@ -4,10 +4,15 @@ import 'package:flutter/material.dart';
 class AppTitle extends StatelessWidget {
   const AppTitle({
     super.key,
+    this.headingColor,
+    this.tagColor,
   });
 
+  final Color? headingColor;
+  final Color? tagColor;
+
   @override
-  Widget build(BuildContext context) => const Column(
+  Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
@@ -19,15 +24,16 @@ class AppTitle extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 76,
               height: 1,
+              color: headingColor,
             ),
           ),
           BeText(
             'Discover Nearby Seamlessly',
-            padding: EdgeInsets.only(left: 4),
+            padding: const EdgeInsets.only(left: 4),
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              letterSpacing: 0.55,
               fontSize: 14,
+              color: tagColor,
               // height: 0.01,
             ),
           ),

@@ -2,6 +2,7 @@ library bego_ui;
 
 export 'assets/fonts.gen.dart';
 export 'src/decorations/be_icon_outline_border.dart';
+export 'src/helper/be_svg_provider.dart';
 export 'src/helper/color_utils.dart';
 export 'src/helper/text_utils.dart';
 export 'src/helper/theme_getter.dart';
