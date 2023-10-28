@@ -85,6 +85,7 @@ class _BeMultiLabelRenderObject extends RenderBox
 
     final (double x, double y) = switch (position) {
       BeMultiLabelPosition.topLeft => (0, -labelHeight),
+      BeMultiLabelPosition.leftTop => (-labelWidth, 0),
       BeMultiLabelPosition.topCenter => (
           ((size.width - labelWidth) / 2),
           -labelHeight
@@ -93,25 +94,34 @@ class _BeMultiLabelRenderObject extends RenderBox
           (size.width - labelWidth),
           (-labelHeight)
         ),
+      BeMultiLabelPosition.rightTop => ((size.width), 0),
       BeMultiLabelPosition.bottomRight => (
-          (size.width - labelWidth / 2),
+          (size.width - labelWidth),
           (size.height)
+        ),
+      BeMultiLabelPosition.rightBottom => (
+          (size.width),
+          (size.height - labelHeight)
+        ),
+      BeMultiLabelPosition.rightCenter => (
+          size.width,
+          (size.height - labelHeight) / 2
         ),
       BeMultiLabelPosition.bottomCenter => (
           (size.width - labelWidth) / 2,
-          (size.height)
+          size.height
         ),
-      BeMultiLabelPosition.bottomLeft => ((-labelWidth / 2), (size.height)),
-      BeMultiLabelPosition.centerLeft => (
+      BeMultiLabelPosition.bottomLeft => (0, (size.height)),
+      BeMultiLabelPosition.leftBottom => (
+          -labelWidth,
+          size.height - labelHeight
+        ),
+      BeMultiLabelPosition.leftCenter => (
           (-labelWidth),
           (size.height - labelHeight) / 2
         ),
       BeMultiLabelPosition.center => (
           (size.width - labelWidth) / 2,
-          (size.height - labelHeight) / 2
-        ),
-      BeMultiLabelPosition.centerRight => (
-          (size.width),
           (size.height - labelHeight) / 2
         ),
     };
@@ -214,10 +224,14 @@ enum BeMultiLabelPosition {
   topLeft,
   topCenter,
   topRight,
-  centerLeft,
-  center,
-  centerRight,
-  bottomLeft,
-  bottomCenter,
+  rightTop,
+  rightCenter,
+  rightBottom,
   bottomRight,
+  bottomCenter,
+  bottomLeft,
+  leftBottom,
+  leftCenter,
+  leftTop,
+  center,
 }

@@ -139,7 +139,6 @@ class _BeLabelRenderObject extends RenderBox
     return Offset(x + _offset.dx, y + _offset.dy);
   }
 
-  // TODO(sourav): fix the offset of the parent and child click
   @override
   bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
       defaultHitTestChildren(

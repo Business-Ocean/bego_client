@@ -59,9 +59,8 @@ class _BeMultiLabelRenderObject extends RenderBox
 
       child.layout(constraints, parentUsesSize: true);
       childConstraints = BoxConstraints.tight(child.size);
-
-      size = child.size;
     }
+    size = firstChild!.size;
   }
 
   @override
