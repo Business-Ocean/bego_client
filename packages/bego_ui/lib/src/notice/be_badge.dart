@@ -39,8 +39,8 @@ class BeBadge extends MultiChildRenderObjectWidget {
 
 class _BeBadgeRenderObject extends RenderBox
     with
-        ContainerRenderObjectMixin<RenderBox, _BeBadgeChild>,
-        RenderBoxContainerDefaultsMixin<RenderBox, _BeBadgeChild> {
+        ContainerRenderObjectMixin<RenderBox, _BeBadgeChildParentData>,
+        RenderBoxContainerDefaultsMixin<RenderBox, _BeBadgeChildParentData> {
   _BeBadgeRenderObject({
     required BeBadgePosition position,
     required bool rounded,
@@ -69,51 +69,38 @@ class _BeBadgeRenderObject extends RenderBox
 
   @override
   void setupParentData(covariant RenderObject child) {
-    child.parentData = _BeBadgeChild();
+    child.parentData = _BeBadgeChildParentData();
   }
 
   @override
   void performLayout() {
-    var childConstraints = constraints;
     final child = firstChild;
-    if (child != null) {
-      child.layout(constraints, parentUsesSize: true);
-      childConstraints = BoxConstraints.tight(child.size);
-    }
     final badge = lastChild;
-    if (badge != null) {
-      badge.layout(
-        BoxConstraints.loose(
-          Size(childConstraints.minWidth, childConstraints.minHeight),
-        ),
-      );
-    }
+    child!.layout(constraints, parentUsesSize: true);
 
-    size = child?.size ?? badge?.size ?? constraints.smallest;
+    size = child.size;
+
+    badge!.layout(
+      const BoxConstraints(),
+      parentUsesSize: true,
+    );
+
+    final badgeParentData = badge.parentData as _BeBadgeChildParentData;
+    final labelOffset = _getOffset(
+      badge.size.width,
+      badge.size.height,
+    );
+    badgeParentData.offset = labelOffset;
   }
 
   @override
-  void paint(PaintingContext context, Offset offset) {
-    final children = getChildrenAsList();
-    final badge = lastChild;
-    for (final child in children) {
-      if (child == badge) {
-        final badgeOffset =
-            _getOffset(offset, child.size.width, child.size.height);
-        context.paintChild(child, badgeOffset);
-      } else {
-        context.paintChild(child, offset);
-      }
-    }
-  }
+  void paint(PaintingContext context, Offset offset) =>
+      defaultPaint(context, offset);
 
   Offset _getOffset(
-    Offset originalOffset,
     double badgeWidth,
     double badgeHeight,
   ) {
-    var translateX = 0.0;
-    var translateY = 0.0;
     final radius = min(size.width, size.height) / 2;
     final roundShift = radius / 2;
 
@@ -155,10 +142,8 @@ class _BeBadgeRenderObject extends RenderBox
           (size.height - badgeHeight) / 2
         ),
     };
-    translateX = x + _offset.dx;
-    translateY = y + _offset.dy;
 
-    return originalOffset.translate(translateX, translateY);
+    return Offset(x + _offset.dx, y + _offset.dy);
   }
 
 // TODO(sourav): fix the offset of the parent and child click
@@ -170,7 +155,7 @@ class _BeBadgeRenderObject extends RenderBox
       );
 }
 
-class _BeBadgeChild extends ContainerBoxParentData<RenderBox>
+class _BeBadgeChildParentData extends ContainerBoxParentData<RenderBox>
     with ContainerParentDataMixin<RenderBox> {}
 
 enum BeBadgePosition {

@@ -72,7 +72,7 @@ class SignInSignUpPage
                           show: true,
                           color: Colors.white,
                         ),
-                        position: BeLabelPosition.centerRight,
+                        position: BeLabelPosition.rightCenter,
                         offset: const Offset(-36, 0),
                         child: ElevatedButton(
                           onPressed: () {},

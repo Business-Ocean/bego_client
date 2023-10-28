@@ -17,7 +17,7 @@ class LoginInWithGoogle extends StatelessWidget {
         ),
         child: BeLabel(
           label: BeTinyLoader(show: loading),
-          position: BeLabelPosition.centerRight,
+          position: BeLabelPosition.rightCenter,
           offset: const Offset(-36, 0),
           child: Container(
             height: 48,
