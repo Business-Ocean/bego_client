@@ -12,13 +12,34 @@ final class ColorUtils {
     assert(value >= 0 && value <= 1, 'shade values must be between 0 and 1');
 
     final hsl = HSLColor.fromColor(color);
-    final hslDark = hsl.withLightness(
-      (darker ? (hsl.lightness - value) : (hsl.lightness + value))
-          .clamp(0.0, 1.0),
-    );
+    final c = darker
+        ? hsl.withLightness(
+            (hsl.lightness - value / 2).clamp(0.0, 1.0),
+          )
+        : hsl.withLightness(
+            (hsl.lightness + value / 3).clamp(0.0, 1.0),
+          );
 
-    return hslDark.toColor();
+    return c.toColor();
   }
+  // static Color getShade(Color color, {bool darker = false, double value = .1}) {
+  //   assert(value >= 0 && value <= 1, 'shade values must be between 0 and 1');
+
+  //   // Convert the color to HSL format for easier manipulation
+  //   final hsl = HSLColor.fromColor(color);
+
+  //   // Calculate the new lightness value based on the `value` parameter
+  //   final newLightness = (darker
+  //           ? (hsl.lightness - value) // Make it darker
+  //           : (hsl.lightness + value)) // Make it lighter
+  //       .clamp(0.0, 1.0); // Ensure it stays within the valid range [0, 1]
+
+  //   // Create a new HSLColor with the adjusted lightness
+  //   final hslShade = hsl.withLightness(newLightness);
+
+  //   // Convert the HSLColor back to a Color
+  //   return hslShade.toColor();
+  // }
 
   /// Returns a [MaterialColor] from a [Color] object
   static MaterialColor getMaterialColorFromColor(Color color) {

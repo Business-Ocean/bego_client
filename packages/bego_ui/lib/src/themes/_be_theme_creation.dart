@@ -1,10 +1,9 @@
+import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/src/themes/_be_cupertino_theme.dart';
 import 'package:bego_ui/src/themes/_bego_default.dart';
 import 'package:bego_ui/src/themes/_input_forms_theme.dart';
 import 'package:bego_ui/src/themes/_text_themes.dart';
 import 'package:bego_ui/src/themes/_theme_extention.dart';
-import 'package:bego_ui/src/themes/be_theme_data.dart';
-import 'package:bego_ui/src/ui_const/bego_colors.dart';
 import 'package:flutter/material.dart';
 
 const package = 'bego_ui';
@@ -31,7 +30,7 @@ ThemeData createBegoTheme(BeThemeData betheme) {
 
     brightness: betheme.isDark ? Brightness.dark : Brightness.light,
     extensions: themeExtention(betheme),
-    fontFamily: 'ReadexPro',
+    fontFamily: BegoTextStyle.fontFamily,
     // primarySwatch: getPrimarySwatch(betheme),
     // colorSchemeSeed: BegoColors.pink,
     // platform: platform(betheme), // throws exception for web
