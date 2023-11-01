@@ -73,6 +73,31 @@ class _BeBadgeRenderObject extends RenderBox
   }
 
   @override
+  bool hitTest(BoxHitTestResult result, {required Offset position}) {
+    final badgeParentData = lastChild!.parentData as _BeBadgeChildParentData;
+    final badgePosition = Offset(
+      position.dx - badgeParentData.offset.dx,
+      position.dy - badgeParentData.offset.dy,
+    );
+    if (lastChild!.size.contains(badgePosition)) {
+      if (hitTestChildren(result, position: position) ||
+          hitTestSelf(position)) {
+        result.add(BoxHitTestEntry(this, position));
+        return true;
+      }
+    }
+
+    if (size.contains(position)) {
+      if (hitTestChildren(result, position: position) ||
+          hitTestSelf(position)) {
+        result.add(BoxHitTestEntry(this, position));
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @override
   void performLayout() {
     final child = firstChild;
     final badge = lastChild;
