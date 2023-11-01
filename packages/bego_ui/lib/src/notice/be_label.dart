@@ -62,7 +62,6 @@ class _BeLabelRenderObject extends RenderBox
   bool _childSized;
   set childSized(bool value) {
     _childSized = value;
-    markParentNeedsLayout();
     markNeedsLayout();
     markNeedsPaint();
   }
@@ -70,6 +69,31 @@ class _BeLabelRenderObject extends RenderBox
   @override
   void setupParentData(covariant RenderObject child) {
     child.parentData = _BeLabelChildParentData();
+  }
+
+  @override
+  bool hitTest(BoxHitTestResult result, {required Offset position}) {
+    final labelParentData = lastChild!.parentData as _BeLabelChildParentData;
+    final labelPosition = Offset(
+      position.dx - labelParentData.offset.dx,
+      position.dy - labelParentData.offset.dy,
+    );
+    if (lastChild!.size.contains(labelPosition)) {
+      if (hitTestChildren(result, position: position) ||
+          hitTestSelf(position)) {
+        result.add(BoxHitTestEntry(this, position));
+        return true;
+      }
+    }
+
+    if (size.contains(position)) {
+      if (hitTestChildren(result, position: position) ||
+          hitTestSelf(position)) {
+        result.add(BoxHitTestEntry(this, position));
+        return true;
+      }
+    }
+    return false;
   }
 
   @override

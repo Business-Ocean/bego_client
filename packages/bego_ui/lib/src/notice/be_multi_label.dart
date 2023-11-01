@@ -24,13 +24,13 @@ class BeMultiLabel extends MultiChildRenderObjectWidget {
 
 class _BeMultiLabelRenderObject extends RenderBox
     with
-        ContainerRenderObjectMixin<RenderBox, _BeBadgeChild>,
-        RenderBoxContainerDefaultsMixin<RenderBox, _BeBadgeChild> {
+        ContainerRenderObjectMixin<RenderBox, _BeMultiLabelParentData>,
+        RenderBoxContainerDefaultsMixin<RenderBox, _BeMultiLabelParentData> {
   _BeMultiLabelRenderObject();
 
   @override
   void setupParentData(covariant RenderObject child) {
-    child.parentData = _BeBadgeChild();
+    child.parentData = _BeMultiLabelParentData();
   }
 
   @override
@@ -136,7 +136,7 @@ class _BeMultiLabelRenderObject extends RenderBox
       defaultHitTestChildren(result, position: position);
 }
 
-class _BeBadgeChild extends ContainerBoxParentData<RenderBox>
+class _BeMultiLabelParentData extends ContainerBoxParentData<RenderBox>
     with ContainerParentDataMixin<RenderBox> {}
 
 // ==========================================================================
