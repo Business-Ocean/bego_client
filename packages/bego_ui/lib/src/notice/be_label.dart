@@ -9,6 +9,7 @@ class BeLabel extends MultiChildRenderObjectWidget {
     this.label,
     this.offset = Offset.zero,
     this.childSized = false,
+    this.innerLabel = false,
     this.position = BeLabelPosition.topLeft,
   }) : super(children: [child, label ?? emptyWidget]);
   final Widget child;
@@ -16,11 +17,13 @@ class BeLabel extends MultiChildRenderObjectWidget {
   final BeLabelPosition position;
   final Offset offset;
   final bool childSized;
+  final bool innerLabel;
   @override
   RenderObject createRenderObject(BuildContext context) => _BeLabelRenderObject(
         position: position,
         offset: offset,
         childSized: childSized,
+        innerLabel: innerLabel,
       );
 
   @override
@@ -31,6 +34,7 @@ class BeLabel extends MultiChildRenderObjectWidget {
     renderObject
       ..position = position
       ..offset = offset
+      ..innerLabel = innerLabel
       ..childSized = childSized;
   }
 }
@@ -43,9 +47,11 @@ class _BeLabelRenderObject extends RenderBox
     required BeLabelPosition position,
     required Offset offset,
     required bool childSized,
+    required bool innerLabel,
   })  : _position = position,
         _childSized = childSized,
-        _offset = offset;
+        _offset = offset,
+        _innerLabel = innerLabel;
 
   BeLabelPosition _position;
   set position(BeLabelPosition position) {
@@ -62,6 +68,13 @@ class _BeLabelRenderObject extends RenderBox
   bool _childSized;
   set childSized(bool value) {
     _childSized = value;
+    markNeedsLayout();
+    markNeedsPaint();
+  }
+
+  bool _innerLabel;
+  set innerLabel(bool value) {
+    _innerLabel = value;
     markNeedsLayout();
     markNeedsPaint();
   }
@@ -110,10 +123,15 @@ class _BeLabelRenderObject extends RenderBox
     );
 
     final badgeParentData = badge.parentData as _BeLabelChildParentData;
-    final labelOffset = _getOffset(
-      badge.size.width,
-      badge.size.height,
-    );
+    final labelOffset = _innerLabel
+        ? _getInnerLabelOffset(
+            badge.size.width,
+            badge.size.height,
+          )
+        : _getOffset(
+            badge.size.width,
+            badge.size.height,
+          );
     badgeParentData.offset = labelOffset;
   }
 
@@ -154,6 +172,44 @@ class _BeLabelRenderObject extends RenderBox
           (-labelWidth),
           (size.height - labelHeight) / 2
         ),
+      BeLabelPosition.center => (
+          (size.width - labelWidth) / 2,
+          (size.height - labelHeight) / 2
+        ),
+    };
+
+    return Offset(x + _offset.dx, y + _offset.dy);
+  }
+
+  Offset _getInnerLabelOffset(
+    double labelWidth,
+    double labelHeight,
+  ) {
+    final (double x, double y) = switch (_position) {
+      BeLabelPosition.topLeft => (0, 0),
+      BeLabelPosition.leftTop => (0, 0),
+      BeLabelPosition.topCenter => (size.width / 2, -0),
+      BeLabelPosition.topRight => (size.width - labelWidth, 0),
+      BeLabelPosition.rightTop => ((size.width - labelWidth), 0),
+      BeLabelPosition.bottomRight => (
+          (size.width - labelWidth),
+          (size.height - labelHeight)
+        ),
+      BeLabelPosition.rightBottom => (
+          (size.width - labelWidth),
+          (size.height - labelHeight)
+        ),
+      BeLabelPosition.rightCenter => (
+          size.width - labelWidth,
+          (size.height - labelHeight) / 2
+        ),
+      BeLabelPosition.bottomCenter => (
+          (size.width - 0) / 2,
+          size.height - labelHeight
+        ),
+      BeLabelPosition.bottomLeft => (0, (size.height - labelHeight)),
+      BeLabelPosition.leftBottom => (-0, size.height - labelHeight),
+      BeLabelPosition.leftCenter => ((-0), (size.height - labelHeight) / 2),
       BeLabelPosition.center => (
           (size.width - labelWidth) / 2,
           (size.height - labelHeight) / 2

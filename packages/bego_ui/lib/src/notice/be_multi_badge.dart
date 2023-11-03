@@ -28,8 +28,8 @@ class BeMultiBadge extends MultiChildRenderObjectWidget {
 
 class _BeMultiLabelRenderObject extends RenderBox
     with
-        ContainerRenderObjectMixin<RenderBox, _BeBadgeChild>,
-        RenderBoxContainerDefaultsMixin<RenderBox, _BeBadgeChild> {
+        ContainerRenderObjectMixin<RenderBox, _BeMultiBadgeParentData>,
+        RenderBoxContainerDefaultsMixin<RenderBox, _BeMultiBadgeParentData> {
   _BeMultiLabelRenderObject({required bool rounded}) : _rounded = rounded;
 
   bool _rounded;
@@ -40,52 +40,42 @@ class _BeMultiLabelRenderObject extends RenderBox
 
   @override
   void setupParentData(covariant RenderObject child) {
-    child.parentData = _BeBadgeChild();
+    child.parentData = _BeMultiBadgeParentData();
   }
 
   @override
   void performLayout() {
-    var childConstraints = constraints;
+    final child = firstChild;
+    child!.layout(constraints, parentUsesSize: true);
 
-    for (final child in getChildrenAsList()) {
-      if (child != firstChild) {
-        child.layout(
-          BoxConstraints.loose(
-            Size(childConstraints.minWidth, childConstraints.minHeight),
-          ),
+    size = child.size;
+
+    for (final c in getChildrenAsList()) {
+      if (c == firstChild) continue;
+      final badge = (c as _BadgeRenderBox)
+        ..layout(
+          const BoxConstraints(),
+          parentUsesSize: true,
         );
-        continue;
-      }
-
-      child.layout(constraints, parentUsesSize: true);
-      childConstraints = BoxConstraints.tight(child.size);
+      final badgeParentData = badge.parentData as _BeMultiBadgeParentData;
+      final labelOffset = _getOffset(
+        badge._position,
+        badge._offset,
+        badge.size.width,
+        badge.size.height,
+      );
+      badgeParentData.offset = labelOffset;
     }
-    size = firstChild!.size;
   }
 
   @override
   void paint(PaintingContext context, Offset offset) {
-    final children = getChildrenAsList();
-    for (final child in children) {
-      if (child is _BadgeRenderBox) {
-        final labelOffset = _getOffset(
-          child._position,
-          child._offset,
-          offset,
-          child.size.width,
-          child.size.height,
-        );
-        context.paintChild(child, labelOffset);
-        continue;
-      }
-      context.paintChild(child, offset);
-    }
+    defaultPaint(context, offset);
   }
 
   Offset _getOffset(
     BeMultiBadgePosition badgePosition,
     Offset childOffset,
-    Offset originalOffset,
     double badgeWidth,
     double badgeHeight,
   ) {
@@ -135,15 +125,43 @@ class _BeMultiLabelRenderObject extends RenderBox
     translateX = x + childOffset.dx;
     translateY = y + childOffset.dy;
 
-    return originalOffset.translate(translateX, translateY);
+    return Offset(translateX, translateY);
   }
 
   @override
   bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
       defaultHitTestChildren(result, position: position);
+
+  @override
+  bool hitTest(BoxHitTestResult result, {required Offset position}) {
+    for (final child in getChildrenAsList()) {
+      final badgeParentData = child.parentData as _BeMultiBadgeParentData;
+      // TODO(sourav): fix hitTest for bottom
+      final badgePosition = Offset(
+        position.dx - badgeParentData.offset.dx,
+        position.dy - badgeParentData.offset.dy,
+      );
+      if (child.size.contains(badgePosition)) {
+        if (hitTestChildren(result, position: position) ||
+            hitTestSelf(position)) {
+          result.add(BoxHitTestEntry(this, position));
+          return true;
+        }
+      }
+
+      if (size.contains(position)) {
+        if (hitTestChildren(result, position: position) ||
+            hitTestSelf(position)) {
+          result.add(BoxHitTestEntry(this, position));
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
 
-class _BeBadgeChild extends ContainerBoxParentData<RenderBox>
+class _BeMultiBadgeParentData extends ContainerBoxParentData<RenderBox>
     with ContainerParentDataMixin<RenderBox> {}
 
 // ==========================================================================
