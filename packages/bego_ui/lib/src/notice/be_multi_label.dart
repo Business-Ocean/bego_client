@@ -35,48 +35,36 @@ class _BeMultiLabelRenderObject extends RenderBox
 
   @override
   void performLayout() {
-    var childConstraints = constraints;
+    final child = firstChild;
+    child!.layout(constraints, parentUsesSize: true);
 
-    for (final child in getChildrenAsList()) {
-      if (child != firstChild) {
-        child.layout(
-          BoxConstraints.loose(
-            Size(childConstraints.minWidth, childConstraints.minHeight),
-          ),
+    size = child.size;
+
+    for (final c in getChildrenAsList()) {
+      if (c == firstChild) continue;
+      final badge = (c as _LabelRenderBox)
+        ..layout(
+          const BoxConstraints(),
+          parentUsesSize: true,
         );
-        continue;
-      }
-
-      child.layout(constraints, parentUsesSize: true);
-      childConstraints = BoxConstraints.tight(child.size);
-
-      size = child.size;
+      final badgeParentData = badge.parentData as _BeMultiLabelParentData;
+      final labelOffset = _getOffset(
+        badge._position,
+        badge._offset,
+        badge.size.width,
+        badge.size.height,
+      );
+      badgeParentData.offset = labelOffset;
     }
   }
 
   @override
-  void paint(PaintingContext context, Offset offset) {
-    final children = getChildrenAsList();
-    for (final child in children) {
-      if (child is _LabelRenderBox) {
-        final labelOffset = _getOffset(
-          child._position,
-          child._offset,
-          offset,
-          child.size.width,
-          child.size.height,
-        );
-        context.paintChild(child, labelOffset);
-        continue;
-      }
-      context.paintChild(child, offset);
-    }
-  }
+  void paint(PaintingContext context, Offset offset) =>
+      defaultPaint(context, offset);
 
   Offset _getOffset(
     BeMultiLabelPosition position,
     Offset childOffset,
-    Offset originalOffset,
     double labelWidth,
     double labelHeight,
   ) {
@@ -128,12 +116,40 @@ class _BeMultiLabelRenderObject extends RenderBox
     translateX = x + childOffset.dx;
     translateY = y + childOffset.dy;
 
-    return originalOffset.translate(translateX, translateY);
+    return Offset(translateX, translateY);
   }
 
   @override
   bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
       defaultHitTestChildren(result, position: position);
+
+  @override
+  bool hitTest(BoxHitTestResult result, {required Offset position}) {
+    for (final child in getChildrenAsList()) {
+      final badgeParentData = child.parentData as _BeMultiLabelParentData;
+      // TODO(sourav): fix hitTest for bottom
+      final badgePosition = Offset(
+        position.dx - badgeParentData.offset.dx,
+        position.dy - badgeParentData.offset.dy,
+      );
+      if (child.size.contains(badgePosition)) {
+        if (hitTestChildren(result, position: position) ||
+            hitTestSelf(position)) {
+          result.add(BoxHitTestEntry(this, position));
+          return true;
+        }
+      }
+
+      if (size.contains(position)) {
+        if (hitTestChildren(result, position: position) ||
+            hitTestSelf(position)) {
+          result.add(BoxHitTestEntry(this, position));
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
 
 class _BeMultiLabelParentData extends ContainerBoxParentData<RenderBox>
