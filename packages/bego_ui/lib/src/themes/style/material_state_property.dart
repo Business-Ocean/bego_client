@@ -188,6 +188,9 @@ MaterialStateProperty<Color?> buttonFilledForegroundColor(
         if (states.contains(MaterialState.disabled)) {
           return betheme.colors.disabled;
         }
+        if (states.any(interactiveSelectionStates.contains)) {
+          return betheme.colors.lightInverse;
+        }
         return betheme.colors.primary;
       },
     );
@@ -213,7 +216,7 @@ MaterialStateProperty<Color?> buttonFilledBackgroundColor(
       if (states.contains(MaterialState.disabled)) {
         return betheme.colors.disabled.withAlpha(80);
       }
-      return ColorUtils.getShade(betheme.colors.primary, value: 0.45);
+      return betheme.colors.primary.withAlpha(50);
     });
 
 MaterialStateProperty<double?> elevationInteraction() =>
