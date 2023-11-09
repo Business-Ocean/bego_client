@@ -58,7 +58,10 @@ class WidgetbookApp extends StatelessWidget {
       darkTheme: theme,
       lightTheme: theme,
       themeMode: ThemeMode.light,
-      child: Theme(data: BeTheme.createTheme(theme), child: child),
+      child: Theme(
+        data: BeTheme.createTheme(const BeThemeData.light()),
+        child: Container(color: Colors.white, child: child),
+      ),
     );
   }
 }

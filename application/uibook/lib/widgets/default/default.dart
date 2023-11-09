@@ -75,7 +75,7 @@ class _DefaultThemeWidgetState extends State<_DefaultThemeWidget> {
                   child: Padding(
                 padding: EdgeInsets.all(80.0),
                 child: BeText(
-                  "data",
+                  " Ea esse fugiat et voluptate aliqua ex fugiat Lorem do magna fugiat laborum. Eu veniam in nostrud magna. Labore ad sit non voluptate fugiat. Excepteur nostrud irure sit qui amet quis consectetur sint dolor officia fugiat. Eu deserunt pariatur fugiat magna esse ut cillum.",
                   padding: Pad(all: 10),
                 ),
               )),
@@ -138,7 +138,7 @@ class _DefaultThemeWidgetState extends State<_DefaultThemeWidget> {
               ),
               ElevatedButton(
                   onPressed: () async {
-                    Future<TimeOfDay?> selectedTime = showTimePicker(
+                    await showTimePicker(
                       initialTime: TimeOfDay.now(),
                       context: context,
                     );
@@ -303,14 +303,7 @@ class _DefaultThemeWidgetState extends State<_DefaultThemeWidget> {
               const Text("datadata"),
               const Divider(),
               const Text("datadata"),
-              // const DialogExample()
-              // const DataTableExample()
-              // ...ChipType.values
-              //     .map((e) => BeChip(
-              //           text: 'Submit',
-              //           chipType: e,
-              //         ))
-              //     .toList(),
+
               Chip(
                 // clipBehavior: Clip.hardEdge,
                 // padding: EdgeInsets.zero,
@@ -378,10 +371,15 @@ class _DefaultThemeWidgetState extends State<_DefaultThemeWidget> {
               ElevatedButton(
                 onPressed: () {
                   // Show the bottom sheet.
-                  // showModalBottomSheet(
-                  //   context: context,
-                  //   builder: (context) => const BottomSheetExample(),
-                  // );
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) => Container(
+                      height: 400,
+                      color: Colors.grey,
+                      child: const Center(
+                          child: BeText.titleLarge("Bottom sheet")),
+                    ),
+                  );
                 },
                 child: const Text('Show Bottom Sheet'),
               ),
