@@ -1,8 +1,6 @@
 import 'package:bego_ui/bego_icon.dart';
 import 'package:bego_ui/bego_ui.dart';
-import 'package:bego_ui/src/form/be_form_variant.dart';
-import 'package:bego_ui/src/form/common.dart';
-import 'package:bego_ui/src/form/input/field_wrapper.dart';
+import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

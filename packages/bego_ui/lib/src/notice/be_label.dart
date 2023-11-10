@@ -204,7 +204,7 @@ class _BeLabelRenderObject extends RenderBox
           (size.height - labelHeight) / 2
         ),
       BeLabelPosition.bottomCenter => (
-          (size.width - 0) / 2,
+          (size.width - labelWidth) / 2,
           size.height - labelHeight
         ),
       BeLabelPosition.bottomLeft => (0, (size.height - labelHeight)),
