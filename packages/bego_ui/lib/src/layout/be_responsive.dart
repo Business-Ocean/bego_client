@@ -1,5 +1,5 @@
 import 'package:bego_ui/bego_responsive.dart';
-import 'package:bego_ui/src/common_widget.dart';
+import 'package:bego_ui/src/common/common_widget.dart';
 import 'package:flutter/widgets.dart';
 
 mixin BeResponsiveMixin on Widget {

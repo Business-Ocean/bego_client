@@ -21,7 +21,7 @@ class BegoStyle {
 
   // opacity
   static const double enabled = 1;
-  static const double disabled = .32;
+  static const double disabled = .6;
   static const int gap = 10;
   static const int gutter = 10;
 

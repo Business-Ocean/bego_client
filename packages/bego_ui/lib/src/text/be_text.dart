@@ -1,5 +1,5 @@
 import 'package:bego_ui/bego_ui.dart';
-import 'package:bego_ui/src/common_widget.dart';
+import 'package:bego_ui/src/common/common_widget.dart';
 import 'package:bego_ui/src/text/be_text_responsive.dart';
 import 'package:bego_ui/src/text/be_text_type.dart';
 import 'package:bego_ui/src/text/be_text_variant.dart';

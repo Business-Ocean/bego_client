@@ -1,4 +1,4 @@
-import 'package:bego_ui/src/_resolve_style.dart';
+import 'package:bego_ui/src/common/resolve_style.dart';
 import 'package:bego_ui/src/layout/be_breakpoint.dart';
 import 'package:bego_ui/src/themes/be_theme.dart';
 import 'package:flutter/widgets.dart';
@@ -13,7 +13,7 @@ class BeWidgetResponsive extends StatelessWidget {
     this.align,
   });
 
-  final ResolveWidget resolveWidget;
+  final ResolveThemeWidget resolveWidget;
   final Widget child;
   final Color? color;
   final int? maxLines;

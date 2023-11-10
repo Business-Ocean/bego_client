@@ -1,14 +1,14 @@
 library bego_ui;
 
 export 'assets/fonts.gen.dart';
+//
+export 'src/common/no_splash_factory.dart';
 export 'src/decorations/be_icon_outline_border.dart';
 export 'src/decorations/be_svg_provider.dart';
 export 'src/helper/after_layout.dart';
 export 'src/helper/color_utils.dart';
 export 'src/helper/text_utils.dart';
 export 'src/helper/theme_getter.dart';
-//
-export 'src/no_splash_factory.dart';
 //
 export 'src/notification/be_inline_notification.dart';
 export 'src/notification/be_notification.dart';
