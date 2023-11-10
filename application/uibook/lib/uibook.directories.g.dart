@@ -123,7 +123,34 @@ final directories = <_i1.WidgetbookNode>[
             builder: _i10.displayBeBadgeUseCase,
           )
         ],
-      )
+      ),
+      _i1.WidgetbookComponent(
+        name: 'BeLabel',
+        useCases: [
+          _i1.WidgetbookUseCase(
+            name: 'BeLabel',
+            builder: _i10.displayBeLabelUseCase,
+          )
+        ],
+      ),
+      _i1.WidgetbookComponent(
+        name: 'BeMultiBadge',
+        useCases: [
+          _i1.WidgetbookUseCase(
+            name: 'BeMultiBadge',
+            builder: _i10.displayBeMultiBadgeUseCase,
+          )
+        ],
+      ),
+      _i1.WidgetbookComponent(
+        name: 'BeMultiLabel',
+        useCases: [
+          _i1.WidgetbookUseCase(
+            name: 'BeMultiLabel',
+            builder: _i10.displayBeMultiLabelUseCase,
+          )
+        ],
+      ),
     ],
   ),
   _i1.WidgetbookFolder(
