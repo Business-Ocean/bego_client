@@ -2,6 +2,48 @@ import 'package:bego_ui/bego_responsive.dart';
 import 'package:bego_ui/src/common/common_widget.dart';
 import 'package:flutter/widgets.dart';
 
+/// Show widget based on device width.
+class BeResponsiveBuilder extends StatelessWidget {
+  const BeResponsiveBuilder({
+    super.key,
+    required this.sm,
+    this.md,
+    this.lg,
+    this.xl,
+    this.doubleXl,
+  });
+
+  final Widget sm;
+  final Widget? md;
+  final Widget? lg;
+  final Widget? xl;
+  final Widget? doubleXl;
+
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final deviceSize = mediaQuery.size.width;
+
+    if (deviceSize >= BeBreakpoint.extraLarge.maxwidth) {
+      return doubleXl ?? xl ?? lg ?? md ?? sm;
+    }
+
+    if (deviceSize >= BeBreakpoint.large.maxwidth) {
+      return xl ?? lg ?? md ?? sm;
+    }
+
+    if (deviceSize >= BeBreakpoint.small.maxwidth) {
+      return lg ?? md ?? sm;
+    }
+
+    if (deviceSize >= BeBreakpoint.extraSmall.maxwidth) {
+      return md ?? sm;
+    }
+
+    return sm;
+  }
+}
+
 mixin BeResponsiveMixin on Widget {
   @protected
   Widget build(BuildContext context) {

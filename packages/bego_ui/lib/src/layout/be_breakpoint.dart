@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 
+///  Breakpoints constants [https://github.com/fronio/google_ui/blob/main/lib/src/responsive/breakpoints.dart].
+// class Breakpoints {
+//   static const SM = 640;
+//   static const MD = 768;
+//   static const LG = 1024;
+//   static const XL = 1280;
+//   static const DOUBLE_XL = 1536;
+// }
+
 enum BeBreakpoint {
   extraSmall(360),
-  small(600),
-  medium(1024),
-  large(1400),
-  extraLarge(1600);
+  small(640),
+  medium(768),
+  large(1024),
+  extraLarge(1280);
 
   const BeBreakpoint(this.maxwidth);
   final double maxwidth;

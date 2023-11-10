@@ -7,7 +7,6 @@ import 'package:bego_ui/src/themes/_theme_extention.dart';
 import 'package:flutter/material.dart';
 
 const package = 'bego_ui';
-const fontFamily = 'ReadexPro';
 
 ThemeData createBegoTheme(BeThemeData betheme) {
   // Build theme from bego theme data

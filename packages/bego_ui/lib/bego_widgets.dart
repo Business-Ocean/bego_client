@@ -10,8 +10,6 @@ export 'src/common/be_enable.dart';
 export 'src/common/common_widget.dart';
 export 'src/common/group_item.dart';
 export 'src/common/overlay_controller.dart';
-export 'src/common/resolve_state.dart';
-export 'src/common/resolve_style.dart';
 export 'src/container/be_blur.dart';
 export 'src/container/be_inner_shadowed.dart';
 export 'src/container/be_invert_color.dart';
@@ -63,6 +61,8 @@ export 'src/list/be_list_item.dart';
 export 'src/list/be_no_scroll_behaviour.dart';
 export 'src/list/be_scroll_behavior.dart';
 export 'src/loading/be_loading.dart';
+export 'src/menu/be_popup_menu_button.dart';
+export 'src/menu/be_popup_menu_item.dart';
 // Notification
 export 'src/notice/be_badge.dart';
 export 'src/notice/be_label.dart';
