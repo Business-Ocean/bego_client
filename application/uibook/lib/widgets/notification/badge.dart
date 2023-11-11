@@ -78,13 +78,14 @@ Widget displayBeLabelUseCase(BuildContext context) {
                         position: e,
                         // rounded: true,
                         label: Container(
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(4)),
-                              color: Colors.orange),
-                          child: const SizedBox(
-                            width: 20,
-                            height: 20,
+                                  const BorderRadius.all(Radius.circular(4)),
+                              color: ColorUtils.getRandomColor()),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 2, horizontal: 4),
+                            child: Text(e.name),
                           ),
                         ),
                         child: Container(
