@@ -1,4 +1,4 @@
-import 'package:bego_ui/src/_resolve_style.dart';
+import 'package:bego_ui/src/common/resolve_style.dart';
 import 'package:bego_ui/src/layout/be_breakpoint.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:bego_ui/src/ui_const/bego_colors.dart';
+import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
 final class BegoTextStyle {
@@ -6,7 +6,7 @@ final class BegoTextStyle {
 
 // Note : https://docs.flutter.dev/cookbook/design/package-fonts follow this
   static const packageName = 'bego_ui';
-  static const fontFamily = 'ReadexPro';
+  static const fontFamily = FontFamily.readexPro;
 
   /// Text Display
   static const displayLargeTextSize = 57.0;

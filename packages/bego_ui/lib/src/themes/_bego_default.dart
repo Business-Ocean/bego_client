@@ -451,7 +451,7 @@ FilledButtonThemeData filledButtonTheme(BeThemeData betheme) =>
         textStyle: MaterialStatePropertyAll(
           betheme.style.labelMedium.copyWith(color: betheme.colors.primary),
         ),
-        shadowColor: MaterialStatePropertyAll(betheme.colors.primary),
+        // shadowColor: MaterialStatePropertyAll(betheme.colors.primary),
         elevation: const MaterialStatePropertyAll(0),
         // side: elvatedSideBorder(betheme),
       ),
@@ -500,7 +500,7 @@ IconButtonThemeData iconButtonTheme(BeThemeData betheme) => IconButtonThemeData(
         shape: RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
         elevation: 0,
         // side: const BorderSide(),
-        foregroundColor: betheme.colors.accent,
+        foregroundColor: betheme.colors.primary,
 
         // visualDensity: VisualDensity.standard,
         // backgroundColor: betheme.becolors.primary.withAlpha(50),

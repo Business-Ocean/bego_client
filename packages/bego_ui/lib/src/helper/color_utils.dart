@@ -22,24 +22,31 @@ final class ColorUtils {
 
     return c.toColor();
   }
-  // static Color getShade(Color color, {bool darker = false, double value = .1}) {
-  //   assert(value >= 0 && value <= 1, 'shade values must be between 0 and 1');
 
-  //   // Convert the color to HSL format for easier manipulation
-  //   final hsl = HSLColor.fromColor(color);
+  /// Create material color palette from `Color`.
+  static MaterialColor createMaterialColor(Color color) {
+    final strengths = [.05];
+    final swatch = <int, Color>{};
+    final r = color.red;
+    final g = color.green;
+    final b = color.blue;
 
-  //   // Calculate the new lightness value based on the `value` parameter
-  //   final newLightness = (darker
-  //           ? (hsl.lightness - value) // Make it darker
-  //           : (hsl.lightness + value)) // Make it lighter
-  //       .clamp(0.0, 1.0); // Ensure it stays within the valid range [0, 1]
+    for (var i = 1; i < 10; i++) {
+      strengths.add(0.1 * i);
+    }
 
-  //   // Create a new HSLColor with the adjusted lightness
-  //   final hslShade = hsl.withLightness(newLightness);
+    for (final strength in strengths) {
+      final ds = 0.5 - strength;
+      swatch[(strength * 1000).round()] = Color.fromRGBO(
+        r + ((ds < 0 ? r : (255 - r)) * ds).round(),
+        g + ((ds < 0 ? g : (255 - g)) * ds).round(),
+        b + ((ds < 0 ? b : (255 - b)) * ds).round(),
+        1,
+      );
+    }
 
-  //   // Convert the HSLColor back to a Color
-  //   return hslShade.toColor();
-  // }
+    return MaterialColor(color.value, swatch);
+  }
 
   /// Returns a [MaterialColor] from a [Color] object
   static MaterialColor getMaterialColorFromColor(Color color) {

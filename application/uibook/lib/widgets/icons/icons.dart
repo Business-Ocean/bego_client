@@ -19,11 +19,13 @@ class DisplayIcons extends StatelessWidget {
         children: [
           Icon(
             iconDetails.data,
+            size: 28,
             // color: becolors(context).lightInverse,
           ),
           BeText(
-            iconDetails.name,
+            '${iconDetails.name}\n',
             maxLine: 2,
+            padding: const EdgeInsets.only(top: 4, left: 8, right: 8),
             overflow: TextOverflow.ellipsis,
             align: TextAlign.center,
           ),

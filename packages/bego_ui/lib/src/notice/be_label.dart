@@ -1,4 +1,4 @@
-import 'package:bego_ui/bego_widgets.dart';
+import 'package:bego_ui/src/common/common_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -204,7 +204,7 @@ class _BeLabelRenderObject extends RenderBox
           (size.height - labelHeight) / 2
         ),
       BeLabelPosition.bottomCenter => (
-          (size.width - 0) / 2,
+          (size.width - labelWidth) / 2,
           size.height - labelHeight
         ),
       BeLabelPosition.bottomLeft => (0, (size.height - labelHeight)),

@@ -48,7 +48,7 @@ class WidgetbookApp extends StatelessWidget {
         // LocalizationAddon(locales: locales, localizationsDelegates: localizationsDelegates)
       ],
       appBuilder: (context, child) {
-        return Scaffold(body: child);
+        return child;
       },
     );
   }
@@ -58,7 +58,11 @@ class WidgetbookApp extends StatelessWidget {
       darkTheme: theme,
       lightTheme: theme,
       themeMode: ThemeMode.light,
-      child: Theme(data: BeTheme.createTheme(theme), child: child),
+      child: MaterialApp(
+          theme: BeTheme.createTheme(theme),
+          home: Scaffold(
+            body: child,
+          )),
     );
   }
 }

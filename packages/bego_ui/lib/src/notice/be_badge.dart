@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:bego_ui/bego_widgets.dart';
+import 'package:bego_ui/src/common/common_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 

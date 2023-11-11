@@ -4,8 +4,8 @@
 // import 'package:flutter/material.dart';
 
 // /// Filter animation to display hidden components
-// class BrnSelectionAnimationWidget extends StatefulWidget {
-//   const BrnSelectionAnimationWidget({
+// class BeSelectionAnimationWidget extends StatefulWidget {
+//   const BeSelectionAnimationWidget({
 //     super.key,
 //     required this.controller,
 //     required this.view,
@@ -13,7 +13,7 @@
 //   });
 
 //   /// Used to display hidden controllers
-//   final BrnSelectionListViewController controller;
+//   final BeSelectionListViewController controller;
 
 //   /// Subassembly
 //   final Widget view;
@@ -22,12 +22,12 @@
 //   final int animationMilliseconds;
 
 //   @override
-//   _BrnSelectionAnimationWidgetState createState() =>
-//       _BrnSelectionAnimationWidgetState();
+//   _BeSelectionAnimationWidgetState createState() =>
+//       _BeSelectionAnimationWidgetState();
 // }
 
-// class _BrnSelectionAnimationWidgetState
-//     extends State<BrnSelectionAnimationWidget>
+// class _BeSelectionAnimationWidgetState
+//     extends State<BeSelectionAnimationWidget>
 //     with SingleTickerProviderStateMixin {
 //   bool _isControllerDisposed = false;
 //   late AnimationController _animationController;

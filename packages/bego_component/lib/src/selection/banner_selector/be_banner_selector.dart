@@ -25,8 +25,8 @@
 // }
 
 // class _BeBannerSelectorState extends State<BeBannerSelector> {
-//   late final BrnSelectionListViewController listViewController =
-//       BrnSelectionListViewController();
+//   late final BeSelectionListViewController listViewController =
+//       BeSelectionListViewController();
 //   late final StreamSubscription<dynamic> _refreshTitleSubscription;
 
 //   // late final ScrollController? _scrollController;
@@ -122,7 +122,7 @@
 //           child: Stack(
 //             fit: StackFit.loose,
 //             children: <Widget>[
-//               BrnSelectionAnimationWidget(
+//               BeSelectionAnimationWidget(
 //                 controller: listViewController,
 //                 view: content,
 //               ),

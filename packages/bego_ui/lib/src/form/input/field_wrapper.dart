@@ -98,17 +98,16 @@ class _FieldWrapper extends State<FormFieldWrapper> {
     final prefix = widget.prefix;
     final suffix = widget.suffix;
 
-    return BeBadge(
-      // offset: const Offset(0, 20),
-      position: BeBadgePosition.topRight,
-      // rounded: true,
-      badge: widget.isRequired
+    return BeLabel(
+      position: BeLabelPosition.rightTop,
+      innerLabel: true,
+      label: widget.isRequired
           ? Container(
               width: 6,
               height: 6,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: becolors.secandory,
+                color: becolors.primary,
               ),
             )
           : null,

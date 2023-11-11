@@ -1,7 +1,7 @@
 // import 'package:flutter/material.dart';
 
-// class BrnSelectionListViewController extends ChangeNotifier {
-//   BrnSelectionListViewController({
+// class BeSelectionListViewController extends ChangeNotifier {
+//   BeSelectionListViewController({
 //     this.menuIndex = -1,
 //     this.isShow = false,
 //   });
@@ -38,7 +38,7 @@
 // }
 
 // // /// Filter controller
-// // class BrnSelectionViewController {
+// // class BeSelectionViewController {
 // //   /// Close the filter pop-up window
 // //   void closeSelectionView() {
 // //     BeEventBus.instance.fire(CloseSelectionViewEvent());

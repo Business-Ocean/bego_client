@@ -10,7 +10,7 @@
 
 import 'package:flutter/material.dart';
 
-class SinglChoiceChip extends StatelessWidget with Event {
+class SinglChoiceChip extends StatelessWidget {
   const SinglChoiceChip({super.key});
   factory SinglChoiceChip.single() => const SinglChoiceChip();
 
@@ -21,7 +21,7 @@ class SinglChoiceChip extends StatelessWidget with Event {
       );
 }
 
-class BeChipChoice extends StatelessWidget with Event {
+class BeChipChoice extends StatelessWidget {
   const BeChipChoice({super.key, required this.value, required this.onChanged});
   final bool value;
   final ValueChanged<bool> onChanged;
@@ -30,5 +30,3 @@ class BeChipChoice extends StatelessWidget with Event {
   Widget build(BuildContext context) =>
       Switch(value: value, onChanged: onChanged);
 }
-
-mixin Event {}

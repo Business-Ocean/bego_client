@@ -3,20 +3,20 @@ import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
 
 ///Click event callback of Action Item
-typedef BrnCommonActionSheetItemClickCallBack = void Function(
+typedef BeCommonActionSheetItemClickCallBack = void Function(
   int index,
-  BrnCommonActionSheetItem actionItem,
+  BeCommonActionSheetItem actionItem,
 );
 
 /// Action Item click event interception callback
-typedef BrnCommonActionSheetItemClickInterceptor = bool Function(
+typedef BeCommonActionSheetItemClickInterceptor = bool Function(
   int index,
-  BrnCommonActionSheetItem actionItem,
+  BeCommonActionSheetItem actionItem,
 );
 
-/// create BrnCommonActionSheetItem
-class BrnCommonActionSheetItem {
-  BrnCommonActionSheetItem(
+/// create BeCommonActionSheetItem
+class BeCommonActionSheetItem {
+  BeCommonActionSheetItem(
     this.title, {
     this.desc,
     this.titleStyle,
@@ -36,8 +36,8 @@ class BrnCommonActionSheetItem {
   final TextStyle? descStyle;
 }
 
-class BrnCommonActionSheet extends StatelessWidget {
-  const BrnCommonActionSheet({
+class BeCommonActionSheet extends StatelessWidget {
+  const BeCommonActionSheet({
     super.key,
     required this.actions,
     this.title,
@@ -52,8 +52,8 @@ class BrnCommonActionSheet extends StatelessWidget {
   });
 
   /// List of configuration information related to each option
-  /// Each option supports modification content, see [BrnCommonActionSheetItem]
-  final List<BrnCommonActionSheetItem> actions;
+  /// Each option supports modification content, see [BeCommonActionSheetItem]
+  final List<BeCommonActionSheetItem> actions;
 
   /// ActionSheet title
   final String? title;
@@ -78,10 +78,10 @@ class BrnCommonActionSheet extends StatelessWidget {
   final double maxSheetHeight;
 
   /// Click event of Action Item
-  final BrnCommonActionSheetItemClickCallBack? clickCallBack;
+  final BeCommonActionSheetItemClickCallBack? clickCallBack;
 
   /// Action Item click event interception callback
-  final BrnCommonActionSheetItemClickInterceptor? onItemClickInterceptor;
+  final BeCommonActionSheetItemClickInterceptor? onItemClickInterceptor;
 
   @override
   Widget build(BuildContext context) {
@@ -202,8 +202,8 @@ class BrnCommonActionSheet extends StatelessWidget {
   }
 
   /// Configure internal information for each option
-  /// action configuration item for each item [BrnCommonActionSheetItem]
-  Widget _configTile(BrnCommonActionSheetItem action) {
+  /// action configuration item for each item [BeCommonActionSheetItem]
+  Widget _configTile(BeCommonActionSheetItem action) {
     final tileElements = <Widget>[
       Center(
         child: Text(

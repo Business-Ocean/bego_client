@@ -11,12 +11,12 @@ class BeBottomSheet {
         context: context,
         // isScrollControlled: true,
         backgroundColor: Colors.transparent,
-        builder: (BuildContext context) => BrnCommonActionSheet(
+        builder: (BuildContext context) => BeCommonActionSheet(
           title:
               'auxiliary content auxiliary content auxiliary content auxiliary content auxiliary content auxiliary content auxiliary content auxiliary content auxiliary content auxiliary content auxiliary content auxiliary content',
           actions: List.generate(
             40,
-            (index) => BrnCommonActionSheetItem('Item$index'),
+            (index) => BeCommonActionSheetItem('Item$index'),
           ),
           maxSheetHeight: 560,
           titleWidget: const BeText.headlineSmall('Title'),
@@ -24,7 +24,7 @@ class BeBottomSheet {
           maxTitleLines: 10,
           clickCallBack: (
             int index,
-            BrnCommonActionSheetItem actionEle,
+            BeCommonActionSheetItem actionEle,
           ) {
             // print(index);
             // final String? title = actionEle.title;

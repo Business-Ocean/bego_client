@@ -6,11 +6,11 @@ class BeAnimatedText extends StatefulWidget {
   const BeAnimatedText(
     this.texts, {
     super.key,
-    required this.onComplete,
+    this.onComplete,
   });
 
   final List<String> texts;
-  final void Function(int index) onComplete;
+  final void Function(int index)? onComplete;
 
   @override
   State<BeAnimatedText> createState() => _BeAnimatedTextState();
@@ -47,7 +47,7 @@ class _BeAnimatedTextState extends State<BeAnimatedText> {
     await Future<void>.delayed(secondLevelDuration);
     await _typeText(text, _currentTextColor);
     await Future<void>.delayed(secondLevelDuration);
-    widget.onComplete(index);
+    widget.onComplete?.call(index);
     // setState(() => _currentTextColor = ColorUtils.getRandomColor());
     await _unTypeText(text);
   }

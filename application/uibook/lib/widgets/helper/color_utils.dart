@@ -12,72 +12,82 @@ Widget colorUtils(BuildContext context) {
       alignment: Alignment.center,
       children: [
         const MyHoverableWidget(),
-        Container(height: 50, width: 50, color: ColorUtils.getRandomColor()),
         Container(
-            height: 50,
-            width: 50,
-            color: ColorUtils.getMaterialColorFromColor(BegoColors.green)
-                .shade300),
+          color: ColorUtils.getRandomColor(),
+          child: const Text('ColorUtils.getRandomColor()'),
+        ),
         Container(
-            height: 50,
-            width: 50,
-            color: ColorUtils.solidOpacity(Colors.red, opacity: 0.5)),
-        Container(height: 50, width: 50, color: BegoColors.blue),
+          color:
+              ColorUtils.getMaterialColorFromColor(BegoColors.green).shade300,
+          child: const Text(
+              '  ColorUtils.getMaterialColorFromColor(BegoColors.green).shade300,'),
+        ),
+        Container(
+          color: ColorUtils.solidOpacity(Colors.red, opacity: 0.5),
+          child:
+              const Text('ColorUtils.solidOpacity(Colors.red, opacity: 0.5)'),
+        ),
+        Container(
+          color: ColorUtils.createMaterialColor(BegoColors.amber).shade800,
+          child: const Text(
+              ' ColorUtils.createMaterialColor(BegoColors.amber).shade800,'),
+        ),
+        Container(height: 18, width: double.infinity, color: BegoColors.blue),
         ...[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
             .map((e) => Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                        height: 50,
-                        width: 50,
-                        color: ColorUtils.getShade(BegoColors.blue,
-                            darker: false, value: e)),
+                      color: ColorUtils.getShade(BegoColors.blue,
+                          darker: false, value: e),
+                      child: Text(
+                          '  ColorUtils.getShade(BegoColors.blue, darker: false, value: $e)'),
+                    ),
                     Container(
-                        height: 50,
-                        width: 50,
                         color: ColorUtils.getShade(BegoColors.blue,
-                            value: e, darker: true)),
+                            value: e, darker: true),
+                        child: Text(
+                            'ColorUtils.getShade(BegoColors.blue,value: $e, darker: true)')),
                   ],
                 ))
             .toList(),
         Container(
-          height: 50,
-          width: 50,
           color: ColorUtils.getMaterialColorFromColor(Colors.orange),
+          child:
+              const Text('ColorUtils.getMaterialColorFromColor(Colors.orange)'),
         ),
         Container(
-          height: 50,
-          width: 50,
           color: Colors.pink,
-          child: Text("Text Color ",
+          child: Text(
+              "Text Color: ColorUtils.textColorFromBackground(Colors.pink))",
               style: TextStyle(
                   color: ColorUtils.textColorFromBackground(Colors.pink))),
         ),
         Container(
-          height: 50,
-          width: 50,
           color: BegoColors.pink200,
-          child: Text("Text Color ",
+          child: Text(
+              "Text Color:  ColorUtils.textColorFromBackground(BegoColors.pink200))",
               style: TextStyle(
                   color:
                       ColorUtils.textColorFromBackground(BegoColors.pink200))),
         ),
         Container(
-          height: 50,
-          width: 50,
-          color: ColorUtils.textColorFromBackground(BegoColors.pink800),
-        ),
-        Container(
-          height: 50,
-          width: 50,
           color: ColorUtils.getBrightness(BegoColors.red200) == Brightness.light
               ? BegoColors.amber100
               : BegoColors.amber700,
-          child: Text(
-              ColorUtils.getBrightness(BegoColors.red200) == Brightness.light
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                  " ColorUtils.getBrightness(BegoColors.red200) == Brightness.light? BegoColors.amber100: BegoColors.amber700,"),
+              Text(ColorUtils.getBrightness(BegoColors.red200) ==
+                      Brightness.light
                   ? "Light"
                   : "Dark"),
+            ],
+          ),
         ),
       ],
     ),
