@@ -34,7 +34,7 @@ class BeColorsLight implements BeColors {
   @override
   Color get formInputBackground => primary.withAlpha(5);
   @override
-  Color get icon => BegoColors.blue50;
+  Color get icon => BegoColors.slate900;
 
   @override
   Color get error => BegoColors.red500;

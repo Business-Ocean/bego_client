@@ -180,6 +180,15 @@ MaterialStateProperty<Color?> buttonForegroundColor(BeThemeData betheme) =>
         return betheme.colors.lightInverse;
       },
     );
+MaterialStateProperty<Color?> iconButtonForegroundColor(BeThemeData betheme) =>
+    MaterialStateProperty.resolveWith(
+      (states) {
+        if (states.contains(MaterialState.disabled)) {
+          return betheme.colors.disabled;
+        }
+        return betheme.colors.icon;
+      },
+    );
 MaterialStateProperty<Color?> buttonFilledForegroundColor(
   BeThemeData betheme,
 ) =>
@@ -205,6 +214,17 @@ MaterialStateProperty<Color?> buttonBackgroundColor(BeThemeData betheme) =>
       }
       return betheme.colors.primary;
     });
+
+// MaterialStateProperty<Color?> iconButtonBackgroundColor(BeThemeData betheme) =>
+//     MaterialStateProperty.resolveWith((states) {
+//       if (states.any(interactiveSelectionStates.contains)) {
+//         return betheme.colors.primary.withAlpha(80);
+//       }
+//       if (states.contains(MaterialState.disabled)) {
+//         return betheme.colors.disabled.withAlpha(80);
+//       }
+//       return betheme.colors.primary.withAlpha(60);
+//     });
 
 MaterialStateProperty<Color?> buttonFilledBackgroundColor(
   BeThemeData betheme,

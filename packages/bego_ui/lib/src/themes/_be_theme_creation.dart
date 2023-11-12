@@ -97,6 +97,7 @@ ThemeData createBegoTheme(BeThemeData betheme) {
     navigationBarTheme: navigationBarTheme(betheme), // done
     navigationDrawerTheme: navigationDrawerTheme(betheme), // done
     iconButtonTheme: iconButtonTheme(betheme), //done
+
     navigationRailTheme: navigationRailTheme(betheme), // done
     elevatedButtonTheme: elevatedButtonTheme(betheme), // done
     buttonTheme: buttonTheme(betheme), // theme
