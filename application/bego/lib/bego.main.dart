@@ -20,8 +20,6 @@ void main() async {
         themeMode: ThemeMode.light,
       ),
       routerConfig: appRouter,
-
-      // home: MyHomePage(title: 'Flutter GetX Tutorial'),
     ),
   );
 }

@@ -1,7 +1,6 @@
 import 'package:bego/components/login/app_title.dart';
 import 'package:bego/components/login/login_footer.dart';
 import 'package:bego/components/login/login_with_google.dart';
-import 'package:bego/generated/assets.gen.dart';
 import 'package:bego/screens/login/controller/sign_in_sign_up_controller.dart';
 import 'package:bego/screens/login/state/sign_in_sing_up_state.dart';
 import 'package:bego_app/bego_app.dart';
@@ -41,9 +40,54 @@ class SignInSignUpPage
             //     ],
             //   ),
             // ),
-            space72,
-            AppAssets.svg.begoIcon.svg(height: 120),
-            const AppTitle(),
+            // space72,
+            // AppAssets.svg.begoIcon.svg(height: 120),
+            // const AppTitle(),
+            Container(
+              width: infinityWidth,
+              alignment: Alignment.bottomLeft,
+              padding: px32 + py16,
+              color: becolors(context).primary.withAlpha(10),
+
+              // decoration: BoxDecoration(
+              //   image: DecorationImage(
+              // // opacity: 0.1,
+              // // fit: BoxFit.contain,
+              // // image: BeSvgProvider(
+              // //   AppAssets.svg.begoIcon.path,
+              //   // ),
+              //   // ),
+              // ),
+              height: 220,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Spacer(),
+                  AppTitle(
+                    headingColor: becolors(context).primary,
+                    tagColor: BegoColors.slate,
+                  ),
+                  const Spacer(),
+                  const BeText(
+                    'Get Started',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: BegoColors.slate700,
+                      // color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              // child: const BeText(
+              //   'Get Started',
+              //   style: TextStyle(
+              //     fontWeight: FontWeight.bold,
+              //     fontSize: 32,
+              //     // color: Colors.white,
+              //   ),
+              // ),
+            ),
             Expanded(
               child: Container(
                 constraints: const BoxConstraints(maxWidth: 600),

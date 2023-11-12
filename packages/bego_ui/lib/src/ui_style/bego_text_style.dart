@@ -46,7 +46,8 @@ final class BegoTextStyle {
   static const bodyMediumLineHeight = 20.0;
   static const bodySmallTextSize = 12.0;
   static const bodySmallLineHeight = 16.0;
-
+  //BegoColors.textColor // Set color to NULL, let ThemeData handle default.
+  static const Color? _textColor = null;
   static const List<Shadow>? textShadow = null;
 
   static const TextStyle displayLarge = TextStyle(
@@ -54,7 +55,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: displayLargeTextSize,
     fontWeight: FontWeight.w400,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     letterSpacing: -0.25,
     height: displayLargeLineHeight / displayLargeTextSize,
@@ -64,7 +65,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: displayMediumTextSize,
     fontWeight: FontWeight.w400,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     height: displayMediumLineHeight / displayMediumTextSize,
   );
@@ -73,7 +74,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: displaySmallTextSize,
     fontWeight: FontWeight.w400,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     height: displaySmallLineHeight / displaySmallTextSize,
   );
@@ -82,7 +83,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: headlineLargeTextSize,
     fontWeight: FontWeight.w400,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     height: headlineLargeLineHeight / headlineLargeTextSize,
   );
@@ -91,7 +92,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: headlineMediumTextSize,
     fontWeight: FontWeight.w400,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     height: headlineMediumLineHeight / headlineMediumTextSize,
   );
@@ -100,7 +101,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: headlineSmallTextSize,
     fontWeight: FontWeight.w400,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     height: headlineSmallLineHeight / headlineSmallTextSize,
   );
@@ -109,7 +110,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: titleLargeTextSize,
     fontWeight: FontWeight.w400,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     height: titleLargeLineHeight / titleLargeTextSize,
   );
@@ -118,7 +119,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: titleMediumTextSize,
     fontWeight: FontWeight.w500,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     letterSpacing: 0.1,
     height: titleMediumLineHeight / titleMediumTextSize,
@@ -128,7 +129,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: titleSmallTextSize,
     fontWeight: FontWeight.w500,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     letterSpacing: 0.1,
     height: titleSmallLineHeight / titleSmallTextSize,
@@ -138,7 +139,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: bodyLargeTextSize,
     fontWeight: FontWeight.w400,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     letterSpacing: 0.5,
     height: bodyLargeLineHeight / bodyLargeTextSize,
@@ -148,7 +149,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: bodyMediumTextSize,
     fontWeight: FontWeight.w400,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     letterSpacing: 0.25,
     height: bodyMediumLineHeight / bodyMediumTextSize,
@@ -158,7 +159,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: bodySmallTextSize,
     fontWeight: FontWeight.w400,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     letterSpacing: 0.25,
     height: bodySmallLineHeight / bodySmallTextSize,
@@ -168,7 +169,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: labelLargeTextSize,
     fontWeight: FontWeight.w500,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     letterSpacing: 0.1,
     height: labelLargeLineHeight / labelLargeTextSize,
@@ -178,7 +179,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: labelMediumTextSize,
     fontWeight: FontWeight.w500,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     letterSpacing: 0.5,
     height: labelMediumLineHeight / labelMediumTextSize,
@@ -188,7 +189,7 @@ final class BegoTextStyle {
     fontFamily: fontFamily,
     fontSize: labelSmallTextSize,
     fontWeight: FontWeight.w500,
-    color: BegoColors.textColor,
+    color: _textColor,
     shadows: textShadow,
     letterSpacing: 0.5,
     height: labelSmallLineHeight / labelSmallTextSize,
