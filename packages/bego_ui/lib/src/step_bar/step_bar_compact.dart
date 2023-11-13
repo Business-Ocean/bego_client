@@ -1,8 +1,6 @@
 import 'package:bego_core/bego_dfunc.dart';
 import 'package:bego_ui/bego_ui.dart';
-import 'package:bego_ui/src/step_bar/step_bar.dart';
-import 'package:bego_ui/src/step_bar/step_bar_item.dart';
-import 'package:bego_ui/src/text/be_text.dart';
+import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
 
 /// The compact version of the BeStepBar that is using a modified vertical
@@ -189,7 +187,7 @@ class _CompactStepBarItem extends StatelessWidget {
               indicatorText: indicatorText,
             ),
           )
-        : const SizedBox.shrink();
+        : emptyWidget;
   }
 }
 
@@ -214,7 +212,7 @@ class _CompactStepBarIndicator extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               BeText(text, maxLine: 1),
-              const SizedBox(width: 4),
+              space4,
               const Icon(Icons.keyboard_arrow_down),
             ],
           ),

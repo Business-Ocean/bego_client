@@ -9,9 +9,9 @@ import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/bego_widgets.dart';
 import 'package:flutter/material.dart';
 
-class SignInSignUpPage
+class VerifyOTPPage
     extends ViewPage<SignInSignUpState, SignInSignUpController> {
-  SignInSignUpPage({super.key});
+  VerifyOTPPage({super.key});
 
   @override
   Widget buildPage(BuildContext context, SignInSignUpState? pageData) =>
@@ -126,8 +126,8 @@ class SignInSignUpPage
                       space24,
                       Center(
                         child: TextButton(
-                          // onPressed: () {},
-                          onPressed: controller.navigateHome,
+                          onPressed: () {},
+                          // onPressed: controller.navigateHome,
                           child: const Text(
                             'Skip',
                             style: TextStyle(

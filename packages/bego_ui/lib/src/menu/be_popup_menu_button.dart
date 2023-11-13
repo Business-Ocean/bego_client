@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/src/menu/be_popup_menu_item.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,7 @@ class BePopupMenuButton extends StatelessWidget {
             ? Row(
                 children: [
                   item.icon!,
-                  const SizedBox(width: 16),
+                  space16,
                   Expanded(child: Text(item.label)),
                 ],
               )
