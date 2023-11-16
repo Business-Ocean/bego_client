@@ -8,7 +8,7 @@ class BeBadge extends MultiChildRenderObjectWidget {
   BeBadge({
     super.key,
     required this.child,
-    required this.badge,
+    this.badge,
     this.rounded = false,
     this.offset = Offset.zero,
     this.position = BeBadgePosition.topRight,
