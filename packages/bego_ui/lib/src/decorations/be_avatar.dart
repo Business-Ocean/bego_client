@@ -43,7 +43,8 @@ class BeAvatar extends StatelessWidget {
             ),
             child: Center(
               child: MediaQuery(
-                data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                data: MediaQuery.of(context)
+                    .copyWith(textScaler: TextScaler.noScaling),
                 child: imageUrl != null
                     ? FadeInImage.memoryNetwork(
                         width: _diameter,

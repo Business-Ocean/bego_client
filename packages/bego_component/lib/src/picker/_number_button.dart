@@ -16,14 +16,14 @@ class NumberPickerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BeEnabled(
-      isEnabled: _isEnabled,
-      child: GestureDetector(
-        onTap: onPressed,
-        child: Icon(
-          iconData,
-          color: becolors(context).accent,
-          size: 24,
+        isEnabled: _isEnabled,
+        child: GestureDetector(
+          onTap: onPressed,
+          child: Icon(
+            iconData,
+            color: becolors(context).accent,
+            size: 24,
+          ),
         ),
-      ),
-    );
+      );
 }

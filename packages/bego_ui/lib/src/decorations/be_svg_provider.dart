@@ -83,7 +83,7 @@ class BeSvgProvider extends ImageProvider<SvgImageKey> {
   }
 
   @override
-  ImageStreamCompleter load(SvgImageKey key, Function decode) =>
+  ImageStreamCompleter loadImage(SvgImageKey key, Function decode) =>
       OneFrameImageStreamCompleter(_loadAsync(key));
 
   static Future<String> _getSvgString(SvgImageKey key) async {

@@ -256,7 +256,7 @@ class _BePopupWindowState extends State<BePopupWindow> {
   @override
   Widget build(BuildContext context) => ExcludeSemantics(
         excluding: true,
-        child: WillPopScope(
+        child: PopScope(
           child: GestureDetector(
             behavior: HitTestBehavior.translucent,
             onTap: () {
@@ -273,7 +273,8 @@ class _BePopupWindowState extends State<BePopupWindow> {
               ),
             ),
           ),
-          onWillPop: () => Future.value(true),
+
+          // onWillPop: () => Future.value(true),
         ),
       );
 

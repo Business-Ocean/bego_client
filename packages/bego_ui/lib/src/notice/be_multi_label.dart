@@ -82,13 +82,13 @@ class _BeMultiLabelRenderObject extends RenderBox
           (size.width - labelWidth),
           (-labelHeight)
         ),
-      BeMultiLabelPosition.rightTop => ((size.width), 0),
+      BeMultiLabelPosition.rightTop => (size.width, 0),
       BeMultiLabelPosition.bottomRight => (
           (size.width - labelWidth),
-          (size.height)
+          size.height
         ),
       BeMultiLabelPosition.rightBottom => (
-          (size.width),
+          size.width,
           (size.height - labelHeight)
         ),
       BeMultiLabelPosition.rightCenter => (
@@ -99,7 +99,7 @@ class _BeMultiLabelRenderObject extends RenderBox
           (size.width - labelWidth) / 2,
           size.height
         ),
-      BeMultiLabelPosition.bottomLeft => (0, (size.height)),
+      BeMultiLabelPosition.bottomLeft => (0, size.height),
       BeMultiLabelPosition.leftBottom => (
           -labelWidth,
           size.height - labelHeight

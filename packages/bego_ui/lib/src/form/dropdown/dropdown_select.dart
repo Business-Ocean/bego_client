@@ -288,8 +288,8 @@ class _DropdownSelectState<T> extends State<DropdownSelect<T>> {
             isUpdating: widget.isUpdating,
           );
 
-    return WillPopScope(
-      onWillPop: () async => _handleOnBackPressed(),
+    return PopScope(
+      canPop: _handleOnBackPressed(),
       child: widget.multiselect && _hasValues
           ? MultiSelectInputField(
               values: _values ?? [],

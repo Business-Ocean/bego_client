@@ -152,12 +152,9 @@ class _BeLabelRenderObject extends RenderBox
           -labelHeight
         ),
       BeLabelPosition.topRight => ((size.width - labelWidth), (-labelHeight)),
-      BeLabelPosition.rightTop => ((size.width), 0),
-      BeLabelPosition.bottomRight => ((size.width - labelWidth), (size.height)),
-      BeLabelPosition.rightBottom => (
-          (size.width),
-          (size.height - labelHeight)
-        ),
+      BeLabelPosition.rightTop => (size.width, 0),
+      BeLabelPosition.bottomRight => ((size.width - labelWidth), size.height),
+      BeLabelPosition.rightBottom => (size.width, (size.height - labelHeight)),
       BeLabelPosition.rightCenter => (
           size.width,
           (size.height - labelHeight) / 2
@@ -166,7 +163,7 @@ class _BeLabelRenderObject extends RenderBox
           (size.width - labelWidth) / 2,
           size.height
         ),
-      BeLabelPosition.bottomLeft => (0, (size.height)),
+      BeLabelPosition.bottomLeft => (0, size.height),
       BeLabelPosition.leftBottom => (-labelWidth, size.height - labelHeight),
       BeLabelPosition.leftCenter => (
           (-labelWidth),

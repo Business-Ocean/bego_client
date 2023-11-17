@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class StaggeredDotsWave extends StatefulWidget {
-
   const StaggeredDotsWave({
     super.key,
     required this.size,
@@ -107,7 +106,6 @@ class _StaggeredDotsWaveState extends State<StaggeredDotsWave>
 }
 
 class DotContainer extends StatelessWidget {
-
   const DotContainer({
     super.key,
     required this.offsetInterval,
@@ -142,79 +140,79 @@ class DotContainer extends StatelessWidget {
     return AnimatedBuilder(
       animation: controller,
       builder: (_, __) => Stack(
-          alignment: Alignment.center,
-          children: <Widget>[
-            Opacity(
-              opacity: controller.value <= offsetInterval.end ? 1 : 0,
-              // opacity: 1,
-              child: Transform.translate(
-                offset: Tween<Offset>(
-                  begin: Offset.zero,
-                  end: Offset(0, maxDy),
+        alignment: Alignment.center,
+        children: <Widget>[
+          Opacity(
+            opacity: controller.value <= offsetInterval.end ? 1 : 0,
+            // opacity: 1,
+            child: Transform.translate(
+              offset: Tween<Offset>(
+                begin: Offset.zero,
+                end: Offset(0, maxDy),
+              )
+                  .animate(
+                    CurvedAnimation(
+                      parent: controller,
+                      curve: offsetInterval,
+                    ),
+                  )
+                  .value,
+              child: Container(
+                width: size * 0.13,
+                height: Tween<double>(
+                  begin: size * 0.13,
+                  end: maxHeight,
                 )
                     .animate(
                       CurvedAnimation(
                         parent: controller,
-                        curve: offsetInterval,
+                        curve: heightInterval,
                       ),
                     )
                     .value,
-                child: Container(
-                  width: size * 0.13,
-                  height: Tween<double>(
-                    begin: size * 0.13,
-                    end: maxHeight,
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: controller,
-                          curve: heightInterval,
-                        ),
-                      )
-                      .value,
-                  decoration: BoxDecoration(
-                    color: color,
-                    borderRadius: BorderRadius.circular(size),
-                  ),
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: BorderRadius.circular(size),
                 ),
               ),
             ),
-            Opacity(
-              opacity: controller.value >= offsetInterval.end ? 1 : 0,
-              child: Transform.translate(
-                offset: Tween<Offset>(
-                  begin: Offset(0, maxDy),
-                  end: Offset.zero,
+          ),
+          Opacity(
+            opacity: controller.value >= offsetInterval.end ? 1 : 0,
+            child: Transform.translate(
+              offset: Tween<Offset>(
+                begin: Offset(0, maxDy),
+                end: Offset.zero,
+              )
+                  .animate(
+                    CurvedAnimation(
+                      parent: controller,
+                      curve: reverseOffsetInterval,
+                    ),
+                  )
+                  .value,
+              child: Container(
+                width: size * 0.13,
+                height: Tween<double>(
+                  end: size * 0.13,
+                  begin: maxHeight,
                 )
                     .animate(
                       CurvedAnimation(
                         parent: controller,
-                        curve: reverseOffsetInterval,
+                        curve: reverseHeightInterval,
                       ),
                     )
                     .value,
-                child: Container(
-                  width: size * 0.13,
-                  height: Tween<double>(
-                    end: size * 0.13,
-                    begin: maxHeight,
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: controller,
-                          curve: reverseHeightInterval,
-                        ),
-                      )
-                      .value,
-                  decoration: BoxDecoration(
-                    color: color,
-                    borderRadius: BorderRadius.circular(size),
-                  ),
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: BorderRadius.circular(size),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
     );
   }
 }

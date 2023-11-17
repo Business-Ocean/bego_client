@@ -88,7 +88,7 @@ extension ContextExt on BuildContext {
   double get devicePixelRatio => MediaQuery.devicePixelRatioOf(this);
 
   /// similar to [MediaQuery.textScaleFactorOf(context)]
-  double get textScaleFactor => MediaQuery.textScaleFactorOf(this);
+  // double get textScaleFactor => MediaQuery.textScaleFactorOf(this);
 
   /// get the shortestSide from screen
   double get mediaQueryShortestSide => mediaQuerySize.shortestSide;
