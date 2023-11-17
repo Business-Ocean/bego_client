@@ -33,7 +33,7 @@ class WidgetbookApp extends StatelessWidget {
             ),
             const WidgetbookTheme(
               name: 'Bego Dark',
-              data: BeThemeData.dark(),
+              data: BeThemeData.light(),
             ),
           ],
         ),

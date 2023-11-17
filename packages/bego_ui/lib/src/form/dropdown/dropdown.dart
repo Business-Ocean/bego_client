@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bego_ui/bego_ui.dart';
 import 'package:bego_ui/src/common/anchored_overlay.dart';
+import 'package:bego_ui/src/common/common_widget.dart';
 import 'package:bego_ui/src/form/dropdown/dropdown_group_separator.dart';
 import 'package:bego_ui/src/form/dropdown/dropdown_tap_interceptor.dart';
 import 'package:bego_ui/src/form/dropdown/dropdown_tile.dart';
@@ -128,7 +129,7 @@ class _DropdownContent<T> extends StatelessWidget {
                 child: _buildList(isOnTop, listMaxHeight),
               ),
             )
-          : emptyResultPlaceholder ?? const SizedBox.shrink();
+          : emptyResultPlaceholder ?? emptyWidget;
       final children = [
         Material(color: Colors.transparent, child: content),
         if (embeddedSearch case final embeddedSearch?)
@@ -146,7 +147,7 @@ class _DropdownContent<T> extends StatelessWidget {
       );
     }
 
-    return const SizedBox.shrink();
+    return emptyWidget;
   }
 }
 

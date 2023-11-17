@@ -36,9 +36,7 @@ abstract class BeInlineNotification extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           buildLeading(context),
-          const SizedBox(
-            width: 8,
-          ),
+          space8,
           Expanded(
             child: buildContent(context),
           ),

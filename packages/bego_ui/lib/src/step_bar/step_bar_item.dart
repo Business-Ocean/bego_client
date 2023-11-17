@@ -74,7 +74,7 @@ class StepBarItem extends StatelessWidget {
           children: [
             const SizedBox(width: _itemLeftPadding),
             _icon,
-            const SizedBox(width: 4),
+            space4,
             Flexible(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,7 +98,7 @@ class StepBarItem extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(width: 16),
+            space16,
           ],
         ),
       ),

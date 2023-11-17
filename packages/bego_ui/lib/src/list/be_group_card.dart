@@ -103,7 +103,7 @@ class BeGroupCardState extends State<BeGroupCard>
 
   Widget _getContentWidget() {
     if (widget.groupData.children == null) {
-      return const SizedBox.shrink();
+      return emptyWidget;
     }
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),

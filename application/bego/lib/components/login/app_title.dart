@@ -6,14 +6,18 @@ class AppTitle extends StatelessWidget {
     super.key,
     this.headingColor,
     this.tagColor,
+    this.headingSize = 42,
+    this.tagSize = 12,
   });
 
   final Color? headingColor;
   final Color? tagColor;
+  final double headingSize;
+  final double tagSize;
 
   @override
   Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -22,7 +26,7 @@ class AppTitle extends StatelessWidget {
             padding: EdgeInsets.zero,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 76,
+              fontSize: headingSize,
               height: 1,
               color: headingColor,
             ),
@@ -32,7 +36,7 @@ class AppTitle extends StatelessWidget {
             padding: const EdgeInsets.only(left: 4),
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 14,
+              fontSize: tagSize,
               color: tagColor,
               letterSpacing: 0.6,
 

@@ -1,6 +1,7 @@
 library bego_ui;
 
 export 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
+export 'package:gap/gap.dart';
 
 export 'src/common/resolve_state.dart';
 export 'src/common/resolve_style.dart';

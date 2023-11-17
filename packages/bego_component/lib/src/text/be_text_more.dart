@@ -141,7 +141,6 @@ class _BeTextMoreState extends State<BeTextMore> {
   Widget _expandedText(BuildContext context, String text) {
     final style = _defaultTextStyle();
     return RichText(
-      textScaleFactor: MediaQuery.of(context).textScaleFactor,
       text: TextSpan(
         text: text,
         style: style,
@@ -160,6 +159,7 @@ class _BeTextMoreState extends State<BeTextMore> {
           _foldButtonSpan(context),
         ],
       ),
+      textScaler: MediaQuery.of(context).textScaler,
     );
   }
 

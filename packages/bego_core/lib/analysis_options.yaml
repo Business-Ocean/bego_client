@@ -230,5 +230,8 @@ linter:
     use_string_buffers: true
     use_to_and_as_if_applicable: true
     void_checks: true
+    # prefer_typedefs_for_callbacks: true
+    # avoid_duplicate_cascades: true
+    # avoid_duplicate_switch_case_conditions: true
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

@@ -124,8 +124,9 @@ InteractiveInkFeatureFactory splashFactory(BeThemeData betheme) =>
 //  return VisualDensity.standard;
 //}
 
-IconThemeData iconTheme(BeThemeData betheme) => const IconThemeData(
+IconThemeData iconTheme(BeThemeData betheme) => IconThemeData(
       size: 20,
+      color: betheme.colors.icon,
     );
 
 IconThemeData primaryIconTheme(BeThemeData betheme) => const IconThemeData();
@@ -496,14 +497,30 @@ FloatingActionButtonThemeData floatingActionButtonTheme(BeThemeData betheme) =>
     );
 
 IconButtonThemeData iconButtonTheme(BeThemeData betheme) => IconButtonThemeData(
-      style: IconButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
-        elevation: 0,
-        // side: const BorderSide(),
-        foregroundColor: betheme.colors.primary,
-
-        // visualDensity: VisualDensity.standard,
-        // backgroundColor: betheme.becolors.primary.withAlpha(50),
+      style: ButtonStyle(
+        shape: MaterialStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
+        ),
+        foregroundColor: iconButtonForegroundColor(betheme),
+        textStyle:
+            const MaterialStatePropertyAll(TextStyle(color: Colors.white)),
+        iconColor: MaterialStateProperty.resolveWith(
+          (states) {
+            if (states.contains(MaterialState.disabled)) {
+              return betheme.colors.disabled;
+            }
+            if (states.any(interactiveSelectionStates.contains)) {
+              return betheme.colors.accent;
+            }
+            return betheme.colors.primary;
+          },
+        ),
+        iconSize: MaterialStateProperty.resolveWith((states) {
+          if (states.any(interactiveSelectionStates.contains)) {
+            return 20;
+          }
+          return 20;
+        }),
       ),
     );
 

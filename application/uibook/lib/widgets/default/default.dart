@@ -244,9 +244,9 @@ class _DefaultThemeWidgetState extends State<_DefaultThemeWidget> {
               IconButton.filled(
                   onPressed: () {}, icon: const Icon(Icons.ads_click_rounded)),
               const IconButton.filled(
-                  onPressed: null, icon: Icon(Icons.ads_click_rounded)),
+                  onPressed: null, icon: Icon(BeIcons.icon_abstract)),
               IconButton.outlined(
-                  onPressed: () {}, icon: const Icon(Icons.ads_click_rounded)),
+                  onPressed: () {}, icon: const Icon(BeIcons.icon_album)),
               const IconButton.outlined(
                   onPressed: null, icon: Icon(Icons.ads_click_rounded)),
               IconButton.filledTonal(

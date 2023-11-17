@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:bego_ui/src/common/common_widget.dart';
 import 'package:flutter/material.dart';
 
 class BeBlur extends StatelessWidget {
@@ -104,8 +105,7 @@ extension FrostExtension on Widget {
           width: width,
           padding: padding,
           color: frostColor.withOpacity(frostOpacity),
-          child:
-              height == null || width == null ? this : const SizedBox.shrink(),
+          child: height == null || width == null ? this : emptyWidget,
         ),
       );
 }
