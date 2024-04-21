@@ -1,4 +1,4 @@
-/// similar to rx dart salam_core can be used for exporting
+/// similar to rx dart bego_client can be used for exporting
 /// consistent version for library
 ///
 /// Caution: this will force all packages to use same version of library
