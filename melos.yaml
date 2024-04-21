@@ -1,10 +1,12 @@
-name: flutter_salam
+name: bego_client
 command:
   version:
     workspaceChangelog: false
 
 packages:
-  - "**"
+  - applications/**
+  - features/**
+  - packages/**
 
 scripts:
   sample_cmd:
@@ -16,7 +18,7 @@ scripts:
 
   prepare: melos bootstrap
   
-  upgrade: melos exec  -- flutter pub upgrade --
+  upgrade: melos exec  -- flutter pub upgrade --major-versions --
 
   clean : melos exec flutter clean
   gen_icons: melos exec --scope="uibook" -- "dart utils/gen_icons.dart $MELOS_ROOT_PATH/packages/bego_ui/config lib/widgets/icons && dart format lib/widgets/icons/icons_list.dart"

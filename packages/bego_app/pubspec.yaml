@@ -18,7 +18,7 @@ dependencies:
     path: ../bego_network
   bego_ui:
     path: ../bego_ui
-  device_info_plus: ^9.0.3
+  device_info_plus: ^10.1.0
   easy_isolate_mixin: ^1.0.0
   flutter:
     sdk: flutter

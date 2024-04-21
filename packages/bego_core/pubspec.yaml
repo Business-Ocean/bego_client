@@ -17,7 +17,7 @@ dependencies:
   #     url: https://github.com/BusinessOcean/getx
   #     ref: master # branch name
   http: ^1.0.0
-  intl: ^0.18.1
+  intl: ^0.19.0
   logging: ^1.2.0
   meta: ^1.9.1
   rxdart: ^0.27.7
