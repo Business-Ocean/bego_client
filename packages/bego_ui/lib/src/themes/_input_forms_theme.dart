@@ -5,15 +5,15 @@ import 'package:flutter/material.dart';
 InputDecorationTheme inputDecorationTheme(BeThemeData betheme) {
   const radius = BegoStyle.borderRadius12;
   final primary = betheme.colors.primary;
-  const border = Color.fromARGB(255, 235, 235, 241);
+  const border = BegoColors.gray300;
   return InputDecorationTheme(
-    fillColor: const Color.fromRGBO(245, 245, 245, 1),
+    fillColor: BegoColors.gray100,
     filled: true,
     // border: const OutlineInputBorder(borderRadius: borderRadius),
     errorMaxLines: 1,
     errorStyle: betheme.style.bodySmall.copyWith(color: betheme.colors.error),
     floatingLabelAlignment: FloatingLabelAlignment.start,
-    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
     labelStyle: inputLabelStyle(betheme),
 
     border: const OutlineInputBorder(

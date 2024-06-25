@@ -97,7 +97,6 @@ linter:
     only_throw_errors: true
     package_api_docs: true
     prefer_final_in_for_each: true
-    always_require_non_null_named_parameters: true
     annotate_overrides: true
     avoid_init_to_null: true
     avoid_null_checks_in_equality_operators: true

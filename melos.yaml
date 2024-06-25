@@ -2,6 +2,10 @@ name: bego_client
 command:
   version:
     workspaceChangelog: false
+  bootstrap:
+    hooks:
+      # post: dart pub run build_runner build    
+      post: echo "Bootstrap Done"    
 
 packages:
   - applications/**

@@ -20,7 +20,7 @@ class LoginInWithGoogle extends StatelessWidget {
           position: BeLabelPosition.rightCenter,
           offset: const Offset(-36, 0),
           child: Container(
-            height: 48,
+            height: 52,
             decoration: BoxDecoration(
               color: becolors(context).lightInverse,
               borderRadius: bestyles(context).borderRadius,
@@ -30,7 +30,7 @@ class LoginInWithGoogle extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppAssets.svg.googleLogo.svg(width: 32),
+                AppAssets.svg.googleLogo.svg(width: 24),
                 space8,
                 Text(
                   'Login with Google',
