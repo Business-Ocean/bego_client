@@ -5,6 +5,7 @@
 /// I -> Integer
 /// Display -> always integer
 /// -1 sets default value or which don't come from
+library;
 
 abstract class BeKeyValue {
   BeKeyValue._(this.key, this.value, this.display);

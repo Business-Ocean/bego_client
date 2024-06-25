@@ -236,8 +236,8 @@ class TooltipOverlayState extends State<TooltipOverlay>
               : end
           : center;
 
-  void _afterInitialLayoutCallback(dynamic _) {
-    _updateRect(_);
+  void _afterInitialLayoutCallback(dynamic ref) {
+    _updateRect(ref);
     WidgetsBinding.instance.addPostFrameCallback(_afterFirstLayoutCallback);
   }
 

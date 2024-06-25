@@ -29,11 +29,11 @@ class WidgetbookApp extends StatelessWidget {
           themes: [
             const WidgetbookTheme(
               name: 'Bego Light',
-              data: BeThemeData.light(),
+              data: BeThemeData.dark(),
             ),
             const WidgetbookTheme(
               name: 'Bego Dark',
-              data: BeThemeData.light(),
+              data: BeThemeData.dark(),
             ),
           ],
         ),

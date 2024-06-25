@@ -90,11 +90,11 @@ class BeColorsLight implements BeColors {
   Color get unselectedWidget => BegoColors.slate600;
 
   @override
-  MaterialStateProperty<Color?>? get formState =>
-      MaterialStateProperty.resolveWith(
+  WidgetStateProperty<Color?>? get formState =>
+      WidgetStateProperty.resolveWith(
         (states) {
-          if (states.contains(MaterialState.disabled)) return disabled;
-          if (states.contains(MaterialState.selected)) {
+          if (states.contains(WidgetState.disabled)) return disabled;
+          if (states.contains(WidgetState.selected)) {
             return scaffoldBackground;
           }
 

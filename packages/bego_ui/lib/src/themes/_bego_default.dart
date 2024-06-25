@@ -37,8 +37,8 @@ CheckboxThemeData checkboxTheme(BeThemeData betheme) => CheckboxThemeData(
     );
 
 SwitchThemeData switchTheme(BeThemeData betheme) => SwitchThemeData(
-      trackOutlineColor: const MaterialStatePropertyAll(Colors.transparent),
-      trackOutlineWidth: const MaterialStatePropertyAll(0),
+      trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
+      trackOutlineWidth: const WidgetStatePropertyAll(0),
       thumbColor: switchThumbColor(betheme),
       thumbIcon: iconInvisibleMaterialStateAll(),
       trackColor: trackColorMaterialState(betheme),
@@ -89,14 +89,14 @@ PageTransitionsTheme pageTransitionsTheme(BeThemeData betheme) =>
     );
 
 ScrollbarThemeData scrollbarTheme(BeThemeData betheme) => ScrollbarThemeData(
-      thumbColor: MaterialStateProperty.resolveWith((states) {
+      thumbColor: WidgetStateProperty.resolveWith((states) {
         if (states.any(interactiveSelectionStates.contains)) {
           return betheme.colors.accent;
         }
         return betheme.colors.accent.withAlpha(150);
       }),
       // interactive: false,
-      thickness: MaterialStateProperty.resolveWith((states) {
+      thickness: WidgetStateProperty.resolveWith((states) {
         if (states.any(interactiveSelectionStates.contains)) {
           return 4;
         }
@@ -282,8 +282,8 @@ ChipThemeData chipTheme(BeThemeData betheme) => ChipThemeData(
       labelStyle: betheme.style.bodySmall.copyWith(color: betheme.colors.text),
       labelPadding: EdgeInsets.zero,
       disabledColor: betheme.colors.disabled,
-      color: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.disabled)) {
+      color: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.disabled)) {
           return betheme.colors.disabled;
         }
         return betheme.colors.primary.withAlpha(20);
@@ -375,8 +375,8 @@ DropdownMenuThemeData dropdownMenuTheme(BeThemeData betheme) {
         borderRadius: radius,
         borderSide: BorderSide(color: betheme.colors.error),
       ),
-      outlineBorder: MaterialStateBorderSide.resolveWith((states) {
-        if (states.contains(MaterialState.disabled)) {
+      outlineBorder: WidgetStateBorderSide.resolveWith((states) {
+        if (states.contains(WidgetState.disabled)) {
           return BorderSide(color: betheme.colors.disabled);
         }
         return BorderSide(color: primary);
@@ -400,14 +400,14 @@ DropdownMenuThemeData dropdownMenuTheme(BeThemeData betheme) {
       // contentPadding: EdgeInsets.zero,
     ),
     menuStyle: MenuStyle(
-      padding: const MaterialStatePropertyAll(EdgeInsets.zero),
+      padding: const WidgetStatePropertyAll(EdgeInsets.zero),
       // elevation: MaterialStatePropertyAll(0),
-      shape: const MaterialStatePropertyAll(
+      shape: const WidgetStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BegoStyle.borderRadius8,
         ),
       ),
-      side: MaterialStatePropertyAll(
+      side: WidgetStatePropertyAll(
         BorderSide(color: betheme.colors.disabled),
       ),
     ),
@@ -439,21 +439,20 @@ FilledButtonThemeData filledButtonTheme(BeThemeData betheme) =>
     FilledButtonThemeData(
       style: ButtonStyle(
         foregroundColor: buttonFilledForegroundColor(betheme),
-        surfaceTintColor:
-            const MaterialStatePropertyAll(BegoColors.transparent),
+        surfaceTintColor: const WidgetStatePropertyAll(BegoColors.transparent),
         backgroundColor: buttonFilledBackgroundColor(betheme),
-        minimumSize: const MaterialStatePropertyAll(Size(100, 48)),
-        shape: MaterialStatePropertyAll(
+        minimumSize: const WidgetStatePropertyAll(Size(100, 48)),
+        shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: betheme.style.borderRadius,
           ),
         ),
 
-        textStyle: MaterialStatePropertyAll(
+        textStyle: WidgetStatePropertyAll(
           betheme.style.labelMedium.copyWith(color: betheme.colors.primary),
         ),
         // shadowColor: MaterialStatePropertyAll(betheme.colors.primary),
-        elevation: const MaterialStatePropertyAll(0),
+        elevation: const WidgetStatePropertyAll(0),
         // side: elvatedSideBorder(betheme),
       ),
     );
@@ -461,7 +460,7 @@ FilledButtonThemeData filledButtonTheme(BeThemeData betheme) =>
 FloatingActionButtonThemeData floatingActionButtonTheme(BeThemeData betheme) =>
     FloatingActionButtonThemeData(
       backgroundColor: betheme.colors.accent,
-      extendedTextStyle: MaterialStateTextStyle.resolveWith(
+      extendedTextStyle: WidgetStateTextStyle.resolveWith(
         (states) => betheme.style.labelMedium,
       ),
       extendedPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -498,15 +497,14 @@ FloatingActionButtonThemeData floatingActionButtonTheme(BeThemeData betheme) =>
 
 IconButtonThemeData iconButtonTheme(BeThemeData betheme) => IconButtonThemeData(
       style: ButtonStyle(
-        shape: MaterialStatePropertyAll(
+        shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
         ),
         foregroundColor: iconButtonForegroundColor(betheme),
-        textStyle:
-            const MaterialStatePropertyAll(TextStyle(color: Colors.white)),
-        iconColor: MaterialStateProperty.resolveWith(
+        textStyle: const WidgetStatePropertyAll(TextStyle(color: Colors.white)),
+        iconColor: WidgetStateProperty.resolveWith(
           (states) {
-            if (states.contains(MaterialState.disabled)) {
+            if (states.contains(WidgetState.disabled)) {
               return betheme.colors.disabled;
             }
             if (states.any(interactiveSelectionStates.contains)) {
@@ -515,7 +513,7 @@ IconButtonThemeData iconButtonTheme(BeThemeData betheme) => IconButtonThemeData(
             return betheme.colors.primary;
           },
         ),
-        iconSize: MaterialStateProperty.resolveWith((states) {
+        iconSize: WidgetStateProperty.resolveWith((states) {
           if (states.any(interactiveSelectionStates.contains)) {
             return 20;
           }
@@ -535,7 +533,7 @@ ListTileThemeData listTileTheme(BeThemeData betheme) => ListTileThemeData(
       // tileColor: Colors.green,
       titleAlignment: ListTileTitleAlignment.titleHeight,
       horizontalTitleGap: 4,
-      leadingAndTrailingTextStyle: MaterialStateTextStyle.resolveWith(
+      leadingAndTrailingTextStyle: WidgetStateTextStyle.resolveWith(
         (states) => betheme.style.bodySmall,
       ),
       // shape: RoundedRectangleBorder(
@@ -543,10 +541,10 @@ ListTileThemeData listTileTheme(BeThemeData betheme) => ListTileThemeData(
       // ),
       // style: ListTileStyle.drawer
       // textColor: betheme.becolors.text,
-      subtitleTextStyle: MaterialStateTextStyle.resolveWith(
+      subtitleTextStyle: WidgetStateTextStyle.resolveWith(
         (states) => betheme.style.bodySmall,
       ),
-      titleTextStyle: MaterialStateTextStyle.resolveWith(
+      titleTextStyle: WidgetStateTextStyle.resolveWith(
         (states) => betheme.style.titleSmall,
       ),
 
@@ -559,37 +557,37 @@ ListTileThemeData listTileTheme(BeThemeData betheme) => ListTileThemeData(
 MenuBarThemeData menuBarTheme(BeThemeData betheme) => const MenuBarThemeData(
       style: MenuStyle(
         // backgroundColor: MaterialStatePropertyAll(BegoColors.transparent),
-        surfaceTintColor: MaterialStatePropertyAll(BegoColors.transparent),
-        padding: MaterialStatePropertyAll(EdgeInsets.zero),
+        surfaceTintColor: WidgetStatePropertyAll(BegoColors.transparent),
+        padding: WidgetStatePropertyAll(EdgeInsets.zero),
       ),
     );
 
 MenuButtonThemeData menuButtonTheme(BeThemeData betheme) => MenuButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.resolveWith((states) {
+        backgroundColor: WidgetStateProperty.resolveWith((states) {
           if (states.any(interactiveSelectionStates.contains)) {
             return betheme.colors.primary.withAlpha(10);
           }
         }),
-        shape: MaterialStateProperty.resolveWith(
+        shape: WidgetStateProperty.resolveWith(
           (states) => RoundedRectangleBorder(
             borderRadius: betheme.style.xsRadius,
           ),
         ),
-        padding: MaterialStateProperty.all(const EdgeInsets.all(16)),
+        padding: WidgetStateProperty.all(const EdgeInsets.all(16)),
       ),
     );
 
 MenuThemeData menuTheme(BeThemeData betheme) => MenuThemeData(
       style: MenuStyle(
-        padding: const MaterialStatePropertyAll(EdgeInsets.zero),
+        padding: const WidgetStatePropertyAll(EdgeInsets.zero),
         // elevation: MaterialStatePropertyAll(0),
-        shape: const MaterialStatePropertyAll(
+        shape: const WidgetStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: BegoStyle.borderRadius8,
           ),
         ),
-        side: MaterialStatePropertyAll(
+        side: WidgetStatePropertyAll(
           BorderSide(color: betheme.colors.disabled),
         ),
       ),
@@ -600,9 +598,9 @@ NavigationBarThemeData navigationBarTheme(BeThemeData betheme) =>
       backgroundColor: betheme.colors.primary.withAlpha(10),
       elevation: 0,
       labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-      iconTheme: MaterialStateProperty.resolveWith(
+      iconTheme: WidgetStateProperty.resolveWith(
         (states) {
-          if (states.contains(MaterialState.selected)) {
+          if (states.contains(WidgetState.selected)) {
             return IconThemeData(size: 20, color: betheme.colors.primary);
           }
           return IconThemeData(size: 20, color: betheme.colors.accent);
@@ -613,8 +611,8 @@ NavigationBarThemeData navigationBarTheme(BeThemeData betheme) =>
         side: BorderSide(color: betheme.colors.primary.withAlpha(10)),
       ),
       surfaceTintColor: BegoColors.transparent,
-      labelTextStyle: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.selected)) {
+      labelTextStyle: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
           return betheme.style.labelSmall.copyWith(
             color: betheme.colors.primary,
           );
@@ -628,8 +626,8 @@ NavigationDrawerThemeData navigationDrawerTheme(BeThemeData betheme) =>
     NavigationDrawerThemeData(
       elevation: 0,
       backgroundColor: betheme.colors.primary,
-      iconTheme: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.selected)) {
+      iconTheme: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
           return IconThemeData(color: betheme.colors.primary, size: 20);
         }
         return const IconThemeData(size: 20);
@@ -637,8 +635,8 @@ NavigationDrawerThemeData navigationDrawerTheme(BeThemeData betheme) =>
       indicatorShape: RoundedRectangleBorder(
         borderRadius: betheme.style.borderRadius,
       ),
-      labelTextStyle: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.selected)) {
+      labelTextStyle: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
           return betheme.style.labelMedium
               .copyWith(color: betheme.colors.primary);
         }
@@ -675,17 +673,16 @@ ElevatedButtonThemeData elevatedButtonTheme(BeThemeData betheme) =>
     ElevatedButtonThemeData(
       style: ButtonStyle(
         foregroundColor: buttonForegroundColor(betheme),
-        surfaceTintColor:
-            const MaterialStatePropertyAll(BegoColors.transparent),
+        surfaceTintColor: const WidgetStatePropertyAll(BegoColors.transparent),
         backgroundColor: buttonBackgroundColor(betheme),
-        minimumSize: const MaterialStatePropertyAll(Size(100, 48)),
-        shape: MaterialStatePropertyAll(
+        minimumSize: const WidgetStatePropertyAll(Size(100, 48)),
+        shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: betheme.style.borderRadius,
           ),
         ),
         textStyle: buttonTextStyle(betheme),
-        shadowColor: MaterialStatePropertyAll(betheme.colors.primary),
+        shadowColor: WidgetStatePropertyAll(betheme.colors.primary),
         elevation: elevationInteraction(),
         side: elvatedSideBorder(betheme),
       ),
@@ -703,11 +700,11 @@ OutlinedButtonThemeData outlinedButtonTheme(BeThemeData betheme) =>
     OutlinedButtonThemeData(
       style: ButtonStyle(
         foregroundColor: primaryOrDisableColor(betheme),
-        minimumSize: const MaterialStatePropertyAll(Size(100, 48)),
+        minimumSize: const WidgetStatePropertyAll(Size(100, 48)),
         shape: roundRectShape(betheme),
-        elevation: const MaterialStatePropertyAll(0),
+        elevation: const WidgetStatePropertyAll(0),
         side: outlineSideBorder(betheme),
-        overlayColor: const MaterialStatePropertyAll(BegoColors.transparent),
+        overlayColor: const WidgetStatePropertyAll(BegoColors.transparent),
         textStyle: buttonTextStyle(betheme),
       ),
     );
@@ -721,7 +718,7 @@ PopupMenuThemeData popupMenuTheme(BeThemeData betheme) => PopupMenuThemeData(
         side: BorderSide(color: betheme.colors.overlayOutline),
       ),
       enableFeedback: false,
-      textStyle: MaterialStateTextStyle.resolveWith((states) {
+      textStyle: WidgetStateTextStyle.resolveWith((states) {
         if (states.any(interactiveSelectionStates.contains)) {
           return betheme.style.titleSmall
               .copyWith(color: betheme.colors.primary);
@@ -729,7 +726,7 @@ PopupMenuThemeData popupMenuTheme(BeThemeData betheme) => PopupMenuThemeData(
         //   //
         return betheme.style.titleSmall;
       }),
-      labelTextStyle: MaterialStateTextStyle.resolveWith((states) {
+      labelTextStyle: WidgetStateTextStyle.resolveWith((states) {
         if (states.any(interactiveSelectionStates.contains)) {
           return betheme.style.titleSmall
               .copyWith(color: betheme.colors.primary);
@@ -749,21 +746,21 @@ ProgressIndicatorThemeData progressIndicatorTheme(BeThemeData betheme) =>
     );
 
 SearchBarThemeData searchBarTheme(BeThemeData betheme) => SearchBarThemeData(
-      shadowColor: const MaterialStatePropertyAll(Colors.transparent),
+      shadowColor: const WidgetStatePropertyAll(Colors.transparent),
       overlayColor:
-          MaterialStatePropertyAll(betheme.colors.primary.withAlpha(20)),
-      elevation: const MaterialStatePropertyAll(0),
-      shape: MaterialStatePropertyAll(
+          WidgetStatePropertyAll(betheme.colors.primary.withAlpha(20)),
+      elevation: const WidgetStatePropertyAll(0),
+      shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(borderRadius: betheme.style.borderRadius),
       ),
-      padding: const MaterialStatePropertyAll(
+      padding: const WidgetStatePropertyAll(
         EdgeInsets.only(left: 8, right: 8),
       ),
-      surfaceTintColor: const MaterialStatePropertyAll(BegoColors.transparent),
-      textStyle: MaterialStatePropertyAll(betheme.style.labelMedium),
-      hintStyle: MaterialStatePropertyAll(betheme.style.labelMedium),
+      surfaceTintColor: const WidgetStatePropertyAll(BegoColors.transparent),
+      textStyle: WidgetStatePropertyAll(betheme.style.labelMedium),
+      hintStyle: WidgetStatePropertyAll(betheme.style.labelMedium),
       backgroundColor:
-          MaterialStatePropertyAll(betheme.colors.formInputBackground),
+          WidgetStatePropertyAll(betheme.colors.formInputBackground),
       side: inputSideBorder(betheme),
     );
 
@@ -797,20 +794,20 @@ SegmentedButtonThemeData segmentedButtonTheme(BeThemeData betheme) =>
         //   if (states.any(interactiveStates.contains)) return const Size(53, 48);
         //   return null;
         // }),
-        iconSize: const MaterialStatePropertyAll(16),
+        iconSize: const WidgetStatePropertyAll(16),
 
-        textStyle: MaterialStatePropertyAll(betheme.style.labelMedium),
-        foregroundColor: MaterialStateProperty.resolveWith(
+        textStyle: WidgetStatePropertyAll(betheme.style.labelMedium),
+        foregroundColor: WidgetStateProperty.resolveWith(
           (states) => betheme.colors.primary,
         ),
-        shape: MaterialStateProperty.all(
+        shape: WidgetStateProperty.all(
           const RoundedRectangleBorder(
             borderRadius: BegoStyle.borderRadius28,
           ),
         ),
-        side: MaterialStateProperty.resolveWith(
+        side: WidgetStateProperty.resolveWith(
           (states) {
-            if (states.contains(MaterialState.focused)) {
+            if (states.contains(WidgetState.focused)) {
               return BorderSide(color: betheme.colors.accent);
             }
             return BorderSide(
@@ -820,11 +817,11 @@ SegmentedButtonThemeData segmentedButtonTheme(BeThemeData betheme) =>
           },
         ),
         // overlayColor: MaterialStateProperty.all(Colors.green),
-        padding: const MaterialStatePropertyAll(
+        padding: const WidgetStatePropertyAll(
           EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         ),
-        backgroundColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.selected)) {
+        backgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
             return betheme.colors.primary.withAlpha(50);
           }
           return null;

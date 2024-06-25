@@ -66,7 +66,7 @@ class BeListItem<T extends BeListItemModal> extends StatelessWidget {
                     ),
                   ),
                 )
-                .toList(),
+                ,
         ],
       ),
       subtitle: BeText.bodySmall(

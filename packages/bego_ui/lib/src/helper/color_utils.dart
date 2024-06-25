@@ -81,33 +81,33 @@ final class ColorUtils {
         : Brightness.dark;
   }
 
-  static MaterialStateProperty<Color> stateColor(List<Color> colors) =>
-      MaterialStateProperty.resolveWith<Color>(
+  static WidgetStateProperty<Color> stateColor(List<Color> colors) =>
+      WidgetStateProperty.resolveWith<Color>(
         (state) => getColor(state, colors),
       );
 
-  static Color getColor(Set<MaterialState> states, List<Color> colors) {
+  static Color getColor(Set<WidgetState> states, List<Color> colors) {
     assert(colors.length != 4, 'color list must contain 4 elements');
-    if (states.contains(MaterialState.pressed)) {
+    if (states.contains(WidgetState.pressed)) {
       return colors[1];
     }
 
-    if (states.contains(MaterialState.hovered)) {
+    if (states.contains(WidgetState.hovered)) {
       return colors[2];
     }
 
-    if (states.contains(MaterialState.focused)) {
+    if (states.contains(WidgetState.focused)) {
       return colors[3];
     }
 
     return colors[0];
   }
 
-  static Color getStateColor(Set<MaterialState> states, Color textColor) {
-    const interactiveStates = <MaterialState>{
-      MaterialState.pressed,
-      MaterialState.hovered,
-      MaterialState.focused,
+  static Color getStateColor(Set<WidgetState> states, Color textColor) {
+    const interactiveStates = <WidgetState>{
+      WidgetState.pressed,
+      WidgetState.hovered,
+      WidgetState.focused,
     };
     if (states.any(interactiveStates.contains)) {
       return ColorUtils.getShade(

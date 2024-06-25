@@ -33,25 +33,29 @@ Widget colorUtils(BuildContext context) {
               ' ColorUtils.createMaterialColor(BegoColors.amber).shade800,'),
         ),
         Container(height: 18, width: double.infinity, color: BegoColors.blue),
-        ...[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
-            .map((e) => Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
+        ...[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].map((e) => Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    color: ColorUtils.getShade(BegoColors.blue,
+                        darker: false, value: e),
+                    child: Text(
+                        '  ColorUtils.getShade(BegoColors.blue, darker: false, value: $e)'),
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Container(
                       color: ColorUtils.getShade(BegoColors.blue,
-                          darker: false, value: e),
+                          value: e, darker: true),
                       child: Text(
-                          '  ColorUtils.getShade(BegoColors.blue, darker: false, value: $e)'),
-                    ),
-                    Container(
-                        color: ColorUtils.getShade(BegoColors.blue,
-                            value: e, darker: true),
-                        child: Text(
-                            'ColorUtils.getShade(BegoColors.blue,value: $e, darker: true)')),
-                  ],
-                ))
-            .toList(),
+                          'ColorUtils.getShade(BegoColors.blue,value: $e, darker: true)')),
+                ),
+              ],
+            )),
         Container(
           color: ColorUtils.getMaterialColorFromColor(Colors.orange),
           child:
@@ -80,8 +84,11 @@ Widget colorUtils(BuildContext context) {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                  " ColorUtils.getBrightness(BegoColors.red200) == Brightness.light? BegoColors.amber100: BegoColors.amber700,"),
+              const Flexible(
+                flex: 1,
+                child: Text(
+                    " ColorUtils.getBrightness(BegoColors.red200) == Brightness.light? BegoColors.amber100: BegoColors.amber700,"),
+              ),
               Text(ColorUtils.getBrightness(BegoColors.red200) ==
                       Brightness.light
                   ? "Light"
@@ -166,17 +173,17 @@ class _MyHoverableWidgetState extends State<MyHoverableWidget> {
     return ElevatedButton(
       onPressed: () {},
       style: ButtonStyle(
-        shape: const MaterialStatePropertyAll(
+        shape: const WidgetStatePropertyAll(
           RoundedRectangleBorder(side: BorderSide.none),
         ),
-        side: const MaterialStatePropertyAll(BorderSide.none),
-        foregroundColor: MaterialStateProperty.resolveWith(
+        side: const WidgetStatePropertyAll(BorderSide.none),
+        foregroundColor: WidgetStateProperty.resolveWith(
           (states) => ColorUtils.getColor(
             states,
             colorState,
           ),
         ),
-        backgroundColor: MaterialStateProperty.resolveWith(
+        backgroundColor: WidgetStateProperty.resolveWith(
           (states) => ColorUtils.getColor(
             states,
             colorState,

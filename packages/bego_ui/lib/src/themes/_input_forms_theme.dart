@@ -47,8 +47,8 @@ InputDecorationTheme inputDecorationTheme(BeThemeData betheme) {
       borderRadius: radius,
       borderSide: BorderSide(color: betheme.colors.error, width: 2),
     ),
-    outlineBorder: MaterialStateBorderSide.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
+    outlineBorder: WidgetStateBorderSide.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
         return BorderSide(color: betheme.colors.disabled);
       }
       return BorderSide(color: primary);

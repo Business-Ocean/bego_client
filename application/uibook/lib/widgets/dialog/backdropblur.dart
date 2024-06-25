@@ -7,9 +7,9 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 @widgetbook.UseCase(name: 'Backdrop Blur', type: Dialog)
 Widget displayBackdropUseCase(BuildContext context) {
   return Container(
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
       image: DecorationImage(
-        image: NetworkImage(sampleListData.first.imageUrl),
+        image: NetworkImage('https://placehold.co/600x400/000000/FFF'),
         fit: BoxFit.cover,
       ),
     ),

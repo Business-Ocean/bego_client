@@ -14,8 +14,8 @@ enum BeTextVariant {
   final Color? _textColor;
   final Color? _textBackground;
 
-  MaterialStateProperty<Color> get colorState =>
-      MaterialStateProperty.resolveWith<Color>(
+  WidgetStateProperty<Color> get colorState =>
+      WidgetStateProperty.resolveWith<Color>(
         (states) => ColorUtils.getStateColor(
           states,
           _textColor ?? BegoColors.textColor,

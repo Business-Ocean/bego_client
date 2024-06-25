@@ -147,7 +147,7 @@ class _BeSwitchTitleState extends State<BeSwitchTitle>
       padding: EdgeInsets.zero,
       dividerColor: widget.dividerColor,
       isScrollable: true,
-      overlayColor: const MaterialStatePropertyAll(BegoColors.transparent),
+      overlayColor: const WidgetStatePropertyAll(BegoColors.transparent),
       tabs: widgetChildren,
       controller: _controller,
       splashFactory: const NoSplashFactory(),

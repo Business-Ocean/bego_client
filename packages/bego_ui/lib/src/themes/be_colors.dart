@@ -32,7 +32,7 @@ abstract class BeColors {
   Color get primaryColorDark;
   Color get primaryColorLight;
 
-  MaterialStateProperty<Color?>? get formState;
+  WidgetStateProperty<Color?>? get formState;
 
   Color get darkInverse;
   Color get lightInverse;

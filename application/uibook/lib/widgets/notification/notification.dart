@@ -33,12 +33,11 @@ Widget displayNotificationUseCase(BuildContext context) {
 
 class _NotificationStoryContent extends StatelessWidget {
   const _NotificationStoryContent({
-    Key? key,
     required this.title,
     required this.body,
     required this.link,
     required this.dismissible,
-  }) : super(key: key);
+  });
 
   final String title;
   final String body;

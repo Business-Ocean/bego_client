@@ -92,5 +92,5 @@ class BeColorsDark implements BeColors {
   Color get unselectedWidget => BegoColors.slate600;
 
   @override
-  MaterialStateProperty<Color?>? get formState => throw UnimplementedError();
+  WidgetStateProperty<Color?>? get formState => throw UnimplementedError();
 }

@@ -1,26 +1,26 @@
 import 'package:bego_ui/bego_ui.dart';
 import 'package:flutter/material.dart';
 
-const Set<MaterialState> interactiveStates = <MaterialState>{
-  MaterialState.pressed,
-  MaterialState.hovered,
-  MaterialState.focused,
+const Set<WidgetState> interactiveStates = <WidgetState>{
+  WidgetState.pressed,
+  WidgetState.hovered,
+  WidgetState.focused,
 };
-const Set<MaterialState> interactiveSelectionStates = <MaterialState>{
-  MaterialState.pressed,
-  MaterialState.hovered,
-  MaterialState.focused,
-  MaterialState.selected,
-};
-
-const Set<MaterialState> hoverOrFocus = <MaterialState>{
-  MaterialState.hovered,
-  MaterialState.focused,
+const Set<WidgetState> interactiveSelectionStates = <WidgetState>{
+  WidgetState.pressed,
+  WidgetState.hovered,
+  WidgetState.focused,
+  WidgetState.selected,
 };
 
-MaterialStateBorderSide sideMaterialState(BeThemeData betheme) =>
-    MaterialStateBorderSide.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
+const Set<WidgetState> hoverOrFocus = <WidgetState>{
+  WidgetState.hovered,
+  WidgetState.focused,
+};
+
+WidgetStateBorderSide sideMaterialState(BeThemeData betheme) =>
+    WidgetStateBorderSide.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
         return BorderSide(
           color: betheme.colors.disabled,
           width: 2,
@@ -36,60 +36,60 @@ MaterialStateBorderSide sideMaterialState(BeThemeData betheme) =>
       );
     });
 
-MaterialStateColor fillColorState(BeThemeData betheme) =>
-    MaterialStateColor.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
-        if (states.contains(MaterialState.selected)) {
+WidgetStateColor fillColorState(BeThemeData betheme) =>
+    WidgetStateColor.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
+        if (states.contains(WidgetState.selected)) {
           return betheme.colors.disabled;
         }
       }
-      if (states.contains(MaterialState.selected)) {
+      if (states.contains(WidgetState.selected)) {
         return betheme.colors.primary;
       }
       return Colors.transparent;
     });
 
-MaterialStateColor fillColorRadioState(BeThemeData betheme) =>
-    MaterialStateColor.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
+WidgetStateColor fillColorRadioState(BeThemeData betheme) =>
+    WidgetStateColor.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
         return betheme.colors.disabled;
       }
       return betheme.colors.primary;
     });
 
-MaterialStateProperty<Color?> trackColorMaterialState(BeThemeData betheme) =>
-    MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
+WidgetStateProperty<Color?> trackColorMaterialState(BeThemeData betheme) =>
+    WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
         return betheme.colors.disabled;
       }
-      if (states.contains(MaterialState.selected)) {
+      if (states.contains(WidgetState.selected)) {
         return betheme.colors.primary;
       }
       return betheme.colors.hint;
     });
 
-MaterialStatePropertyAll<Icon?> iconInvisibleMaterialStateAll() =>
-    const MaterialStatePropertyAll(
+WidgetStatePropertyAll<Icon?> iconInvisibleMaterialStateAll() =>
+    const WidgetStatePropertyAll(
       Icon(
         IconData(45),
         color: Colors.transparent,
       ),
     );
 
-MaterialStateProperty<Color?> switchThumbColor(BeThemeData betheme) =>
-    MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
+WidgetStateProperty<Color?> switchThumbColor(BeThemeData betheme) =>
+    WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
         return ColorUtils.getShade(
           betheme.colors.disabled,
           darker: true,
         );
       }
-      return betheme.colors.colorScheme.background;
+      return betheme.colors.colorScheme.surface;
     });
 
-MaterialStateProperty<BorderSide?> inputSideBorder(BeThemeData betheme) =>
-    MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.focused)) {
+WidgetStateProperty<BorderSide?> inputSideBorder(BeThemeData betheme) =>
+    WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.focused)) {
         return null;
       }
       return BorderSide(
@@ -98,12 +98,12 @@ MaterialStateProperty<BorderSide?> inputSideBorder(BeThemeData betheme) =>
       );
     });
 
-MaterialStateBorderSide elvatedSideBorder(BeThemeData betheme) =>
-    MaterialStateBorderSide.resolveWith((states) {
+WidgetStateBorderSide elvatedSideBorder(BeThemeData betheme) =>
+    WidgetStateBorderSide.resolveWith((states) {
       if (states.any(interactiveStates.contains)) {
         return BorderSide(color: betheme.colors.primary, width: 2);
       }
-      if (states.contains(MaterialState.disabled)) {
+      if (states.contains(WidgetState.disabled)) {
         return BorderSide(
           color: betheme.colors.disabled.withAlpha(40),
           width: 1.5,
@@ -116,12 +116,12 @@ MaterialStateBorderSide elvatedSideBorder(BeThemeData betheme) =>
       );
     });
 
-MaterialStateBorderSide outlineSideBorder(BeThemeData betheme) =>
-    MaterialStateBorderSide.resolveWith((states) {
+WidgetStateBorderSide outlineSideBorder(BeThemeData betheme) =>
+    WidgetStateBorderSide.resolveWith((states) {
       if (states.any(interactiveStates.contains)) {
         return BorderSide(color: betheme.colors.primary, width: 2);
       }
-      if (states.contains(MaterialState.disabled)) {
+      if (states.contains(WidgetState.disabled)) {
         return BorderSide(
           color: betheme.colors.disabled,
           width: 1.5,
@@ -134,8 +134,8 @@ MaterialStateBorderSide outlineSideBorder(BeThemeData betheme) =>
       );
     });
 
-MaterialStateProperty<OutlinedBorder?> roundRectShape(BeThemeData betheme) =>
-    MaterialStateProperty.resolveWith((states) {
+WidgetStateProperty<OutlinedBorder?> roundRectShape(BeThemeData betheme) =>
+    WidgetStateProperty.resolveWith((states) {
       if (states.any(interactiveStates.contains)) {
         return RoundedRectangleBorder(
           borderRadius: betheme.style.borderRadius,
@@ -146,18 +146,18 @@ MaterialStateProperty<OutlinedBorder?> roundRectShape(BeThemeData betheme) =>
       );
     });
 
-MaterialStateProperty<Color?> primaryOrDisableColor(BeThemeData betheme) =>
-    MaterialStateProperty.resolveWith(
+WidgetStateProperty<Color?> primaryOrDisableColor(BeThemeData betheme) =>
+    WidgetStateProperty.resolveWith(
       (states) {
-        if (states.contains(MaterialState.disabled)) {
+        if (states.contains(WidgetState.disabled)) {
           return betheme.colors.disabled;
         }
         return betheme.colors.primary;
       },
     );
 
-MaterialStateTextStyle buttonTextStyle(BeThemeData betheme) =>
-    MaterialStateTextStyle.resolveWith(
+WidgetStateTextStyle buttonTextStyle(BeThemeData betheme) =>
+    WidgetStateTextStyle.resolveWith(
       (states) {
         if (states.any(interactiveSelectionStates.contains)) {
           return betheme.style.labelMedium.copyWith(
@@ -171,30 +171,30 @@ MaterialStateTextStyle buttonTextStyle(BeThemeData betheme) =>
       },
     );
 
-MaterialStateProperty<Color?> buttonForegroundColor(BeThemeData betheme) =>
-    MaterialStateProperty.resolveWith(
+WidgetStateProperty<Color?> buttonForegroundColor(BeThemeData betheme) =>
+    WidgetStateProperty.resolveWith(
       (states) {
-        if (states.contains(MaterialState.disabled)) {
+        if (states.contains(WidgetState.disabled)) {
           return betheme.colors.disabled;
         }
         return betheme.colors.lightInverse;
       },
     );
-MaterialStateProperty<Color?> iconButtonForegroundColor(BeThemeData betheme) =>
-    MaterialStateProperty.resolveWith(
+WidgetStateProperty<Color?> iconButtonForegroundColor(BeThemeData betheme) =>
+    WidgetStateProperty.resolveWith(
       (states) {
-        if (states.contains(MaterialState.disabled)) {
+        if (states.contains(WidgetState.disabled)) {
           return betheme.colors.disabled;
         }
         return betheme.colors.icon;
       },
     );
-MaterialStateProperty<Color?> buttonFilledForegroundColor(
+WidgetStateProperty<Color?> buttonFilledForegroundColor(
   BeThemeData betheme,
 ) =>
-    MaterialStateProperty.resolveWith(
+    WidgetStateProperty.resolveWith(
       (states) {
-        if (states.contains(MaterialState.disabled)) {
+        if (states.contains(WidgetState.disabled)) {
           return betheme.colors.disabled;
         }
         if (states.any(interactiveSelectionStates.contains)) {
@@ -204,12 +204,12 @@ MaterialStateProperty<Color?> buttonFilledForegroundColor(
       },
     );
 
-MaterialStateProperty<Color?> buttonBackgroundColor(BeThemeData betheme) =>
-    MaterialStateProperty.resolveWith((states) {
+WidgetStateProperty<Color?> buttonBackgroundColor(BeThemeData betheme) =>
+    WidgetStateProperty.resolveWith((states) {
       if (states.any(interactiveSelectionStates.contains)) {
         return betheme.colors.primary;
       }
-      if (states.contains(MaterialState.disabled)) {
+      if (states.contains(WidgetState.disabled)) {
         return betheme.colors.disabled.withAlpha(80);
       }
       return betheme.colors.primary;
@@ -226,33 +226,33 @@ MaterialStateProperty<Color?> buttonBackgroundColor(BeThemeData betheme) =>
 //       return betheme.colors.primary.withAlpha(60);
 //     });
 
-MaterialStateProperty<Color?> buttonFilledBackgroundColor(
+WidgetStateProperty<Color?> buttonFilledBackgroundColor(
   BeThemeData betheme,
 ) =>
-    MaterialStateProperty.resolveWith((states) {
+    WidgetStateProperty.resolveWith((states) {
       if (states.any(interactiveSelectionStates.contains)) {
         return betheme.colors.primary;
       }
-      if (states.contains(MaterialState.disabled)) {
+      if (states.contains(WidgetState.disabled)) {
         return betheme.colors.disabled.withAlpha(80);
       }
       return betheme.colors.primary.withAlpha(50);
     });
 
-MaterialStateProperty<double?> elevationInteraction() =>
-    MaterialStateProperty.resolveWith((states) {
+WidgetStateProperty<double?> elevationInteraction() =>
+    WidgetStateProperty.resolveWith((states) {
       if (states.any(interactiveSelectionStates.contains)) {
         return 2;
       }
       return 0;
     });
 
-MaterialStateTextStyle inputLabelStyle(BeThemeData betheme) =>
-    MaterialStateTextStyle.resolveWith((states) {
-      if (states.contains(MaterialState.error)) {
+WidgetStateTextStyle inputLabelStyle(BeThemeData betheme) =>
+    WidgetStateTextStyle.resolveWith((states) {
+      if (states.contains(WidgetState.error)) {
         return betheme.style.bodyMedium.copyWith(color: betheme.colors.error);
       }
-      if (states.contains(MaterialState.disabled)) {
+      if (states.contains(WidgetState.disabled)) {
         return betheme.style.bodyMedium
             .copyWith(color: betheme.colors.disabled);
       }

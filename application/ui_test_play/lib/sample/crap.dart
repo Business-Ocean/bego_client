@@ -1106,10 +1106,10 @@ class ChipWidget extends StatelessWidget {
   final ChipType chipType;
 
   const ChipWidget({
-    Key? key,
+    super.key,
     required this.text,
     required this.chipType,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
