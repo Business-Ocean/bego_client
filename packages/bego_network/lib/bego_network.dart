@@ -1,3 +1,3 @@
-library bego_network;
+library;
 
 export 'src/be_network.dart';

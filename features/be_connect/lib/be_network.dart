@@ -1,4 +1,4 @@
-library be_network;
+library;
 
 /// A Calculator.
 class Calculator {

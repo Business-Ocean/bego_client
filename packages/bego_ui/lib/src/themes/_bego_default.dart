@@ -248,16 +248,6 @@ BottomSheetThemeData bottomSheetTheme(BeThemeData betheme) =>
       // showDragHandle: true,
     );
 
-ButtonBarThemeData buttonBarTheme(BeThemeData betheme) =>
-    const ButtonBarThemeData(
-      buttonPadding: EdgeInsets.all(8),
-      overflowDirection: VerticalDirection.down,
-      buttonAlignedDropdown: true,
-      mainAxisSize: MainAxisSize.min,
-
-      // layoutBehavior: ButtonBarLayoutBehavior.padded,
-    );
-
 CardTheme cardTheme(BeThemeData betheme) => CardTheme(
       elevation: 0.5,
       color: betheme.colors.lightInverse,

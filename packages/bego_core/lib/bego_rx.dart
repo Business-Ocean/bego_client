@@ -3,6 +3,6 @@
 ///
 /// Caution: this will force all packages to use same version of library
 ///          if required application can override the dependency
-library bego_core;
+library;
 
 export 'package:rxdart/rxdart.dart';

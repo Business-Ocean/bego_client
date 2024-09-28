@@ -1,3 +1,3 @@
-library bego_component;
+library;
 
 export 'package:bindings_compatible/bindings_compatible.dart';

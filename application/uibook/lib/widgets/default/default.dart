@@ -349,7 +349,7 @@ class _DefaultThemeWidgetState extends State<_DefaultThemeWidget> {
 
               Container(
                 color: Colors.blue.withAlpha(50),
-                child: ButtonBar(
+                child: OverflowBar(
                   alignment: MainAxisAlignment.center,
                   children: <Widget>[
                     ElevatedButton(

@@ -1,4 +1,4 @@
-library bego_app;
+library;
 
 export 'src/bego_app.dart';
 export 'src/controller/be_page_controller.dart';

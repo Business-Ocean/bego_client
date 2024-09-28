@@ -1,4 +1,4 @@
-library bego_ui;
+library;
 
 export 'assets/fonts.gen.dart';
 //

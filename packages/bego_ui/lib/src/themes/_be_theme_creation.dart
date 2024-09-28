@@ -79,7 +79,6 @@ ThemeData createBegoTheme(BeThemeData betheme) {
     bottomAppBarTheme: bottomAppBarTheme(betheme), // done
     bottomNavigationBarTheme: bottomNavigationBarTheme(betheme), // done
     bottomSheetTheme: bottomSheetTheme(betheme), // done
-    buttonBarTheme: buttonBarTheme(betheme), // done
     cardTheme: cardTheme(betheme), // done
     chipTheme: chipTheme(betheme), // done
     dataTableTheme: dataTableTheme(betheme), // done

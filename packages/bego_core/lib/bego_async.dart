@@ -1,3 +1,3 @@
-library bego_core;
+library;
 
 export 'package:async/async.dart';

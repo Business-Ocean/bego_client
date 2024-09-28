@@ -1,4 +1,4 @@
-library bego_ui;
+library;
 
 export 'src/button/base_dropdown_button.dart';
 // Button

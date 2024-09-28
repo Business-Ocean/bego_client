@@ -1,4 +1,4 @@
-library invert_colors;
+library;
 
 import 'package:flutter/widgets.dart';
 

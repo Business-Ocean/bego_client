@@ -1,4 +1,4 @@
-library bego_ui;
+library;
 
 export 'src/animations/be_fade_scale_transition.dart';
 export 'src/animations/be_fade_through_transition.dart';

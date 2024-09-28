@@ -3,7 +3,7 @@
 ///
 /// Caution: this will force all packages to use same version of library
 ///          if required application can override the dependency
-library bego_core;
+library;
 
 export 'package:bego_core/src/utils/timeago_utils.dart';
 export 'package:timeago/timeago.dart';

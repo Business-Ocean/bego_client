@@ -1,4 +1,4 @@
-library bego_ui;
+library;
 
 export 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 export 'package:gap/gap.dart';

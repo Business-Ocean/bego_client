@@ -105,7 +105,7 @@ class _OverlayControllerState<T> extends State<OverlayController<T>> {
     final canPop = widget.focusNode.hasFocus;
     return PopScope(
       canPop: !canPop,
-      onPopInvoked: (didPop) async {
+      onPopInvokedWithResult: (didPop, result) {
         if (didPop) {
           widget.focusNode.unfocus();
         }

@@ -1,4 +1,4 @@
-library be_auth;
+library;
 
 /// A Calculator.
 class Calculator {

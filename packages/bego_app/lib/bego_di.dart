@@ -1,3 +1,3 @@
-library bego_app;
+library;
 
 export 'src/di/di.dart';

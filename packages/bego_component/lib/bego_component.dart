@@ -1,4 +1,4 @@
-library bego_component;
+library;
 
 export 'src/common/be_dash_line.dart';
 export 'src/common/be_lable_divider.dart';
